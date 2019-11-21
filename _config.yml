@@ -1,0 +1,11 @@
+title: Amanda's Emporium
+email: info@amandasemporium.co.uk
+description: WRITE SOMETHING
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+theme: ae-theme
+plugins:
+  - jekyll-feed

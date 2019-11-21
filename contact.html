@@ -1,0 +1,60 @@
+---
+layout: page
+permalink: /contact/
+---
+
+<div class="row">
+        <div class="col-md-8  col-md-offset-2 contact-form">
+            <form id="contact" method="post" class="form" role="form">
+                <p class="text-center description">Use the form below to contact me</p>
+                <div class="row">
+                    <div class="col-xs-6 col-md-6 form-group">
+                        <input class="form-control" id="name" name="name" placeholder="Name" type="text" required autofocus />
+                    </div>
+                    <div class="col-xs-6 col-md-6 form-group">
+                        <input class="form-control" id="email" name="email" placeholder="Email" type="email" required />
+                    </div>
+                </div>
+                <textarea class="form-control" id="message" name="message" placeholder="Message" rows="5" required></textarea>
+                <br />
+                <div class="row">
+                    <div class="col-xs-12 col-md-12 form-group">
+                        <button class="btn btn-primary pull-right" type="button" onclick="return postToGoogle()">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <div class="success" style="display:none;">
+            <p class="text-center description">Thank you for your message! I will be in contact shortly.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+     function postToGoogle() {
+        var name = $( "input[name='name']" ).val();
+        var email = $( "input[name='email']" ).val();
+        var message = $( "textarea[name='message']" ).val();
+        if(name == "" | email == "" || message == ""){
+            return false;
+        }
+        
+       $.ajax({
+         url: "https://docs.google.com/forms/d/e/1FAIpQLSdhdj5urkOdgIZyVVbMpYo-z8AtL7X_ycG0mbTrrLDYOmWwUQ/formResponse",
+         data: {
+           "entry.1895718096": name,
+           "entry.521729353": email,
+           "entry.505894858": message
+         },
+         type: "POST",
+         dataType: "xml",
+         statusCode: {
+           0: function() {
+             $(".form").hide();
+             $(".success").show();
+           },
+           200: function() {
+             //Success Message
+           }
+         }
+       });
+     }
+    </script>
