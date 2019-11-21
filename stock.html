@@ -7,24 +7,24 @@ permalink: /stock/
         {% for stock in site.data.products %}
         {% assign s = stock[1] %}
             <div class="row">
-                <div class="col-md-12">				
+                <div class="col-md-12">
                     <div class="panel panel-default  panel--styled">
                         <div class="panel-body">
-                            <div class="col-md-12 panelTop">	
-                                <div class="col-md-4">	
+                            <div class="col-md-12 panelTop">
+                                <div class="col-md-4">
                                     <img class="img-responsive" src="/assets/imgs/products/{{ s.image }}" alt="Photo of {{ s.title }}"/>
                                 </div>
-                                <div class="col-md-8">	
+                                <div class="col-md-8">
                                     <p class="h4">{{ s.title }}</p>
                                     <p class="description">{{ s.description }}</p>
-                                    <p class="price">From: <b>&#xA3;{{ s.price }}</b></p>
+                                    <p class="price">From: <b>&#xA3;{{ s.price }}0</b></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            {% endfor %}		
+            {% endfor %}
         </div>
     </div>
     <hr>
@@ -32,11 +32,11 @@ permalink: /stock/
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="row">
-                <div class="col-md-12">				
+                <div class="col-md-12">
                     <div class="panel panel-default  panel--styled">
                         <div class="panel-body">
                             <div class="col-md-12 panelTop">
-                                <div class="col-md-4">	
+                                <div class="col-md-4">
                                     <img class="img-responsive" src="/assets/imgs/products/hamper1.jpg" alt="Photo of an open Hamper">
                                     <img class="img-responsive img-small" src="/assets/imgs/products/hamper2.jpg" alt="Photo of a Hamper, Angle 1.">
                                     <img class="img-responsive img-small" src="/assets/imgs/products/hamper3.jpg" alt="Photo of a Hamper, Angle 2.">

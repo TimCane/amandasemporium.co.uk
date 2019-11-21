@@ -1,5 +1,5 @@
 PATH
-  remote: E:/Tim/Documents/Code/Jekyll/mum/ae-theme
+  remote: F:/VSTS/Tim/AmandasEmporium/ae-theme
   specs:
     ae-theme (0.1.0)
       jekyll (~> 3.6)
