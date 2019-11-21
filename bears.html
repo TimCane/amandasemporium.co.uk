@@ -1,0 +1,48 @@
+---
+layout: page
+permalink: /bears/
+---
+<div class="row">
+    <div class="col-md-10 col-md-offset-1 bears">
+        <div class="bio">
+                <p class="description">Courtesy of my 3 grown up sons, who took me to a Build-a-Bear Workshop for Mothers Day. I became the proud owner of Daisy.</p>
+                <img class="img-responsive" src="/assets/imgs/daisy.jpg" alt="Photo of Daisy" />
+                <p class="description">She has been on a number of adventures around the country with my husband and I already. My friends (who think I'm ever so slightly potty) can't wait for the latest photos and updates. </p>
+                <p class="description">It was on one of our trips that I realised there were many lonely teddy bears waiting for their forever home and big adventure.</p>
+                <p class="description">And so my quest begins...</p>
+                </p>
+        </div>
+        <hr>
+        {% for bear in site.data.bears %} {% assign b = bear[1] %}
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="panel panel-default  panel--styled">
+                <div class="panel-body">
+                    <img class="img-responsive" src="/assets/imgs/bears/{{ b.image }}" alt="Photo of {{ b.name }}" />
+                    <p class="h4 text-center">{{ b.name }}</p>
+                    <div class="info">
+                            <dl class="dl-horizontal">
+                                {% if b.rescued %}
+                                    <dt>Rescued</dt>
+                                    <dd>{{ b.rescued }} ({{ b.rescued-date | date:'%e %b %Y' }})</dd>
+                                {% endif %}
+                                {% if b.type %}
+                                    <dt>Origin</dt>
+                                    <dd>{{ b.type }}</dd>
+                                {% endif %}
+                            </dl>
+                            <div class="rehomed text-center">
+                                {% if b.rehomed %}
+                                <span style="color: #01ad82;">
+                                        {{ b.name }} was rehomed on <b>{{ b.rehomed-date | date:'%e %b %Y' }}</b> and now lives in <b>{{ b.rehomed }}</b>.
+                                </span>                            
+                                {% else %}
+                                        <span style="color: #f90240">Waiting to be rehomed.</span>                            
+                                {% endif %}
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

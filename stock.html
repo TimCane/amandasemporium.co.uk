@@ -6,6 +6,7 @@ permalink: /stock/
         <div class="col-md-10 col-md-offset-1">
         {% for stock in site.data.products %}
         {% assign s = stock[1] %}
+        {% unless s.hide %}
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default  panel--styled">
@@ -24,6 +25,7 @@ permalink: /stock/
                     </div>
                 </div>
             </div>
+            {% endunless %}
             {% endfor %}
         </div>
     </div>

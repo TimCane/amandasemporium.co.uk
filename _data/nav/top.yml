@@ -10,6 +10,9 @@
   file: stock.html
   link: stock 
 
+- name: Bears 
+  file: bears.html
+  link: bears 
 
 - name: Gallery 
   file: gallery.html
