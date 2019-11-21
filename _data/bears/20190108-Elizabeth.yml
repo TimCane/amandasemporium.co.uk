@@ -1,10 +1,17 @@
 name: Elizabeth
 image: elizabeth.jpg
-
-rescued: Ashford
-rescued-date: 2019-01-08 00:00:00
- 
-rehomed: Chertsey South
-rehomed-date: 2019-04-13 00:00:00
-
 type: I Love Fancy Dress Bear
+
+rescued:
+    name: Ashford
+    date: 2019-01-08 00:00:00
+    location:
+        lat: 51.1464659
+        lng: 0.875019
+
+rehomed:
+    name: Chertsey South
+    date: 2019-04-13 00:00:00
+    location:
+        lat: 51.386491
+        lng: -0.509456

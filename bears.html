@@ -16,14 +16,16 @@ permalink: /bears/
         <hr>
         {% for bear in site.data.bears %}
         {% assign b = bear[1] %}
-            {% unless b.rehomed %}
+        {% assign display = 'block' %}
+            {% unless b.rehomed.name %}
                 {% include bear.html %}
             {% endunless %}
         {% endfor %}
 
         {% for bear in site.data.bears %}
         {% assign b = bear[1] %}
-            {% if b.rehomed %}
+        {% assign display = 'block' %}
+            {% if b.rehomed.name %}
                 {% include bear.html %}
             {% endif %}
         {% endfor %}

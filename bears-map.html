@@ -1,0 +1,108 @@
+---
+layout: page
+permalink: /bears/map/
+---
+<div class="row">
+    <div class="col-md-10 col-md-offset-1 bears-map">
+        <p>Click on a bears face to see see who has been rehomed where!</p>
+        <div id="map" style="width: 100%;height: 500px;"></div>
+        <div class="bears-map">
+                <h3 id="location-name" style="text-align: center;"></h3>
+                <hr>
+                {% for bear in site.data.bears %}
+                {% assign b = bear[1] %}
+                {% assign display = "none" %}
+                    {% if b.rehomed.name %}
+                        {% include bear.html %}
+                    {% endif %}
+                {% endfor %}
+        </div>
+    </div>
+</div>
+<script>
+    function initMap() {
+        
+        var center = { lat: 51.339285, lng: -0.746098 };
+
+        var map = new google.maps.Map(document.getElementById('map'), { zoom: 9, center: center });
+
+        var bears = GetBears();
+
+    var markers = [
+        "/assets/imgs/map-markers/bear (1).png",
+        "/assets/imgs/map-markers/bear (2).png",
+        "/assets/imgs/map-markers/bear (3).png",
+        "/assets/imgs/map-markers/bear (4).png",
+        "/assets/imgs/map-markers/bear (5).png",
+        "/assets/imgs/map-markers/bear (6).png",
+        "/assets/imgs/map-markers/bear (7).png",
+        "/assets/imgs/map-markers/bear (8).png",
+        "/assets/imgs/map-markers/bear (9).png",
+        "/assets/imgs/map-markers/bear (10).png",
+    ];
+
+    for (let i = 0; i < bears.length; i++) {
+        const bear = bears[i];
+
+        var icon = markers[i % markers.length];
+
+        var marker = new google.maps.Marker({
+            position: bear.Coords, map: map, title: bear.Location,
+            icon: icon
+        });
+
+        (function (marker, bear, bears) {
+            google.maps.event.addListener(marker, 'click', function () {
+                ShowBears(bears, bear.Coords.lng, bear.Coords.lat);
+            });
+        })(marker, bear, bears);
+
+    }
+    }
+
+    function ShowBears(bears, lng, lat){
+        var location = document.getElementById("location-name");
+
+        for (let i = 0; i < bears.length; i++) {
+            const bear = bears[i];
+
+            var element = document.getElementById("Bear-"+ bear.Name);            
+            if (bear.Coords.lat == lat && bear.Coords.lng == lng) {
+                element.style.display = "block";
+                location.innerText = "Forever homes in " + bear.Location;
+            } else {
+                element.style.display = "none";
+            }
+            
+        }
+        var filteredBears = bears.filter(function(bear) {
+        if (bear.Coords.lat == lat && bear.Coords.lng == lng) {
+            return true;
+        }
+        return false;
+    });
+
+    console.log(filteredBears);
+    }
+
+    function GetBears(){
+        var bears = [{% for bear in site.data.bears %}{% assign b = bear[1] %}{% if b.rehomed.name %}
+            {
+                Name: "{{ b.name }}",
+                Url: "/assets/imgs/bears/{{ b.image }}",
+                Location: "{{b.rehomed.name}}",
+                Date: "{{ b.rehomed.date | date:'%e %b %Y' }}",
+                Coords: {
+                    lng: {{b.rehomed.location.lng}},
+                    lat: {{b.rehomed.location.lat}}
+                }
+            },{% endif %}{% endfor %}
+        ];
+
+        return bears;
+    }
+</script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCUfqumqUIk42NQMtttkqbaYOXaPoCW648&callback=initMap">
+    </script>

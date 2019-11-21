@@ -1,10 +1,17 @@
 name: Nobbie
 image: nobbie.jpg
-
-rescued: Walton
-rescued-date: 2018-04-04 00:00:00
-
-rehomed: Windsor
-rehomed-date: 2018-04-08 00:00:00
-
 type: Russ Bear
+
+rescued:
+    name: Walton
+    date: 2018-04-04 00:00:00
+    location:
+        lat: 53.4439144
+        lng: -2.9566329
+
+rehomed:
+    name: Windsor
+    date: 2018-04-08 00:00:00
+    location:
+        lat: 51.4817279
+        lng: -0.613576

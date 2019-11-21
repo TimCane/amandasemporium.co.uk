@@ -1,10 +1,17 @@
 name: Noah
 image: noah.jpg
-
-rescued: Ashford
-rescued-date: 2019-08-21 00:00:00
- 
-rehomed:
-rehomed-date: 
-
 type: Keel Teddybear
+
+rescued:
+    name: Ashford
+    date: 2019-08-21 00:00:00
+    location:
+        lat: 51.1464659
+        lng: 0.875019
+
+rehomed:
+    name: 
+    date: 
+    location:
+        lat: 
+        lng: 

@@ -1,10 +1,17 @@
 name: Jamie
 image: jamie.jpg
-
-rescued: Walton
-rescued-date: 2018-10-13 00:00:00
-
-rehomed: Byfleet
-rehomed-date: 2018-11-22 00:00:00
-
 type: Build-a-Bear
+
+rescued:
+    name: Walton
+    date: 2018-10-13 00:00:00
+    location:
+        lat: 53.4439144
+        lng: -2.9566329
+
+rehomed:
+    name: Byfleet
+    date: 2018-11-22 00:00:00
+    location:
+        lat: 51.34012500000001
+        lng: -0.471357

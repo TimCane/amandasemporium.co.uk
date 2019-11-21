@@ -1,10 +1,17 @@
 name: Rory
 image: rory.jpg
-
-rescued: Walton
-rescued-date: 2018-10-13 00:00:00
-
-rehomed: Normandy
-rehomed-date: 2018-11-17 00:00:00
-
 type: Build-a-Bear
+
+rescued:
+    name: Walton
+    date: 2018-10-13 00:00:00
+    location:
+        lat: 53.4439144
+        lng: -2.9566329
+
+rehomed:
+    name: Normandy
+    date: 2018-11-17 00:00:00
+    location:
+        lat: 51.25627
+        lng: -0.6731499999999999

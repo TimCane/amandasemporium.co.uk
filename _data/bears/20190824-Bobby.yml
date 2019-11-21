@@ -1,10 +1,17 @@
 name: Bobby
 image: bobby.jpg
-
-rescued: Birdham
-rescued-date: 2019-08-24 00:00:00
- 
-rehomed:
-rehomed-date:
-
 type: Build-a-Bear
+
+rescued:
+    name: Birdham
+    date: 2019-08-24 00:00:00
+    location:
+        lat: 50.793857
+        lng: -0.825626
+
+rehomed:
+    name: 
+    date: 
+    location:
+        lat: 
+        lng: 

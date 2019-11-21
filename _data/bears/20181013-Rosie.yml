@@ -1,10 +1,17 @@
 name: Rosie
 image: rosie.jpg
-
-rescued: Walton
-rescued-date: 2018-10-13 00:00:00
-
-rehomed: Wallingford
-rehomed-date: 2018-11-11 00:00:00
-
 type: Bear Factory
+
+rescued:
+    name: Walton
+    date: 2018-10-13 00:00:00
+    location:
+        lat: 53.4439144
+        lng: -2.9566329
+
+rehomed:
+    name: Wallingford
+    date: 2018-11-11 00:00:00
+    location:
+        lat: 51.5974177
+        lng: -1.1335613

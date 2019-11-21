@@ -1,10 +1,17 @@
 name: Alfie
 image: alfie.jpg
-
-rescued: Walton
-rescued-date: 2018-04-04 00:00:00
-
-rehomed: Horley
-rehomed-date: 2018-04-21 00:00:00
-
 type: Build-a-Bear
+
+rescued:
+    name: Walton
+    date: 2018-04-04 00:00:00
+    location:
+        lat: 53.4439144
+        lng: -2.9566329
+
+rehomed:
+    name: Horley
+    date: 2018-04-21 00:00:00
+    location:
+        lat: 51.173516
+        lng: -0.172109

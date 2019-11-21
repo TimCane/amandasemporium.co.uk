@@ -4,5 +4,5 @@
 - id: stall
   name: Stall
 
-- id: newstock
-  name: New Stock
+- id: newproducts
+  name: New Products

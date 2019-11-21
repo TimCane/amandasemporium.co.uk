@@ -6,9 +6,9 @@
   file: events.html
   link: events
 
-- name: Stock 
-  file: stock.html
-  link: stock 
+- name: Products 
+  file: products.html
+  link: products 
 
 - name: Bears 
   file: bears.html
