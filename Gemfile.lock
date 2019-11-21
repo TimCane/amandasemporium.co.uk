@@ -1,5 +1,5 @@
 PATH
-  remote: D:/SRC/Tim/AmandasEmporium/ae-theme
+  remote: D:/SRC/Tim/Personal/AmandasEmporium/ae-theme
   specs:
     ae-theme (0.1.0)
       jekyll (~> 3.6)
