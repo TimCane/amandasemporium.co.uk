@@ -3,11 +3,11 @@ image: jamie.jpg
 type: Build-a-Bear
 
 rescued:
-    name: Walton
+    name: Walton-upon-Thames
     date: 2018-10-13 00:00:00
     location:
-        lat: 53.4439144
-        lng: -2.9566329
+        lat: 51.38847
+        lng: -0.416969
 
 rehomed:
     name: Byfleet

@@ -6,22 +6,44 @@ permalink: /bears/map/
     <div class="col-md-10 col-md-offset-1 bears-map">
         <p>Click on a bears face to see see who has been rehomed where!</p>
         <div id="map" style="width: 100%;height: 500px;"></div>
-        <div class="bears-map">
+        <div class="map-controls">
+            <div class="control-rehomed">
+                <input type="checkbox" name="rehomed" value="rehomed" id="cbRehomed" onclick="CheckedRehomed()" checked><label for="cbRehomed"> Show Rehomed</label>
+            </div>
+            <div class="control-rescued">
+                <input type="checkbox" name="rescued" value="rescued" id="cbRescued" onclick="CheckedRescued()"><label for="cbRescued"> Show Rescued</label>
+            </div>
+        </div>
+        <div id="bears-map" style="display: none;">
             <h3 id="location-name" style="text-align: center;"></h3>
             <hr>
-            {% for bear in site.data.bears %}
-            {% assign b = bear[1] %}
-            {% assign display = "none" %}
-            {% if b.rehomed.name %}
-            {% include bear.html %}
-            {% endif %}
-            {% endfor %}
+            <div class="rehomed-bears">
+                <h3 style="text-align: center;">Rehomed</h3>
+                {% for bear in site.data.bears %}
+                {% assign b = bear[1] %}
+                {% assign display = "none" %}
+                {% if b.rehomed.name %}
+                {% include bear.html %}
+                {% endif %}
+                {% endfor %}
+            </div>
+            <div class="rescued-bears">
+                <h3 style="text-align: center;">Rescued</h3>
+                {% for bear in site.data.bears %}
+                {% assign b = bear[1] %}
+                {% assign display = "none" %}
+                {% if b.rescued.name %}
+                {% include bear.html %}
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
 <script>
         var bears = GetBears();
-        var markerIcons = GetMarkerIcons();
+        var rehomedMarkerIcons = GetRehomedMarkerIcons();
+        var rescuedMarkerIcons = GetRescuedMarkerIcons();
 
     function initMap() {
         var center = { lat: 51.339285, lng: -0.746098 };
@@ -29,45 +51,105 @@ permalink: /bears/map/
 
         for (let i = 0; i < bears.length; i++) {
             const bear = bears[i];
-            var icon = markerIcons[i % markerIcons.length];
 
-            var marker = new google.maps.Marker({
-                position: bear.Rehomed.Coords,
-                map: map,
-                title: bear.Rehomed.Location,
-                icon: icon
-            });
+            bear.Rehomed.Marker = CreateMarker(map, bear.Rehomed, rehomedMarkerIcons[i % rehomedMarkerIcons.length], true);
+            bear.Rescued.Marker = CreateMarker(map, bear.Rescued, rescuedMarkerIcons[i % rescuedMarkerIcons.length], false);
 
-            (function (marker, bear, bears) {
-                google.maps.event.addListener(marker, 'click', function () {
-                    ShowBears(bears, bear.Rehomed.Coords.lng, bear.Rehomed.Coords.lat);
+            
+            (function (data, bears) {
+                google.maps.event.addListener(data.Marker, 'click', function () {
+                    ShowBears(bears, data.Coords);
                 });
-            })(marker, bear, bears);
+            })(bear.Rehomed, bears);
 
+            (function (data, bears) {
+                google.maps.event.addListener(data.Marker, 'click', function () {
+                    ShowBears(bears, data.Coords);
+                });
+            })(bear.Rescued, bears);
+        }
+
+        console.log(bears);
+    }
+
+    function CheckedRehomed(){
+        var checkbox = document.getElementById('cbRehomed');
+
+        for (let i = 0; i < bears.length; i++) {
+            const bear = bears[i];
+            bear.Rehomed.Marker.setVisible(checkbox.checked);
         }
     }
 
-    function ShowBears(bears, lng, lat){
-        var location = document.getElementById("location-name");
+    function CheckedRescued(){
+        var checkbox = document.getElementById('cbRescued');
+
+        for (let i = 0; i < bears.length; i++) {
+            const bear = bears[i];
+            bear.Rescued.Marker.setVisible(checkbox.checked);
+        }
+    }
+
+    function ShowBears(bears, coords){
+        var bearMap = $("#bears-map");
+        var location = $("#location-name");
+        var locationName = "";
+
+        var bearsRehomed = false;
+        var bearsRescued = false;
 
         for (let i = 0; i < bears.length; i++) {
             const bear = bears[i];
 
-            var element = document.getElementById("Bear-"+ bear.Name);            
-            if (bear.Rehomed.Coords.lat == lat && bear.Rehomed.Coords.lng == lng) {
-                element.style.display = "block";
-                location.innerText = "Forever homes in " + bear.Rehomed.Location;
+            var rehomedBear = $(".rehomed-bears .bear-"+ bear.Name);            
+            if (bear.Rehomed.Coords.lat == coords.lat && bear.Rehomed.Coords.lng == coords.lng) {
+                rehomedBear.show();
+                locationName = bear.Rehomed.Location;
+                bearsRehomed = true;
             } else {
-                element.style.display = "none";
+                rehomedBear.hide();
+            }
+
+            var rescuedBear = $(".rescued-bears .bear-"+ bear.Name);            
+            if (bear.Rescued.Coords.lat == coords.lat && bear.Rescued.Coords.lng == coords.lng) {
+                rescuedBear.show();
+                locationName = bear.Rescued.Location;
+                bearsRescued = true;
+            } else {
+                rescuedBear.hide();
             }
             
         }
-        var filteredBears = bears.filter(function(bear) {
-        if (bear.Rehomed.Coords.lat == lat && bear.Rehomed.Coords.lng == lng) {
-            return true;
+
+        if(bearsRehomed && $('#cbRehomed').is(':checked')){
+            $("#bears-map > .rehomed-bears").show();
+        }else{
+            $("#bears-map > .rehomed-bears").hide();
         }
-        return false;
-    });
+
+        if(bearsRescued && $('#cbRescued').is(':checked')){
+            $("#bears-map > .rescued-bears").show();
+        }else{
+            $("#bears-map > .rescued-bears").hide();
+        }
+
+        if(bearsRehomed || bearsRescued){
+            bearMap.show();
+            location.text(locationName);
+        } else {
+            bearMap.hide();
+            location.text("");
+        }
+    }
+
+    function CreateMarker(map, data, icon, visible){
+        return new google.maps.Marker({
+                position: data.Coords,
+                map: map,
+                title: data.Location,
+                icon: icon,
+                visible: visible
+            });
     }
 
     function GetBears(){
@@ -99,18 +181,33 @@ permalink: /bears/map/
         return bears;
     }
 
-    function GetMarkerIcons() {
+    function GetRehomedMarkerIcons() {
         return [
-            "/assets/imgs/map-markers/bear (1).png",
-            "/assets/imgs/map-markers/bear (2).png",
-            "/assets/imgs/map-markers/bear (3).png",
-            "/assets/imgs/map-markers/bear (4).png",
-            "/assets/imgs/map-markers/bear (5).png",
-            "/assets/imgs/map-markers/bear (6).png",
-            "/assets/imgs/map-markers/bear (7).png",
-            "/assets/imgs/map-markers/bear (8).png",
-            "/assets/imgs/map-markers/bear (9).png",
-            "/assets/imgs/map-markers/bear (10).png",
+            "/assets/imgs/map-markers/rehomed (1).png",
+            "/assets/imgs/map-markers/rehomed (2).png",
+            "/assets/imgs/map-markers/rehomed (3).png",
+            "/assets/imgs/map-markers/rehomed (4).png",
+            "/assets/imgs/map-markers/rehomed (5).png",
+            "/assets/imgs/map-markers/rehomed (6).png",
+            "/assets/imgs/map-markers/rehomed (7).png",
+            "/assets/imgs/map-markers/rehomed (8).png",
+            "/assets/imgs/map-markers/rehomed (9).png",
+            "/assets/imgs/map-markers/rehomed (10).png",
+        ];
+    }
+
+    function GetRescuedMarkerIcons() {
+        return [
+            "/assets/imgs/map-markers/rescued (1).png",
+            "/assets/imgs/map-markers/rescued (2).png",
+            "/assets/imgs/map-markers/rescued (3).png",
+            "/assets/imgs/map-markers/rescued (4).png",
+            "/assets/imgs/map-markers/rescued (5).png",
+            "/assets/imgs/map-markers/rescued (6).png",
+            "/assets/imgs/map-markers/rescued (7).png",
+            "/assets/imgs/map-markers/rescued (8).png",
+            "/assets/imgs/map-markers/rescued (9).png",
+            "/assets/imgs/map-markers/rescued (10).png",
         ];
     }
 </script>
