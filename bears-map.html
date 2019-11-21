@@ -27,28 +27,47 @@ permalink: /bears/map/
         var center = { lat: 51.339285, lng: -0.746098 };
         var map = new google.maps.Map(document.getElementById('map'), { zoom: 9, center: center });
 
-        for (let i = 0; i < 1; i++) {
+        for (let i = 0; i < bears.length; i++) {
             const bear = bears[i];
             var icon = markerIcons[i % markerIcons.length];
 
             var marker = new google.maps.Marker({
-                position: bear.Coords,
+                position: bear.Rehomed.Coords,
                 map: map,
-                title: bear.Location,
+                title: bear.Rehomed.Location,
                 icon: icon
             });
 
             (function (marker, bear, bears) {
                 google.maps.event.addListener(marker, 'click', function () {
-                    ShowBears(bears, bear.Coords.lng, bear.Coords.lat);
+                    ShowBears(bears, bear.Rehomed.Coords.lng, bear.Rehomed.Coords.lat);
                 });
             })(marker, bear, bears);
 
         }
     }
 
-    function CreateMarker(){
-        
+    function ShowBears(bears, lng, lat){
+        var location = document.getElementById("location-name");
+
+        for (let i = 0; i < bears.length; i++) {
+            const bear = bears[i];
+
+            var element = document.getElementById("Bear-"+ bear.Name);            
+            if (bear.Rehomed.Coords.lat == lat && bear.Rehomed.Coords.lng == lng) {
+                element.style.display = "block";
+                location.innerText = "Forever homes in " + bear.Rehomed.Location;
+            } else {
+                element.style.display = "none";
+            }
+            
+        }
+        var filteredBears = bears.filter(function(bear) {
+        if (bear.Rehomed.Coords.lat == lat && bear.Rehomed.Coords.lng == lng) {
+            return true;
+        }
+        return false;
+    });
     }
 
     function GetBears(){

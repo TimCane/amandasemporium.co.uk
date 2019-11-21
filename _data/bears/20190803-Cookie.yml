@@ -1,13 +1,13 @@
-name: David
-image: david.jpg
-type: Build-a-Bear
+name: Cookie
+image: cookie.jpg
+type: Build-a-bear
 
 rescued:
-    name: Southsea
-    date: 2019-06-02 00:00:00
+    name: Chicester
+    date: 2019-08-03 00:00:00
     location:
-        lat: 50.783565
-        lng: -1.085559
+        lat: 50.83761000000001
+        lng: -0.774936
 
 rehomed:
     name: Billingshurst
