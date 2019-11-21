@@ -1,0 +1,8 @@
+- id: justdelivered
+  name: Just Delivered
+
+- id: stall
+  name: Stall
+
+- id: newstock
+  name: New Stock

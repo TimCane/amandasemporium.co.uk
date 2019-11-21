@@ -1,0 +1,21 @@
+- name: Home
+  file: index.html
+  link: 
+
+- name: Events
+  file: events.html
+  link: events
+
+- name: Stock 
+  file: stock.html
+  link: stock 
+
+
+- name: Gallery 
+  file: gallery.html
+  link: gallery
+
+
+- name:  Contact 
+  file: contact.html
+  link: contact 
