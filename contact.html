@@ -5,6 +5,9 @@ permalink: /contact/
 
 <div class="row">
         <div class="col-md-8  col-md-offset-2 contact-form">
+            <p class="text-center description">To get in contact, message me directly on <a href="https://www.facebook.com/Justforyouatamandasemporium/">Facebook</a>.</p>
+
+            {% comment %}
             <form id="contact" method="post" class="form" role="form">
                 <p class="text-center description">Use the form below to contact me</p>
                 <p class="text-center description">Or message me directly on <a href="https://www.facebook.com/Justforyouatamandasemporium/">Facebook</a>.</p>
@@ -25,10 +28,12 @@ permalink: /contact/
                 </div>
             </form>
             <div class="success" style="display:none;">
-            <p class="text-center description">Thank you for your message! I will be in contact shortly.</p>
+                <p class="text-center description">Thank you for your message! I will be in contact shortly.</p>
             </div>
+            {% endcomment %}
         </div>
     </div>
+    {% comment %}
     <script>
      function postToGoogle() {
         var name = $( "input[name='name']" ).val();
@@ -59,3 +64,4 @@ permalink: /contact/
        });
      }
     </script>
+    {% endcomment %}
