@@ -1,13 +1,13 @@
-name: Oliver
-image: oliver.jpg
+name: Bruce
+image: bruce.jpg
 type: Build-a-Bear
 
 rescued:
-    name: Southsea
-    date: 2019-08-04 00:00:00
+    name: Bexhill-on-Sea
+    date: 2019-09-14 00:00:00
     location:
-        lat: 50.783565
-        lng: -1.085559
+        lat: 50.8499062
+        lng: 0.4662071
 
 rehomed:
     name: Surbiton

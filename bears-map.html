@@ -7,82 +7,48 @@ permalink: /bears/map/
         <p>Click on a bears face to see see who has been rehomed where!</p>
         <div id="map" style="width: 100%;height: 500px;"></div>
         <div class="bears-map">
-                <h3 id="location-name" style="text-align: center;"></h3>
-                <hr>
-                {% for bear in site.data.bears %}
-                {% assign b = bear[1] %}
-                {% assign display = "none" %}
-                    {% if b.rehomed.name %}
-                        {% include bear.html %}
-                    {% endif %}
-                {% endfor %}
+            <h3 id="location-name" style="text-align: center;"></h3>
+            <hr>
+            {% for bear in site.data.bears %}
+            {% assign b = bear[1] %}
+            {% assign display = "none" %}
+            {% if b.rehomed.name %}
+            {% include bear.html %}
+            {% endif %}
+            {% endfor %}
         </div>
     </div>
 </div>
 <script>
-    function initMap() {
-        
-        var center = { lat: 51.339285, lng: -0.746098 };
+        var bears = GetBears();
+        var markerIcons = GetMarkerIcons();
 
+    function initMap() {
+        var center = { lat: 51.339285, lng: -0.746098 };
         var map = new google.maps.Map(document.getElementById('map'), { zoom: 9, center: center });
 
-        var bears = GetBears();
-
-    var markers = [
-        "/assets/imgs/map-markers/bear (1).png",
-        "/assets/imgs/map-markers/bear (2).png",
-        "/assets/imgs/map-markers/bear (3).png",
-        "/assets/imgs/map-markers/bear (4).png",
-        "/assets/imgs/map-markers/bear (5).png",
-        "/assets/imgs/map-markers/bear (6).png",
-        "/assets/imgs/map-markers/bear (7).png",
-        "/assets/imgs/map-markers/bear (8).png",
-        "/assets/imgs/map-markers/bear (9).png",
-        "/assets/imgs/map-markers/bear (10).png",
-    ];
-
-    for (let i = 0; i < bears.length; i++) {
-        const bear = bears[i];
-
-        var icon = markers[i % markers.length];
-
-        var marker = new google.maps.Marker({
-            position: bear.Coords, map: map, title: bear.Location,
-            icon: icon
-        });
-
-        (function (marker, bear, bears) {
-            google.maps.event.addListener(marker, 'click', function () {
-                ShowBears(bears, bear.Coords.lng, bear.Coords.lat);
-            });
-        })(marker, bear, bears);
-
-    }
-    }
-
-    function ShowBears(bears, lng, lat){
-        var location = document.getElementById("location-name");
-
-        for (let i = 0; i < bears.length; i++) {
+        for (let i = 0; i < 1; i++) {
             const bear = bears[i];
+            var icon = markerIcons[i % markerIcons.length];
 
-            var element = document.getElementById("Bear-"+ bear.Name);            
-            if (bear.Coords.lat == lat && bear.Coords.lng == lng) {
-                element.style.display = "block";
-                location.innerText = "Forever homes in " + bear.Location;
-            } else {
-                element.style.display = "none";
-            }
-            
-        }
-        var filteredBears = bears.filter(function(bear) {
-        if (bear.Coords.lat == lat && bear.Coords.lng == lng) {
-            return true;
-        }
-        return false;
-    });
+            var marker = new google.maps.Marker({
+                position: bear.Coords,
+                map: map,
+                title: bear.Location,
+                icon: icon
+            });
 
-    console.log(filteredBears);
+            (function (marker, bear, bears) {
+                google.maps.event.addListener(marker, 'click', function () {
+                    ShowBears(bears, bear.Coords.lng, bear.Coords.lat);
+                });
+            })(marker, bear, bears);
+
+        }
+    }
+
+    function CreateMarker(){
+        
     }
 
     function GetBears(){
@@ -90,16 +56,43 @@ permalink: /bears/map/
             {
                 Name: "{{ b.name }}",
                 Url: "/assets/imgs/bears/{{ b.image }}",
-                Location: "{{b.rehomed.name}}",
-                Date: "{{ b.rehomed.date | date:'%e %b %Y' }}",
-                Coords: {
-                    lng: {{b.rehomed.location.lng}},
-                    lat: {{b.rehomed.location.lat}}
+                Rehomed: {
+                    Location: "{{b.rehomed.name}}",
+                    Date: "{{ b.rehomed.date | date:'%e %b %Y' }}",
+                    Coords: {
+                        lng: {{b.rehomed.location.lng}},
+                        lat: {{b.rehomed.location.lat}}
+                    },
+                    Marker: null
+                },
+                Rescued: {
+                    Location: "{{b.rescued.name}}",
+                    Date: "{{ b.rescued.date | date:'%e %b %Y' }}",
+                    Coords: {
+                        lng: {{b.rescued.location.lng}},
+                        lat: {{b.rescued.location.lat}}
+                    },
+                    Marker: null
                 }
             },{% endif %}{% endfor %}
         ];
 
         return bears;
+    }
+
+    function GetMarkerIcons() {
+        return [
+            "/assets/imgs/map-markers/bear (1).png",
+            "/assets/imgs/map-markers/bear (2).png",
+            "/assets/imgs/map-markers/bear (3).png",
+            "/assets/imgs/map-markers/bear (4).png",
+            "/assets/imgs/map-markers/bear (5).png",
+            "/assets/imgs/map-markers/bear (6).png",
+            "/assets/imgs/map-markers/bear (7).png",
+            "/assets/imgs/map-markers/bear (8).png",
+            "/assets/imgs/map-markers/bear (9).png",
+            "/assets/imgs/map-markers/bear (10).png",
+        ];
     }
 </script>
 

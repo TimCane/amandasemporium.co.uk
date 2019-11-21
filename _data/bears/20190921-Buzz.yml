@@ -1,13 +1,13 @@
-name: Oliver
-image: oliver.jpg
+name: Buzz
+image: buzz.jpg
 type: Build-a-Bear
 
 rescued:
-    name: Southsea
-    date: 2019-08-04 00:00:00
+    name: Hunston
+    date: 2019-09-21 00:00:00
     location:
-        lat: 50.783565
-        lng: -1.085559
+        lat: 50.809448
+        lng: -0.7761899999999999
 
 rehomed:
     name: Surbiton
