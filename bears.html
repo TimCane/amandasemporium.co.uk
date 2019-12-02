@@ -5,29 +5,59 @@ permalink: /bears/
 <div class="row">
     <div class="col-md-10 col-md-offset-1 bears">
         <div class="bio">
-                <p class="description">Courtesy of my 3 grown up sons, who took me to a Build-a-Bear Workshop for Mothers Day. I became the proud owner of Daisy.</p>
-                <img class="img-responsive" src="/assets/imgs/daisy.jpg" alt="Photo of Daisy" />
-                <p class="description">She has been on a number of adventures around the country with my husband and I already. My friends (who think I'm ever so slightly potty) can't wait for the latest photos and updates. </p>
-                <p class="description">It was on one of our trips that I realised there were many lonely teddy bears waiting for their forever home and big adventure. All my rescued bears have been lovingly washed, groomed and dressed. </p>
-                <p class="description">And so my quest begins...</p>
-                <p class="description">It would be lovely to see my rescued bears in their new home. please feel free to post a photo to my <a href="https://www.facebook.com/Justforyouatamandasemporium/">Facebook page</a>.</p>
-                </p>
+            <p class="description">Courtesy of my 3 grown up sons, who took me to a Build-a-Bear Workshop for Mothers
+                Day. I became the proud owner of Daisy.</p>
+            <img class="img-responsive" src="/assets/imgs/daisy.jpg" alt="Photo of Daisy" />
+            <p class="description">She has been on a number of adventures around the country with my husband and I
+                already. My friends (who think I'm ever so slightly potty) can't wait for the latest photos and updates.
+            </p>
+            <p class="description">It was on one of our trips that I realised there were many lonely teddy bears waiting
+                for their forever home and big adventure. All my rescued bears have been lovingly washed, groomed and
+                dressed. </p>
+            <p class="description">And so my quest begins...</p>
+            <p class="description">It would be lovely to see my rescued bears in their new home. please feel free to
+                post a photo to my <a href="https://www.facebook.com/Justforyouatamandasemporium/">Facebook page</a>.
+            </p>
+            <hr>
+            <p class="description">My bears have been rescued and rehomed all over the UK (some even rehomed abroad)!
+            </p>
+            <p class="description">To see an interactive map of all the bears, please <a href="map">click here</a></p>
         </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1 bears">
         <hr>
         {% for bear in site.data.bears %}
         {% assign b = bear[1] %}
         {% assign display = 'block' %}
-            {% unless b.rehomed.name %}
-                {% include bear.html %}
-            {% endunless %}
+        {% unless b.rehomed.name %}
+        {% include bear.html %}
+        {% endunless %}
         {% endfor %}
 
         {% for bear in site.data.bears %}
         {% assign b = bear[1] %}
         {% assign display = 'block' %}
-            {% if b.rehomed.name %}
-                {% include bear.html %}
-            {% endif %}
+        {% if b.rehomed.name %}
+        {% include bear.html %}
+        {% endif %}
         {% endfor %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-10 col-md-offset-1 bears">
+        {% assign rehomed = 0 %}
+        {% for bear in site.data.bears %}
+        {% assign b = bear[1] %}
+        {% if b.rehomed.name %}
+        {% assign rehomed=rehomed | plus:1 %}
+        {% endif %}
+        {% endfor %}
+        <hr>
+        <p class="description text-center">Since my quest began, I have cared for <b>{{ site.data.bears.size }}</b>
+            bears and
+            <b>{{ rehomed }}</b>
+            of them have found their forever homes.</p>
     </div>
 </div>
