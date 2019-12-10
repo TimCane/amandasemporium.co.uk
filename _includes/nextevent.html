@@ -1,0 +1,21 @@
+{% assign sortedDate = site.data.events | sort %}
+{% assign today = "now" | date: '%s'  %}
+{% assign nextDate = "" %}
+
+{% for dates in sortedDate %}
+    {% if nextDate == "" %}
+        {% assign eventDate = dates[1].date | date: '%s'  %}
+        {% if today < eventDate %}
+            {% assign nextDate = dates[1].date %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+
+
+<li class="nextevent">
+    <div href="#">
+        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+        <span>Next event:</span>
+        <span class="nextevent-date">{{ nextDate | date:'%e %b %Y' }}</span>
+    </div>
+</li>

@@ -1,0 +1,32 @@
+{% assign pageName = page.name | replace: ".md", "" | replace: ".html", "" %}
+{% assign data = site.data.pages[pageName] %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include head.html %}
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar-container">
+            {% include navbar.html %}
+        </div>
+        <h2 class="text-center" id="ribbon">
+            <div id="content">{{ data.title }}</div>
+        </h2>
+        <div class="featureimage-container">
+            <img class="featureimage" src="/assets/imgs/feature.jpg"></img>
+        </div>
+
+        <div class="mainContent-container">
+            {{ content }}
+            <div class="footerContent">
+                {% include footer.html %}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

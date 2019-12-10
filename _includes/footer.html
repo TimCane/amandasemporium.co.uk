@@ -1,0 +1,29 @@
+<div class="row text-center">
+    <div class="col-md-6">
+        <p class="h5">Get In Touch</p>
+        <ul class="list-inline contactquicklinks">
+            <li>
+                <a href="https://www.facebook.com/Justforyouatamandasemporium/">
+                    <i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i>
+                </a>
+            </li>
+            <li>
+                <a href="/contact">
+                    <i class="fa fa-envelope  fa-lg" aria-hidden="true"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <p class="h5">Extra links</p>
+        <ul class="list-unstyled">
+                {% for p in site.data.nav.bottom %}
+                <li style="{% if p.file == page.name %}font-weight:bold;{% endif %}">
+                    <a href="/{{p.link}}" target="">{{ p.name}}</a>
+                </li>
+                {% endfor %}
+        </ul>
+    </div>
+</div>
+<p class="copyright text-center">Copyright
+    <i class="fa fa-copyright" aria-hidden="true"></i> {{ 'now' | date: "%Y" }} Amanda's Emporium</p>
