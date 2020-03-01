@@ -1,0 +1,19 @@
+---
+name: Emma
+image: emma2.jpg
+type: Build-a-Bear
+
+rescued:
+    name: Weybridge
+    date: 2018-11-01 00:00:00
+    location:
+        lat: 51.3716269
+        lng: -0.457904
+
+rehomed:
+    name: 
+    date: 
+    location:
+        lat: 
+        lng: 
+---

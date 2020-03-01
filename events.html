@@ -6,9 +6,9 @@ permalink: /events/
 <div class="row">
     <div class="col-md-10 col-md-offset-1 events">
         {% assign today = "now" | date: '%s'  %}
-        {% for events in site.data.events %}
-            {% assign e = events[1] %}
-            {% assign eventDate = e.date | date: '%s'  %}
+        {% assign sorted = site.events | sort:'date' %}
+        {% for event in sorted %}
+            {% assign eventDate = event.date | date: '%s'  %}
             {% if today < eventDate %}
             <div class="row">
                 <div class="col-md-12">
@@ -16,29 +16,29 @@ permalink: /events/
                         <div class="panel-body">
                             <div class="col-md-12 panelTop">
                                 <div class="col-md-12">
-                                    <p class="h4 text-center">{{ e.date | date:'%e %b %Y' }} - {{ e.name}}</p>
+                                    <p class="h4 text-center">{{ event.date | date:'%e %b %Y' }} - {{ event.name}}</p>
                                 </div>
                                 <div class="col-md-10 col-md-offset-1">
                                     <p class="description text-center">
-                                        {% if e.description %}
-                                            <span class="desc">{{ e.description }}</br>
+                                        {% if event.description %}
+                                            <span class="desc">{{ event.description }}</br>
                                             </span>
                                         {% endif %}
-                                        {% if e.location %}
+                                        {% if event.location %}
                                             <span class="location">
-                                                <i class="fa fa-map-marker pink" aria-hidden="true"></i>{{ e.location }}</br>
+                                                <i class="fa fa-map-marker pink" aria-hidden="true"></i>{{ event.location }}</br>
                                             </span>
                                         {% endif %}
-                                        {% if e.time %}
+                                        {% if event.time %}
                                             <span class="time">
                                                 <i class="fa fa-clock-o pink" aria-hidden="true"></i>
-                                                {{ e.time }}
+                                                {{ event.time }}
                                             </span>
                                         {% endif %}
-                                        {% if e.url %}
+                                        {% if event.url %}
                                             <span class="url">
                                                 <i class="fa fa-globe pink" aria-hidden="true"></i>
-                                                <a href="{{ e.url }}">More info here</a>
+                                                <a href="{{ event.url }}">More info here</a>
                                                 </br>
                                             </span>
                                         {% endif %}

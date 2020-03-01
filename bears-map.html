@@ -19,20 +19,18 @@ permalink: /bears/map/
             <hr>
             <div class="rehomed-bears">
                 <h3 style="text-align: center;">Rehomed</h3>
-                {% for bear in site.data.bears %}
-                {% assign b = bear[1] %}
+                {% for bear in site.bears %}
                 {% assign display = "none" %}
-                {% if b.rehomed.name %}
+                {% if bear.rehomed.name %}
                 {% include bear.html %}
                 {% endif %}
                 {% endfor %}
             </div>
             <div class="rescued-bears">
                 <h3 style="text-align: center;">Rescued</h3>
-                {% for bear in site.data.bears %}
-                {% assign b = bear[1] %}
+                {% for bear in site.bears %}
                 {% assign display = "none" %}
-                {% if b.rescued.name %}
+                {% if bear.rescued.name %}
                 {% include bear.html %}
                 {% endif %}
                 {% endfor %}
@@ -153,25 +151,25 @@ permalink: /bears/map/
     }
 
     function GetBears(){
-        var bears = [{% for bear in site.data.bears %}{% assign b = bear[1] %}{% if b.rehomed.name %}
+        var bears = [{% for bear in site.bears %}{% if bear.rehomed.name %}
             {
-                Name: "{{ b.name }}",
-                Url: "/assets/imgs/bears/{{ b.image }}",
+                Name: "{{ bear.name }}",
+                Url: "/assets/imgs/bears/{{ bear.image }}",
                 Rehomed: {
-                    Location: "{{b.rehomed.name}}",
-                    Date: "{{ b.rehomed.date | date:'%e %b %Y' }}",
+                    Location: "{{bear.rehomed.name}}",
+                    Date: "{{ bear.rehomed.date | date:'%e %b %Y' }}",
                     Coords: {
-                        lng: {{b.rehomed.location.lng}},
-                        lat: {{b.rehomed.location.lat}}
+                        lng: {{bear.rehomed.location.lng}},
+                        lat: {{bear.rehomed.location.lat}}
                     },
                     Marker: null
                 },
                 Rescued: {
-                    Location: "{{b.rescued.name}}",
-                    Date: "{{ b.rescued.date | date:'%e %b %Y' }}",
+                    Location: "{{bear.rescued.name}}",
+                    Date: "{{ bear.rescued.date | date:'%e %b %Y' }}",
                     Coords: {
-                        lng: {{b.rescued.location.lng}},
-                        lat: {{b.rescued.location.lat}}
+                        lng: {{bear.rescued.location.lng}},
+                        lat: {{bear.rescued.location.lat}}
                     },
                     Marker: null
                 }

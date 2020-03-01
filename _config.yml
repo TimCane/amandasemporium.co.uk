@@ -4,6 +4,12 @@ description: WRITE SOMETHING
 baseurl: ""
 url: ""
 
+collections:
+  events:
+    output: false
+  bears:
+    output: false
+
 # Build settings
 markdown: kramdown
 plugins:

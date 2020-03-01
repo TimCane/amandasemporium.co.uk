@@ -27,19 +27,18 @@ permalink: /bears/
 </div>
 <div class="row">
     <div class="col-md-10 col-md-offset-1 bears">
-        <hr>
-        {% for bear in site.data.bears %}
-        {% assign b = bear[1] %}
+        <hr class="aaa">
+        {% assign sorted = site.bears | sort:'name' %}
+        {% for bear in sorted %}
         {% assign display = 'block' %}
-        {% unless b.rehomed.name %}
+        {% unless bear.rehomed.name %}
         {% include bear.html %}
         {% endunless %}
         {% endfor %}
 
-        {% for bear in site.data.bears %}
-        {% assign b = bear[1] %}
+        {% for bear in sorted %}
         {% assign display = 'block' %}
-        {% if b.rehomed.name %}
+        {% if bear.rehomed.name %}
         {% include bear.html %}
         {% endif %}
         {% endfor %}
@@ -48,14 +47,13 @@ permalink: /bears/
 <div class="row">
     <div class="col-md-10 col-md-offset-1 bears">
         {% assign rehomed = 0 %}
-        {% for bear in site.data.bears %}
-        {% assign b = bear[1] %}
-        {% if b.rehomed.name %}
+        {% for bear in sorted %}
+        {% if bear.rehomed.name %}
         {% assign rehomed=rehomed | plus:1 %}
         {% endif %}
         {% endfor %}
         <hr>
-        <p class="description text-center">Since my quest began, I have cared for <b>{{ site.data.bears.size }}</b>
+        <p class="description text-center">Since my quest began, I have cared for <b>{{ site.bears.size }}</b>
             bears and
             <b>{{ rehomed }}</b>
             of them have found their forever homes.</p>

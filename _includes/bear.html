@@ -1,24 +1,24 @@
-<div class="bear-{{b.name}} col-xs-12 col-sm-6 col-md-4" style="display: {{ display }}">
+<div class="bear-{{bear.name}} col-xs-12 col-sm-6 col-md-4" style="display: {{ display }}">
     <div class="panel panel-default  panel--styled">
         <div class="panel-body">
-            <img class="img-responsive" src="/assets/imgs/bears/{{ b.image }}" loading="lazy" alt="Photo of {{ b.name }}" />
-            <p class="h4 text-center">{{ b.name }}</p>
+            <img class="img-responsive" src="/assets/imgs/bears/{{ bear.image }}" loading="lazy" alt="Photo of {{ bear.name }}" />
+            <p class="h4 text-center">{{ bear.name }}</p>
             <div class="info">
                 <dl class="dl-horizontal">
-                    {% if b.rescued.name %}
+                    {% if bear.rescued.name %}
                     <dt>Rescued</dt>
-                    <dd>{{ b.rescued.name }} ({{ b.rescued.date | date:'%e %b %Y' }})</dd>
+                    <dd>{{ bear.rescued.name }} ({{ bear.rescued.date | date:'%e %b %Y' }})</dd>
                     {% endif %}
-                    {% if b.type %}
+                    {% if bear.type %}
                     <dt>Origin</dt>
-                    <dd>{{ b.type }}</dd>
+                    <dd>{{ bear.type }}</dd>
                     {% endif %}
                 </dl>
                 <div class="rehomed text-center">
-                    {% if b.rehomed.name %}
+                    {% if bear.rehomed.name %}
                     <span style="color: #01ad82;">
-                        {{ b.name }} was rehomed on <b>{{ b.rehomed.date | date:'%e %b %Y' }}</b> and now lives in
-                        <b>{{ b.rehomed.name }}</b>.
+                        {{ bear.name }} was rehomed on <b>{{ bear.rehomed.date | date:'%e %b %Y' }}</b> and now lives in
+                        <b>{{ bear.rehomed.name }}</b>.
                     </span>
                     {% else %}
                     <span style="color: #f90240">Waiting to be rehomed.</span>
