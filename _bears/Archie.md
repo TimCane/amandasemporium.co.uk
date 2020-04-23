@@ -11,9 +11,10 @@ rescued:
         lng: -1.085559
 
 rehomed:
-    name: 
-    date: 
+    name: Maidenhead
+    date: 2020-04-23 00:00:00
     location:
-        lat: 
-        lng:
+        lat: 51.522414
+        lng: -0.7219
+
 ---
