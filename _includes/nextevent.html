@@ -15,6 +15,11 @@
     <div href="#">
         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
         <span>Next event:</span>
-        <span class="nextevent-date">{{ nextDate | date:'%e %b %Y' }}</span>
+        {% if nextDate != "" %}
+            <span class="nextevent-date">{{ nextDate | date:'%e %b %Y' }}</span>
+        {% endif %}
+        {% if nextDate == "" %}
+        <span class="nextevent-date"><a href="/events">See events page</a></span>
+    {% endif %}
     </div>
 </li>
