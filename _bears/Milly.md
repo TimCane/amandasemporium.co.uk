@@ -11,9 +11,9 @@ rescued:
         lng:
 
 rehomed:
-    name:
-    date:
+    name: Barkham
+    date: 2021-07-31 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.397930
+        lng: -0.876000
 ---

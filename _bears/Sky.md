@@ -1,6 +1,6 @@
 ---
-name: Lavender
-image: lavender.jpg
+name: Sky
+image: sky.jpg
 type: Build-a-bear
     
 rescued:
@@ -9,10 +9,11 @@ rescued:
     location:
         lat: 51.431591
         lng: -0.788080
+
 rehomed:
-    name: Wokingham
-    date: 2021-07-31 00:00:00
+    name:
+    date:
     location:
-        lat: 51.410458
-        lng: -0.833861
+        lat:
+        lng:
 ---

@@ -11,9 +11,9 @@ rescued:
         lng: -0.788080
 
 rehomed:
-    name:
-    date:
+    name: Bracknell
+    date: 2021-07-31 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.41604
+        lng: -0.75398
 ---

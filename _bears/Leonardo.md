@@ -1,7 +1,7 @@
 ---
-name: Bonnie
-image: bonnie.jpg
-type: Bear Factory
+name: Leonardo
+image: leonardo.jpg
+type: Build-a-bear
     
 rescued:
     name: Cobham
@@ -11,9 +11,9 @@ rescued:
         lng: -0.410856
 
 rehomed:
-    name: Wokingham
-    date: 2021-07-31 00:00:00
+    name:
+    date:
     location:
-        lat: 51.410458
-        lng: -0.833861
+        lat:
+        lng:
 ---

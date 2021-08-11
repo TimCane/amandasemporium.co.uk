@@ -1,0 +1,19 @@
+---
+name: Rosco
+image: rosco.jpg
+type: Build-a-bear
+    
+rescued:
+    name: Ashford
+    date: 2019-10-24 00:00:00
+    location:
+        lat: 51.1464659
+        lng: 0.875019
+
+rehomed:
+    name:
+    date:
+    location:
+        lat:
+        lng:
+---
