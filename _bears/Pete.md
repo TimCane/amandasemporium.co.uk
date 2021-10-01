@@ -11,9 +11,9 @@ rescued:
         lng: -0.410856
 
 rehomed:
-    name:
-    date:
+    name: Chessington
+    date: 2021-09-25 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.363583
+        lng: -0.296254
 ---

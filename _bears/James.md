@@ -11,9 +11,9 @@ rescued:
         lng: -1.1740331
 
 rehomed:
-    name: 
-    date: 
+    name: Walton-upon-Thames
+    date: 2021-09-25 00:00:00
     location:
-        lat: 
-        lng: 
+        lat: 51.38847
+        lng: -0.416969
 ---
