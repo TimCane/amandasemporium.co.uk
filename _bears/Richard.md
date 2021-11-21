@@ -1,6 +1,6 @@
 ---
-name: Rosco
-image: rosco.jpg
+name: Richard
+image: richard.jpg
 type: Build-a-bear
     
 rescued:
@@ -11,9 +11,9 @@ rescued:
         lng: 0.875019
 
 rehomed:
-    name:
-    date:
+    name: Ash Green
+    date: 2021-11-21 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.238470
+        lng: -0.708630
 ---
