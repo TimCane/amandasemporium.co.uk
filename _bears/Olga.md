@@ -7,7 +7,7 @@ rescued:
     name: Cobham
     date: 2019-12-05 00:00:00
     location:
-        lng: -0.410856,
+        lng: -0.410856
         lat: 51.32878299999999
 
 rehomed:
