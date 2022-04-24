@@ -11,9 +11,9 @@ rescued:
         lng: -0.488641
 
 rehomed:
-    name:
-    date:
+    name: Leatherhead
+    date: 2022-04-23 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.365365
+        lng: -0.231424
 ---
