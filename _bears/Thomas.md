@@ -11,9 +11,9 @@ rescued:
         lng: -0.488641
 
 rehomed:
-    name:
-    date:
+    name: Guildford
+    date: 2022-07-17 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.23622
+        lng: -0.570409
 ---
