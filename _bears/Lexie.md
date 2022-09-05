@@ -11,9 +11,9 @@ rescued:
         lng: -0.7922896
 
 rehomed:
-    name:
-    date:
+    name: Fleet
+    date: 2022-08-20 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.276560
+        lng: -0.842150
 ---

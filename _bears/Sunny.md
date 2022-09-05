@@ -11,9 +11,9 @@ rescued:
         lng: 0.161690
 
 rehomed:
-    name:
-    date:
+    name: Church Crookham
+    date: 2022-08-20 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.253551
+        lng: -0.850100
 ---

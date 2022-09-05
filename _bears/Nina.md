@@ -11,9 +11,9 @@ rescued:
         lng: -73.8886371
 
 rehomed:
-    name:
-    date:
+    name: Farnham
+    date: 2022-08-20 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.214321
+        lng: -0.798802
 ---
