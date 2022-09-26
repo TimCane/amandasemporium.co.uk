@@ -11,9 +11,9 @@ rescued:
         lng: -0.7922896
 
 rehomed:
-    name:
-    date:
+    name: Kingston
+    date: 2022-09-24 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.412331
+        lng: -0.300689
 ---

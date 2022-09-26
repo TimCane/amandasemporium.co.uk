@@ -11,9 +11,9 @@ rescued:
         lng: -0.426940
 
 rehomed:
-    name:
-    date:
+    name: Surbiton
+    date: 2022-09-24 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.39400999999999
+        lng: -0.302662
 ---

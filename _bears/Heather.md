@@ -11,9 +11,9 @@ rescued:
         lng: -1.3242212
 
 rehomed:
-    name:
-    date:
+    name: Richmond
+    date: 2022-09-24 00:00:00
     location:
-        lat:
-        lng:
+        lat: 37.540726
+        lng: -77.436050
 ---

@@ -1,5 +1,5 @@
 ---
-name: J.R.
+name: Jr
 image: jr.jpg
 type: Birthdays Bear
 

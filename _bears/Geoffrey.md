@@ -11,9 +11,9 @@ rescued:
         lng: -0.7935466
 
 rehomed:
-    name:
-    date:
+    name: Long Ditton
+    date: 2022-09-24 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.384369
+        lng: -0.320480
 ---

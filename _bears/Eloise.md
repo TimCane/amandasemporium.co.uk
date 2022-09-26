@@ -1,15 +1,14 @@
 ---
-name: Albert
-image: albert.jpg
+name: Eloise
+image: eloise.jpg
 type: Build-a-bear
     
 rescued:
-    name: Crowborough
-    date: 2022-04-26 00:00:00
+    name: West Wittering
+    date: 2022-08-27 00:00:00
     location:
-        lat: 51.060551
-        lng: 0.161690
-
+        lat: 
+        lng: 
 rehomed:
     name: Surbiton
     date: 2022-09-24 00:00:00
