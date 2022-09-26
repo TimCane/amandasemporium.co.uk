@@ -7,8 +7,8 @@ rescued:
     name: West Wittering
     date: 2022-08-27 00:00:00
     location:
-        lat: 
-        lng: 
+        lat: 50.783391
+        lng: -0.891989
 rehomed:
     name: Berrylands
     date: 2022-09-24 00:00:00
