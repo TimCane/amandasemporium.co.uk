@@ -14,6 +14,6 @@ rehomed:
     name: Richmond
     date: 2022-09-24 00:00:00
     location:
-        lat: 37.540726
-        lng: -77.436050
+        lat: 51.461342
+        lng: -0.303550
 ---
