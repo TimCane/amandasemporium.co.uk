@@ -11,9 +11,9 @@ rescued:
         lng: -0.7468665
 
 rehomed:
-    name:
-    date:
+    name: Andover
+    date: 2022-11-20 00:00:00
     location:
-        lat:
-        lng:
+        lat: 42.658337
+        lng: -71.136795
 ---
