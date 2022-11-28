@@ -11,9 +11,9 @@ rescued:
         lng: 0.2735876
 
 rehomed:
-    name:
-    date:
+    name: Odiham
+    date: 2022-11-27 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.254383
+        lng: -0.939525
 ---
