@@ -11,9 +11,9 @@ rescued:
         lng: -0.488641
 
 rehomed:
-    name:
-    date:
+    name: Ashvale
+    date: 2022-12-04 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.2644
+        lng: 0.7220
 ---

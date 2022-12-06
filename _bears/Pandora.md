@@ -11,9 +11,9 @@ rescued:
         lng: -0.488641
 
 rehomed:
-    name:
-    date:
+    name: Fetcham
+    date: 2022-12-04 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.2888
+        lng: 0.3562
 ---

@@ -11,9 +11,9 @@ rescued:
         lng: -0.410856
 
 rehomed:
-    name:
-    date:
+    name: Knaphill
+    date: 2022-12-04 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.319130
+        lng: -0.615380
 ---
