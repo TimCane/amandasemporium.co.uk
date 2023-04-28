@@ -11,9 +11,9 @@ rescued:
         lng: -0.4895776
 
 rehomed:
-    name:
-    date:
+    name: Horley
+    date: 2023-04-22 00:00:00
     location:
-        lat:
-        lng:
+        lat: 51.174271
+        lng: -0.159170
 ---
