@@ -1,0 +1,23 @@
+<div class="row text-center">
+  <div class="col-md-6">
+    <p class="h5">Get In Touch</p>
+    <ul class="list-inline contactquicklinks">
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a [routerLink]="['/', 'contact']">
+          <i class="pi pi-envelope"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <p class="h5">Extra links</p>
+    <ul class="list-unstyled">
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a [routerLink]="['/', 'friends']">Friends</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<p class="copyright text-center">
+  Copyright © {{ currentYear | date : "yyyy" }} Amanda's Emporium
+</p>

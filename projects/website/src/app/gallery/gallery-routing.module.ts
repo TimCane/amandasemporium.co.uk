@@ -1,0 +1,26 @@
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { GalleryComponent } from './gallery.component';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: GalleryComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () =>
+          import('./feature/gallery-view/gallery-view.module').then(
+            (m) => m.GalleryViewModule
+          ),
+        data: { title: 'Gallery' },
+      },
+    ],
+  },
+];
+
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule],
+})
+export class GalleryRoutingModule {}
