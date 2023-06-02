@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { IEvent } from 'data';
 
 @Component({
   selector: '[app-next-event]',
@@ -6,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./next-event.component.scss'],
 })
 export class NextEventComponent implements OnInit {
-  constructor() {}
+  @Input() event: IEvent | null;
+
+  faCalendar = faCalendar;
+
+  constructor() {
+    this.event = null;
+  }
 
   ngOnInit(): void {}
 }

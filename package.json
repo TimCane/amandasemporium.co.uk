@@ -7,7 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "generate-data": "node ./projects/data/scripts/generate-arrays.js"
+    "generate-data": "node ./projects/data/scripts/generate-arrays.js",
+    "extract-events": "node ./projects/data/scripts/extract-events.js",
+    "extract-products": "node ./projects/data/scripts/extract-products.js"
   },
   "private": true,
   "dependencies": {
@@ -16,13 +18,18 @@
     "@angular/compiler": "^15.0.0",
     "@angular/core": "^15.0.0",
     "@angular/forms": "^15.0.0",
+    "@angular/google-maps": "^15.2.9",
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
+    "@fortawesome/angular-fontawesome": "^0.12.1",
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@ngrx/effects": "^15.4.0",
     "@ngrx/entity": "^15.4.0",
     "@ngrx/router-store": "^15.4.0",
     "@ngrx/store": "^15.4.0",
+    "@ngrx/store-devtools": "^15.4.0",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
@@ -39,6 +46,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
     "ng-packagr": "^15.0.0",
+    "slugify": "^1.6.6",
     "typescript": "~4.8.2"
   }
 }

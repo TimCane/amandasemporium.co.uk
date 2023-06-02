@@ -1,4 +1,4 @@
-<a [routerLink]="['/','bears', bear.Id]" *ngIf="bear" style="display: block">
+<div *ngIf="bear" style="display: block">
   <div class="panel panel-default  panel--styled">
       <div class="panel-body">
           <img class="img-responsive" src="/assets/images/bears/{{ bear.Id }}.jpg" loading="lazy" alt="Photo of {{ bear.Name }}" />
@@ -26,4 +26,4 @@
           </div>
       </div>
   </div>
-</a>
+</div>

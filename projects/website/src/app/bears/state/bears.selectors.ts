@@ -14,19 +14,27 @@ export const getSortDirection = selector((state) => state.sortDirection);
 
 export const getSortKey = selector((state) => state.sortKey);
 
-export const getBearsFiltered = createSelector(
-  getBears,
-  getSortDirection,
-  getSortKey,
-  (bears, sortDirection, sortKey) => {
-    const sortedData = [...bears].sort((a, b) => {
-      const paramA = (a as any)[sortKey];
-      const paramB = (b as any)[sortKey];
-      return compare(paramA, paramB, sortDirection);
-    });
-    return sortedData;
-  }
-);
+export const getRescuedBears = createSelector(getBears, (bears) => {
+  let rescued = bears.filter((b) => !b.Rehomed);
+  return [...rescued].sort((a, b) => {
+    return compare(a.Name, b.Name, 'asc');
+  });
+});
+
+export const getRehomedBears = createSelector(getBears, (bears) => {
+  let rehomed = bears.filter((b) => b.Rehomed);
+  return [...rehomed].sort((a, b) => {
+    return compare(a.Name, b.Name, 'asc');
+  });
+});
+
+export const getCountOfBears = createSelector(getBears, (bears) => {
+  return bears.length;
+});
+
+export const getCountOfRehomedBears = createSelector(getBears, (bears) => {
+  return bears.filter((b) => b.Rehomed).length;
+});
 
 export const getSelectedBearId = selector((state) => state.selectedBearId);
 

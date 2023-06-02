@@ -4,8 +4,8 @@
   [routerLinkActiveOptions]="{ exact: true }"
 >
   <div [routerLink]="['/', 'events']">
-    <i class="pi pi-calendar" style="font-size: 1.5rem"></i>
+    <fa-icon [classes]="['pink', 'calendar']" [icon]="faCalendar" size="lg"></fa-icon>
     <span>Next event:</span>
-    <span class="nextevent-date"></span>
+    <span *ngIf="event" class="nextevent-date">{{event.Date | date: 'd MMM yyyy'}}</span>
   </div>
 </li>

@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../app.state';
+import { loadEvents, selectEvent } from '../../../events/state/events.action';
+import { getNextEvent } from '../../../events/state/events.selectors';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
-  styleUrls: ['./navigation.component.scss']
+  styleUrls: ['./navigation.component.scss'],
 })
 export class NavigationComponent implements OnInit {
+  public nextEvent$ = this.store.select(getNextEvent);
 
-  constructor() { }
+  constructor(private store: Store<AppState>) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.store.dispatch(loadEvents());
+    this.store.dispatch(selectEvent({ eventId: null }));
   }
-
 }

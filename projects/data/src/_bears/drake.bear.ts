@@ -1,4 +1,4 @@
-import { emworth } from '../_locations/emworth.location';
+import { emsworth } from '../_locations/emsworth.location';
 import { woking } from '../_locations/woking.location';
 import { BearType } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
@@ -8,7 +8,7 @@ export const drake: IBear = {
   Name: 'Drake',
   Type: BearType.BuildABear,
   Rescued: {
-    Location: emworth,
+    Location: emsworth,
     Date: new Date(2018, 7, 7),
   },
   Sold: null,

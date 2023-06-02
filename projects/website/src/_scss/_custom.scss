@@ -131,8 +131,8 @@ Main
     border-radius: 0 0 3px 3px;
   }
   
-  .nextevent-date div {
-    display: inline-block;
+  .nextevent-date {
+    cursor: pointer;
   }
   
   .nextevent-date div p {

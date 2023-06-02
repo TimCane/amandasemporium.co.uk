@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../app.state';
 import { loadBears, selectBear } from '../../state/bears.action';
-import { getBearsFiltered } from '../../state/bears.selectors';
+import {
+  getCountOfBears,
+  getCountOfRehomedBears,
+  getRehomedBears,
+  getRescuedBears,
+} from '../../state/bears.selectors';
 
 @Component({
   selector: 'app-bears-list',
@@ -10,7 +15,11 @@ import { getBearsFiltered } from '../../state/bears.selectors';
   styleUrls: ['./bears-list.component.scss'],
 })
 export class BearsListComponent implements OnInit {
-  public allBears$ = this.store.select(getBearsFiltered);
+  public rescuedBears$ = this.store.select(getRescuedBears);
+  public rehomedBears$ = this.store.select(getRehomedBears);
+
+  public countOfBears$ = this.store.select(getCountOfBears);
+  public countOfRehomedBears$ = this.store.select(getCountOfRehomedBears);
 
   constructor(private store: Store<AppState>) {}
 

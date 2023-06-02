@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
-import { DataService } from './services/data.service';
+import { BearService } from './services/bear.service';
+import { EventService } from './services/event.service';
+import { PhotoService } from './services/photo.service';
+import { ProductService } from './services/product.service';
 
 @NgModule({
-  providers: [DataService],
+  providers: [BearService, EventService, ProductService, PhotoService],
 })
 export class DataModule {}

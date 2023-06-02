@@ -24,7 +24,7 @@ class DataItem {
   }
 }
 
-const dataTypes = ["bear", "location"];
+const dataTypes = ["bear", "location", "event", "product", "photo"];
 
 dataTypes.forEach((dataType) => {
   const folder = path.resolve(__dirname, `../src/_${dataType}s`);
@@ -52,8 +52,8 @@ dataTypes.forEach((dataType) => {
   var exportStr = exportArray.join(", ");
 
   fs.writeFileSync(
-    path.resolve(__dirname, `../src/lib/dictionaries/${dataType}s.dictonary.ts`),
-    `${importStr}\nexport const ${dataType}s: { [name: string]: I${properCase} } = {${exportStr}};`,
+    path.resolve(__dirname, `../src/lib/arrays/${dataType}s.array.ts`),
+    `${importStr}\nexport const ${dataType}s: I${properCase}[] = [${exportStr}];`,
     { flag: "w" }
   );
 });
