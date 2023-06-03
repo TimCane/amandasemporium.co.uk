@@ -5,11 +5,9 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "build-prod": "ng build data & ng build website",
     "test": "ng test",
-    "generate-data": "node ./projects/data/scripts/generate-arrays.js",
-    "extract-events": "node ./projects/data/scripts/extract-events.js",
-    "extract-products": "node ./projects/data/scripts/extract-products.js"
+    "generate-data": "node ./projects/data/scripts/generate-arrays.js"
   },
   "private": true,
   "dependencies": {
