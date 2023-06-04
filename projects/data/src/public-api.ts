@@ -10,3 +10,6 @@ export * from './lib/services/bear.service';
 export * from './lib/services/event.service';
 export * from './lib/services/photo.service';
 export * from './lib/services/product.service';
+
+export * from './lib/enums/bear-type.enum';
+export * from './lib/enums/photo-tag.enum';

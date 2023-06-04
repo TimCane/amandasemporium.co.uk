@@ -34,7 +34,7 @@ export const productsReducer = createReducer<ProductsState>(
   })
 );
 
-export const getSelectedUserId = (state: ProductsState) =>
+export const getSelectedProductId = (state: ProductsState) =>
   state.selectedProductId;
 
 // get the selectors
@@ -42,13 +42,13 @@ const { selectIds, selectEntities, selectAll, selectTotal } =
   productsAdapter.getSelectors();
 
 // select the array of product ids
-export const selectUserIds = selectIds;
+export const selectProductIds = selectIds;
 
 // select the dictionary of product entities
-export const selectUserEntities = selectEntities;
+export const selectProductEntities = selectEntities;
 
 // select the array of products
-export const selectAllUsers = selectAll;
+export const selectAllProducts = selectAll;
 
 // select the total product count
-export const selectUserTotal = selectTotal;
+export const selectProductTotal = selectTotal;

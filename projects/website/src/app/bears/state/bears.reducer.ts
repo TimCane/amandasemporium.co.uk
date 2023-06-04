@@ -34,20 +34,20 @@ export const bearsReducer = createReducer<BearsState>(
   })
 );
 
-export const getSelectedUserId = (state: BearsState) => state.selectedBearId;
+export const getSelectedBearId = (state: BearsState) => state.selectedBearId;
 
 // get the selectors
 const { selectIds, selectEntities, selectAll, selectTotal } =
   bearsAdapter.getSelectors();
 
 // select the array of bear ids
-export const selectUserIds = selectIds;
+export const selectBearIds = selectIds;
 
 // select the dictionary of bear entities
-export const selectUserEntities = selectEntities;
+export const selectBearEntities = selectEntities;
 
 // select the array of bears
-export const selectAllUsers = selectAll;
+export const selectAllBears = selectAll;
 
 // select the total bear count
-export const selectUserTotal = selectTotal;
+export const selectBearTotal = selectTotal;

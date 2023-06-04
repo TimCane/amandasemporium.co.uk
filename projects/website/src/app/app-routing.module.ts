@@ -29,7 +29,7 @@ const routes: Routes = [
   {
     path: 'gallery',
     loadChildren: () =>
-      import('./gallery/gallery.module').then((m) => m.GalleryModule),
+      import('./photos/photos.module').then((m) => m.PhotosModule),
   },
   {
     path: '',

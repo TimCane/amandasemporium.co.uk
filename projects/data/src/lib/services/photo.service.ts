@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { photos } from '../arrays/photos.array';
 import { IPhoto } from '../interfaces/photo.interface';
+import { PhotoTag } from '../enums/photo-tag.enum';
 
 @Injectable({
   providedIn: 'root',
@@ -9,6 +10,16 @@ import { IPhoto } from '../interfaces/photo.interface';
 export class PhotoService {
   photos = photos;
   constructor() {}
+
+  getCategories(): Observable<PhotoTag[]> {
+    let tags: PhotoTag[] = [];
+
+    for (var key in PhotoTag) {
+      tags.push(PhotoTag[key as keyof typeof PhotoTag]);
+    }
+
+    return of(tags);
+  }
 
   getPhotos(): Observable<IPhoto[]> {
     return of(Object.values(this.photos));

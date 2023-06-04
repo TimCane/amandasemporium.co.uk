@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GalleryComponent } from './gallery.component';
+import { PhotosComponent } from './photos.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: GalleryComponent,
+    component: PhotosComponent,
     children: [
       {
         path: '',
         loadChildren: () =>
-          import('./feature/gallery-view/gallery-view.module').then(
-            (m) => m.GalleryViewModule
+          import('./feature/photos-list/photos-list.module').then(
+            (m) => m.PhotosListModule
           ),
         data: { title: 'Gallery' },
       },
@@ -23,4 +23,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class GalleryRoutingModule {}
+export class PhotosRoutingModule {}

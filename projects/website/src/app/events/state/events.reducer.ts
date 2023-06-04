@@ -34,20 +34,20 @@ export const eventsReducer = createReducer<EventsState>(
   })
 );
 
-export const getSelectedUserId = (state: EventsState) => state.selectedEventId;
+export const getSelectedEventId = (state: EventsState) => state.selectedEventId;
 
 // get the selectors
 const { selectIds, selectEntities, selectAll, selectTotal } =
   eventsAdapter.getSelectors();
 
 // select the array of event ids
-export const selectUserIds = selectIds;
+export const selectEventIds = selectIds;
 
 // select the dictionary of event entities
-export const selectUserEntities = selectEntities;
+export const selectEventEntities = selectEntities;
 
 // select the array of events
-export const selectAllUsers = selectAll;
+export const selectAllEvents = selectAll;
 
 // select the total event count
-export const selectUserTotal = selectTotal;
+export const selectEventTotal = selectTotal;
