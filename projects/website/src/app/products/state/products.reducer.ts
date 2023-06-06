@@ -14,7 +14,11 @@ export const productsReducer = createReducer<ProductsState>(
     return { ...state, selectedProductId: productId };
   }),
 
-  on(loadProducts, (state) => ({ ...state, status: 'loading' })),
+  on(loadProducts, (state) => ({
+    ...state,
+    status: 'loading',
+    selectedProductId: null,
+  })),
 
   on(loadProductsSuccess, (state, { products }) => {
     return productsAdapter.setAll(products, {

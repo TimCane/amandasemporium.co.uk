@@ -5,7 +5,7 @@ import {
   loadBearsSuccess,
   selectBear,
 } from './bears.action';
-import { bearsAdapter, BearsState, initialState } from './bears.state';
+import { BearsState, bearsAdapter, initialState } from './bears.state';
 
 export const bearsReducer = createReducer<BearsState>(
   initialState,
@@ -14,7 +14,11 @@ export const bearsReducer = createReducer<BearsState>(
     return { ...state, selectedBearId: bearId };
   }),
 
-  on(loadBears, (state) => ({ ...state, status: 'loading' })),
+  on(loadBears, (state) => ({
+    ...state,
+    status: 'loading',
+    selectedBearId: null,
+  })),
 
   on(loadBearsSuccess, (state, { bears }) => {
     return bearsAdapter.setAll(bears, {

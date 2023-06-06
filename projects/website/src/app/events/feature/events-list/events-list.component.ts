@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../app.state';
-import { loadEvents, selectEvent } from '../../state/events.action';
+import { loadEvents } from '../../state/events.action';
 import { getUpcomingEvents } from '../../state/events.selectors';
 
 @Component({
@@ -16,6 +16,5 @@ export class EventsListComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadEvents());
-    this.store.dispatch(selectEvent({ eventId: null }));
   }
 }

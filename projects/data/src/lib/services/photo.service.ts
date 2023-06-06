@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { photos } from '../arrays/photos.array';
-import { IPhoto } from '../interfaces/photo.interface';
 import { PhotoTag } from '../enums/photo-tag.enum';
+import { IPhoto } from '../interfaces/photo.interface';
 
 @Injectable({
   providedIn: 'root',

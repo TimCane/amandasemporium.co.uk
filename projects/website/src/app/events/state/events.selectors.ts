@@ -24,7 +24,6 @@ export const getUpcomingEvents = createSelector(getEvents, (events) => {
 });
 
 export const getNextEvent = createSelector(getUpcomingEvents, (events) => {
-  console.log(events);
   return events[0];
 });
 

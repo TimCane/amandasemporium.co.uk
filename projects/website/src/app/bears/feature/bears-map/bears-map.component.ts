@@ -4,7 +4,7 @@ import { IBear } from 'data';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { AppState } from '../../../app.state';
 import { ScriptService } from '../../../shared/services/script.service';
-import { loadBears, selectBear } from '../../state/bears.action';
+import { loadBears } from '../../state/bears.action';
 import { getBears } from '../../state/bears.selectors';
 
 @Component({
@@ -73,6 +73,5 @@ export class BearsMapComponent implements OnInit {
 
   ngOnInit(): void {
     this.store.dispatch(loadBears());
-    this.store.dispatch(selectBear({ bearId: null }));
   }
 }

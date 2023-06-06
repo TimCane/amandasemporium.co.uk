@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../app.state';
-import { loadEvents, selectEvent } from '../../../events/state/events.action';
+import { loadEvents } from '../../../events/state/events.action';
 import { getNextEvent } from '../../../events/state/events.selectors';
 
 @Component({
@@ -16,6 +16,5 @@ export class NavigationComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadEvents());
-    this.store.dispatch(selectEvent({ eventId: null }));
   }
 }

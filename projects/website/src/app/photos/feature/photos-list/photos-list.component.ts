@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../app.state';
+import { loadPhotos } from '../../state/photos.action';
+import { getCategories, getPhotos } from '../../state/photos.selectors';
 
 @Component({
   selector: 'app-photos-list',
@@ -6,7 +10,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./photos-list.component.scss'],
 })
 export class PhotosListComponent implements OnInit {
-  constructor() {}
+  public categories$ = this.store.select(getCategories);
+  public photos$ = this.store.select(getPhotos);
 
-  ngOnInit(): void {}
+  constructor(private store: Store<AppState>) {}
+
+  ngOnInit() {
+    this.store.dispatch(loadPhotos());
+    //this.store.dispatch(loadCategories());
+  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../app.state';
-import { loadProducts, selectProduct } from '../../state/products.action';
+import { loadProducts } from '../../state/products.action';
 import { getVisibleProducts } from '../../state/products.selectors';
 
 @Component({
@@ -16,6 +16,5 @@ export class ProductsListComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadProducts());
-    this.store.dispatch(selectProduct({ productId: null }));
   }
 }

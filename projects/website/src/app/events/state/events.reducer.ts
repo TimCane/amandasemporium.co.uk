@@ -14,7 +14,11 @@ export const eventsReducer = createReducer<EventsState>(
     return { ...state, selectedEventId: eventId };
   }),
 
-  on(loadEvents, (state) => ({ ...state, status: 'loading' })),
+  on(loadEvents, (state) => ({
+    ...state,
+    status: 'loading',
+    selectedEventId: null,
+  })),
 
   on(loadEventsSuccess, (state, { events }) => {
     return eventsAdapter.setAll(events, {

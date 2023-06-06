@@ -23,6 +23,14 @@ const routes: Routes = [
           ),
         data: { title: 'People I trade with' },
       },
+      {
+        path: 'privacy',
+        loadChildren: () =>
+          import('./feature/privacy/privacy.module').then(
+            (m) => m.PrivacyModule
+          ),
+        data: { title: 'Privacy Policy' },
+      },
     ],
   },
 ];

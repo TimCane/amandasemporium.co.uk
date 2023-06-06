@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../app.state';
-import { loadBears, selectBear } from '../../state/bears.action';
+import { loadBears } from '../../state/bears.action';
 import {
   getCountOfBears,
   getCountOfRehomedBears,
@@ -25,6 +25,5 @@ export class BearsListComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadBears());
-    this.store.dispatch(selectBear({ bearId: null }));
   }
 }

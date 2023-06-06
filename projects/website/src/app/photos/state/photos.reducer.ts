@@ -17,7 +17,11 @@ export const photosReducer = createReducer<PhotosState>(
     return { ...state, selectedPhotoId: photoId };
   }),
 
-  on(loadPhotos, (state) => ({ ...state, status: 'loading' })),
+  on(loadPhotos, (state) => ({
+    ...state,
+    status: 'loading',
+    selectedPhotoId: null,
+  })),
 
   on(loadPhotosSuccess, (state, { photos }) => {
     return photosAdapter.setAll(photos, {
@@ -36,26 +40,18 @@ export const photosReducer = createReducer<PhotosState>(
     });
   }),
 
-  on(loadCategories, (state) => ({ ...state, status: 'loading' })),
+  on(loadCategories, (state) => ({ ...state })),
 
-  on(loadCategoriesSuccess, (state, { categories }) => {
-    return {
-      ...state,
-      error: null,
-      status: 'success',
-      categories: categories,
-    };
-  }),
+  on(loadCategoriesSuccess, (state, { categories }) => ({
+    ...state,
+    categories: categories,
+  })),
 
-  on(loadCategoriesFailure, (state, { error }) => {
-    return {
-      ...state,
-      selectedPhotoId: null,
-      error: error,
-      status: 'error',
-      categories: [],
-    };
-  })
+  on(loadCategoriesFailure, (state, { error }) => ({
+    ...state,
+    error: error,
+    categories: [],
+  }))
 );
 
 export const getSelectedPhotoId = (state: PhotosState) => state.selectedPhotoId;

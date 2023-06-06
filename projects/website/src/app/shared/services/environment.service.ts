@@ -18,4 +18,8 @@ export class EnvironmentService implements IEnvironment {
   get production(): boolean {
     return environment.production;
   }
+
+  get clarityProjectId(): string {
+    return environment.clarityProjectId;
+  }
 }

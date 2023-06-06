@@ -11,7 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { NavigationModule } from './shared/components/navigation/navigation.module';
+import { SiteDisclosureModule } from './shared/components/site-disclosure/site-disclosure.module';
 import { SplashScreenModule } from './shared/components/splash-screen/splash-screen.module';
+import { ClarityModule } from './shared/modules/clarity.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +24,7 @@ import { SplashScreenModule } from './shared/components/splash-screen/splash-scr
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    ClarityModule,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot(),
@@ -35,6 +38,7 @@ import { SplashScreenModule } from './shared/components/splash-screen/splash-scr
     NavigationModule,
     FooterModule,
     SplashScreenModule,
+    SiteDisclosureModule,
   ],
 })
 export class AppModule {}
