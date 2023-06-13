@@ -1,0 +1,19 @@
+import { pagham } from '../_locations/pagham.location';
+import { smallfield } from '../_locations/smallfield.location';
+import { BearType } from '../lib/enums/bear-type.enum';
+import { IBear } from '../lib/interfaces/bear.interface';
+
+export const andy: IBear = {
+  Id: 'andy',
+  Name: 'Andy',
+  Type: BearType.BuildABear,
+  Rescued: {
+    Location: pagham,
+    Date: new Date(2019, 9, 7),
+  },
+  Sold: null,
+  Rehomed: {
+    Location: smallfield,
+    Date: new Date(2022, 4, 23),
+  },
+};

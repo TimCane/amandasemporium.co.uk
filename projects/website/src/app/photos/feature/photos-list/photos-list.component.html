@@ -1,0 +1,21 @@
+<div class="row gallery">
+    <div class="col-md-10 col-md-offset-1">
+        <!--<div class="filters">
+            <button class="btn btn-primary-dark filter-button" data-filter="all">All</button>
+            <button *ngFor="let category of categories$ | async" class="btn btn-primary filter-button">{{category}}</button>
+            <div>
+                    <small>Use the buttons to filter on a category</small>
+                    <small>Click on an image for a larger version</small>
+            </div>            
+        </div>-->
+
+        <div class="images row">
+            <div *ngFor="let photo of photos$ | async" class="gallery_product col-lg-4 col-md-4 col-sm-6 col-xs-12 filter {{photo.Tags}}">
+                <a href="/assets/images/gallery/full/{{photo.Source}}">
+                    <img src="/assets/images/gallery/thumb/{{photo.Source}}" class="img-responsive">
+                </a>
+                <div class="caption">&nbsp;{{photo.Caption}}</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <p class="text-center description">
+      All my creations are hand made with love, and below you will see some of
+      the products that I can produce, and I hope that they will give you some
+      ideas for that unique gift for the new arrival. There is no guarantee that
+      I still have any of these in stock or even the materials that I have used
+      to make them but I will always be able to make you something similar so
+      please <a [routerLink]="['/', 'contact']">contact me</a> to chat about anything you may
+      like me to produce for you.
+    </p>
+    <hr />
+    <app-product-tile *ngFor="let product of visibleProducts$ | async" [product]="product"></app-product-tile>
+    
+  </div>
+</div>
