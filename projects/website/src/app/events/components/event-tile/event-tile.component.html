@@ -25,7 +25,7 @@
               </span>
               <span *ngIf="event.Website" class="url">
                 <fa-icon [icon]="faEarthEurope" [className]="'pink'"></fa-icon>
-                <a target="_blank" href="{{ event.Website }}">More info here</a>
+                <a-outgoing [href]="event.Website">More info here</a-outgoing>
                 <br />
               </span>
             </p>

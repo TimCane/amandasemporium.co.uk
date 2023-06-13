@@ -2,6 +2,6 @@ import { ILocation } from '../lib/interfaces/location.interface';
 
 export const bosham: ILocation = {
   Name: 'Bosham',
-  Longitude: 50.829,
-  Latitude: 0.8577,
+  Latitude: 50.829,
+  Longitude: 0.8577,
 };

@@ -1,31 +1,59 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 bears-map">
-      <p>Click on a bears face to see see who has been rehomed where!</p>
-      <div *ngIf="scriptLoaded$ | async">
-        <google-map style="width: 100%;height: 500px;"></google-map>
-      
-        <map-marker *ngFor="let marker of mapMarkers$ | async"
-        [position]="marker"
-        [options]="markerOptions"></map-marker>
-      </div>
-      <div class="map-controls">
-          <div class="control-rehomed">
-              <input type="checkbox" name="rehomed" value="rehomed" id="cbRehomed" onclick="CheckedRehomed()" checked><label for="cbRehomed"> Show Rehomed</label>
-          </div>
-          <div class="control-rescued">
-              <input type="checkbox" name="rescued" value="rescued" id="cbRescued" onclick="CheckedRescued()"><label for="cbRescued"> Show Rescued</label>
-          </div>
-      </div>
-      <div id="bears-map" style="display: none;">
-          <h3 id="location-name" style="text-align: center;"></h3>
-          <hr>
-          <div class="rehomed-bears">
-              <h3 style="text-align: center;">Rehomed</h3>
-          </div>
-          <div class="rescued-bears">
-              <h3 style="text-align: center;">Rescued</h3>
+    <p>Click on a bears face to see see who has been rehomed where!</p>
+    <div *ngIf="scriptLoaded$ | async">
+      <google-map
+        width="100%"
+        style="width: 100%; height: 500px"
+        [options]="options"
+      >
+        <ng-container *ngIf="showRescued">
+          <map-marker
+            *ngFor="let marker of rescuedMarkers$ | async; let i = index"
+            [position]="marker"
+            [options]="rescuedOptions(i)"
+          ></map-marker>
+        </ng-container>
 
-          </div>
+        <ng-container *ngIf="showRehomed">
+          <map-marker
+            *ngFor="let marker of rehomedMarkers$ | async; let i = index"
+            [position]="marker"
+            [options]="rehomedOptions(i)"
+          ></map-marker>
+        </ng-container>
+      </google-map>
+    </div>
+    <div class="map-controls">
+      <div class="control-rehomed">
+        <input
+          type="checkbox"
+          name="rehomed"
+          id="cbRehomed"
+          [checked]="showRehomed"
+          (change)="toggleRehomed()"
+          checked
+        /><label for="cbRehomed"> Show Rehomed</label>
       </div>
+      <div class="control-rescued">
+        <input
+          type="checkbox"
+          name="rescued"
+          id="cbRescued"
+          [checked]="showRescued"
+          (change)="toggleRescued()"
+        /><label for="cbRescued"> Show Rescued</label>
+      </div>
+    </div>
+    <div id="bears-map" style="display: none">
+      <h3 id="location-name" style="text-align: center"></h3>
+      <hr />
+      <div class="rehomed-bears">
+        <h3 style="text-align: center">Rehomed</h3>
+      </div>
+      <div class="rescued-bears">
+        <h3 style="text-align: center">Rescued</h3>
+      </div>
+    </div>
   </div>
 </div>

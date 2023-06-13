@@ -1,7 +1,7 @@
-import { ILocation } from "../lib/interfaces/location.interface"
+import { ILocation } from '../lib/interfaces/location.interface';
 
 export const durham: ILocation = {
-    Name: "Durham",
-    Longitude: 54.77525,
-    Latitude: -1.584852
-}
+  Name: 'Durham',
+  Latitude: 54.77525,
+  Longitude: -1.584852,
+};

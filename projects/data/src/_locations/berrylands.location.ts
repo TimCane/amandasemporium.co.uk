@@ -2,6 +2,6 @@ import { ILocation } from '../lib/interfaces/location.interface';
 
 export const berrylands: ILocation = {
   Name: 'Berrylands',
-  Longitude: 51.393978,
-  Latitude: -0.28834,
+  Latitude: 51.393978,
+  Longitude: -0.28834,
 };

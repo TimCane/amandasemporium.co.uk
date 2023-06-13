@@ -2,6 +2,6 @@ import { ILocation } from '../lib/interfaces/location.interface';
 
 export const woking: ILocation = {
   Name: 'Woking',
-  Longitude: 51.316774,
-  Latitude: -0.560034,
+  Latitude: 51.316774,
+  Longitude: -0.560034,
 };

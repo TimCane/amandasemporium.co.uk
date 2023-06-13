@@ -2,6 +2,6 @@ import { ILocation } from '../lib/interfaces/location.interface';
 
 export const barkham: ILocation = {
   Name: 'Barkham',
-  Longitude: 51.39793,
-  Latitude: -0.876,
+  Latitude: 51.39793,
+  Longitude: -0.876,
 };

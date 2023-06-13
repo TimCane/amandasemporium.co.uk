@@ -2,6 +2,6 @@ import { ILocation } from '../lib/interfaces/location.interface';
 
 export const yateley: ILocation = {
   Name: 'Yateley',
-  Longitude: 51.342628,
-  Latitude: -0.826272,
+  Latitude: 51.342628,
+  Longitude: -0.826272,
 };

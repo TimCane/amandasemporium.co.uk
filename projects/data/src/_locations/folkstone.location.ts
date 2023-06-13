@@ -2,6 +2,6 @@ import { ILocation } from '../lib/interfaces/location.interface';
 
 export const folkstone: ILocation = {
   Name: 'Folkstone',
-  Longitude: 51.081398,
-  Latitude: 1.169456,
+  Latitude: 51.081398,
+  Longitude: 1.169456,
 };

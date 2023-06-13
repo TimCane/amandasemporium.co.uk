@@ -2,6 +2,6 @@ import { ILocation } from '../lib/interfaces/location.interface';
 
 export const bourneEnd: ILocation = {
   Name: 'Bourne End',
-  Longitude: 51.57651,
-  Latitude: -0.710069,
+  Latitude: 51.57651,
+  Longitude: -0.710069,
 };

@@ -2,6 +2,6 @@ import { ILocation } from '../lib/interfaces/location.interface';
 
 export const oswestry: ILocation = {
   Name: 'Oswestry',
-  Longitude: 52.857148,
-  Latitude: -3.056412,
+  Latitude: 52.857148,
+  Longitude: -3.056412,
 };

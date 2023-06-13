@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { IBear } from 'data';
-import { BehaviorSubject, Observable, map } from 'rxjs';
+import { IBear, ILocation } from 'data';
+import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { AppState } from '../../../app.state';
 import { ScriptService } from '../../../shared/services/script.service';
 import { loadBears } from '../../state/bears.action';
@@ -13,10 +13,26 @@ import { getBears } from '../../state/bears.selectors';
   styleUrls: ['./bears-map.component.scss'],
 })
 export class BearsMapComponent implements OnInit {
+  showRehomed: boolean = true;
+  showRescued: boolean = true;
+
+  toggleRehomed() {
+    this.showRehomed = !this.showRehomed;
+  }
+
+  toggleRescued() {
+    this.showRescued = !this.showRescued;
+  }
+
   public allBears$ = this.store.select(getBears);
 
-  markerOptions: google.maps.MarkerOptions = { draggable: false };
-  public mapMarkers$: Observable<google.maps.LatLngLiteral[]>;
+  options: google.maps.MapOptions = {
+    center: { lat: 51.339285, lng: -0.746098 },
+    zoom: 9,
+  };
+
+  public rescuedMarkers$: Observable<google.maps.LatLngLiteral[]> = of([]);
+  public rehomedMarkers$: Observable<google.maps.LatLngLiteral[]> = of([]);
 
   scriptLoadedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
@@ -27,48 +43,71 @@ export class BearsMapComponent implements OnInit {
   constructor(private store: Store<AppState>, scriptService: ScriptService) {
     scriptService.Load('googleMaps').subscribe((data) => {
       this.scriptLoadedSubject.next(true);
+
+      this.rescuedMarkers$ = this.allBears$.pipe(
+        map((bears: IBear[]) => {
+          let set = new Set<ILocation>();
+
+          for (let i = 0; i < bears.length; i++) {
+            set.add(bears[i].Rescued.Location);
+          }
+
+          return [...set];
+        }),
+
+        map((locations: ILocation[]) => {
+          return locations.map((location) => {
+            return {
+              lat: location.Latitude,
+              lng: location.Longitude,
+            };
+          });
+        })
+      );
+
+      this.rehomedMarkers$ = this.allBears$.pipe(
+        map((bears: IBear[]) => bears.filter((b) => b.Rehomed != null)),
+        map((bears: IBear[]) => {
+          let set = new Set<ILocation>();
+
+          for (let i = 0; i < bears.length; i++) {
+            set.add(bears[i].Rehomed!.Location);
+          }
+
+          return [...set];
+        }),
+
+        map((locations: ILocation[]) => {
+          return locations.map((location) => {
+            return {
+              lat: location.Latitude,
+              lng: location.Longitude,
+            };
+          });
+        })
+      );
     });
-
-    this.mapMarkers$ = this.allBears$.pipe(
-      map((bears: IBear[]) => {
-        return bears.map((bear) => {
-          return {
-            lat: bear.Rescued.Location.Latitude,
-            lng: bear.Rescued.Location.Longitude,
-          };
-        });
-      })
-    );
   }
 
-  getRehomedMarkerIcons() {
-    return [
-      '/assets/imgs/map-markers/rehomed (1).png',
-      '/assets/imgs/map-markers/rehomed (2).png',
-      '/assets/imgs/map-markers/rehomed (3).png',
-      '/assets/imgs/map-markers/rehomed (4).png',
-      '/assets/imgs/map-markers/rehomed (5).png',
-      '/assets/imgs/map-markers/rehomed (6).png',
-      '/assets/imgs/map-markers/rehomed (7).png',
-      '/assets/imgs/map-markers/rehomed (8).png',
-      '/assets/imgs/map-markers/rehomed (9).png',
-      '/assets/imgs/map-markers/rehomed (10).png',
-    ];
+  onlyUnique(value: any, index: any, array: any) {
+    return array.indexOf(value) === index;
   }
 
-  getRescuedMarkerIcons() {
-    return [
-      '/assets/imgs/map-markers/rescued (1).png',
-      '/assets/imgs/map-markers/rescued (2).png',
-      '/assets/imgs/map-markers/rescued (3).png',
-      '/assets/imgs/map-markers/rescued (4).png',
-      '/assets/imgs/map-markers/rescued (5).png',
-      '/assets/imgs/map-markers/rescued (6).png',
-      '/assets/imgs/map-markers/rescued (7).png',
-      '/assets/imgs/map-markers/rescued (8).png',
-      '/assets/imgs/map-markers/rescued (9).png',
-      '/assets/imgs/map-markers/rescued (10).png',
-    ];
+  rehomedOptions(index: number): google.maps.MarkerOptions {
+    let remainder = index % 10;
+
+    return {
+      draggable: false,
+      icon: `/assets/images/map-markers/rehomed (${remainder + 1}).png`,
+    };
+  }
+  rescuedOptions(index: number): google.maps.MarkerOptions {
+    let remainder = index % 10;
+
+    return {
+      draggable: false,
+      icon: `/assets/images/map-markers/rescued (${remainder + 1}).png`,
+    };
   }
 
   ngOnInit(): void {

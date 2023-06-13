@@ -2,6 +2,6 @@ import { ILocation } from '../lib/interfaces/location.interface';
 
 export const maidenhead: ILocation = {
   Name: 'Maidenhead',
-  Longitude: 51.522414,
-  Latitude: -0.7219,
+  Latitude: 51.522414,
+  Longitude: -0.7219,
 };

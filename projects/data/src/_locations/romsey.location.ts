@@ -1,7 +1,7 @@
-import { ILocation } from "../lib/interfaces/location.interface"
+import { ILocation } from '../lib/interfaces/location.interface';
 
 export const romsey: ILocation = {
-    Name: "Romsey",
-    Longitude: 50.98893,
-    Latitude: -1.49658
-}
+  Name: 'Romsey',
+  Latitude: 50.98893,
+  Longitude: -1.49658,
+};
