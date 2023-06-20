@@ -42,6 +42,9 @@
 </div>
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
+    <app-a-to-z-pagination (letterClicked)="onLetterClicked($event)"></app-a-to-z-pagination>
+  </div>
+  <div class="col-md-10 col-md-offset-1">
     <div
       class="col-xs-12 col-sm-6 col-md-4 bear"
       *ngFor="let bear of rescuedBears$ | async"

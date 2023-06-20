@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../app.state';
-import { loadBears } from '../../state/bears.action';
+import { loadBears, setLetterFilter } from '../../state/bears.action';
 import {
   getCountOfBears,
   getCountOfRehomedBears,
-  getRehomedBears,
-  getRescuedBears,
+  getFilteredRehomedBears,
+  getFilteredRescuedBears,
 } from '../../state/bears.selectors';
 
 @Component({
@@ -15,8 +15,8 @@ import {
   styleUrls: ['./bears-list.component.scss'],
 })
 export class BearsListComponent implements OnInit {
-  public rescuedBears$ = this.store.select(getRescuedBears);
-  public rehomedBears$ = this.store.select(getRehomedBears);
+  public rescuedBears$ = this.store.select(getFilteredRescuedBears);
+  public rehomedBears$ = this.store.select(getFilteredRehomedBears);
 
   public countOfBears$ = this.store.select(getCountOfBears);
   public countOfRehomedBears$ = this.store.select(getCountOfRehomedBears);
@@ -25,5 +25,9 @@ export class BearsListComponent implements OnInit {
 
   ngOnInit() {
     this.store.dispatch(loadBears());
+  }
+
+  onLetterClicked(letter: string | null) {
+    this.store.dispatch(setLetterFilter({ letter }));
   }
 }

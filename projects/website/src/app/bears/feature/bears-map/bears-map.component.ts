@@ -1,11 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { IBear, ILocation } from 'data';
-import { BehaviorSubject, Observable, map, of } from 'rxjs';
+import {
+  BehaviorSubject,
+  Observable,
+  Subject,
+  combineLatest,
+  map,
+  of,
+} from 'rxjs';
 import { AppState } from '../../../app.state';
 import { ScriptService } from '../../../shared/services/script.service';
 import { loadBears } from '../../state/bears.action';
 import { getBears } from '../../state/bears.selectors';
+
+interface MapMarker extends google.maps.LatLngLiteral {
+  name: string;
+}
 
 @Component({
   selector: 'app-bears-map',
@@ -31,8 +42,13 @@ export class BearsMapComponent implements OnInit {
     zoom: 9,
   };
 
-  public rescuedMarkers$: Observable<google.maps.LatLngLiteral[]> = of([]);
-  public rehomedMarkers$: Observable<google.maps.LatLngLiteral[]> = of([]);
+  public rescuedMarkers$: Observable<MapMarker[]> = of([]);
+  public rehomedMarkers$: Observable<MapMarker[]> = of([]);
+
+  selectedMarkerSub: Subject<MapMarker | null> = new Subject();
+  selectedMarker$: Observable<MapMarker | null> =
+    this.selectedMarkerSub.asObservable();
+  visibleBears$: Observable<IBear[]> = of([]);
 
   scriptLoadedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
@@ -60,6 +76,7 @@ export class BearsMapComponent implements OnInit {
             return {
               lat: location.Latitude,
               lng: location.Longitude,
+              name: location.Name,
             };
           });
         })
@@ -82,8 +99,46 @@ export class BearsMapComponent implements OnInit {
             return {
               lat: location.Latitude,
               lng: location.Longitude,
+              name: location.Name,
             };
           });
+        })
+      );
+
+      this.visibleBears$ = combineLatest([
+        this.allBears$,
+        this.selectedMarker$,
+      ]).pipe(
+        map(([bears, selectedMarker]) => {
+          let visible: IBear[] = [];
+
+          if (selectedMarker == null) {
+            return visible;
+          }
+
+          for (let i = 0; i < bears.length; i++) {
+            const bear = bears[i];
+
+            if (bear.Rescued) {
+              if (bear.Rescued.Location) {
+                if (bear.Rescued.Location.Name == selectedMarker.name) {
+                  visible.push(bear);
+                  continue;
+                }
+              }
+            }
+
+            if (bear.Rehomed) {
+              if (bear.Rehomed.Location) {
+                if (bear.Rehomed.Location.Name == selectedMarker.name) {
+                  visible.push(bear);
+                  continue;
+                }
+              }
+            }
+          }
+
+          return visible;
         })
       );
     });
@@ -91,6 +146,10 @@ export class BearsMapComponent implements OnInit {
 
   onlyUnique(value: any, index: any, array: any) {
     return array.indexOf(value) === index;
+  }
+
+  onMarkerClick(marker: MapMarker) {
+    this.selectedMarkerSub.next(marker);
   }
 
   rehomedOptions(index: number): google.maps.MarkerOptions {

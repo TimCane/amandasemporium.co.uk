@@ -6,6 +6,7 @@ import { BearsListRoutingModule } from './bears-list-routing.module';
 import { BearsListComponent } from './bears-list.component';
 
 import { NgOptimizedImage } from '@angular/common';
+import { AToZPaginationModule } from '../../../shared/components/a-to-z-pagination/a-to-z-pagination.module';
 
 @NgModule({
   declarations: [BearsListComponent],
@@ -14,6 +15,7 @@ import { NgOptimizedImage } from '@angular/common';
     BearsListRoutingModule,
     BearTileModule,
     NgOptimizedImage,
+    AToZPaginationModule,
   ],
 })
 export class BearsListModule {}

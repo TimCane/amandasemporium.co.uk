@@ -7,6 +7,8 @@ export interface BearsState extends EntityState<IBear> {
   sortDirection: string;
   sortKey: string;
 
+  letterFilter: string | null;
+
   error: string | null;
   status: 'pending' | 'loading' | 'error' | 'success'; //TODO: Enum
 }
@@ -28,6 +30,8 @@ export const initialState: BearsState = bearsAdapter.getInitialState({
   selectedBearId: null,
   error: null,
   status: 'pending',
+
+  letterFilter: null,
 
   sortDirection: 'asc',
   sortKey: 'Name',

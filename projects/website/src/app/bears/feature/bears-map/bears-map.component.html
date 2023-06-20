@@ -1,5 +1,13 @@
 <div class="row">
-  <div class="col-md-10 col-md-offset-1 bears-map">
+  <div
+    class="col-md-10 col-md-offset-1 bears-map"
+    *ngIf="{
+      rescuedMarkers: rescuedMarkers$ | async,
+      rehomedMarkers: rehomedMarkers$ | async,
+      visibleBears: visibleBears$ | async,
+      selectedMarker: selectedMarker$ | async
+    } as state"
+  >
     <p>Click on a bears face to see see who has been rehomed where!</p>
     <div *ngIf="scriptLoaded$ | async">
       <google-map
@@ -9,17 +17,19 @@
       >
         <ng-container *ngIf="showRescued">
           <map-marker
-            *ngFor="let marker of rescuedMarkers$ | async; let i = index"
+            *ngFor="let marker of state.rescuedMarkers; let i = index"
             [position]="marker"
             [options]="rescuedOptions(i)"
+            (mapClick)="onMarkerClick(marker)"
           ></map-marker>
         </ng-container>
 
         <ng-container *ngIf="showRehomed">
           <map-marker
-            *ngFor="let marker of rehomedMarkers$ | async; let i = index"
+            *ngFor="let marker of state.rehomedMarkers; let i = index"
             [position]="marker"
             [options]="rehomedOptions(i)"
+            (mapClick)="onMarkerClick(marker)"
           ></map-marker>
         </ng-container>
       </google-map>
@@ -45,14 +55,18 @@
         /><label for="cbRescued"> Show Rescued</label>
       </div>
     </div>
-    <div id="bears-map" style="display: none">
-      <h3 id="location-name" style="text-align: center"></h3>
+    <div id="bears-map" *ngIf="state.selectedMarker">
+      <h3 id="location-name" style="text-align: center">{{state.selectedMarker.name}}</h3>
       <hr />
-      <div class="rehomed-bears">
-        <h3 style="text-align: center">Rehomed</h3>
-      </div>
-      <div class="rescued-bears">
-        <h3 style="text-align: center">Rescued</h3>
+      <div class="bears">
+        <div class="col-md-10 col-md-offset-1">
+          <div
+            class="col-xs-12 col-sm-6 col-md-4 bear"
+            *ngFor="let bear of state.visibleBears"
+          >
+            <app-bear-tile [bear]="bear"></app-bear-tile>
+          </div>
+        </div>
       </div>
     </div>
   </div>

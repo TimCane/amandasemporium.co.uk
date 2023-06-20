@@ -6,6 +6,11 @@ export const selectBear = createAction(
   props<{ bearId: string | null }>()
 );
 
+export const setLetterFilter = createAction(
+  '[Bear Page] Set Letter Filter',
+  props<{ letter: string | null }>()
+);
+
 export const loadBears = createAction('[Bear Page] Load Bears');
 
 export const loadBearsSuccess = createAction(

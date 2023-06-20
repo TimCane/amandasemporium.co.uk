@@ -14,6 +14,8 @@ export const getSortDirection = selector((state) => state.sortDirection);
 
 export const getSortKey = selector((state) => state.sortKey);
 
+export const getLetterFilter = selector((state) => state.letterFilter);
+
 export const getRescuedBears = createSelector(getBears, (bears) => {
   let rescued = bears.filter((b) => !b.Rehomed);
   return [...rescued].sort((a, b) => {
@@ -21,12 +23,38 @@ export const getRescuedBears = createSelector(getBears, (bears) => {
   });
 });
 
+export const getFilteredRescuedBears = createSelector(
+  getRescuedBears,
+  getLetterFilter,
+  (bears, letterFilter) => {
+    if (letterFilter == null) {
+      return bears;
+    }
+
+    letterFilter = letterFilter.toLowerCase();
+    return bears.filter((b) => b.Name.toLowerCase().startsWith(letterFilter!));
+  }
+);
+
 export const getRehomedBears = createSelector(getBears, (bears) => {
   let rehomed = bears.filter((b) => b.Rehomed);
   return [...rehomed].sort((a, b) => {
     return compare(a.Name, b.Name, 'asc');
   });
 });
+
+export const getFilteredRehomedBears = createSelector(
+  getRehomedBears,
+  getLetterFilter,
+  (bears, letterFilter) => {
+    if (letterFilter == null) {
+      return bears;
+    }
+
+    letterFilter = letterFilter.toLowerCase();
+    return bears.filter((b) => b.Name.toLowerCase().startsWith(letterFilter!));
+  }
+);
 
 export const getCountOfBears = createSelector(getBears, (bears) => {
   return bears.length;

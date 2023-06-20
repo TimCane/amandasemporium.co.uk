@@ -4,6 +4,7 @@ import {
   loadBearsFailure,
   loadBearsSuccess,
   selectBear,
+  setLetterFilter,
 } from './bears.action';
 import { BearsState, bearsAdapter, initialState } from './bears.state';
 
@@ -35,7 +36,12 @@ export const bearsReducer = createReducer<BearsState>(
       error: error,
       status: 'error',
     });
-  })
+  }),
+
+  on(setLetterFilter, (state, { letter }) => ({
+    ...state,
+    letterFilter: letter,
+  }))
 );
 
 export const getSelectedBearId = (state: BearsState) => state.selectedBearId;
