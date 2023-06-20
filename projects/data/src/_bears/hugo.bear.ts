@@ -1,3 +1,4 @@
+import { basingstoke } from '../_locations/basingstoke.location';
 import { chichester } from '../_locations/chichester.location';
 import { BearType } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
@@ -11,5 +12,8 @@ export const hugo: IBear = {
     Date: new Date(2022, 9, 10),
   },
   Sold: null,
-  Rehomed: null,
+  Rehomed: {
+    Location: basingstoke,
+    Date: new Date(2023, 5, 10),
+  },
 };
