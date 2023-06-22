@@ -1,4 +1,5 @@
 import { addlestone } from '../_locations/addlestone.location';
+import { ashVale } from '../_locations/ashVale.location';
 import { BearType } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,5 +12,8 @@ export const jessica: IBear = {
     Date: new Date(2022, 11, 4),
   },
   Sold: null,
-  Rehomed: null,
+  Rehomed: {
+    Location: ashVale,
+    Date: new Date(2022, 11, 4),
+  },
 };

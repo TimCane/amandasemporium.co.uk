@@ -1,4 +1,5 @@
 import { cobham } from '../_locations/cobham.location';
+import { knaphill } from '../_locations/knaphill.location';
 import { BearType } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,5 +12,8 @@ export const bradley: IBear = {
     Date: new Date(2019, 12, 5),
   },
   Sold: null,
-  Rehomed: null,
+  Rehomed: {
+    Location: knaphill,
+    Date: new Date(2022, 11, 4),
+  },
 };

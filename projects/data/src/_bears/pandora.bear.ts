@@ -1,4 +1,5 @@
 import { addlestone } from '../_locations/addlestone.location';
+import { fetcham } from '../_locations/fetcham.location';
 import { BearType } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,5 +12,8 @@ export const pandora: IBear = {
     Date: new Date(2022, 11, 14),
   },
   Sold: null,
-  Rehomed: null,
+  Rehomed: {
+    Location: fetcham,
+    Date: new Date(2022, 11, 4),
+  },
 };

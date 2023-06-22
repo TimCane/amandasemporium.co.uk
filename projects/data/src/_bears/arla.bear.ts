@@ -1,4 +1,5 @@
 import { bosham } from '../_locations/bosham.location';
+import { horley } from '../_locations/horley.location';
 import { BearType } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,5 +12,8 @@ export const arla: IBear = {
     Date: new Date(2022, 7, 10),
   },
   Sold: null,
-  Rehomed: null,
+  Rehomed: {
+    Location: horley,
+    Date: new Date(2023, 3, 22),
+  },
 };
