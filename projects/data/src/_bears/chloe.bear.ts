@@ -15,6 +15,6 @@ export const chloe: IBear = {
   Event: null,
   Rehomed: {
     Location: bansted,
-    Date: new Date(2022, 9, 27),
+    Date: new Date(2019, 6, 14),
   },
 };

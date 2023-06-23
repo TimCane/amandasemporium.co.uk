@@ -15,6 +15,6 @@ export const cooper: IBear = {
   Event: null,
   Rehomed: {
     Location: surbiton,
-    Date: new Date(2019, 6, 14),
+    Date: new Date(2022, 9, 27),
   },
 };
