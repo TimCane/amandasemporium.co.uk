@@ -10,11 +10,11 @@ export const reggie: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: southsea,
-    Date: new Date(2018, 9, 2),
+    Date: new Date(2018, 8, 2),
   },
   Sold: null,
   Rehomed: {
     Location: reading,
-    Date: new Date(2018, 11, 10),
+    Date: new Date(2018, 10, 10),
   },
 };

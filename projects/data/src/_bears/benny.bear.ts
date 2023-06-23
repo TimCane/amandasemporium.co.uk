@@ -10,11 +10,11 @@ export const benny: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: hunston,
-    Date: new Date(2019, 9, 21),
+    Date: new Date(2019, 8, 21),
   },
   Sold: null,
   Rehomed: {
     Location: chessington,
-    Date: new Date(2021, 9, 25),
+    Date: new Date(2021, 8, 25),
   },
 };

@@ -10,7 +10,7 @@ export const jessica: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: addlestone,
-    Date: new Date(2022, 11, 4),
+    Date: new Date(2022, 10, 4),
   },
   Sold: null,
   Rehomed: {

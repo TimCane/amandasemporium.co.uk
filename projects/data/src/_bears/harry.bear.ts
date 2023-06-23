@@ -10,11 +10,11 @@ export const harry: IBear = {
   Type: BearType.WHSmithBear,
   Rescued: {
     Location: tonbridge,
-    Date: new Date(2019, 9, 13),
+    Date: new Date(2019, 8, 13),
   },
   Sold: null,
   Rehomed: {
     Location: sunbury,
-    Date: new Date(2020, 4, 27),
+    Date: new Date(2020, 3, 27),
   },
 };

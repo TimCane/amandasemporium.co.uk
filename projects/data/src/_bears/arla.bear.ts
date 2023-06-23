@@ -10,7 +10,7 @@ export const arla: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: bosham,
-    Date: new Date(2022, 7, 10),
+    Date: new Date(2022, 6, 10),
   },
   Sold: null,
   Rehomed: {

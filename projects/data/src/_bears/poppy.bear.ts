@@ -10,11 +10,11 @@ export const poppy: IBear = {
   Type: BearType.AsWatsonHealthAndBeautyCo,
   Rescued: {
     Location: chertsey,
-    Date: new Date(2018, 3, 26),
+    Date: new Date(2018, 2, 26),
   },
   Sold: null,
   Rehomed: {
     Location: philadelphiaUSA,
-    Date: new Date(2018, 11, 22),
+    Date: new Date(2018, 10, 22),
   },
 };

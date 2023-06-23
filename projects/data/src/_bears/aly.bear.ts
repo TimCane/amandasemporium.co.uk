@@ -10,11 +10,11 @@ export const aly: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: ruislip,
-    Date: new Date(2020, 8, 20),
+    Date: new Date(2020, 7, 20),
   },
   Sold: null,
   Rehomed: {
     Location: farnham,
-    Date: new Date(2021, 8, 14),
+    Date: new Date(2021, 7, 14),
   },
 };

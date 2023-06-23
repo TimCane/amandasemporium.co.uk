@@ -10,11 +10,11 @@ export const flossie: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: ely,
-    Date: new Date(2021, 8, 19),
+    Date: new Date(2021, 7, 19),
   },
   Sold: null,
   Rehomed: {
     Location: horley,
-    Date: new Date(2022, 4, 23),
+    Date: new Date(2022, 3, 23),
   },
 };

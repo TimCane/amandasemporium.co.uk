@@ -10,11 +10,11 @@ export const rufus: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: bridgemary,
-    Date: new Date(2019, 6, 2),
+    Date: new Date(2019, 5, 2),
   },
   Sold: null,
   Rehomed: {
     Location: woking,
-    Date: new Date(2019, 11, 30),
+    Date: new Date(2019, 10, 30),
   },
 };

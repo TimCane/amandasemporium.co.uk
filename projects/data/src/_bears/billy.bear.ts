@@ -9,7 +9,7 @@ export const billy: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: chichester,
-    Date: new Date(2022, 5, 14),
+    Date: new Date(2022, 4, 14),
   },
   Sold: null,
   Rehomed: null,

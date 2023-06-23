@@ -10,11 +10,11 @@ export const eloise: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: westWittering,
-    Date: new Date(2022, 8, 27),
+    Date: new Date(2022, 7, 27),
   },
   Sold: null,
   Rehomed: {
     Location: surbiton,
-    Date: new Date(2022, 9, 24),
+    Date: new Date(2022, 8, 24),
   },
 };

@@ -10,11 +10,11 @@ export const ivy: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: binfield,
-    Date: new Date(2020, 2, 8),
+    Date: new Date(2020, 1, 8),
   },
   Sold: null,
   Rehomed: {
     Location: bansted,
-    Date: new Date(2021, 12, 5),
+    Date: new Date(2021, 11, 5),
   },
 };

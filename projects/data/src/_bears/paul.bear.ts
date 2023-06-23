@@ -10,11 +10,11 @@ export const paul: IBear = {
   Type: BearType.KeelTeddybear,
   Rescued: {
     Location: farnborough,
-    Date: new Date(2020, 1, 11),
+    Date: new Date(2020, 0, 11),
   },
   Sold: null,
   Rehomed: {
     Location: surbiton,
-    Date: new Date(2021, 9, 25),
+    Date: new Date(2021, 8, 25),
   },
 };

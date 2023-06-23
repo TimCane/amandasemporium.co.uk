@@ -10,11 +10,11 @@ export const amelia: IBear = {
   Type: BearType.GloriousBritainJointedBear,
   Rescued: {
     Location: addlestone,
-    Date: new Date(2018, 3, 21),
+    Date: new Date(2018, 2, 21),
   },
   Sold: null,
   Rehomed: {
     Location: greenwich,
-    Date: new Date(2019, 5, 25),
+    Date: new Date(2019, 4, 25),
   },
 };

@@ -10,11 +10,11 @@ export const isobel: IBear = {
   Type: BearType.CuddlesCollection,
   Rescued: {
     Location: chertsey,
-    Date: new Date(2019, 3, 29),
+    Date: new Date(2019, 2, 29),
   },
   Sold: null,
   Rehomed: {
     Location: horsham,
-    Date: new Date(2019, 10, 19),
+    Date: new Date(2019, 9, 19),
   },
 };

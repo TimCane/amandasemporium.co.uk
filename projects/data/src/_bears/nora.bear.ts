@@ -10,11 +10,11 @@ export const nora: IBear = {
   Type: BearType.PlushCompany,
   Rescued: {
     Location: ely,
-    Date: new Date(2021, 8, 19),
+    Date: new Date(2021, 7, 19),
   },
   Sold: null,
   Rehomed: {
     Location: hook,
-    Date: new Date(2022, 11, 27),
+    Date: new Date(2022, 10, 27),
   },
 };

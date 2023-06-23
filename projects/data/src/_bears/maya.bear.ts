@@ -10,11 +10,11 @@ export const maya: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: waltonUponThames,
-    Date: new Date(2019, 10, 18),
+    Date: new Date(2019, 9, 18),
   },
   Sold: null,
   Rehomed: {
     Location: hook,
-    Date: new Date(2022, 11, 27),
+    Date: new Date(2022, 10, 27),
   },
 };

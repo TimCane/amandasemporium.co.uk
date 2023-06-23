@@ -10,11 +10,11 @@ export const barnaby: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: basingstoke,
-    Date: new Date(2018, 6, 19),
+    Date: new Date(2018, 5, 19),
   },
   Sold: null,
   Rehomed: {
     Location: stokedAbernon,
-    Date: new Date(2018, 9, 2),
+    Date: new Date(2018, 8, 2),
   },
 };

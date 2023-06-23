@@ -10,11 +10,11 @@ export const eddie: IBear = {
   Type: BearType.Funtastic,
   Rescued: {
     Location: tonbridge,
-    Date: new Date(2019, 9, 13),
+    Date: new Date(2019, 8, 13),
   },
   Sold: null,
   Rehomed: {
     Location: guildford,
-    Date: new Date(2019, 12, 13),
+    Date: new Date(2019, 11, 13),
   },
 };

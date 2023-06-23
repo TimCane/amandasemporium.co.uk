@@ -10,11 +10,11 @@ export const buddy: IBear = {
   Type: BearType.BearFactory,
   Rescued: {
     Location: chicester,
-    Date: new Date(2019, 9, 21),
+    Date: new Date(2019, 8, 21),
   },
   Sold: null,
   Rehomed: {
     Location: surbiton,
-    Date: new Date(2022, 10, 27),
+    Date: new Date(2022, 9, 27),
   },
 };

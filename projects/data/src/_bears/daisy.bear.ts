@@ -10,11 +10,11 @@ export const daisy: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: staines,
-    Date: new Date(2021, 8, 26),
+    Date: new Date(2021, 7, 26),
   },
   Sold: null,
   Rehomed: {
     Location: farnborough,
-    Date: new Date(2021, 11, 20),
+    Date: new Date(2021, 10, 20),
   },
 };

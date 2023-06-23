@@ -10,11 +10,11 @@ export const chester: IBear = {
   Type: BearType.Funtastic,
   Rescued: {
     Location: haylingIsland,
-    Date: new Date(2019, 9, 1),
+    Date: new Date(2019, 8, 1),
   },
   Sold: null,
   Rehomed: {
     Location: hailsham,
-    Date: new Date(2019, 9, 28),
+    Date: new Date(2019, 8, 28),
   },
 };

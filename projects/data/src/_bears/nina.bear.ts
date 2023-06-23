@@ -10,11 +10,11 @@ export const nina: IBear = {
   Type: BearType.RussBear,
   Rescued: {
     Location: chertsey,
-    Date: new Date(2022, 5, 6),
+    Date: new Date(2022, 4, 6),
   },
   Sold: null,
   Rehomed: {
     Location: farnham,
-    Date: new Date(2022, 8, 20),
+    Date: new Date(2022, 7, 20),
   },
 };

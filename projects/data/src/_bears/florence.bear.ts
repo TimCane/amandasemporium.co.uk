@@ -10,7 +10,7 @@ export const florence: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: chichester,
-    Date: new Date(2022, 9, 10),
+    Date: new Date(2022, 8, 10),
   },
   Sold: null,
   Rehomed: {

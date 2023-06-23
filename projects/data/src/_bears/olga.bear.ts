@@ -10,11 +10,11 @@ export const olga: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: cobham,
-    Date: new Date(2019, 12, 5),
+    Date: new Date(2019, 11, 5),
   },
   Sold: null,
   Rehomed: {
     Location: epsom,
-    Date: new Date(2021, 12, 5),
+    Date: new Date(2021, 11, 5),
   },
 };

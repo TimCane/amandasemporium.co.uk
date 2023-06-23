@@ -10,11 +10,11 @@ export const phoebe: IBear = {
   Type: BearType.Unknown,
   Rescued: {
     Location: haylingIsland,
-    Date: new Date(2018, 7, 7),
+    Date: new Date(2018, 6, 7),
   },
   Sold: null,
   Rehomed: {
     Location: send,
-    Date: new Date(2018, 12, 2),
+    Date: new Date(2018, 11, 2),
   },
 };

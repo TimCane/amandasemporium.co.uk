@@ -10,11 +10,11 @@ export const pat: IBear = {
   Type: BearType.KeelTeddybear,
   Rescued: {
     Location: hunston,
-    Date: new Date(2018, 5, 5),
+    Date: new Date(2018, 4, 5),
   },
   Sold: null,
   Rehomed: {
     Location: sunbury,
-    Date: new Date(2018, 9, 5),
+    Date: new Date(2018, 8, 5),
   },
 };

@@ -10,11 +10,11 @@ export const grayson: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: ely,
-    Date: new Date(2021, 8, 19),
+    Date: new Date(2021, 7, 19),
   },
   Sold: null,
   Rehomed: {
     Location: chessington,
-    Date: new Date(2022, 9, 24),
+    Date: new Date(2022, 8, 24),
   },
 };

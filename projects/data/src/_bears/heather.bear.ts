@@ -10,11 +10,11 @@ export const heather: IBear = {
   Type: BearType.Unknown,
   Rescued: {
     Location: newbury,
-    Date: new Date(2021, 10, 8),
+    Date: new Date(2021, 9, 8),
   },
   Sold: null,
   Rehomed: {
     Location: richmond,
-    Date: new Date(2022, 9, 24),
+    Date: new Date(2022, 8, 24),
   },
 };

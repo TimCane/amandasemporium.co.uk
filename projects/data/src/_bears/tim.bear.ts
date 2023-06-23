@@ -10,11 +10,11 @@ export const tim: IBear = {
   Type: BearType.ValentineHeartBear,
   Rescued: {
     Location: southsea,
-    Date: new Date(2019, 5, 25),
+    Date: new Date(2019, 4, 25),
   },
   Sold: null,
   Rehomed: {
     Location: horsham,
-    Date: new Date(2019, 7, 14),
+    Date: new Date(2019, 6, 14),
   },
 };

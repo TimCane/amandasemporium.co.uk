@@ -10,11 +10,11 @@ export const monty: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: shepperton,
-    Date: new Date(2019, 8, 24),
+    Date: new Date(2019, 7, 24),
   },
   Sold: null,
   Rehomed: {
     Location: middleton,
-    Date: new Date(2019, 12, 7),
+    Date: new Date(2019, 11, 7),
   },
 };

@@ -10,11 +10,11 @@ export const karen: IBear = {
   Type: BearType.Unknown,
   Rescued: {
     Location: bexhillOnSea,
-    Date: new Date(2019, 9, 14),
+    Date: new Date(2019, 8, 14),
   },
   Sold: null,
   Rehomed: {
     Location: stilton,
-    Date: new Date(2020, 2, 16),
+    Date: new Date(2020, 1, 16),
   },
 };

@@ -10,11 +10,11 @@ export const ginny: IBear = {
   Type: BearType.InifiniteDesigns,
   Rescued: {
     Location: haylingIsland,
-    Date: new Date(2019, 10, 12),
+    Date: new Date(2019, 9, 12),
   },
   Sold: null,
   Rehomed: {
     Location: farnham,
-    Date: new Date(2021, 8, 14),
+    Date: new Date(2021, 7, 14),
   },
 };

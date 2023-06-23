@@ -10,11 +10,11 @@ export const tess: IBear = {
   Type: BearType.Morrisons,
   Rescued: {
     Location: chicester,
-    Date: new Date(2019, 10, 6),
+    Date: new Date(2019, 9, 6),
   },
   Sold: null,
   Rehomed: {
     Location: chessington,
-    Date: new Date(2021, 9, 25),
+    Date: new Date(2021, 8, 25),
   },
 };

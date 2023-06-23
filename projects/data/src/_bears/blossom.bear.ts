@@ -10,11 +10,11 @@ export const blossom: IBear = {
   Type: BearType.TheWorks,
   Rescued: {
     Location: southsea,
-    Date: new Date(2019, 9, 21),
+    Date: new Date(2019, 8, 21),
   },
   Sold: null,
   Rehomed: {
     Location: farnborough,
-    Date: new Date(2019, 10, 19),
+    Date: new Date(2019, 9, 19),
   },
 };

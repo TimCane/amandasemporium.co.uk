@@ -10,11 +10,11 @@ export const tilly: IBear = {
   Type: BearType.BearFactory,
   Rescued: {
     Location: eastGrinstead,
-    Date: new Date(2020, 3, 9),
+    Date: new Date(2020, 2, 9),
   },
   Sold: null,
   Rehomed: {
     Location: kingston,
-    Date: new Date(2021, 9, 25),
+    Date: new Date(2021, 8, 25),
   },
 };

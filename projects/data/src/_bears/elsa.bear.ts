@@ -10,11 +10,11 @@ export const elsa: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: addlestone,
-    Date: new Date(2022, 11, 14),
+    Date: new Date(2022, 10, 14),
   },
   Sold: null,
   Rehomed: {
     Location: odiham,
-    Date: new Date(2022, 11, 27),
+    Date: new Date(2022, 10, 27),
   },
 };

@@ -10,11 +10,11 @@ export const cookie: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: chicester,
-    Date: new Date(2019, 8, 3),
+    Date: new Date(2019, 7, 3),
   },
   Sold: null,
   Rehomed: {
     Location: billingshurst,
-    Date: new Date(2019, 10, 6),
+    Date: new Date(2019, 9, 6),
   },
 };

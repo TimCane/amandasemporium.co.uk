@@ -10,11 +10,11 @@ export const baaabara: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: addlestone,
-    Date: new Date(2019, 11, 14),
+    Date: new Date(2019, 10, 14),
   },
   Sold: null,
   Rehomed: {
     Location: leatherhead,
-    Date: new Date(2022, 4, 23),
+    Date: new Date(2022, 3, 23),
   },
 };

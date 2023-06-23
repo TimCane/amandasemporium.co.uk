@@ -10,11 +10,11 @@ export const rory: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: waltonUponThames,
-    Date: new Date(2018, 10, 13),
+    Date: new Date(2018, 9, 13),
   },
   Sold: null,
   Rehomed: {
     Location: normandy,
-    Date: new Date(2018, 11, 17),
+    Date: new Date(2018, 10, 17),
   },
 };

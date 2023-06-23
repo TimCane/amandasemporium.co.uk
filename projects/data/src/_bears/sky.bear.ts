@@ -10,11 +10,11 @@ export const sky: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: binfield,
-    Date: new Date(2020, 2, 8),
+    Date: new Date(2020, 1, 8),
   },
   Sold: null,
   Rehomed: {
     Location: churchCrookham,
-    Date: new Date(2021, 8, 14),
+    Date: new Date(2021, 7, 14),
   },
 };

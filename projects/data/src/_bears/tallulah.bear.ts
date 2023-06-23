@@ -10,7 +10,7 @@ export const tallulah: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: addlestone,
-    Date: new Date(2022, 11, 14),
+    Date: new Date(2022, 10, 14),
   },
   Sold: null,
   Rehomed: {

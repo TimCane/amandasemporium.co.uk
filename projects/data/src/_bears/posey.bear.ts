@@ -10,11 +10,11 @@ export const posey: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: hunston,
-    Date: new Date(2019, 9, 21),
+    Date: new Date(2019, 8, 21),
   },
   Sold: null,
   Rehomed: {
     Location: guildford,
-    Date: new Date(2019, 11, 30),
+    Date: new Date(2019, 10, 30),
   },
 };

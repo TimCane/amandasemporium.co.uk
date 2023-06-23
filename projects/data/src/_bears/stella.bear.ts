@@ -10,11 +10,11 @@ export const stella: IBear = {
   Type: BearType.SainsburysBear,
   Rescued: {
     Location: farnborough,
-    Date: new Date(2020, 1, 11),
+    Date: new Date(2020, 0, 11),
   },
   Sold: null,
   Rehomed: {
     Location: farnham,
-    Date: new Date(2021, 8, 14),
+    Date: new Date(2021, 7, 14),
   },
 };

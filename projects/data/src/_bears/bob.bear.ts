@@ -10,11 +10,11 @@ export const bob: IBear = {
   Type: BearType.KeelCubbyBear,
   Rescued: {
     Location: chertsey,
-    Date: new Date(2019, 1, 17),
+    Date: new Date(2019, 0, 17),
   },
   Sold: null,
   Rehomed: {
     Location: miltonKeynes,
-    Date: new Date(2019, 5, 25),
+    Date: new Date(2019, 4, 25),
   },
 };

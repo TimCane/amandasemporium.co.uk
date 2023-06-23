@@ -10,11 +10,11 @@ export const clark: IBear = {
   Type: BearType.Unknown,
   Rescued: {
     Location: weybridge,
-    Date: new Date(2018, 12, 20),
+    Date: new Date(2018, 11, 20),
   },
   Sold: null,
   Rehomed: {
     Location: hurley,
-    Date: new Date(2019, 4, 13),
+    Date: new Date(2019, 3, 13),
   },
 };

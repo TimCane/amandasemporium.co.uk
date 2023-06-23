@@ -10,11 +10,11 @@ export const jack: IBear = {
   Type: BearType.GloriousBritainJointedBear,
   Rescued: {
     Location: waltonUponThames,
-    Date: new Date(2018, 4, 18),
+    Date: new Date(2018, 3, 18),
   },
   Sold: null,
   Rehomed: {
     Location: wisley,
-    Date: new Date(2018, 12, 2),
+    Date: new Date(2018, 11, 2),
   },
 };

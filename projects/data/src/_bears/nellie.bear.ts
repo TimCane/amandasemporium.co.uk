@@ -10,11 +10,11 @@ export const nellie: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: camberley,
-    Date: new Date(2022, 2, 12),
+    Date: new Date(2022, 1, 12),
   },
   Sold: null,
   Rehomed: {
     Location: farnham,
-    Date: new Date(2022, 8, 20),
+    Date: new Date(2022, 7, 20),
   },
 };

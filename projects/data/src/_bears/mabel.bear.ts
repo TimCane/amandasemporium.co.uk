@@ -10,11 +10,11 @@ export const mabel: IBear = {
   Type: BearType.Unknown,
   Rescued: {
     Location: southsea,
-    Date: new Date(2019, 9, 1),
+    Date: new Date(2019, 8, 1),
   },
   Sold: null,
   Rehomed: {
     Location: caterham,
-    Date: new Date(2019, 10, 6),
+    Date: new Date(2019, 9, 6),
   },
 };

@@ -10,11 +10,11 @@ export const roly: IBear = {
   Type: BearType.BearFactory,
   Rescued: {
     Location: chichester,
-    Date: new Date(2022, 5, 14),
+    Date: new Date(2022, 4, 14),
   },
   Sold: null,
   Rehomed: {
     Location: woking,
-    Date: new Date(2022, 8, 20),
+    Date: new Date(2022, 7, 20),
   },
 };

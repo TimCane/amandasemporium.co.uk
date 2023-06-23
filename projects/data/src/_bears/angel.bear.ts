@@ -10,11 +10,11 @@ export const angel: IBear = {
   Type: BearType.CuddlesCollection,
   Rescued: {
     Location: hammersmith,
-    Date: new Date(2018, 9, 10),
+    Date: new Date(2018, 8, 10),
   },
   Sold: null,
   Rehomed: {
     Location: reading,
-    Date: new Date(2018, 11, 10),
+    Date: new Date(2018, 10, 10),
   },
 };

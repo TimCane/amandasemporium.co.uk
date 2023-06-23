@@ -10,11 +10,11 @@ export const hayden: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: farnham,
-    Date: new Date(2019, 4, 13),
+    Date: new Date(2019, 3, 13),
   },
   Sold: null,
   Rehomed: {
     Location: surbiton,
-    Date: new Date(2019, 9, 28),
+    Date: new Date(2019, 8, 28),
   },
 };

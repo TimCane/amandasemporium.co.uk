@@ -10,11 +10,11 @@ export const cooper: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: addlestone,
-    Date: new Date(2022, 7, 14),
+    Date: new Date(2022, 8, 14),
   },
   Sold: null,
   Rehomed: {
     Location: surbiton,
-    Date: new Date(2022, 10, 27),
+    Date: new Date(2022, 9, 27),
   },
 };

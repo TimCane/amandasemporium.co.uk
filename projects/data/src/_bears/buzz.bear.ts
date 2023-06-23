@@ -10,11 +10,11 @@ export const buzz: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: hunston,
-    Date: new Date(2019, 9, 21),
+    Date: new Date(2019, 8, 21),
   },
   Sold: null,
   Rehomed: {
     Location: surbiton,
-    Date: new Date(2019, 9, 28),
+    Date: new Date(2019, 8, 28),
   },
 };

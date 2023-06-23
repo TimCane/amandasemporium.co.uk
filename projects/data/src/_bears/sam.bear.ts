@@ -10,11 +10,11 @@ export const sam: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: southsea,
-    Date: new Date(2018, 4, 28),
+    Date: new Date(2018, 3, 28),
   },
   Sold: null,
   Rehomed: {
     Location: burnham,
-    Date: new Date(2018, 5, 26),
+    Date: new Date(2018, 4, 26),
   },
 };

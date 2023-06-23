@@ -9,7 +9,7 @@ export const cobey: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: chertsey,
-    Date: new Date(2020, 6, 1),
+    Date: new Date(2020, 5, 1),
   },
   Sold: null,
   Rehomed: null,

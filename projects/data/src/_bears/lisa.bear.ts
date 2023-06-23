@@ -10,11 +10,11 @@ export const lisa: IBear = {
   Type: BearType.CuddlesCollection,
   Rescued: {
     Location: haylingIsland,
-    Date: new Date(2019, 10, 12),
+    Date: new Date(2019, 9, 12),
   },
   Sold: null,
   Rehomed: {
     Location: horsley,
-    Date: new Date(2019, 12, 1),
+    Date: new Date(2019, 11, 1),
   },
 };

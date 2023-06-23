@@ -10,7 +10,7 @@ export const beau: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: chicester,
-    Date: new Date(2022, 6, 18),
+    Date: new Date(2022, 5, 18),
   },
   Sold: null,
   Rehomed: {

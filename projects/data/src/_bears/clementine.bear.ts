@@ -10,11 +10,11 @@ export const clementine: IBear = {
   Type: BearType.TescoBear,
   Rescued: {
     Location: southsea,
-    Date: new Date(2018, 4, 28),
+    Date: new Date(2018, 3, 28),
   },
   Sold: null,
   Rehomed: {
     Location: minsterLovell,
-    Date: new Date(2018, 6, 9),
+    Date: new Date(2018, 5, 9),
   },
 };

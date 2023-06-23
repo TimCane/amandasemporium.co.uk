@@ -10,11 +10,11 @@ export const chloe: IBear = {
   Type: BearType.BeamFeatureLtd,
   Rescued: {
     Location: chertsey,
-    Date: new Date(2019, 3, 29),
+    Date: new Date(2019, 2, 29),
   },
   Sold: null,
   Rehomed: {
     Location: bansted,
-    Date: new Date(2019, 7, 14),
+    Date: new Date(2019, 6, 14),
   },
 };

@@ -10,11 +10,11 @@ export const hamble: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: kingsbridge,
-    Date: new Date(2019, 6, 12),
+    Date: new Date(2019, 5, 12),
   },
   Sold: null,
   Rehomed: {
     Location: farnham,
-    Date: new Date(2019, 8, 17),
+    Date: new Date(2019, 7, 17),
   },
 };

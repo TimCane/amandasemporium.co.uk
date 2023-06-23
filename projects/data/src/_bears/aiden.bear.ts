@@ -10,11 +10,11 @@ export const aiden: IBear = {
   Type: BearType.BearFactory,
   Rescued: {
     Location: shepperton,
-    Date: new Date(2018, 10, 13),
+    Date: new Date(2018, 9, 13),
   },
   Sold: null,
   Rehomed: {
     Location: steventon,
-    Date: new Date(2018, 11, 11),
+    Date: new Date(2018, 10, 11),
   },
 };

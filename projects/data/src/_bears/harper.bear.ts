@@ -10,11 +10,11 @@ export const harper: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: selsey,
-    Date: new Date(2022, 5, 28),
+    Date: new Date(2022, 4, 28),
   },
   Sold: null,
   Rehomed: {
     Location: chessington,
-    Date: new Date(2022, 9, 24),
+    Date: new Date(2022, 8, 24),
   },
 };

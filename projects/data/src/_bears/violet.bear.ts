@@ -10,11 +10,11 @@ export const violet: IBear = {
   Type: BearType.BearFactory,
   Rescued: {
     Location: hunston,
-    Date: new Date(2019, 9, 21),
+    Date: new Date(2019, 8, 21),
   },
   Sold: null,
   Rehomed: {
     Location: westMolesey,
-    Date: new Date(2019, 9, 28),
+    Date: new Date(2019, 8, 28),
   },
 };

@@ -10,11 +10,11 @@ export const polly: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: haylingIsland,
-    Date: new Date(2018, 10, 13),
+    Date: new Date(2018, 9, 13),
   },
   Sold: null,
   Rehomed: {
     Location: dorchester,
-    Date: new Date(2019, 6, 2),
+    Date: new Date(2019, 5, 2),
   },
 };

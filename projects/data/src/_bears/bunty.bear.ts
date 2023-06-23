@@ -10,11 +10,11 @@ export const bunty: IBear = {
   Type: BearType.KeelTeddybear,
   Rescued: {
     Location: tonbridge,
-    Date: new Date(2019, 9, 13),
+    Date: new Date(2019, 8, 13),
   },
   Sold: null,
   Rehomed: {
     Location: horsley,
-    Date: new Date(2019, 12, 1),
+    Date: new Date(2019, 11, 1),
   },
 };

@@ -10,11 +10,11 @@ export const greg: IBear = {
   Type: BearType.CuddlesCollection,
   Rescued: {
     Location: bognor,
-    Date: new Date(2018, 6, 30),
+    Date: new Date(2018, 5, 30),
   },
   Sold: null,
   Rehomed: {
     Location: clapham,
-    Date: new Date(2018, 11, 22),
+    Date: new Date(2018, 10, 22),
   },
 };

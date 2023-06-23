@@ -10,11 +10,11 @@ export const edison: IBear = {
   Type: BearType.BuildABear,
   Rescued: {
     Location: folkstone,
-    Date: new Date(2020, 10, 1),
+    Date: new Date(2020, 9, 1),
   },
   Sold: null,
   Rehomed: {
     Location: fleet,
-    Date: new Date(2022, 8, 20),
+    Date: new Date(2022, 7, 20),
   },
 };

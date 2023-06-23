@@ -10,11 +10,11 @@ export const charlie: IBear = {
   Type: BearType.TyBear,
   Rescued: {
     Location: southsea,
-    Date: new Date(2018, 4, 28),
+    Date: new Date(2018, 3, 28),
   },
   Sold: null,
   Rehomed: {
     Location: sutton,
-    Date: new Date(2018, 5, 6),
+    Date: new Date(2018, 4, 6),
   },
 };
