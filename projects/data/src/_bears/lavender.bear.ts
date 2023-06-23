@@ -1,3 +1,4 @@
+import { E20210731 } from '../_events/E2021-07-31.event';
 import { binfield } from '../_locations/binfield.location';
 import { wokingham } from '../_locations/wokingham.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const lavender: IBear = {
     Location: binfield,
     Date: new Date(2020, 1, 8),
   },
-  Sold: null,
+  Event: E20210731,
   Rehomed: {
     Location: wokingham,
     Date: new Date(2021, 6, 31),

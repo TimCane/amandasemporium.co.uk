@@ -1,3 +1,4 @@
+import { E20191019 } from '../_events/E2019-10-19.event';
 import { farnborough } from '../_locations/farnborough.location';
 import { southsea } from '../_locations/southsea.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const blossom: IBear = {
     Location: southsea,
     Date: new Date(2019, 8, 21),
   },
-  Sold: null,
+  Event: E20191019,
   Rehomed: {
     Location: farnborough,
     Date: new Date(2019, 9, 19),

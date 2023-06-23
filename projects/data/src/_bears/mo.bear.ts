@@ -12,7 +12,7 @@ export const mo: IBear = {
     Location: cobham,
     Date: new Date(2020, 11, 5),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: southShields,
     Date: new Date(2021, 11, 5),

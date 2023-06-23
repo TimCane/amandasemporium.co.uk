@@ -12,7 +12,7 @@ export const monty: IBear = {
     Location: shepperton,
     Date: new Date(2019, 7, 24),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: middleton,
     Date: new Date(2019, 11, 7),

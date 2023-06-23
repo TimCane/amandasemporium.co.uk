@@ -11,6 +11,6 @@ export const ava: IBear = {
     Location: addlestone,
     Date: new Date(2023, 4, 18),
   },
-  Sold: null,
+  Event: null,
   Rehomed: null,
 };

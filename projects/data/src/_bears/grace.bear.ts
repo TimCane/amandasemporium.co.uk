@@ -1,3 +1,4 @@
+import { E20180929 } from '../_events/E2018-09-29.event';
 import { shepperton } from '../_locations/shepperton.location';
 import { surbiton } from '../_locations/surbiton.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const grace: IBear = {
     Location: shepperton,
     Date: new Date(2018, 8, 8),
   },
-  Sold: null,
+  Event: E20180929,
   Rehomed: {
     Location: surbiton,
     Date: new Date(2018, 8, 29),

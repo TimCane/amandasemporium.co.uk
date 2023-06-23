@@ -11,6 +11,6 @@ export const kara: IBear = {
     Location: guildford,
     Date: new Date(2022, 7, 7),
   },
-  Sold: null,
+  Event: null,
   Rehomed: null,
 };

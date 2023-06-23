@@ -11,6 +11,6 @@ export const sidney: IBear = {
     Location: shepperton,
     Date: new Date(2023, 5, 3),
   },
-  Sold: null,
+  Event: null,
   Rehomed: null,
 };

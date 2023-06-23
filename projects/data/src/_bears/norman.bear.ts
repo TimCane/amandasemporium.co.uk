@@ -1,3 +1,4 @@
+import { E20180610 } from '../_events/E2018-06-10.event';
 import { burnham } from '../_locations/burnham.location';
 import { minsterLovell } from '../_locations/minsterLovell.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const norman: IBear = {
     Location: burnham,
     Date: new Date(2018, 4, 26),
   },
-  Sold: null,
+  Event: E20180610,
   Rehomed: {
     Location: minsterLovell,
     Date: new Date(2018, 5, 10),

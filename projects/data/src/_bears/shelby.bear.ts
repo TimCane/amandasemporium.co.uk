@@ -1,3 +1,4 @@
+import { E20230617 } from '../_events/E2023-06-17.event';
 import { nottingham } from '../_locations/nottingham.location';
 import { pagham } from '../_locations/pagham.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const shelby: IBear = {
     Location: pagham,
     Date: new Date(2022, 8, 17),
   },
-  Sold: null,
+  Event: E20230617,
   Rehomed: {
     Location: nottingham,
     Date: new Date(2023, 5, 17),

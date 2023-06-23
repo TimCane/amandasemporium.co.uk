@@ -12,7 +12,7 @@ export const rowan: IBear = {
     Location: ashford,
     Date: new Date(2019, 0, 8),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: bracknell,
     Date: new Date(2019, 3, 20),

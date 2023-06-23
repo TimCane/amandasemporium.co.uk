@@ -11,6 +11,6 @@ export const wendy: IBear = {
     Location: woking,
     Date: new Date(2022, 10, 1),
   },
-  Sold: null,
+  Event: null,
   Rehomed: null,
 };

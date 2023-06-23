@@ -1,3 +1,4 @@
+import { E20191214 } from '../_events/E2019-12-14.event';
 import { horley } from '../_locations/horley.location';
 import { shepperton } from '../_locations/shepperton.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const mia: IBear = {
     Location: shepperton,
     Date: new Date(2018, 8, 8),
   },
-  Sold: null,
+  Event: E20191214,
   Rehomed: {
     Location: horley,
     Date: new Date(2019, 11, 14),

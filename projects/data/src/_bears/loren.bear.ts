@@ -1,3 +1,4 @@
+import { E20210925 } from '../_events/E2021-09-25.event';
 import { aldershot } from '../_locations/aldershot.location';
 import { ashford } from '../_locations/ashford.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const loren: IBear = {
     Location: ashford,
     Date: new Date(2019, 9, 24),
   },
-  Sold: null,
+  Event: E20210925,
   Rehomed: {
     Location: aldershot,
     Date: new Date(2021, 8, 25),

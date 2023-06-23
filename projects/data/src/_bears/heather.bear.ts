@@ -1,3 +1,4 @@
+import { E20220924 } from '../_events/E2022-09-24.event';
 import { newbury } from '../_locations/newbury.location';
 import { richmond } from '../_locations/richmond.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const heather: IBear = {
     Location: newbury,
     Date: new Date(2021, 9, 8),
   },
-  Sold: null,
+  Event: E20220924,
   Rehomed: {
     Location: richmond,
     Date: new Date(2022, 8, 24),

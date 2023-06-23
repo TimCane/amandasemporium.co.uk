@@ -12,7 +12,7 @@ export const simon: IBear = {
     Location: addlestone,
     Date: new Date(2023, 2, 16),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: upton,
     Date: new Date(2023, 5, 20),

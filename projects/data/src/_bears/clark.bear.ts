@@ -1,3 +1,4 @@
+import { E20190413 } from '../_events/E2019-04-13.event';
 import { hurley } from '../_locations/hurley.location';
 import { weybridge } from '../_locations/weybridge.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const clark: IBear = {
     Location: weybridge,
     Date: new Date(2018, 11, 20),
   },
-  Sold: null,
+  Event: E20190413,
   Rehomed: {
     Location: hurley,
     Date: new Date(2019, 3, 13),

@@ -12,7 +12,7 @@ export const hope: IBear = {
     Location: haylingIsland,
     Date: new Date(2018, 6, 7),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: camberley,
     Date: new Date(2018, 10, 17),

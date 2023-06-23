@@ -12,7 +12,7 @@ export const bear: IBear = {
     Location: cobham,
     Date: new Date(2019, 11, 5),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: surbiton,
     Date: new Date(2022, 9, 27),

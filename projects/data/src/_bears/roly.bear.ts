@@ -1,3 +1,4 @@
+import { E20220820 } from '../_events/E2022-08-20.event';
 import { chichester } from '../_locations/chichester.location';
 import { woking } from '../_locations/woking.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const roly: IBear = {
     Location: chichester,
     Date: new Date(2022, 4, 14),
   },
-  Sold: null,
+  Event: E20220820,
   Rehomed: {
     Location: woking,
     Date: new Date(2022, 7, 20),

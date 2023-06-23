@@ -1,3 +1,4 @@
+import { E20230617 } from '../_events/E2023-06-17.event';
 import { hartleyWintney } from '../_locations/hartleyWintney.location';
 import { ruislip } from '../_locations/ruislip.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const freya: IBear = {
     Location: ruislip,
     Date: new Date(2022, 11, 21),
   },
-  Sold: null,
+  Event: E20230617,
   Rehomed: {
     Location: hartleyWintney,
     Date: new Date(2023, 5, 17),

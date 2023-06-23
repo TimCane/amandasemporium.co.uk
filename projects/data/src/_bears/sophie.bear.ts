@@ -1,3 +1,4 @@
+import { E20181202 } from '../_events/E2018-12-02.event';
 import { horsell } from '../_locations/horsell.location';
 import { ripley } from '../_locations/ripley.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const sophie: IBear = {
     Location: horsell,
     Date: new Date(2018, 8, 29),
   },
-  Sold: null,
+  Event: E20181202,
   Rehomed: {
     Location: ripley,
     Date: new Date(2018, 11, 2),

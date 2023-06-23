@@ -1,3 +1,4 @@
+import { E20210925 } from '../_events/E2021-09-25.event';
 import { eastGrinstead } from '../_locations/eastGrinstead.location';
 import { kingston } from '../_locations/kingston.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const tilly: IBear = {
     Location: eastGrinstead,
     Date: new Date(2020, 2, 9),
   },
-  Sold: null,
+  Event: E20210925,
   Rehomed: {
     Location: kingston,
     Date: new Date(2021, 8, 25),

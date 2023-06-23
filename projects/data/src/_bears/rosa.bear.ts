@@ -12,7 +12,7 @@ export const rosa: IBear = {
     Location: southsea,
     Date: new Date(2019, 5, 2),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: farnborough,
     Date: new Date(2020, 9, 17),

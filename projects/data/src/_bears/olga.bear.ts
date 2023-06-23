@@ -12,7 +12,7 @@ export const olga: IBear = {
     Location: cobham,
     Date: new Date(2019, 11, 5),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: epsom,
     Date: new Date(2021, 11, 5),

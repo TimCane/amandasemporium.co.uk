@@ -1,3 +1,4 @@
+import { E20210925 } from '../_events/E2021-09-25.event';
 import { farnborough } from '../_locations/farnborough.location';
 import { surbiton } from '../_locations/surbiton.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const paul: IBear = {
     Location: farnborough,
     Date: new Date(2020, 0, 11),
   },
-  Sold: null,
+  Event: E20210925,
   Rehomed: {
     Location: surbiton,
     Date: new Date(2021, 8, 25),

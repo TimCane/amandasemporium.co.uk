@@ -1,3 +1,4 @@
+import { E20210814 } from '../_events/E2021-08-14.event';
 import { binfield } from '../_locations/binfield.location';
 import { churchCrookham } from '../_locations/churchCrookham.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const sky: IBear = {
     Location: binfield,
     Date: new Date(2020, 1, 8),
   },
-  Sold: null,
+  Event: E20210814,
   Rehomed: {
     Location: churchCrookham,
     Date: new Date(2021, 7, 14),

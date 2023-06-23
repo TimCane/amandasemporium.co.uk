@@ -1,3 +1,4 @@
+import { E20180408 } from '../_events/E2018-04-08.event';
 import { waltonUponThames } from '../_locations/waltonUponThames.location';
 import { windsor } from '../_locations/windsor.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const nobbie: IBear = {
     Location: waltonUponThames,
     Date: new Date(2018, 3, 4),
   },
-  Sold: null,
+  Event: E20180408,
   Rehomed: {
     Location: windsor,
     Date: new Date(2018, 3, 8),

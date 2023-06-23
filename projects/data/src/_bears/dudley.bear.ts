@@ -1,3 +1,4 @@
+import { E20190928 } from '../_events/E2019-09-28.event';
 import { bexhillOnSea } from '../_locations/bexhillOnSea.location';
 import { ewell } from '../_locations/ewell.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const dudley: IBear = {
     Location: bexhillOnSea,
     Date: new Date(2019, 8, 14),
   },
-  Sold: null,
+  Event: E20190928,
   Rehomed: {
     Location: ewell,
     Date: new Date(2019, 8, 28),

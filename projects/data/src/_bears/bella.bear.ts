@@ -1,3 +1,4 @@
+import { E20190525 } from '../_events/E2019-05-25.event';
 import { burnham } from '../_locations/burnham.location';
 import { haylingIsland } from '../_locations/haylingIsland.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const bella: IBear = {
     Location: haylingIsland,
     Date: new Date(2018, 2, 31),
   },
-  Sold: null,
+  Event: E20190525,
   Rehomed: {
     Location: burnham,
     Date: new Date(2019, 4, 25),

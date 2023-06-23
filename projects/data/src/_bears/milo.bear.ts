@@ -1,3 +1,4 @@
+import { E20180929 } from '../_events/E2018-09-29.event';
 import { durham } from '../_locations/durham.location';
 import { shepperton } from '../_locations/shepperton.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const milo: IBear = {
     Location: shepperton,
     Date: new Date(2018, 8, 8),
   },
-  Sold: null,
+  Event: E20180929,
   Rehomed: {
     Location: durham,
     Date: new Date(2018, 8, 29),

@@ -1,3 +1,4 @@
+import { E20210731 } from '../_events/E2021-07-31.event';
 import { chicester } from '../_locations/chicester.location';
 import { winnersh } from '../_locations/winnersh.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const martin: IBear = {
     Location: chicester,
     Date: new Date(2019, 9, 6),
   },
-  Sold: null,
+  Event: E20210731,
   Rehomed: {
     Location: winnersh,
     Date: new Date(2021, 6, 31),

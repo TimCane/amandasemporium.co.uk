@@ -1,3 +1,4 @@
+import { E20221120 } from '../_events/E2022-11-20.event';
 import { andover } from '../_locations/andover.location';
 import { pagham } from '../_locations/pagham.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const sylvia: IBear = {
     Location: pagham,
     Date: new Date(2022, 8, 17),
   },
-  Sold: null,
+  Event: E20221120,
   Rehomed: {
     Location: andover,
     Date: new Date(2022, 10, 20),

@@ -11,6 +11,6 @@ export const lee: IBear = {
     Location: ruislip,
     Date: new Date(2022, 11, 21),
   },
-  Sold: null,
+  Event: null,
   Rehomed: null,
 };

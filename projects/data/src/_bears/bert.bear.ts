@@ -12,7 +12,7 @@ export const bert: IBear = {
     Location: waltonUponThames,
     Date: new Date(2019, 9, 18),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: farnborough,
     Date: new Date(2020, 1, 19),

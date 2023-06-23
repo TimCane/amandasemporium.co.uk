@@ -1,3 +1,4 @@
+import { E20210925 } from '../_events/E2021-09-25.event';
 import { chessington } from '../_locations/chessington.location';
 import { chicester } from '../_locations/chicester.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const tess: IBear = {
     Location: chicester,
     Date: new Date(2019, 9, 6),
   },
-  Sold: null,
+  Event: E20210925,
   Rehomed: {
     Location: chessington,
     Date: new Date(2021, 8, 25),

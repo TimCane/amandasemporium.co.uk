@@ -1,3 +1,4 @@
+import { E20181110 } from '../_events/E2018-11-10.event';
 import { haylingIsland } from '../_locations/haylingIsland.location';
 import { reading } from '../_locations/reading.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const clara: IBear = {
     Location: haylingIsland,
     Date: new Date(2018, 9, 13),
   },
-  Sold: null,
+  Event: E20181110,
   Rehomed: {
     Location: reading,
     Date: new Date(2018, 10, 10),

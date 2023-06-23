@@ -1,3 +1,4 @@
+import { E20191201 } from '../_events/E2019-12-01.event';
 import { emsworth } from '../_locations/emsworth.location';
 import { send } from '../_locations/send.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const madison: IBear = {
     Location: emsworth,
     Date: new Date(2018, 6, 7),
   },
-  Sold: null,
+  Event: E20191201,
   Rehomed: {
     Location: send,
     Date: new Date(2019, 11, 1),

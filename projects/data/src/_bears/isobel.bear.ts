@@ -1,3 +1,4 @@
+import { E20191019 } from '../_events/E2019-10-19.event';
 import { chertsey } from '../_locations/chertsey.location';
 import { horsham } from '../_locations/horsham.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const isobel: IBear = {
     Location: chertsey,
     Date: new Date(2019, 2, 29),
   },
-  Sold: null,
+  Event: E20191019,
   Rehomed: {
     Location: horsham,
     Date: new Date(2019, 9, 19),

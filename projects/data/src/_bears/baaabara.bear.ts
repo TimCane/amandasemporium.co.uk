@@ -12,7 +12,7 @@ export const baaabara: IBear = {
     Location: addlestone,
     Date: new Date(2019, 10, 14),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: leatherhead,
     Date: new Date(2022, 3, 23),

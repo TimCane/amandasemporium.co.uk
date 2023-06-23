@@ -12,9 +12,9 @@ export const cooper: IBear = {
     Location: addlestone,
     Date: new Date(2022, 8, 14),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: surbiton,
-    Date: new Date(2022, 9, 27),
+    Date: new Date(2019, 6, 14),
   },
 };

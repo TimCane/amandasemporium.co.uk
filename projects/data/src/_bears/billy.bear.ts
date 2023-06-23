@@ -11,6 +11,6 @@ export const billy: IBear = {
     Location: chichester,
     Date: new Date(2022, 4, 14),
   },
-  Sold: null,
+  Event: null,
   Rehomed: null,
 };

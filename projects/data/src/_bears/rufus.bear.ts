@@ -1,3 +1,4 @@
+import { E20191130 } from '../_events/E2019-11-30.event';
 import { bridgemary } from '../_locations/bridgemary.location';
 import { woking } from '../_locations/woking.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const rufus: IBear = {
     Location: bridgemary,
     Date: new Date(2019, 5, 2),
   },
-  Sold: null,
+  Event: E20191130,
   Rehomed: {
     Location: woking,
     Date: new Date(2019, 10, 30),

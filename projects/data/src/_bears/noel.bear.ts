@@ -1,3 +1,4 @@
+import { E20181208 } from '../_events/E2018-12-08.event';
 import { egham } from '../_locations/egham.location';
 import { horley } from '../_locations/horley.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const noel: IBear = {
     Location: egham,
     Date: new Date(2018, 10, 26),
   },
-  Sold: null,
+  Event: E20181208,
   Rehomed: {
     Location: horley,
     Date: new Date(2018, 11, 8),

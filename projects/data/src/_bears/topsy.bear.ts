@@ -12,7 +12,7 @@ export const topsy: IBear = {
     Location: addlestone,
     Date: new Date(2022, 10, 25),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: horley,
     Date: new Date(2023, 3, 22),

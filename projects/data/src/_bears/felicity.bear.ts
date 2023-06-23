@@ -1,3 +1,4 @@
+import { E20191214 } from '../_events/E2019-12-14.event';
 import { ashford } from '../_locations/ashford.location';
 import { horley } from '../_locations/horley.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const felicity: IBear = {
     Location: ashford,
     Date: new Date(2019, 9, 24),
   },
-  Sold: null,
+  Event: E20191214,
   Rehomed: {
     Location: horley,
     Date: new Date(2019, 11, 14),

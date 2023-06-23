@@ -12,7 +12,7 @@ export const arla: IBear = {
     Location: bosham,
     Date: new Date(2022, 6, 10),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: horley,
     Date: new Date(2023, 3, 22),

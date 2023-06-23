@@ -1,3 +1,4 @@
+import { E20221210 } from '../_events/E2022-12-10.event';
 import { horley } from '../_locations/horley.location';
 import { westWittering } from '../_locations/westWittering.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const merida: IBear = {
     Location: westWittering,
     Date: new Date(2022, 9, 8),
   },
-  Sold: null,
+  Event: E20221210,
   Rehomed: {
     Location: horley,
     Date: new Date(2022, 11, 10),

@@ -1,3 +1,4 @@
+import { E20190921 } from '../_events/E2019-09-21.event';
 import { godalming } from '../_locations/godalming.location';
 import { haylingIsland } from '../_locations/haylingIsland.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const frank: IBear = {
     Location: haylingIsland,
     Date: new Date(2019, 7, 26),
   },
-  Sold: null,
+  Event: E20190921,
   Rehomed: {
     Location: godalming,
     Date: new Date(2019, 8, 21),

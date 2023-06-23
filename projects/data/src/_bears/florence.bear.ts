@@ -1,3 +1,4 @@
+import { E20230617 } from '../_events/E2023-06-17.event';
 import { chichester } from '../_locations/chichester.location';
 import { nottingham } from '../_locations/nottingham.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const florence: IBear = {
     Location: chichester,
     Date: new Date(2022, 8, 10),
   },
-  Sold: null,
+  Event: E20230617,
   Rehomed: {
     Location: nottingham,
     Date: new Date(2023, 5, 17),

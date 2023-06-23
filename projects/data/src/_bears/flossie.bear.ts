@@ -12,7 +12,7 @@ export const flossie: IBear = {
     Location: ely,
     Date: new Date(2021, 7, 19),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: horley,
     Date: new Date(2022, 3, 23),

@@ -12,7 +12,7 @@ export const ivy: IBear = {
     Location: binfield,
     Date: new Date(2020, 1, 8),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: bansted,
     Date: new Date(2021, 11, 5),

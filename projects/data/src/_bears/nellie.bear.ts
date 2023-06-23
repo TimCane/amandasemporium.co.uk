@@ -1,3 +1,4 @@
+import { E20220820 } from '../_events/E2022-08-20.event';
 import { camberley } from '../_locations/camberley.location';
 import { farnham } from '../_locations/farnham.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const nellie: IBear = {
     Location: camberley,
     Date: new Date(2022, 1, 12),
   },
-  Sold: null,
+  Event: E20220820,
   Rehomed: {
     Location: farnham,
     Date: new Date(2022, 7, 20),

@@ -1,3 +1,4 @@
+import { E20191006 } from '../_events/E2019-10-06.event';
 import { billingshurst } from '../_locations/billingshurst.location';
 import { chicester } from '../_locations/chicester.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const cookie: IBear = {
     Location: chicester,
     Date: new Date(2019, 7, 3),
   },
-  Sold: null,
+  Event: E20191006,
   Rehomed: {
     Location: billingshurst,
     Date: new Date(2019, 9, 6),

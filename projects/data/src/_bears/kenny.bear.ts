@@ -1,3 +1,4 @@
+import { E20190525 } from '../_events/E2019-05-25.event';
 import { chertsey } from '../_locations/chertsey.location';
 import { taplow } from '../_locations/taplow.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const kenny: IBear = {
     Location: chertsey,
     Date: new Date(2018, 5, 6),
   },
-  Sold: null,
+  Event: E20190525,
   Rehomed: {
     Location: taplow,
     Date: new Date(2019, 4, 25),

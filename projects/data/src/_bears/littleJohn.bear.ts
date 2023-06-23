@@ -1,3 +1,4 @@
+import { E20210925 } from '../_events/E2021-09-25.event';
 import { southsea } from '../_locations/southsea.location';
 import { surbiton } from '../_locations/surbiton.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const littleJohn: IBear = {
     Location: southsea,
     Date: new Date(2019, 7, 4),
   },
-  Sold: null,
+  Event: E20210925,
   Rehomed: {
     Location: surbiton,
     Date: new Date(2021, 8, 25),

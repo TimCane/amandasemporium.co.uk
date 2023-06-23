@@ -1,3 +1,4 @@
+import { E20210814 } from '../_events/E2021-08-14.event';
 import { farnham } from '../_locations/farnham.location';
 import { ruislip } from '../_locations/ruislip.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const aly: IBear = {
     Location: ruislip,
     Date: new Date(2020, 7, 20),
   },
-  Sold: null,
+  Event: E20210814,
   Rehomed: {
     Location: farnham,
     Date: new Date(2021, 7, 14),

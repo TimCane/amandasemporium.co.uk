@@ -1,3 +1,4 @@
+import { E20190602 } from '../_events/E2019-06-02.event';
 import { dorchester } from '../_locations/dorchester.location';
 import { haylingIsland } from '../_locations/haylingIsland.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const polly: IBear = {
     Location: haylingIsland,
     Date: new Date(2018, 9, 13),
   },
-  Sold: null,
+  Event: E20190602,
   Rehomed: {
     Location: dorchester,
     Date: new Date(2019, 5, 2),

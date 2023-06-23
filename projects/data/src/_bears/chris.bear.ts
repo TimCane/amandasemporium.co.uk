@@ -12,7 +12,7 @@ export const chris: IBear = {
     Location: weybridge,
     Date: new Date(2019, 2, 29),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: bognor,
     Date: new Date(2019, 6, 14),

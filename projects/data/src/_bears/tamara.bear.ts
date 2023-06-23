@@ -12,7 +12,7 @@ export const tamara: IBear = {
     Location: bridgemary,
     Date: new Date(2019, 5, 2),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: cove,
     Date: new Date(2019, 6, 7),

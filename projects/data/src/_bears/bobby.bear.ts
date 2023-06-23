@@ -1,3 +1,4 @@
+import { E20190928 } from '../_events/E2019-09-28.event';
 import { birdham } from '../_locations/birdham.location';
 import { chessington } from '../_locations/chessington.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const bobby: IBear = {
     Location: birdham,
     Date: new Date(2019, 7, 24),
   },
-  Sold: null,
+  Event: E20190928,
   Rehomed: {
     Location: chessington,
     Date: new Date(2019, 8, 28),

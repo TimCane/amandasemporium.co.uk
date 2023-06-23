@@ -11,6 +11,6 @@ export const cobey: IBear = {
     Location: chertsey,
     Date: new Date(2020, 5, 1),
   },
-  Sold: null,
+  Event: null,
   Rehomed: null,
 };

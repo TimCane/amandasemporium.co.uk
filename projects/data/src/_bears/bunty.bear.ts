@@ -1,3 +1,4 @@
+import { E20191201 } from '../_events/E2019-12-01.event';
 import { horsley } from '../_locations/horsley.location';
 import { tonbridge } from '../_locations/tonbridge.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const bunty: IBear = {
     Location: tonbridge,
     Date: new Date(2019, 8, 13),
   },
-  Sold: null,
+  Event: E20191201,
   Rehomed: {
     Location: horsley,
     Date: new Date(2019, 11, 1),

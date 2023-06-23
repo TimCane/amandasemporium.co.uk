@@ -11,6 +11,6 @@ export const ella: IBear = {
     Location: shepperton,
     Date: new Date(2022, 9, 29),
   },
-  Sold: null,
+  Event: null,
   Rehomed: null,
 };

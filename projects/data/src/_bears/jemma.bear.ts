@@ -11,6 +11,6 @@ export const jemma: IBear = {
     Location: chicester,
     Date: new Date(2022, 8, 10),
   },
-  Sold: null,
+  Event: null,
   Rehomed: null,
 };

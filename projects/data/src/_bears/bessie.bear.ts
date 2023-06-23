@@ -1,3 +1,4 @@
+import { E20190817 } from '../_events/E2019-08-17.event';
 import { basingstoke } from '../_locations/basingstoke.location';
 import { weybridge } from '../_locations/weybridge.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const bessie: IBear = {
     Location: weybridge,
     Date: new Date(2019, 1, 23),
   },
-  Sold: null,
+  Event: E20190817,
   Rehomed: {
     Location: basingstoke,
     Date: new Date(2019, 7, 17),

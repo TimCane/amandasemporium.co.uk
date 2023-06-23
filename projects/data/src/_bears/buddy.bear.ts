@@ -12,7 +12,7 @@ export const buddy: IBear = {
     Location: chicester,
     Date: new Date(2019, 8, 21),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: surbiton,
     Date: new Date(2022, 9, 27),

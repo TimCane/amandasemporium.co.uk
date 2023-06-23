@@ -1,3 +1,4 @@
+import { E20200510 } from '../_events/E2020-05-10.event';
 import { romsey } from '../_locations/romsey.location';
 import { woking } from '../_locations/woking.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const terry: IBear = {
     Location: romsey,
     Date: new Date(2019, 7, 2),
   },
-  Sold: null,
+  Event: E20200510,
   Rehomed: {
     Location: woking,
     Date: new Date(2020, 4, 10),

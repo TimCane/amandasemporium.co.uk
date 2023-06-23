@@ -1,3 +1,4 @@
+import { E20180905 } from '../_events/E2018-09-05.event';
 import { hunston } from '../_locations/hunston.location';
 import { sunbury } from '../_locations/sunbury.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const pat: IBear = {
     Location: hunston,
     Date: new Date(2018, 4, 5),
   },
-  Sold: null,
+  Event: E20180905,
   Rehomed: {
     Location: sunbury,
     Date: new Date(2018, 8, 5),

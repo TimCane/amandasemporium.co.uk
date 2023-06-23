@@ -12,7 +12,7 @@ export const nancy: IBear = {
     Location: waltonUponThames,
     Date: new Date(2021, 8, 12),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: farnborough,
     Date: new Date(2021, 10, 20),

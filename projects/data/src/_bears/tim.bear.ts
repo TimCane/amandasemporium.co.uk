@@ -12,7 +12,7 @@ export const tim: IBear = {
     Location: southsea,
     Date: new Date(2019, 4, 25),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: horsham,
     Date: new Date(2019, 6, 14),

@@ -12,7 +12,7 @@ export const stan: IBear = {
     Location: ripley,
     Date: new Date(2018, 5, 10),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: newbury,
     Date: new Date(2018, 3, 22),

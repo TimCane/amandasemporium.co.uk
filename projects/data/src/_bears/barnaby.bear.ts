@@ -12,7 +12,7 @@ export const barnaby: IBear = {
     Location: basingstoke,
     Date: new Date(2018, 5, 19),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: stokedAbernon,
     Date: new Date(2018, 8, 2),

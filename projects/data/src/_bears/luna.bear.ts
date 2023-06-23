@@ -11,6 +11,6 @@ export const luna: IBear = {
     Location: addlestone,
     Date: new Date(2023, 2, 16),
   },
-  Sold: null,
+  Event: null,
   Rehomed: null,
 };

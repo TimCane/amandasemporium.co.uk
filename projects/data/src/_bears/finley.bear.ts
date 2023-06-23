@@ -1,3 +1,4 @@
+import { E20230610 } from '../_events/E2023-06-10.event';
 import { basingstoke } from '../_locations/basingstoke.location';
 import { guildford } from '../_locations/guildford.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const finley: IBear = {
     Location: guildford,
     Date: new Date(2022, 7, 7),
   },
-  Sold: null,
+  Event: E20230610,
   Rehomed: {
     Location: basingstoke,
     Date: new Date(2023, 5, 10),

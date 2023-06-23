@@ -1,3 +1,4 @@
+import { E20191006 } from '../_events/E2019-10-06.event';
 import { oswestry } from '../_locations/oswestry.location';
 import { waltonUponThames } from '../_locations/waltonUponThames.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const annie: IBear = {
     Location: waltonUponThames,
     Date: new Date(2019, 4, 29),
   },
-  Sold: null,
+  Event: E20191006,
   Rehomed: {
     Location: oswestry,
     Date: new Date(2019, 9, 6),

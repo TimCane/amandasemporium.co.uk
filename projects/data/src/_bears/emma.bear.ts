@@ -1,3 +1,4 @@
+import { E20200304 } from '../_events/E2020-03-04.event';
 import { weybridge } from '../_locations/weybridge.location';
 import { woking } from '../_locations/woking.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const emma: IBear = {
     Location: weybridge,
     Date: new Date(2018, 10, 1),
   },
-  Sold: null,
+  Event: E20200304,
   Rehomed: {
     Location: woking,
     Date: new Date(2020, 2, 4),

@@ -1,3 +1,4 @@
+import { E20181110 } from '../_events/E2018-11-10.event';
 import { hammersmith } from '../_locations/hammersmith.location';
 import { reading } from '../_locations/reading.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const angel: IBear = {
     Location: hammersmith,
     Date: new Date(2018, 8, 10),
   },
-  Sold: null,
+  Event: E20181110,
   Rehomed: {
     Location: reading,
     Date: new Date(2018, 10, 10),

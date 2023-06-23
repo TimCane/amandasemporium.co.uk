@@ -1,3 +1,4 @@
+import { E20191006 } from '../_events/E2019-10-06.event';
 import { ashford } from '../_locations/ashford.location';
 import { broadbridgeHeath } from '../_locations/broadbridgeHeath.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const noah: IBear = {
     Location: ashford,
     Date: new Date(2019, 7, 21),
   },
-  Sold: null,
+  Event: E20191006,
   Rehomed: {
     Location: broadbridgeHeath,
     Date: new Date(2019, 9, 6),

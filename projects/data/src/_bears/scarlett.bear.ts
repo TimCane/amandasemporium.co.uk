@@ -11,6 +11,6 @@ export const scarlett: IBear = {
     Location: addlestone,
     Date: new Date(2021, 10, 6),
   },
-  Sold: null,
+  Event: null,
   Rehomed: null,
 };

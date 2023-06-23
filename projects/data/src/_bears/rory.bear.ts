@@ -12,7 +12,7 @@ export const rory: IBear = {
     Location: waltonUponThames,
     Date: new Date(2018, 9, 13),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: normandy,
     Date: new Date(2018, 10, 17),

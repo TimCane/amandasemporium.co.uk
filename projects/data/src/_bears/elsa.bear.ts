@@ -1,3 +1,4 @@
+import { E20221127 } from '../_events/E2022-11-27.event';
 import { addlestone } from '../_locations/addlestone.location';
 import { odiham } from '../_locations/odiham.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const elsa: IBear = {
     Location: addlestone,
     Date: new Date(2022, 10, 14),
   },
-  Sold: null,
+  Event: E20221127,
   Rehomed: {
     Location: odiham,
     Date: new Date(2022, 10, 27),

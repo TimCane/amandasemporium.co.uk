@@ -12,7 +12,7 @@ export const daisy: IBear = {
     Location: staines,
     Date: new Date(2021, 7, 26),
   },
-  Sold: null,
+  Event: null,
   Rehomed: {
     Location: farnborough,
     Date: new Date(2021, 10, 20),

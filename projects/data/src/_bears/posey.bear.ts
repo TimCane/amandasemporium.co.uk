@@ -1,3 +1,4 @@
+import { E20191130 } from '../_events/E2019-11-30.event';
 import { guildford } from '../_locations/guildford.location';
 import { hunston } from '../_locations/hunston.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const posey: IBear = {
     Location: hunston,
     Date: new Date(2019, 8, 21),
   },
-  Sold: null,
+  Event: E20191130,
   Rehomed: {
     Location: guildford,
     Date: new Date(2019, 10, 30),

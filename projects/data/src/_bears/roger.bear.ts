@@ -11,6 +11,6 @@ export const roger: IBear = {
     Location: ruislip,
     Date: new Date(2022, 9, 17),
   },
-  Sold: null,
+  Event: null,
   Rehomed: null,
 };

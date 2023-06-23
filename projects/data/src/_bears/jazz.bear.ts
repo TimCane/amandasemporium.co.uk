@@ -1,3 +1,4 @@
+import { E20221120 } from '../_events/E2022-11-20.event';
 import { sidlesham } from '../_locations/sidlesham.location';
 import { tidworth } from '../_locations/tidworth.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const jazz: IBear = {
     Location: sidlesham,
     Date: new Date(2022, 4, 7),
   },
-  Sold: null,
+  Event: E20221120,
   Rehomed: {
     Location: tidworth,
     Date: new Date(2022, 10, 20),

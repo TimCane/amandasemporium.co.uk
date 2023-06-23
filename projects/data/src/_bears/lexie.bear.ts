@@ -1,3 +1,4 @@
+import { E20220820 } from '../_events/E2022-08-20.event';
 import { fleet } from '../_locations/fleet.location';
 import { selsey } from '../_locations/selsey.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const lexie: IBear = {
     Location: selsey,
     Date: new Date(2022, 4, 28),
   },
-  Sold: null,
+  Event: E20220820,
   Rehomed: {
     Location: fleet,
     Date: new Date(2022, 7, 20),

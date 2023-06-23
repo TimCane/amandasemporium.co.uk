@@ -1,3 +1,4 @@
+import { E20181109 } from '../_events/E2018-11-09.event';
 import { shepperton } from '../_locations/shepperton.location';
 import { theale } from '../_locations/theale.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const winny: IBear = {
     Location: shepperton,
     Date: new Date(2018, 8, 8),
   },
-  Sold: null,
+  Event: E20181109,
   Rehomed: {
     Location: theale,
     Date: new Date(2018, 10, 9),

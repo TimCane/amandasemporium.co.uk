@@ -11,6 +11,6 @@ export const petal: IBear = {
     Location: seaford,
     Date: new Date(2023, 5, 11),
   },
-  Sold: null,
+  Event: null,
   Rehomed: null,
 };

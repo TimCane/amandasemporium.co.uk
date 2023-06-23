@@ -1,3 +1,4 @@
+import { E20220820 } from '../_events/E2022-08-20.event';
 import { churchCrookham } from '../_locations/churchCrookham.location';
 import { crowborough } from '../_locations/crowborough.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const sunny: IBear = {
     Location: crowborough,
     Date: new Date(2022, 3, 26),
   },
-  Sold: null,
+  Event: E20220820,
   Rehomed: {
     Location: churchCrookham,
     Date: new Date(2022, 7, 20),

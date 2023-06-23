@@ -1,3 +1,4 @@
+import { E20221204 } from '../_events/E2022-12-04.event';
 import { addlestone } from '../_locations/addlestone.location';
 import { ashVale } from '../_locations/ashVale.location';
 import { BearType } from '../lib/enums/bear-type.enum';
@@ -12,7 +13,7 @@ export const jessica: IBear = {
     Location: addlestone,
     Date: new Date(2022, 10, 4),
   },
-  Sold: null,
+  Event: E20221204,
   Rehomed: {
     Location: ashVale,
     Date: new Date(2022, 11, 4),
