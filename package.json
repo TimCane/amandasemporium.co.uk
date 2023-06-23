@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-prod": "ng build data && npm run generate-data && ng build website",
+    "build-data": "npm run generate-data && ng build data",
+    "build-prod": "npm run build-data && ng build website",
     "test": "ng test",
     "generate-data": "node ./projects/data/scripts/generate-arrays.js"
   },

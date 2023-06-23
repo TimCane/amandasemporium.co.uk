@@ -6,6 +6,7 @@ import { IBear } from '../lib/interfaces/bear.interface';
 export const flossie: IBear = {
   Id: 'flossie',
   Name: 'Flossie',
+  UploadedOn: new Date(2021, 9, 7),
   Type: BearType.BuildABear,
   Rescued: {
     Location: ely,

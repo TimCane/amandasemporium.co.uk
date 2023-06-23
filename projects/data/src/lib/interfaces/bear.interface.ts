@@ -4,6 +4,7 @@ import { IData } from './data.interface';
 
 export interface IBear extends IData {
   Name: string;
+  UploadedOn: Date;
   Type: BearType;
   Rescued: IBearLocation;
   Sold: IBearLocation | null;

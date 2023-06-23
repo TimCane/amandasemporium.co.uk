@@ -6,6 +6,7 @@ import { IBear } from '../lib/interfaces/bear.interface';
 export const primrose: IBear = {
   Id: 'primrose',
   Name: 'Primrose',
+  UploadedOn: new Date(2018, 3, 29),
   Type: BearType.AsWatsonHealthAndBeautyCo,
   Rescued: {
     Location: chertsey,
