@@ -1,4 +1,6 @@
+import { E20230625 } from '../_events/E2023-06-25.event';
 import { ruislip } from '../_locations/ruislip.location';
+import { thatcham } from '../_locations/thatcham.location';
 import { BearType } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +13,9 @@ export const roger: IBear = {
     Location: ruislip,
     Date: new Date(2022, 9, 17),
   },
-  Event: null,
-  Rehomed: null,
+  Event: E20230625,
+  Rehomed: {
+    Date: new Date(2023, 5, 25),
+    Location: thatcham,
+  },
 };
