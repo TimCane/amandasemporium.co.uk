@@ -1,4 +1,5 @@
 {
     "tsco.addRegionIndentation": false,
-    "tsco.useRegions": false
+    "tsco.useRegions": false,
+    "css.customData": [".vscode/tailwind.json"]
 }
