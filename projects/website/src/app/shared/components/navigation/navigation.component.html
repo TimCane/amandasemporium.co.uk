@@ -1,29 +1,29 @@
-<nav class="navbar navbar-default navbar-top">
-  <h1 class="text-center navbar-heading">
+<nav>
+  <h1>
     Amanda's Emporium
     <small>dedicated crafters make everything by hand</small>
   </h1>
 </nav>
-<nav class="navbar navbar-default navbar-bottom">
-  <div class="container-fluid">
+<nav>
+  <div>
     <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header navbarPages-container">
+    <div>
       <button
         type="button"
-        class="navbar-toggle collapsed"
+       
         data-toggle="collapse"
         data-target="#navbarPages"
         aria-expanded="false"
       >
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+        <span>Toggle navigation</span>
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
-    <ul class="nav navbar-nav navbar-left hidden-xs" app-next-event [event]="nextEvent$ | async"></ul>
-    <div class="collapse navbar-collapse" id="navbarPages">
-      <ul class="nav navbar-nav navbar-right">
+    <ul app-next-event [event]="nextEvent$ | async"></ul>
+    <div>
+      <ul>
         <li
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"

@@ -1,11 +1,11 @@
 <li
-  class="nextevent"
+ 
   routerLinkActive="active"
   [routerLinkActiveOptions]="{ exact: true }"
 >
   <div [routerLink]="['/', 'events']">
-    <fa-icon [classes]="['pink', 'calendar']" [icon]="faCalendar" size="lg"></fa-icon>
+    <fa-icon [icon]="faCalendar" size="lg"></fa-icon>
     <span>Next event:</span>
-    <span *ngIf="event" class="nextevent-date">{{event.Date | date: 'd MMM yyyy'}}</span>
+    <span *ngIf="event">{{event.Date | date: 'd MMM yyyy'}}</span>
   </div>
 </li>

@@ -1,18 +1,12 @@
-<div class="row" *ngIf="product">
-    <div class="col-md-12">
-        <div class="panel panel-default  panel--styled">
-            <div class="panel-body">
-                <div class="col-md-12 panelTop">
-                    <div class="col-md-4">
-                        <img class="img-responsive" [src]="product.Images[0]" alt="Photo of {{ product.Name }}"/>
-                    </div>
-                    <div class="col-md-8">
-                        <p class="h4">{{ product.Name }}</p>
-                        <p class="description">{{ product.Description }}</p>
-                        <p class="price">From: <b>&#xA3;{{ product.Price }}</b></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<div *ngIf="product">
+  <div>
+    <img [src]="product.Images[0]" alt="Photo of {{ product.Name }}" />
+  </div>
+  <div>
+    <p>{{ product.Name }}</p>
+    <p>{{ product.Description }}</p>
+    <p>
+      From: <b>&#xA3;{{ product.Price }}</b>
+    </p>
+  </div>
 </div>

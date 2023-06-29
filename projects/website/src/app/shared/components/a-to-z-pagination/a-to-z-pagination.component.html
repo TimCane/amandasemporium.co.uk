@@ -1,5 +1,5 @@
-<div class="wrapper">
-    <ul class="pagination top">
+<div>
+    <ul>
         <li [class.active]="selectedLetter == 'A'">
           <span (click)="onClick('A')">A</span>
         </li>
@@ -40,7 +40,7 @@
           <span (click)="onClick('M')">M</span>
         </li>
       </ul>
-      <ul class="pagination middle">
+      <ul>
         <li [class.active]="selectedLetter == 'N'">
           <span (click)="onClick('N')">N</span>
         </li>
@@ -81,7 +81,7 @@
           <span (click)="onClick('Z')">Z</span>
         </li>
       </ul>
-      <ul class="pagination bottom">
+      <ul>
         <li [class.active]="selectedLetter == null">
             <span (click)="onClear()">All</span>
           </li>

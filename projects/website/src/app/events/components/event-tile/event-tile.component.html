@@ -1,37 +1,24 @@
-<div class="row" *ngIf="event">
-  <div class="col-md-12">
-    <div class="panel panel-default panel--styled">
-      <div class="panel-body">
-        <div class="col-md-12 panelTop">
-          <div class="col-md-12">
-            <p class="h4 text-center">
-              {{ event.Date | date : "d MMM yyyy" }} - {{ event.Name }}
-            </p>
-          </div>
-          <div class="col-md-10 col-md-offset-1">
-            <p class="description text-center">
-              <span *ngIf="event.Description" class="desc"
-                >{{ event.Description }}
-                <br />
-              </span>
-              <span class="location" *ngIf="event.Location.Name">
-                <fa-icon [icon]="faLocationDot" [className]="'pink'"></fa-icon>
-                {{ event.Location.Name }}
-                <br />
-              </span>
-              <span *ngIf="event.Time" class="time">
-                <fa-icon [icon]="faClock" [className]="'pink'"></fa-icon>
-                {{ event.Time }}
-              </span>
-              <span *ngIf="event.Website" class="url">
-                <fa-icon [icon]="faEarthEurope" [className]="'pink'"></fa-icon>
-                <a-outgoing [href]="event.Website">More info here</a-outgoing>
-                <br />
-              </span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+<div *ngIf="event">
+  <div>
+    <p>{{ event.Date | date : "d MMM yyyy" }} - {{ event.Name }}</p>
+  </div>
+  <div>
+    <p>
+      <span *ngIf="event.Description"
+        >{{ event.Description }}
+      </span>
+      <span *ngIf="event.Location.Name">
+        <fa-icon [icon]="faLocationDot"></fa-icon>
+        {{ event.Location.Name }}
+      </span>
+      <span *ngIf="event.Time">
+        <fa-icon [icon]="faClock"></fa-icon>
+        {{ event.Time }}
+      </span>
+      <span *ngIf="event.Website">
+        <fa-icon [icon]="faEarthEurope"></fa-icon>
+        <a-outgoing [href]="event.Website">More info here</a-outgoing>
+      </span>
+    </p>
   </div>
 </div>

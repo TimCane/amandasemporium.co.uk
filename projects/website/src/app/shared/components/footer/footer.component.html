@@ -1,7 +1,7 @@
-<div class="row text-center">
-  <div class="col-md-6">
-    <p class="h5">Get In Touch</p>
-    <ul class="list-inline contactquicklinks">
+<div>
+  <div>
+    <p>Get In Touch</p>
+    <ul>
       <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
         <a [routerLink]="['/', 'contact']">
           <fa-icon [icon]="faEnvelope" size="lg"></fa-icon>
@@ -9,9 +9,9 @@
       </li>
     </ul>
   </div>
-  <div class="col-md-6">
-    <p class="h5">Extra links</p>
-    <ul class="list-unstyled">
+  <div>
+    <p>Extra links</p>
+    <ul>
       <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
         <a [routerLink]="['/', 'friends']">Friends</a>
       </li>
@@ -21,6 +21,6 @@
     </ul>
   </div>
 </div>
-<p class="copyright text-center">
+<p>
   Copyright © {{ currentYear | date : "yyyy" }} Amanda's Emporium
 </p>
