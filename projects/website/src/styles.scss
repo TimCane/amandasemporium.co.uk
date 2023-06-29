@@ -158,34 +158,28 @@
   input[type="submit"],
   input[type="reset"],
   input[type="button"],
-  button {
+  button,
+  button[type="submit"] {
     @apply py-2 px-5 text-base border-0 h-10 appearance-none font-bold;
     @apply text-gray-lighter bg-primary;
-  }
 
-  @media (hover: hover) {
-    input[type="reset"]:hover,
-    input[type="submit"]:hover,
-    input[type="button"]:hover,
-    button:hover {
-      @apply cursor-pointer;
-      @apply bg-primary-light;
+    @media (hover: hover) {
+      &:hover {
+        @apply cursor-pointer;
+        @apply bg-primary-light;
+      }
     }
-  }
 
-  button:focus-visible,
-  input[type="submit"]:focus-visible,
-  input[type="reset"]:focus-visible,
-  input[type="button"]:focus-visible {
-    @apply outline-none;
-    @apply border-primary-light;
+    &:focus-visible {
+      @apply outline-none;
+      @apply border-primary-light;
+    }
+  
+    &:disabled {
+      @apply bg-gray;
+    }
+  
   }
-
-  input[disabled],
-  button:disabled {
-    @apply bg-gray;
-  }
-
   table {
     @apply w-full border-collapse my-7 mx-0 tabular-nums;
   }
