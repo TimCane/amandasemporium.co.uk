@@ -1,0 +1,28 @@
+a {
+  @apply text-black;
+
+  @media (hover: hover) {
+    &:hover {
+      @apply text-primary-light;
+    }
+  }
+
+  &.active {
+    @apply text-primary;
+  }
+}
+
+#brand {
+  a {
+    @apply text-primary;
+    @apply flex font-bold font-serif;
+  }
+}
+
+li {
+  @apply list-none;
+
+  a {
+    @apply md:p-3 md:pb-0 py-2 block;
+  }
+}

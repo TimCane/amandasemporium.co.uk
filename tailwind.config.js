@@ -4,15 +4,22 @@ const colors = require("tailwindcss/colors");
 module.exports = {
   content: ["./src/**/*.{html,ts}", "./projects/*/src/**/*.{html,ts}"],
   theme: {
+    fontFamily: {
+      "sans": ["Noto Sans", "ui-sans-serif", "system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", "Arial", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+      "serif": ["Noto Serif", "ui-serif", "Georgia", "Cambria", "Times New Roman", "Times", "serif"],
+      "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+    },
     colors: {
       white: colors.zinc[100],
       black: colors.zinc[900],
 
       primary: {
+        content: colors.pink[100],
         light: colors.pink[400],
         DEFAULT: colors.pink[600],
       },
       secondary: {
+        content: colors.teal[100],
         light: colors.teal[400],
         DEFAULT: colors.teal[600],
       },
