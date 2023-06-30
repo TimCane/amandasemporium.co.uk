@@ -8,4 +8,5 @@ export const crochetedDressSet: IProduct = {
   Price: 12.0,
   Hidden: true,
   Images: ['/assets/images/products/crocheted-dress-set.jpg'],
+  Order: 1,
 };

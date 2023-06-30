@@ -7,7 +7,7 @@ export const E20180507: IEvent = {
   Date: new Date(2018, 4, 7),
   Description: '',
   Location: {
-    Name: 'Morden Hall Park. SM4 5JD',
+    Name: 'Morden Hall Park. SM4 5JD.',
     Location: morden,
   },
   Website: '',

@@ -3,7 +3,7 @@ import { IEvent } from '../lib/interfaces/event.interface';
 
 export const E20190422: IEvent = {
   Id: '2019-04-22-charity-easter-fayre-shalford-park',
-  Name: 'Charity Easter Fayre, Shalford Park.',
+  Name: 'Charity Easter Fayre, Shalford Park',
   Date: new Date(2019, 3, 22),
   Description: '',
   Location: {

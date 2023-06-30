@@ -8,4 +8,5 @@ export const quiltedPlayMat: IProduct = {
   Price: 15.0,
   Hidden: true,
   Images: ['/assets/images/products/quilted-play-mat.jpg'],
+  Order: 1,
 };

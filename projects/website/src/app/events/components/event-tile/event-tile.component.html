@@ -1,24 +1,33 @@
-<div *ngIf="event">
-  <div>
-    <p>{{ event.Date | date : "d MMM yyyy" }} - {{ event.Name }}</p>
+<div
+  *ngIf="event"
+  class="p-4 flex flex-col md:flex-row gap-4 {{ bgColor }} {{ textColor }}"
+>
+  <div
+    class="flex text-xl p-4 border-solid border-b-2 md:border-b-0 md:border-r-2 md:w-1/6
+    {{ bgColor }}"
+  >
+    <div class="place-self-center text-center">
+      {{ event.Date | date : "dd MMM yyyy" }}
+    </div>
   </div>
   <div>
-    <p>
-      <span *ngIf="event.Description"
-        >{{ event.Description }}
+    <div class="text-2xl font-bold">{{ event.Name }}</div>
+    <div class="text-sm" *ngIf="event.Description">{{ event.Description }}</div>
+    <div class="text-sm" *ngIf="event.Location.Name">
+      <fa-icon [icon]="faLocationDot"></fa-icon>
+      <span>&nbsp;{{ event.Location.Name }}</span>
+    </div>
+    <div class="text-sm" *ngIf="event.Time">
+      <fa-icon [icon]="faClock"></fa-icon>
+      <span>&nbsp;{{ event.Time }}</span>
+    </div>
+    <div class="text-sm" *ngIf="event.Website">
+      <fa-icon [icon]="faEarthEurope"></fa-icon>
+      <span>
+        <a-outgoing [textColor]="textColor" [href]="event.Website">
+          More info here
+        </a-outgoing>
       </span>
-      <span *ngIf="event.Location.Name">
-        <fa-icon [icon]="faLocationDot"></fa-icon>
-        {{ event.Location.Name }}
-      </span>
-      <span *ngIf="event.Time">
-        <fa-icon [icon]="faClock"></fa-icon>
-        {{ event.Time }}
-      </span>
-      <span *ngIf="event.Website">
-        <fa-icon [icon]="faEarthEurope"></fa-icon>
-        <a-outgoing [href]="event.Website">More info here</a-outgoing>
-      </span>
-    </p>
+    </div>
   </div>
 </div>

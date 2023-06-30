@@ -11,6 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { NavigationModule } from './shared/components/navigation/navigation.module';
+import { PageTitleModule } from './shared/components/page-title/page-title.module';
 import { SiteDisclosureModule } from './shared/components/site-disclosure/site-disclosure.module';
 import { SplashScreenModule } from './shared/components/splash-screen/splash-screen.module';
 import { ClarityModule } from './shared/modules/clarity.module';
@@ -39,6 +40,7 @@ import { ClarityModule } from './shared/modules/clarity.module';
     FooterModule,
     SplashScreenModule,
     SiteDisclosureModule,
+    PageTitleModule,
   ],
 })
 export class AppModule {}

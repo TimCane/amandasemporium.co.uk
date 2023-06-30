@@ -7,7 +7,11 @@
   <a [routerLink]="['/', 'contact']">contact me</a> to chat about anything you
   may like me to produce for you.
 </p>
-<app-product-tile
-  *ngFor="let product of visibleProducts$ | async"
-  [product]="product"
-></app-product-tile>
+<div *ngFor="let product of visibleProducts$ | async; even as isEven">
+  <app-product-tile
+    [product]="product"
+    [bgColor]="isEven ? 'bg-gray-lighter' : 'bg-lightest'"
+    [textColor]="isEven ? 'text-gray-dark' : 'text-black'"
+    [borderColor]="isEven ? 'border-gray-dark' : 'border-black'"
+  ></app-product-tile>
+</div>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NextEventComponent } from './next-event.component';
+import { PageTitleComponent } from './page-title.component';
 
-describe('NextEventComponent', () => {
-  let component: NextEventComponent;
-  let fixture: ComponentFixture<NextEventComponent>;
+describe('PageTitleComponent', () => {
+  let component: PageTitleComponent;
+  let fixture: ComponentFixture<PageTitleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NextEventComponent ]
+      declarations: [ PageTitleComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NextEventComponent);
+    fixture = TestBed.createComponent(PageTitleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

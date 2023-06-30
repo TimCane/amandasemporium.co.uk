@@ -34,6 +34,7 @@ module.exports = {
         DEFAULT: colors.gray[600],
         light: colors.gray[400],
         lighter: colors.gray[200],
+        lightest: colors.gray[50],
       },
     },
     extend: {},

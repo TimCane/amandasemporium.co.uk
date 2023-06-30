@@ -7,4 +7,5 @@ export const toteBag: IProduct = {
   Price: 15.0,
   Hidden: false,
   Images: ['/assets/images/products/tote-bag.jpg'],
+  Order: 1,
 };

@@ -6,4 +6,5 @@ export interface IProduct extends IData {
   Price: number;
   Hidden: boolean;
   Images: string[];
+  Order: number;
 }

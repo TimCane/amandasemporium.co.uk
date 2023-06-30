@@ -8,4 +8,5 @@ export const ponchoAndHat: IProduct = {
   Price: 10.0,
   Hidden: true,
   Images: ['/assets/images/products/poncho-and-hat.jpg'],
+  Order: 1,
 };

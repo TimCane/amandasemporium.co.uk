@@ -7,7 +7,7 @@ export const E20200712: IEvent = {
   Date: new Date(2020, 6, 12),
   Description: '',
   Location: {
-    Name: 'Carfax, Horsham, RH12 1EQ',
+    Name: 'Carfax, Horsham, RH12 1EQ.',
     Location: horsham,
   },
   Website: 'https://www.foodrockssouth.co.uk/horshammarkets/',

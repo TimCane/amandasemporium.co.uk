@@ -8,4 +8,5 @@ export const fleeceBlanket: IProduct = {
   Price: 15.0,
   Hidden: false,
   Images: ['/assets/images/products/fleece-blanket.jpg'],
+  Order: 1,
 };
