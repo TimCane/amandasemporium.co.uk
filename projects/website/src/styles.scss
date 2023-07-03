@@ -159,13 +159,14 @@
   input[type="reset"],
   input[type="button"],
   button,
-  button[type="submit"] {
-    @apply py-2 px-5 text-base border-0 h-10 appearance-none font-bold;
+  button[type="submit"],
+  .button {
+    @apply py-2 px-5 text-base border-0 h-10 appearance-none font-bold no-underline text-center;
     @apply text-gray-lighter bg-primary;
 
     @media (hover: hover) {
       &:hover {
-        @apply cursor-pointer;
+        @apply cursor-pointer no-underline;
         @apply bg-primary-light;
       }
     }

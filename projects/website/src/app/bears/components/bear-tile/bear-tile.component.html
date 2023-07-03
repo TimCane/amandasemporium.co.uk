@@ -1,33 +1,12 @@
-<div *ngIf="bear">
-  <img
-    src="/assets/images/bears/{{ bear.Id }}.jpg"
-    loading="lazy"
-    alt="Photo of {{ bear.Name }}"
-  />
-  <p>{{ bear.Name }}</p>
-  <div>
-    <dl>
-      <dt *ngIf="bear.Rescued">Rescued</dt>
-      <dd *ngIf="bear.Rescued">
-        <div>{{ bear.Rescued.Location.Name }}</div>
-        <div>({{ bear.Rescued.Date | date : "d MMM yyyy" }})</div>
-      </dd>
-      <dt>Origin</dt>
-      <dd>{{ bear.Type }}</dd>
-    </dl>
-    <div>
-      <ng-container *ngIf="bear.Rehomed; else waiting">
-        <span>
-          {{ bear.Name }} was rehomed on
-          <b>{{ bear.Rehomed.Date | date : "dd MMM yyyy" }}</b> and now lives in
-          <b>{{ bear.Rehomed.Location.Name }}</b
-          >.
-        </span>
-      </ng-container>
-
-      <ng-template #waiting>
-        <span>Waiting to be rehomed.</span>
-      </ng-template>
-    </div>
+<div *ngIf="bear" class="p-4 flex flex-col gap-4 {{ bgColor }} {{ textColor }}">
+  <div class="w-full max-w-full overflow-hidden bg-cover bg-no-repeat">
+    <img
+      width="640"
+      height="480"
+      class="transition duration-300 ease-in-out hover:scale-110"
+      ngSrc="/assets/images/bears/{{ bear.Id }}.jpg"
+    />
   </div>
+  <div class="text-2xl font-bold">{{ bear.Name }}</div>
+  <a [routerLink]="['/', 'bears', 'profile', bear.Id]" class="button">{{bear.Rehomed == null ? "Adopt" : "View"}}</a>
 </div>

@@ -1,5 +1,5 @@
-<div class="mb-9">
-  <h2 class="mb-3">Next Event</h2>
+<div class="mb-10">
+  <h2 class="mb-2">Next Event</h2>
   <div>
     <app-event-tile
       [event]="nextEvent$ | async"
@@ -10,31 +10,29 @@
   </div>
 </div>
 
-<div class="mb-9">
-  <h2 class="mb-3">Upcoming Events</h2>
+<div class="mb-10">
+  <h2 class="mb-2">Upcoming Events</h2>
   <div>
-    <div *ngFor="let event of upcomingEvents$ | async; even as isEven">
-      <app-event-tile
-        [event]="event"
-        [bgColor]="isEven ? 'bg-gray-lighter' : 'bg-lightest'"
-        [textColor]="isEven ? 'text-gray-dark' : 'text-black'"
-        [borderColor]="isEven ? 'border-gray-dark' : 'border-black'"
-      ></app-event-tile>
-    </div>
+    <app-event-tile
+      *ngFor="let event of upcomingEvents$ | async; even as isEven"
+      [event]="event"
+      [bgColor]="isEven ? 'bg-gray-lighter' : 'bg-white'"
+      [textColor]="isEven ? 'text-gray-dark' : 'text-black'"
+      [borderColor]="isEven ? 'border-gray-dark' : 'border-black'"
+    ></app-event-tile>
   </div>
 </div>
 
-<div class="mb-9">
-  <h2 class="mb-3">Past Events</h2>
+<div class="mb-10">
+  <h2 class="mb-2">Past Events</h2>
   <div>
-    <div *ngFor="let event of pastEvents$ | async; even as isEven">
-      <app-event-tile
-        [event]="event"
-        [bgColor]="isEven ? 'bg-gray-lighter' : 'bg-lightest'"
-        [textColor]="isEven ? 'text-gray-dark' : 'text-black'"
-        [borderColor]="isEven ? 'border-gray-dark' : 'border-black'"
-      ></app-event-tile>
-    </div>
+    <app-event-tile
+      *ngFor="let event of pastEvents$ | async; even as isEven"
+      [event]="event"
+      [bgColor]="isEven ? 'bg-gray-lighter' : 'bg-white'"
+      [textColor]="isEven ? 'text-gray-dark' : 'text-black'"
+      [borderColor]="isEven ? 'border-gray-dark' : 'border-black'"
+    ></app-event-tile>
   </div>
   <div class="text-center mt-2">
     <button

@@ -9,7 +9,7 @@
   >
     <p>Click on a bears face to see see who has been rehomed where!</p>
     <div *ngIf="scriptLoaded$ | async">
-      <google-map [options]="options">
+      <google-map width="100%" class="block w-full" [options]="options">
         <ng-container *ngIf="showRescued">
           <map-marker
             *ngFor="let marker of state.rescuedMarkers; let i = index"

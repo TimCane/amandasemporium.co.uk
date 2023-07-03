@@ -1,0 +1,15 @@
+ul {
+  @apply flex justify-between;
+  li {
+    @apply list-none p-2 lg:p-1 cursor-pointer basis-2;
+
+    &.active {
+        @apply font-bold;
+        @apply text-primary;
+    }
+
+    &:not(.available) {
+        @apply text-gray-light cursor-default;
+    }
+  }
+}

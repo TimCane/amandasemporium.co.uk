@@ -1,52 +1,21 @@
-<p>
-  Courtesy of my 3 grown up sons, who took me to a Build-a-Bear Workshop for
-  Mothers Day. I became the proud owner of Daisy.
-</p>
-<img
-  width="400"
-  height="514"
-  ngSrc="/assets/images/daisy.jpg"
-  alt="Photo of Daisy"
-/>
-<p>
-  She has been on a number of adventures around the country with my husband and
-  I already. My friends (who think I'm ever so slightly potty) can't wait for
-  the latest photos and updates.
-</p>
-<p>
-  It was on one of our trips that I realised there were many lonely teddy bears
-  waiting for their forever home and big adventure. All my rescued bears have
-  been lovingly washed, groomed and dressed.
-</p>
-<p>And so my quest begins...</p>
-<p>
-  It would be lovely to see my rescued bears in their new home. Please feel free
-  to email me a photo, along with permission, to use on my gallery page!
-</p>
-<p>
-  My bears have been rescued and rehomed all over the UK (some even rehomed
-  abroad)!
-</p>
-<p>
-  To see an interactive map of all the bears, please
-  <a [routerLink]="['/', 'bears', 'map']">click here</a>
-</p>
+<div
+  *ngIf="{
+    bears: bears$ | async,
+    availableLetters: availableLetters$ | async
+  } as state"
+>
+  <app-a-to-z-pagination
+    [availableLetters]="state.availableLetters"
+    (letterClicked)="onLetterClicked($event)"
+  ></app-a-to-z-pagination>
 
-<app-a-to-z-pagination
-  (letterClicked)="onLetterClicked($event)"
-></app-a-to-z-pagination>
-
-<div *ngFor="let bear of rescuedBears$ | async">
-  <app-bear-tile [bear]="bear"></app-bear-tile>
+  <div *ngIf="state.bears && state.bears.length > 0; else noBears">
+    <div class="flex flex-wrap justify-center">
+      <app-bear-tile class="w-full sm:w-1/2 lg:w-1/3"
+        *ngFor="let bear of state.bears"
+        [bear]="bear"
+      ></app-bear-tile>
+    </div>
+  </div>
+  <ng-template #noBears> No Bears </ng-template>
 </div>
-
-<div *ngFor="let bear of rehomedBears$ | async">
-  <app-bear-tile [bear]="bear"></app-bear-tile>
-</div>
-
-<p>
-  Since my quest began, I have cared for <b>{{ countOfBears$ | async }}</b>
-  bears and
-  <b>{{ countOfRehomedBears$ | async }}</b>
-  of them have found their forever homes.
-</p>

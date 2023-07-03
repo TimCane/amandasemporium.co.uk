@@ -9,6 +9,10 @@ import { IBear } from 'data';
 export class BearTileComponent implements OnInit {
   @Input() bear: IBear | null;
 
+  @Input() bgColor: string = 'bg-white';
+  @Input() textColor: string = 'text-black';
+  @Input() borderColor: string = 'border-black';
+
   constructor() {
     this.bear = null;
   }
