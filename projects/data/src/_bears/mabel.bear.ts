@@ -7,7 +7,9 @@ import { IBear } from '../lib/interfaces/bear.interface';
 export const mabel: IBear = {
   Id: 'mabel',
   Name: 'Mabel',
-  Description: ``,
+  Description: `Introducing Mabel, the enchanting teddy bear with a delightful ladybug dress! With her soft and cuddly fur, gentle smile, and charming outfit, Mabel is the epitome of sweetness and joy.
+  Mabel's ladybug dress is as vibrant as her personality. Adorned with bright red and white polka dots, her dress exudes a sense of whimsy and playfulness. It's impossible not to smile when you see her twirling around, spreading happiness wherever she goes.
+  With Mabel by your side, every day becomes an opportunity for adventure and discovery. Whether you're picnicking in the park, cuddling up for storytime, or simply enjoying the beauty of nature, Mabel's warm presence will bring a touch of magic to your world.`,
   UploadedOn: new Date(2019, 8, 30),
   Type: {
     Type: BearTypeEnum.Unknown,

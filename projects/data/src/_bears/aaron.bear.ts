@@ -7,7 +7,9 @@ import { IBear } from '../lib/interfaces/bear.interface';
 export const aaron: IBear = {
   Id: 'aaron',
   Name: 'Aaron',
-  Description: ``,
+  Description: `Meet Aaron, the spirited and fearless Arsenal teddy bear! With his cuddly fur, endearing smile, and his signature Arsenal uniform, Aaron is the ultimate supporter and companion for all Arsenal fans, young and old.
+  Aaron's love for football is contagious. He knows all the players by heart and can recount memorable goals and epic matches with incredible accuracy. He's not just a passive observer, though – Aaron is always up for a friendly game of kickabout, showcasing his skills with every pass and dribble. You'll be amazed at his ability to score goals with his fluffy paws!
+  So, whether you're watching a match, recreating iconic Arsenal moments, or simply seeking a loyal companion, Aaron the Arsenal teddy bear is the perfect teammate. Get ready to embark on unforgettable football adventures and embrace the true spirit of the Arsenal family with this adorable and friendly companion!`,
   UploadedOn: new Date(2018, 10, 12),
   Type: {
     Type: BearTypeEnum.BuildABear,
