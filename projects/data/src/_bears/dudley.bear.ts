@@ -1,14 +1,16 @@
 import { E20190928 } from '../_events/E2019-09-28.event';
 import { bexhillOnSea } from '../_locations/bexhillOnSea.location';
 import { ewell } from '../_locations/ewell.location';
-import { BearType } from '../lib/enums/bear-type.enum';
+import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const dudley: IBear = {
   Id: 'dudley',
   Name: 'Dudley',
   UploadedOn: new Date(2019, 8, 30),
-  Type: BearType.BuildABear,
+  Type: {
+    Type: BearTypeEnum.BuildABear,
+  },
   Rescued: {
     Location: bexhillOnSea,
     Date: new Date(2019, 8, 14),

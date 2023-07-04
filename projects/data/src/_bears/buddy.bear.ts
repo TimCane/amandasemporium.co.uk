@@ -1,13 +1,15 @@
 import { chicester } from '../_locations/chicester.location';
 import { surbiton } from '../_locations/surbiton.location';
-import { BearType } from '../lib/enums/bear-type.enum';
+import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const buddy: IBear = {
   Id: 'buddy',
   Name: 'Buddy',
   UploadedOn: new Date(2019, 11, 12),
-  Type: BearType.BearFactory,
+  Type: {
+    Type: BearTypeEnum.BearFactory,
+  },
   Rescued: {
     Location: chicester,
     Date: new Date(2019, 8, 21),

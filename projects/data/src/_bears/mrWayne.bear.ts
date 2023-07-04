@@ -1,13 +1,15 @@
 import { haylingIsland } from '../_locations/haylingIsland.location';
 import { horley } from '../_locations/horley.location';
-import { BearType } from '../lib/enums/bear-type.enum';
+import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const mrWayne: IBear = {
   Id: 'mr-wayne',
   Name: 'Mr Wayne',
   UploadedOn: new Date(2021, 9, 7),
-  Type: BearType.BuildABear,
+  Type: {
+    Type: BearTypeEnum.BuildABear,
+  },
   Rescued: {
     Location: haylingIsland,
     Date: new Date(2021, 7, 29),

@@ -1,14 +1,16 @@
 import { E20190413 } from '../_events/E2019-04-13.event';
 import { bourneEnd } from '../_locations/bourneEnd.location';
 import { waltonUponThames } from '../_locations/waltonUponThames.location';
-import { BearType } from '../lib/enums/bear-type.enum';
+import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const jimmy: IBear = {
   Id: 'jimmy',
   Name: 'Jimmy',
   UploadedOn: new Date(2019, 3, 7),
-  Type: BearType.BearFactory,
+  Type: {
+    Type: BearTypeEnum.BearFactory,
+  },
   Rescued: {
     Location: waltonUponThames,
     Date: new Date(2019, 0, 17),

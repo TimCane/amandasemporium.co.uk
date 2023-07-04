@@ -1,13 +1,15 @@
 import { bexhillOnSea } from '../_locations/bexhillOnSea.location';
 import { stilton } from '../_locations/stilton.location';
-import { BearType } from '../lib/enums/bear-type.enum';
+import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const karen: IBear = {
   Id: 'karen',
   Name: 'Karen',
   UploadedOn: new Date(2019, 1, 25),
-  Type: BearType.Unknown,
+  Type: {
+    Type: BearTypeEnum.Unknown,
+  },
   Rescued: {
     Location: bexhillOnSea,
     Date: new Date(2019, 8, 14),

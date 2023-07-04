@@ -1,14 +1,16 @@
 import { E20200304 } from '../_events/E2020-03-04.event';
 import { weybridge } from '../_locations/weybridge.location';
 import { woking } from '../_locations/woking.location';
-import { BearType } from '../lib/enums/bear-type.enum';
+import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const emma: IBear = {
   Id: 'emma',
   Name: 'Emma',
   UploadedOn: new Date(2018, 10, 24),
-  Type: BearType.BuildABear,
+  Type: {
+    Type: BearTypeEnum.BuildABear,
+  },
   Rescued: {
     Location: weybridge,
     Date: new Date(2018, 10, 1),

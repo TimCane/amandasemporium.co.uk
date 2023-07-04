@@ -1,13 +1,15 @@
 import { addlestone } from '../_locations/addlestone.location';
 import { horley } from '../_locations/horley.location';
-import { BearType } from '../lib/enums/bear-type.enum';
+import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const tallulah: IBear = {
   Id: 'tallulah',
   Name: 'Tallulah',
   UploadedOn: new Date(2022, 10, 18),
-  Type: BearType.BuildABear,
+  Type: {
+    Type: BearTypeEnum.BuildABear,
+  },
   Rescued: {
     Location: addlestone,
     Date: new Date(2022, 10, 14),
