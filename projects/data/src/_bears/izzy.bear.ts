@@ -1,14 +1,17 @@
 import { E20191130 } from '../_events/E2019-11-30.event';
 import { guildford } from '../_locations/guildford.location';
 import { titchfield } from '../_locations/titchfield.location';
-import { BearType } from '../lib/enums/bear-type.enum';
+import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const izzy: IBear = {
   Id: 'izzy',
   Name: 'Izzy',
+  Description: ``,
   UploadedOn: new Date(2019, 9, 7),
-  Type: BearType.BuildABear,
+  Type: {
+    Type: BearTypeEnum.BuildABear,
+  },
   Rescued: {
     Location: titchfield,
     Date: new Date(2019, 7, 25),

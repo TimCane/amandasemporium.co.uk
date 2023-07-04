@@ -1,13 +1,16 @@
 import { bracknell } from '../_locations/bracknell.location';
 import { ottershaw } from '../_locations/ottershaw.location';
-import { BearType } from '../lib/enums/bear-type.enum';
+import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const jr: IBear = {
   Id: 'jr',
   Name: 'Jr',
+  Description: ``,
   UploadedOn: new Date(2022, 2, 1),
-  Type: BearType.BirthdaysBear,
+  Type: {
+    Type: BearTypeEnum.BirthdaysBear,
+  },
   Rescued: {
     Location: bracknell,
     Date: new Date(2021, 9, 9),
