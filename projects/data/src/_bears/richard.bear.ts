@@ -1,13 +1,16 @@
 import { ashGreen } from '../_locations/ashGreen.location';
 import { ashford } from '../_locations/ashford.location';
-import { BearType } from '../lib/enums/bear-type.enum';
+import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const richard: IBear = {
   Id: 'richard',
   Name: 'Richard',
+  Description: ``,
   UploadedOn: new Date(2021, 7, 11),
-  Type: BearType.BuildABear,
+  Type: {
+    Type: BearTypeEnum.BuildABear,
+  },
   Rescued: {
     Location: ashford,
     Date: new Date(2019, 9, 24),

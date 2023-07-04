@@ -1,14 +1,17 @@
 import { E20190928 } from '../_events/E2019-09-28.event';
 import { surbiton } from '../_locations/surbiton.location';
 import { waltonUponThames } from '../_locations/waltonUponThames.location';
-import { BearType } from '../lib/enums/bear-type.enum';
+import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const charlotte: IBear = {
   Id: 'charlotte',
   Name: 'Charlotte',
+  Description: ``,
   UploadedOn: new Date(2019, 6, 18),
-  Type: BearType.GloriousBritianBear,
+  Type: {
+    Type: BearTypeEnum.GloriousBritianBear,
+  },
   Rescued: {
     Location: waltonUponThames,
     Date: new Date(2019, 4, 29),
