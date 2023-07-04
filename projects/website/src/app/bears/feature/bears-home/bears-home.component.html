@@ -2,18 +2,18 @@
   <div class="flex flex-col gap-2 p-4 text-black">
     <h3 class="text-center break-words">
       View <br class="hidden md:block lg:hidden" />
-      Rehomed
+      Rescued
     </h3>
-
-    <div class="w-full max-w-full overflow-hidden bg-cover bg-no-repeat">
+    <div
+      class="w-full relative max-w-full overflow-hidden bg-cover bg-no-repeat"
+    >
       <img
         class="min-w-full max-w-full transition duration-300 ease-in-out hover:scale-110"
-        src="assets/images/bears/lee.jpg"
+        src="assets/images/bears/jamie.jpg"
       />
     </div>
-
-    <a [routerLink]="['/', 'bears', 'rehomed']" class="button w-full"
-      >View Rehomed</a
+    <a [routerLink]="['/', 'bears', 'rescued']" class="button w-full"
+      >View Rescued</a
     >
   </div>
 
@@ -36,24 +36,29 @@
   <div class="flex flex-col gap-2 p-4 text-black">
     <h3 class="text-center break-words">
       View <br class="hidden md:block lg:hidden" />
-      Rescued
+      Rehomed
     </h3>
-    <div
-      class="w-full relative max-w-full overflow-hidden bg-cover bg-no-repeat"
-    >
+
+    <div class="w-full max-w-full overflow-hidden bg-cover bg-no-repeat">
       <img
         class="min-w-full max-w-full transition duration-300 ease-in-out hover:scale-110"
-        src="assets/images/bears/jamie.jpg"
+        src="assets/images/bears/lee.jpg"
       />
     </div>
-    <a [routerLink]="['/', 'bears', 'rescued']" class="button w-full"
-      >View Rescued</a
+
+    <a [routerLink]="['/', 'bears', 'rehomed']" class="button w-full"
+      >View Rehomed</a
     >
   </div>
 </div>
 
 <div class="flex">
   <div class="w-full m-4">
-    <a  [routerLink]="['/', 'bears', 'map']" class="button block p-4 w-full md:w-4/5 xl:w-1/2 md:mx-auto bg-secondary text-secondary-content hover:bg-secondary-light h-auto"> Discover my bears journey on an interactive map </a>
+    <a
+      [routerLink]="['/', 'bears', 'map']"
+      class="button block p-4 w-full md:w-4/5 xl:w-1/2 md:mx-auto bg-secondary text-secondary-content hover:bg-secondary-light h-auto"
+    >
+      Discover my bears journey on an interactive map
+    </a>
   </div>
 </div>

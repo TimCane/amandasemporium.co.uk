@@ -10,12 +10,24 @@
   ></app-a-to-z-pagination>
 
   <div *ngIf="state.bears && state.bears.length > 0; else noBears">
-    <div class="flex flex-wrap justify-center">
-      <app-bear-tile class="w-full sm:w-1/2 lg:w-1/3"
-        *ngFor="let bear of state.bears"
+    <div class="flex flex-wrap justify-center gap-4 sm:gap-0">
+      <app-bear-tile
+        class="w-full sm:w-1/2 md:w-1/3 2xl:w-1/4"
+        *ngFor="
+          let bear of state.bears
+            | slice
+              : (pagination.currentPage - 1) * pagination.pageSize
+              : pagination.currentPage * pagination.pageSize
+        "
         [bear]="bear"
       ></app-bear-tile>
     </div>
+
+    <app-pagination
+      #pagination
+      [collectionSize]="state.bears.length"
+    >
+    </app-pagination>
   </div>
   <ng-template #noBears> No Bears </ng-template>
 </div>

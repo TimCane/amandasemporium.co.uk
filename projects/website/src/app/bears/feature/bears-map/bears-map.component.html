@@ -8,27 +8,6 @@
     } as state"
   >
     <p>Click on a bears face to see see who has been rehomed where!</p>
-    <div *ngIf="scriptLoaded$ | async">
-      <google-map width="100%" class="block w-full" [options]="options">
-        <ng-container *ngIf="showRescued">
-          <map-marker
-            *ngFor="let marker of state.rescuedMarkers; let i = index"
-            [position]="marker"
-            [options]="rescuedOptions(i)"
-            (mapClick)="onMarkerClick(marker)"
-          ></map-marker>
-        </ng-container>
-
-        <ng-container *ngIf="showRehomed">
-          <map-marker
-            *ngFor="let marker of state.rehomedMarkers; let i = index"
-            [position]="marker"
-            [options]="rehomedOptions(i)"
-            (mapClick)="onMarkerClick(marker)"
-          ></map-marker>
-        </ng-container>
-      </google-map>
-    </div>
     <div>
       <div>
         <input
@@ -48,12 +27,44 @@
         /><label> Show Rescued</label>
       </div>
     </div>
+    <div *ngIf="scriptLoaded$ | async">
+      <google-map
+        width="100%"
+        height="750px"
+        class="block w-full"
+        [options]="options"
+      >
+        <ng-container *ngIf="showRescued">
+          <map-marker
+            *ngFor="let marker of state.rescuedMarkers; let i = index"
+            [position]="marker"
+            [options]="rescuedOptions(i)"
+            (mapClick)="onMarkerClick(marker)"
+          ></map-marker>
+        </ng-container>
+
+        <ng-container *ngIf="showRehomed">
+          <map-marker
+            *ngFor="let marker of state.rehomedMarkers; let i = index"
+            [position]="marker"
+            [options]="rehomedOptions(i)"
+            (mapClick)="onMarkerClick(marker)"
+          ></map-marker>
+        </ng-container>
+      </google-map>
+    </div>
+
     <div *ngIf="state.selectedMarker">
       <h3>{{ state.selectedMarker.name }}</h3>
       <div>
         <div>
-          <div *ngFor="let bear of state.visibleBears">
-            <app-bear-tile [bear]="bear"></app-bear-tile>
+          <div class="flex flex-wrap justify-center gap-4 sm:gap-0">
+            <app-bear-tile
+              class="w-full sm:w-1/2 md:w-1/3 2xl:w-1/4"
+              *ngFor="let bear of state.visibleBears"
+              [bear]="bear"
+            >
+            </app-bear-tile>
           </div>
         </div>
       </div>

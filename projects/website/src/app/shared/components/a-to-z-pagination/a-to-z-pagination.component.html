@@ -1,14 +1,22 @@
 <div>
-  <ul class="flex flex-wrap">
-    <li
-      *ngFor="let letter of alphabet"
-      [class.active]="selectedLetter == letter"
-      [class.available]="isAvailable(letter)"
-    >
-      <span (click)="onClick(letter)">{{ letter }}</span>
+  <ul>
+    <li *ngFor="let letter of alphabet">
+      <button
+        [class.active]="selectedLetter == letter"
+        [disabled]="!isAvailable(letter)"
+        (click)="onClick(letter)"
+      >
+        {{ letter }}
+      </button>
     </li>
-    <li [class.active]="selectedLetter == null" [class.available]="isAvailable('all')">
-      <span (click)="onClear()">All</span>
+    <li>
+      <button
+        [class.active]="selectedLetter == null"
+        [disabled]="!isAvailable('all')"
+        (click)="onClear()"
+      >
+        All
+      </button>
     </li>
   </ul>
 </div>

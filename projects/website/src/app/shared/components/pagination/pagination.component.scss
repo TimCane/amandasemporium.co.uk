@@ -1,0 +1,33 @@
+ul {
+    @apply flex flex-wrap justify-center;
+    li {
+      @apply list-none lg:p-1 cursor-pointer basis-2;
+  
+      button {
+        @apply font-normal px-4;
+        @apply bg-white text-black;
+  
+        &.active {
+          @apply font-bold;
+          @apply text-primary;
+        }
+  
+        @media (hover: hover) {
+          &:hover {
+            @apply cursor-pointer no-underline;
+            @apply text-primary-light;
+          }
+        }
+  
+        &:focus-visible {
+          @apply outline-none;
+          @apply border-primary-light;
+        }
+  
+        &:disabled {
+          @apply text-gray-light;
+        }
+      }
+    }
+  }
+  
