@@ -7,6 +7,7 @@ import { IBear } from '../lib/interfaces/bear.interface';
 export const cookie: IBear = {
   Id: 'cookie',
   Name: 'Cookie',
+  Description: ``,
   UploadedOn: new Date(2019, 9, 7),
   Type: {
     Type: BearTypeEnum.BuildABear,

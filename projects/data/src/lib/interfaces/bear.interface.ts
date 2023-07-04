@@ -5,6 +5,7 @@ import { IEvent } from './event.interface';
 
 export interface IBear extends IData {
   Name: string;
+  Description: string;
   UploadedOn: Date;
   Type: IBearType;
   Rescued: IBearLocation;

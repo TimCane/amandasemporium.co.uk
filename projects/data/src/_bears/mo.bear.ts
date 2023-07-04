@@ -6,6 +6,7 @@ import { IBear } from '../lib/interfaces/bear.interface';
 export const mo: IBear = {
   Id: 'mo',
   Name: 'Mo',
+  Description: ``,
   UploadedOn: new Date(2021, 6, 16),
   Type: {
     Type: BearTypeEnum.BearFactory,
