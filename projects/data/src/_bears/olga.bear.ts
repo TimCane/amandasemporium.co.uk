@@ -1,13 +1,16 @@
 import { cobham } from '../_locations/cobham.location';
 import { epsom } from '../_locations/epsom.location';
-import { BearType } from '../lib/enums/bear-type.enum';
+import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const olga: IBear = {
   Id: 'olga',
   Name: 'Olga',
+  Description: ``,
   UploadedOn: new Date(2021, 9, 7),
-  Type: BearType.BuildABear,
+  Type: {
+    Type: BearTypeEnum.BuildABear,
+  },
   Rescued: {
     Location: cobham,
     Date: new Date(2019, 11, 5),

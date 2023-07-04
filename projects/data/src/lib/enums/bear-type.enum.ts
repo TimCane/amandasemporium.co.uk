@@ -1,4 +1,4 @@
-export enum BearType {
+export enum BearTypeEnum {
   BuildABear = 'Build-a-Bear',
   BearFactory = 'Bear Factory',
   GloriousBritainJointedBear = 'Glorious Britain Jointed Bear',

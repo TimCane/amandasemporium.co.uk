@@ -1,13 +1,16 @@
 import { bansted } from '../_locations/bansted.location';
 import { binfield } from '../_locations/binfield.location';
-import { BearType } from '../lib/enums/bear-type.enum';
+import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const ivy: IBear = {
   Id: 'ivy',
   Name: 'Ivy',
+  Description: ``,
   UploadedOn: new Date(2021, 9, 7),
-  Type: BearType.BuildABear,
+  Type: {
+    Type: BearTypeEnum.BuildABear,
+  },
   Rescued: {
     Location: binfield,
     Date: new Date(2020, 1, 8),
