@@ -35,6 +35,12 @@ export class PaginationComponent implements OnInit {
 
   selectPageNumber(pageNumber: number) {
     this.currentPage = pageNumber;
+
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   }
 
   next() {
