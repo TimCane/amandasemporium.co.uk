@@ -1,29 +1,23 @@
-<div *ngIf="bear">
-  <img
-    src="/assets/images/bears/{{ bear.Id }}.jpg"
-    loading="lazy"
-    alt="Photo of {{ bear.Name }}"
-  />
-  <p>{{ bear.Name }}</p>
-  <div>
-    <dl>
-      <dt *ngIf="bear.Rescued">Rescued</dt>
-      <dd *ngIf="bear.Rescued">
-        <div>{{ bear.Rescued.Location.Name }}</div>
-        <div>({{ bear.Rescued.Date | date : "d MMM yyyy" }})</div>
-      </dd>
-      <dt>Origin</dt>
-      <dd>{{ bear.Type }}</dd>
-    </dl>
-    <div>
-      <ng-container *ngIf="bear.Rehomed; else waiting">
-        <span>
-          {{ bear.Name }} was rehomed on
-          <b>{{ bear.Rehomed.Date | date : "dd MMM yyyy" }}</b> and now lives in
-          <b>{{ bear.Rehomed.Location.Name }}</b
-          >.
-        </span>
-      </ng-container>
+<div *ngIf="bear" style="display: block">
+  <div class="panel panel-default  panel--styled">
+      <div class="panel-body">
+          <img class="img-responsive" src="/assets/images/bears/{{ bear.Id }}.jpg" loading="lazy" alt="Photo of {{ bear.Name }}" />
+          <p class="h4 text-center">{{ bear.Name }}</p>
+          <div class="info">
+              <dl class="dl-horizontal">
+                  <dt *ngIf="bear.Rescued">Rescued</dt>
+                  <dd *ngIf="bear.Rescued">
+                    <div>{{ bear.Rescued.Location.Name }}</div><div>({{ bear.Rescued.Date | date:'d MMM yyyy' }})</div></dd>
+                  <dt>Origin</dt>
+                  <dd>{{ bear.Type.Type }}</dd>
+              </dl>
+              <div class="rehomed text-center">
+                  <ng-container *ngIf="bear.Rehomed; else waiting">
+                      <span style="color: #01ad82;">
+                          {{ bear.Name }} was rehomed on <b>{{ bear.Rehomed.Date | date:'dd MMM yyyy' }}</b> and now lives in
+                          <b>{{ bear.Rehomed.Location.Name }}</b>.
+                      </span>
+                  </ng-container>
 
       <ng-template #waiting>
         <span>Waiting to be rehomed.</span>
