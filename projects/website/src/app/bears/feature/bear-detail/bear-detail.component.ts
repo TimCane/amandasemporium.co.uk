@@ -15,6 +15,8 @@ import { getBear } from '../../state/bears.selectors';
 export class BearDetailComponent implements OnInit {
   public bear$ = this.store.select(getBear);
 
+  showMoreDescription: boolean = false;
+
   constructor(
     private route: ActivatedRoute,
     private store: Store<AppState>,
@@ -41,4 +43,8 @@ export class BearDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  toggleMoreDescription() {
+    this.showMoreDescription = !this.showMoreDescription;
+  }
 }
