@@ -8,6 +8,7 @@ export * from './lib/interfaces/photo.interface';
 export * from './lib/interfaces/product.interface';
 export * from './lib/services/bear.service';
 export * from './lib/services/event.service';
+export * from './lib/services/location.service';
 export * from './lib/services/photo.service';
 export * from './lib/services/product.service';
 

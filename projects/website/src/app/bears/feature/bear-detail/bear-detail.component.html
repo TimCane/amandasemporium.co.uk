@@ -51,7 +51,7 @@
         <div>
           <a
             class="text-primary-content"
-            [routerLink]="['/', 'locations', bear.Rescued.Location.Name]"
+            [routerLink]="['/', 'locations', bear.Rescued.Location.Id]"
           >
             {{ bear.Rescued.Location.Name }}
           </a>
@@ -68,7 +68,7 @@
         <div>
           <a
             class="text-black"
-            [routerLink]="['/', 'locations', bear.Event.Location.Location.Name]"
+            [routerLink]="['/', 'locations', bear.Event.Location.Location.Id]"
           >
             {{ bear.Event.Location.Location.Name }}
           </a>
@@ -85,7 +85,7 @@
         <div>
           <a
             class="text-secondary-content"
-            [routerLink]="['/', 'locations', bear.Rehomed.Location.Name]"
+            [routerLink]="['/', 'locations', bear.Rehomed.Location.Id]"
           >
             {{ bear.Rehomed.Location.Name }}
           </a>
