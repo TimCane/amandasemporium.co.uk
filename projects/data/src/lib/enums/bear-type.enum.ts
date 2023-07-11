@@ -28,4 +28,6 @@ export enum BearTypeEnum {
   Morrisons = 'Morrisons',
   ValentineHeartBear = 'Valentine Heart Bear',
   TeddyTastic = 'Teddy Tastic',
+  Wilkinson = 'Wilkinson Bear',
+  LBILtd = 'L.B.I. Ltd',
 }
