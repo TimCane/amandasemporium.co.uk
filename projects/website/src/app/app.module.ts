@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BackAPageModule } from './shared/components/back-a-page/back-a-page.module';
 import { FooterModule } from './shared/components/footer/footer.module';
 import { NavigationModule } from './shared/components/navigation/navigation.module';
 import { PageTitleModule } from './shared/components/page-title/page-title.module';
@@ -41,6 +42,7 @@ import { ClarityModule } from './shared/modules/clarity.module';
     SplashScreenModule,
     SiteDisclosureModule,
     PageTitleModule,
+    BackAPageModule,
   ],
 })
 export class AppModule {}
