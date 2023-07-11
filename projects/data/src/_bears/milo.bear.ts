@@ -1,8 +1,8 @@
 import { E20180929 } from '../_events/E2018-09-29.event';
 import { durham } from '../_locations/durham.location';
 import { shepperton } from '../_locations/shepperton.location';
+import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
 import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const milo: IBear = {
@@ -10,8 +10,8 @@ export const milo: IBear = {
   Name: 'Milo',
   Description: ``,
   UploadedOn: new Date(2018, 8, 30),
-  Type: {
-    Type: BearTypeEnum.BuildABear,
+  Info: {
+    Brand: BearBrandEnum.BuildABear,
     Species: BearSpeciesEnum.Bear,
   },
   Rescued: {

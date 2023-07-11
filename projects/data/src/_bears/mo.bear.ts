@@ -1,7 +1,7 @@
 import { cobham } from '../_locations/cobham.location';
 import { southShields } from '../_locations/southShields.location';
+import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
 import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const mo: IBear = {
@@ -9,8 +9,8 @@ export const mo: IBear = {
   Name: 'Mo',
   Description: ``,
   UploadedOn: new Date(2021, 6, 16),
-  Type: {
-    Type: BearTypeEnum.BearFactory,
+  Info: {
+    Brand: BearBrandEnum.BearFactory,
     Species: BearSpeciesEnum.Monkey,
   },
   Rescued: {

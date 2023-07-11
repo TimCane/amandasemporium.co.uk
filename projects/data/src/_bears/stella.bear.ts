@@ -1,8 +1,8 @@
 import { E20210814 } from '../_events/E2021-08-14.event';
 import { farnborough } from '../_locations/farnborough.location';
 import { farnham } from '../_locations/farnham.location';
+import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
 import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const stella: IBear = {
@@ -10,8 +10,8 @@ export const stella: IBear = {
   Name: 'Stella',
   Description: ``,
   UploadedOn: new Date(2021, 7, 11),
-  Type: {
-    Type: BearTypeEnum.SainsburysBear,
+  Info: {
+    Brand: BearBrandEnum.SainsburysBear,
     Species: BearSpeciesEnum.Bear,
   },
   Rescued: {

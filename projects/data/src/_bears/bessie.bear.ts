@@ -1,8 +1,8 @@
 import { E20190817 } from '../_events/E2019-08-17.event';
 import { basingstoke } from '../_locations/basingstoke.location';
 import { weybridge } from '../_locations/weybridge.location';
+import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
 import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const bessie: IBear = {
@@ -10,8 +10,8 @@ export const bessie: IBear = {
   Name: 'Bessie',
   Description: ``,
   UploadedOn: new Date(2019, 4, 31),
-  Type: {
-    Type: BearTypeEnum.KeelTeddybear,
+  Info: {
+    Brand: BearBrandEnum.KeelTeddybear,
     Species: BearSpeciesEnum.Bear,
   },
   Rescued: {

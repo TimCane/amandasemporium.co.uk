@@ -1,8 +1,8 @@
 import { E20191201 } from '../_events/E2019-12-01.event';
 import { haylingIsland } from '../_locations/haylingIsland.location';
 import { horsley } from '../_locations/horsley.location';
+import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
 import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const lisa: IBear = {
@@ -10,8 +10,8 @@ export const lisa: IBear = {
   Name: 'Lisa',
   Description: ``,
   UploadedOn: new Date(2019, 10, 22),
-  Type: {
-    Type: BearTypeEnum.CuddlesCollection,
+  Info: {
+    Brand: BearBrandEnum.CuddlesCollection,
     Species: BearSpeciesEnum.Bear,
   },
   Rescued: {

@@ -1,8 +1,8 @@
 import { E20230617 } from '../_events/E2023-06-17.event';
 import { chichester } from '../_locations/chichester.location';
 import { nottingham } from '../_locations/nottingham.location';
+import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
 import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const florence: IBear = {
@@ -10,8 +10,8 @@ export const florence: IBear = {
   Name: 'Florence',
   Description: ``,
   UploadedOn: new Date(2022, 8, 26),
-  Type: {
-    Type: BearTypeEnum.BuildABear,
+  Info: {
+    Brand: BearBrandEnum.BuildABear,
     Species: BearSpeciesEnum.Bear,
   },
   Rescued: {

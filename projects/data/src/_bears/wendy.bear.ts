@@ -1,6 +1,6 @@
 import { woking } from '../_locations/woking.location';
+import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
 import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const wendy: IBear = {
@@ -8,8 +8,8 @@ export const wendy: IBear = {
   Name: 'Wendy',
   Description: ``,
   UploadedOn: new Date(2023, 4, 30),
-  Type: {
-    Type: BearTypeEnum.WHSmithBear,
+  Info: {
+    Brand: BearBrandEnum.WHSmithBear,
     Species: BearSpeciesEnum.Bear,
   },
   Rescued: {

@@ -1,6 +1,6 @@
 import { ascot } from '../_locations/ascot.location';
+import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
 import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const isaac: IBear = {
@@ -8,8 +8,8 @@ export const isaac: IBear = {
   Name: 'Isaac',
   Description: ``,
   UploadedOn: new Date(2023, 6, 11),
-  Type: {
-    Type: BearTypeEnum.BuildABear,
+  Info: {
+    Brand: BearBrandEnum.BuildABear,
     Species: BearSpeciesEnum.Bear,
   },
   Rescued: {

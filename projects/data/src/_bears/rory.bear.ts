@@ -1,7 +1,7 @@
 import { normandy } from '../_locations/normandy.location';
 import { waltonUponThames } from '../_locations/waltonUponThames.location';
+import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
 import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const rory: IBear = {
@@ -9,8 +9,8 @@ export const rory: IBear = {
   Name: 'Rory',
   Description: ``,
   UploadedOn: new Date(2018, 10, 12),
-  Type: {
-    Type: BearTypeEnum.BuildABear,
+  Info: {
+    Brand: BearBrandEnum.BuildABear,
     Species: BearSpeciesEnum.Bear,
   },
   Rescued: {

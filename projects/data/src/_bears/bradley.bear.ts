@@ -1,8 +1,8 @@
 import { E20221204 } from '../_events/E2022-12-04.event';
 import { cobham } from '../_locations/cobham.location';
 import { knaphill } from '../_locations/knaphill.location';
+import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
 import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const bradley: IBear = {
@@ -10,8 +10,8 @@ export const bradley: IBear = {
   Name: 'Bradley',
   Description: ``,
   UploadedOn: new Date(2019, 11, 12),
-  Type: {
-    Type: BearTypeEnum.BuildABear,
+  Info: {
+    Brand: BearBrandEnum.BuildABear,
     Species: BearSpeciesEnum.Bear,
   },
   Rescued: {

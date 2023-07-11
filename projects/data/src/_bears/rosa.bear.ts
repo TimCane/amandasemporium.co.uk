@@ -1,7 +1,7 @@
 import { farnborough } from '../_locations/farnborough.location';
 import { southsea } from '../_locations/southsea.location';
+import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
 import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const rosa: IBear = {
@@ -9,8 +9,8 @@ export const rosa: IBear = {
   Name: 'Rosa',
   Description: ``,
   UploadedOn: new Date(2019, 8, 9),
-  Type: {
-    Type: BearTypeEnum.BuildABear,
+  Info: {
+    Brand: BearBrandEnum.BuildABear,
     Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
