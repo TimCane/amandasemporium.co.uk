@@ -1,6 +1,7 @@
 import { E20191214 } from '../_events/E2019-12-14.event';
 import { ashford } from '../_locations/ashford.location';
 import { horley } from '../_locations/horley.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +12,7 @@ export const kitty: IBear = {
   UploadedOn: new Date(2019, 11, 12),
   Type: {
     Type: BearTypeEnum.BuildABear,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: ashford,

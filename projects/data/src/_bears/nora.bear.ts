@@ -1,6 +1,7 @@
 import { E20221127 } from '../_events/E2022-11-27.event';
 import { ely } from '../_locations/ely.location';
 import { hook } from '../_locations/hook.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +12,7 @@ export const nora: IBear = {
   UploadedOn: new Date(2022, 3, 24),
   Type: {
     Type: BearTypeEnum.PlushCompany,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: ely,

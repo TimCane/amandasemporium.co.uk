@@ -1,6 +1,7 @@
 import { E20210925 } from '../_events/E2021-09-25.event';
 import { eastGrinstead } from '../_locations/eastGrinstead.location';
 import { kingston } from '../_locations/kingston.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +12,7 @@ export const tilly: IBear = {
   UploadedOn: new Date(2021, 7, 11),
   Type: {
     Type: BearTypeEnum.BearFactory,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: eastGrinstead,

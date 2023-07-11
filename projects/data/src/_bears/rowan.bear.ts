@@ -1,5 +1,6 @@
 import { ashford } from '../_locations/ashford.location';
 import { bracknell } from '../_locations/bracknell.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -10,6 +11,7 @@ export const rowan: IBear = {
   UploadedOn: new Date(2019, 3, 7),
   Type: {
     Type: BearTypeEnum.BuildABear,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: ashford,

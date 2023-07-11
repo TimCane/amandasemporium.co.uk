@@ -1,5 +1,6 @@
 import { sunbury } from '../_locations/sunbury.location';
 import { tonbridge } from '../_locations/tonbridge.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -10,6 +11,7 @@ export const harry: IBear = {
   UploadedOn: new Date(2019, 4, 24),
   Type: {
     Type: BearTypeEnum.WHSmithBear,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: tonbridge,

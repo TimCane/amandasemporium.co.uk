@@ -1,6 +1,7 @@
 import { E20220717 } from '../_events/E2022-07-17.event';
 import { addlestone } from '../_locations/addlestone.location';
 import { guildford } from '../_locations/guildford.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +12,7 @@ export const thomas: IBear = {
   UploadedOn: new Date(2019, 11, 12),
   Type: {
     Type: BearTypeEnum.BuildABear,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: addlestone,

@@ -1,5 +1,6 @@
 import { addlestone } from '../_locations/addlestone.location';
 import { surbiton } from '../_locations/surbiton.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -10,6 +11,7 @@ export const cooper: IBear = {
   UploadedOn: new Date(2022, 10, 8),
   Type: {
     Type: BearTypeEnum.BuildABear,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: addlestone,

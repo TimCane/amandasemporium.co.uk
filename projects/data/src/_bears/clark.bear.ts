@@ -1,6 +1,7 @@
 import { E20190413 } from '../_events/E2019-04-13.event';
 import { hurley } from '../_locations/hurley.location';
 import { weybridge } from '../_locations/weybridge.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +12,7 @@ export const clark: IBear = {
   UploadedOn: new Date(2019, 3, 7),
   Type: {
     Type: BearTypeEnum.Unknown,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: weybridge,

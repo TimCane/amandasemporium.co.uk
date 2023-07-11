@@ -1,5 +1,6 @@
 import { normandy } from '../_locations/normandy.location';
 import { waltonUponThames } from '../_locations/waltonUponThames.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -10,6 +11,7 @@ export const rory: IBear = {
   UploadedOn: new Date(2018, 10, 12),
   Type: {
     Type: BearTypeEnum.BuildABear,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: waltonUponThames,

@@ -1,4 +1,5 @@
 import { shepperton } from '../_locations/shepperton.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -9,6 +10,7 @@ export const isla: IBear = {
   UploadedOn: new Date(2022, 11, 2),
   Type: {
     Type: BearTypeEnum.BuildABear,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: shepperton,

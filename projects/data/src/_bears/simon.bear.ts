@@ -1,5 +1,6 @@
 import { addlestone } from '../_locations/addlestone.location';
 import { upton } from '../_locations/upton.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -10,6 +11,7 @@ export const simon: IBear = {
   UploadedOn: new Date(2023, 4, 30),
   Type: {
     Type: BearTypeEnum.TeddyTastic,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: addlestone,

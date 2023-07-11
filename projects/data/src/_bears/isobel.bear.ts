@@ -1,6 +1,7 @@
 import { E20191019 } from '../_events/E2019-10-19.event';
 import { chertsey } from '../_locations/chertsey.location';
 import { horsham } from '../_locations/horsham.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +12,7 @@ export const isobel: IBear = {
   UploadedOn: new Date(2019, 4, 31),
   Type: {
     Type: BearTypeEnum.CuddlesCollection,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: chertsey,

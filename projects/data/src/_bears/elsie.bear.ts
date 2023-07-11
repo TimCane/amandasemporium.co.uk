@@ -1,6 +1,7 @@
 import { E20180929 } from '../_events/E2018-09-29.event';
 import { ripley } from '../_locations/ripley.location';
 import { surbiton } from '../_locations/surbiton.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +12,7 @@ export const elsie: IBear = {
   UploadedOn: new Date(2018, 8, 30),
   Type: {
     Type: BearTypeEnum.BuildABear,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: ripley,

@@ -1,6 +1,7 @@
 import { E20210808 } from '../_events/E2021-08-08.event';
 import { binfield } from '../_locations/binfield.location';
 import { windsor } from '../_locations/windsor.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +12,7 @@ export const hannah: IBear = {
   UploadedOn: new Date(2021, 6, 16),
   Type: {
     Type: BearTypeEnum.BuildABear,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: binfield,

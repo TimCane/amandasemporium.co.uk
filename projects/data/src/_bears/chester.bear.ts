@@ -1,6 +1,7 @@
 import { E20190928 } from '../_events/E2019-09-28.event';
 import { hailsham } from '../_locations/hailsham.location';
 import { haylingIsland } from '../_locations/haylingIsland.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +12,7 @@ export const chester: IBear = {
   UploadedOn: new Date(2019, 8, 30),
   Type: {
     Type: BearTypeEnum.Funtastic,
+    Species: BearSpeciesEnum.Dog,
   },
   Rescued: {
     Location: haylingIsland,

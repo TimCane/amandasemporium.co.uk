@@ -1,6 +1,7 @@
 import { E20221120 } from '../_events/E2022-11-20.event';
 import { chichester } from '../_locations/chichester.location';
 import { tidworth } from '../_locations/tidworth.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +12,7 @@ export const lily: IBear = {
   UploadedOn: new Date(2022, 10, 8),
   Type: {
     Type: BearTypeEnum.BuildABear,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: chichester,

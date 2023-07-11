@@ -1,5 +1,6 @@
 import { addlestone } from '../_locations/addlestone.location';
 import { leatherhead } from '../_locations/leatherhead.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -10,6 +11,7 @@ export const baaabara: IBear = {
   UploadedOn: new Date(2021, 9, 7),
   Type: {
     Type: BearTypeEnum.BuildABear,
+    Species: BearSpeciesEnum.Sheep,
   },
   Rescued: {
     Location: addlestone,

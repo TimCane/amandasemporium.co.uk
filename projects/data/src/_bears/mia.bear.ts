@@ -1,6 +1,7 @@
 import { E20191214 } from '../_events/E2019-12-14.event';
 import { horley } from '../_locations/horley.location';
 import { shepperton } from '../_locations/shepperton.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +12,7 @@ export const mia: IBear = {
   UploadedOn: new Date(2018, 10, 12),
   Type: {
     Type: BearTypeEnum.BabyGund,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: shepperton,

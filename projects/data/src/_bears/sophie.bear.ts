@@ -1,6 +1,7 @@
 import { E20181202 } from '../_events/E2018-12-02.event';
 import { horsell } from '../_locations/horsell.location';
 import { ripley } from '../_locations/ripley.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +12,7 @@ export const sophie: IBear = {
   UploadedOn: new Date(2018, 10, 24),
   Type: {
     Type: BearTypeEnum.Unknown,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: horsell,

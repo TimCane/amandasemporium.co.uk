@@ -1,6 +1,7 @@
 import { E20190921 } from '../_events/E2019-09-21.event';
 import { godalming } from '../_locations/godalming.location';
 import { haylingIsland } from '../_locations/haylingIsland.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -11,6 +12,7 @@ export const frank: IBear = {
   UploadedOn: new Date(2019, 8, 9),
   Type: {
     Type: BearTypeEnum.BuildABear,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: haylingIsland,

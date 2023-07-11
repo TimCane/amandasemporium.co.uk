@@ -1,5 +1,6 @@
 import { shepperton } from '../_locations/shepperton.location';
 import { shrewsbury } from '../_locations/shrewsbury.location';
+import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { BearTypeEnum } from '../lib/enums/bear-type.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
 
@@ -10,6 +11,7 @@ export const william: IBear = {
   UploadedOn: new Date(2018, 3, 29),
   Type: {
     Type: BearTypeEnum.WHSmithBear,
+    Species: BearSpeciesEnum.Bear,
   },
   Rescued: {
     Location: shrewsbury,
