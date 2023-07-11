@@ -1,5 +1,9 @@
 # Data
 
+## Prompt
+
+write a short description for a teddy bear called _____ who is ______ in words a child would understand
+
 ## Months
 
 | Month | Index |
