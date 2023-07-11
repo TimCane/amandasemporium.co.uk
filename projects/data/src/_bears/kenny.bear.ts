@@ -1,9 +1,9 @@
 import { E20190525 } from '../_events/E2019-05-25.event';
 import { chertsey } from '../_locations/chertsey.location';
 import { taplow } from '../_locations/taplow.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const kenny: IBear = {
   Id: 'kenny',
@@ -11,8 +11,8 @@ export const kenny: IBear = {
   Description: ``,
   UploadedOn: new Date(2018, 8, 30),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: chertsey,

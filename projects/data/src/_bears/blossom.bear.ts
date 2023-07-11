@@ -1,9 +1,9 @@
 import { E20191019 } from '../_events/E2019-10-19.event';
 import { farnborough } from '../_locations/farnborough.location';
 import { southsea } from '../_locations/southsea.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { theWorks } from './_brands/the-works.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const blossom: IBear = {
   Id: 'blossom',
@@ -11,8 +11,8 @@ export const blossom: IBear = {
   Description: ``,
   UploadedOn: new Date(2019, 8, 30),
   Info: {
-    Brand: BearBrandEnum.TheWorks,
-    Species: BearSpeciesEnum.Bear,
+    Brand: theWorks,
+    Species: bear,
   },
   Rescued: {
     Location: southsea,

@@ -1,9 +1,9 @@
 import { E20210925 } from '../_events/E2021-09-25.event';
 import { farnborough } from '../_locations/farnborough.location';
 import { surbiton } from '../_locations/surbiton.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { keelTeddy } from './_brands/keel-teddy.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const paul: IBear = {
   Id: 'paul',
@@ -11,8 +11,8 @@ export const paul: IBear = {
   Description: ``,
   UploadedOn: new Date(2021, 6, 16),
   Info: {
-    Brand: BearBrandEnum.KeelTeddybear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: keelTeddy,
+    Species: bear,
   },
   Rescued: {
     Location: farnborough,

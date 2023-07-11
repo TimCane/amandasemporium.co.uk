@@ -1,9 +1,9 @@
 import { E20191214 } from '../_events/E2019-12-14.event';
 import { ashford } from '../_locations/ashford.location';
 import { horley } from '../_locations/horley.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { cat } from './_species/cat.bear-species';
 
 export const felicity: IBear = {
   Id: 'felicity',
@@ -11,8 +11,8 @@ export const felicity: IBear = {
   Description: ``,
   UploadedOn: new Date(2019, 11, 12),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Cat,
+    Brand: buildABear,
+    Species: cat,
   },
   Rescued: {
     Location: ashford,

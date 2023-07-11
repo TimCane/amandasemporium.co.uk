@@ -1,9 +1,9 @@
 import { E20230625 } from '../_events/E2023-06-25.event';
 import { addlestone } from '../_locations/addlestone.location';
 import { colchester } from '../_locations/colchester.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const ava: IBear = {
   Id: 'ava',
@@ -11,8 +11,8 @@ export const ava: IBear = {
   Description: ``,
   UploadedOn: new Date(2023, 5, 20),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: addlestone,

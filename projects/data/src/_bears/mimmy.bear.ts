@@ -1,9 +1,9 @@
 import { E20210731 } from '../_events/E2021-07-31.event';
 import { binfield } from '../_locations/binfield.location';
 import { winnersh } from '../_locations/winnersh.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const mimmy: IBear = {
   Id: 'mimmy',
@@ -11,8 +11,8 @@ export const mimmy: IBear = {
   Description: ``,
   UploadedOn: new Date(2021, 6, 16),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: binfield,

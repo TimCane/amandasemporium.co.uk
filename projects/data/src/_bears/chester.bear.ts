@@ -1,9 +1,9 @@
 import { E20190928 } from '../_events/E2019-09-28.event';
 import { hailsham } from '../_locations/hailsham.location';
 import { haylingIsland } from '../_locations/haylingIsland.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { funtastic } from './_brands/funtastic.bear-brand';
+import { dog } from './_species/dog.bear-species';
 
 export const chester: IBear = {
   Id: 'chester',
@@ -11,8 +11,8 @@ export const chester: IBear = {
   Description: ``,
   UploadedOn: new Date(2019, 8, 30),
   Info: {
-    Brand: BearBrandEnum.Funtastic,
-    Species: BearSpeciesEnum.Dog,
+    Brand: funtastic,
+    Species: dog,
   },
   Rescued: {
     Location: haylingIsland,

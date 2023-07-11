@@ -1,9 +1,9 @@
 import { E20220820 } from '../_events/E2022-08-20.event';
 import { camberley } from '../_locations/camberley.location';
 import { farnham } from '../_locations/farnham.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const nellie: IBear = {
   Id: 'nellie',
@@ -11,8 +11,8 @@ export const nellie: IBear = {
   Description: ``,
   UploadedOn: new Date(2022, 7, 17),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: camberley,

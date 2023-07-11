@@ -1,9 +1,9 @@
 import { E20191006 } from '../_events/E2019-10-06.event';
 import { ashford } from '../_locations/ashford.location';
 import { broadbridgeHeath } from '../_locations/broadbridgeHeath.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { keelTeddy } from './_brands/keel-teddy.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const noah: IBear = {
   Id: 'noah',
@@ -11,8 +11,8 @@ export const noah: IBear = {
   Description: ``,
   UploadedOn: new Date(2019, 8, 9),
   Info: {
-    Brand: BearBrandEnum.KeelTeddybear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: keelTeddy,
+    Species: bear,
   },
   Rescued: {
     Location: ashford,

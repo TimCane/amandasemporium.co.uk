@@ -1,9 +1,9 @@
 import { E20220924 } from '../_events/E2022-09-24.event';
 import { ruislip } from '../_locations/ruislip.location';
 import { surbiton } from '../_locations/surbiton.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const jane: IBear = {
   Id: 'jane',
@@ -11,8 +11,8 @@ export const jane: IBear = {
   Description: ``,
   UploadedOn: new Date(2021, 9, 7),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: ruislip,

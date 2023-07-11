@@ -1,9 +1,9 @@
 import { E20220924 } from '../_events/E2022-09-24.event';
 import { newbury } from '../_locations/newbury.location';
 import { richmond } from '../_locations/richmond.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { unknown } from './_brands/unknown.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const heather: IBear = {
   Id: 'heather',
@@ -11,8 +11,8 @@ export const heather: IBear = {
   Description: ``,
   UploadedOn: new Date(2022, 7, 17),
   Info: {
-    Brand: BearBrandEnum.Unknown,
-    Species: BearSpeciesEnum.Bear,
+    Brand: unknown,
+    Species: bear,
   },
   Rescued: {
     Location: newbury,

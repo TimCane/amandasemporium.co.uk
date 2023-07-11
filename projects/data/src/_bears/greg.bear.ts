@@ -1,9 +1,9 @@
 import { E20181122 } from '../_events/E2018-11-22.event';
 import { bognor } from '../_locations/bognor.location';
 import { clapham } from '../_locations/clapham.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { cuddlesCollection } from './_brands/cuddles-collection.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const greg: IBear = {
   Id: 'greg',
@@ -11,8 +11,8 @@ export const greg: IBear = {
   Description: ``,
   UploadedOn: new Date(2018, 10, 12),
   Info: {
-    Brand: BearBrandEnum.CuddlesCollection,
-    Species: BearSpeciesEnum.Bear,
+    Brand: cuddlesCollection,
+    Species: bear,
   },
   Rescued: {
     Location: bognor,

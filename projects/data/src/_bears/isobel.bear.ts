@@ -1,9 +1,9 @@
 import { E20191019 } from '../_events/E2019-10-19.event';
 import { chertsey } from '../_locations/chertsey.location';
 import { horsham } from '../_locations/horsham.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { cuddlesCollection } from './_brands/cuddles-collection.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const isobel: IBear = {
   Id: 'isobel',
@@ -11,8 +11,8 @@ export const isobel: IBear = {
   Description: ``,
   UploadedOn: new Date(2019, 4, 31),
   Info: {
-    Brand: BearBrandEnum.CuddlesCollection,
-    Species: BearSpeciesEnum.Bear,
+    Brand: cuddlesCollection,
+    Species: bear,
   },
   Rescued: {
     Location: chertsey,

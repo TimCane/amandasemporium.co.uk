@@ -1,9 +1,9 @@
 import { E20210925 } from '../_events/E2021-09-25.event';
 import { cobham } from '../_locations/cobham.location';
 import { surbiton } from '../_locations/surbiton.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { disneyStore } from './_brands/disney-store.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const duffy: IBear = {
   Id: 'duffy',
@@ -11,8 +11,8 @@ export const duffy: IBear = {
   Description: ``,
   UploadedOn: new Date(2019, 11, 12),
   Info: {
-    Brand: BearBrandEnum.DisneyStore,
-    Species: BearSpeciesEnum.Bear,
+    Brand: disneyStore,
+    Species: bear,
   },
   Rescued: {
     Location: cobham,

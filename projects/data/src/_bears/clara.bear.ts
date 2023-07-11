@@ -1,9 +1,9 @@
 import { E20181110 } from '../_events/E2018-11-10.event';
 import { haylingIsland } from '../_locations/haylingIsland.location';
 import { reading } from '../_locations/reading.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { keelTeddy } from './_brands/keel-teddy.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const clara: IBear = {
   Id: 'clara',
@@ -11,8 +11,8 @@ export const clara: IBear = {
   Description: ``,
   UploadedOn: new Date(2018, 10, 12),
   Info: {
-    Brand: BearBrandEnum.KeelTeddybear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: keelTeddy,
+    Species: bear,
   },
   Rescued: {
     Location: haylingIsland,

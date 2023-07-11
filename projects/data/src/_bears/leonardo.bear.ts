@@ -1,9 +1,9 @@
 import { E20210925 } from '../_events/E2021-09-25.event';
 import { cobham } from '../_locations/cobham.location';
 import { kingston } from '../_locations/kingston.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const leonardo: IBear = {
   Id: 'leonardo',
@@ -11,8 +11,8 @@ export const leonardo: IBear = {
   Description: ``,
   UploadedOn: new Date(2021, 7, 11),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: cobham,

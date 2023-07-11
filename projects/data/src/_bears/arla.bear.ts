@@ -1,8 +1,8 @@
 import { bosham } from '../_locations/bosham.location';
 import { horley } from '../_locations/horley.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const arla: IBear = {
   Id: 'arla',
@@ -10,8 +10,8 @@ export const arla: IBear = {
   Description: ``,
   UploadedOn: new Date(2022, 11, 2),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: bosham,

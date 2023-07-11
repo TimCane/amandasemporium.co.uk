@@ -1,9 +1,9 @@
 import { E20220924 } from '../_events/E2022-09-24.event';
 import { berrylands } from '../_locations/berrylands.location';
 import { westWittering } from '../_locations/westWittering.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { cat } from './_species/cat.bear-species';
 
 export const tabitha: IBear = {
   Id: 'tabitha',
@@ -11,8 +11,8 @@ export const tabitha: IBear = {
   Description: ``,
   UploadedOn: new Date(2022, 8, 26),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Cat,
+    Brand: buildABear,
+    Species: cat,
   },
   Rescued: {
     Location: westWittering,

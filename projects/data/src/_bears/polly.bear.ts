@@ -1,9 +1,9 @@
 import { E20190602 } from '../_events/E2019-06-02.event';
 import { dorchester } from '../_locations/dorchester.location';
 import { haylingIsland } from '../_locations/haylingIsland.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { rabbit } from './_species/rabbit.bear-species';
 
 export const polly: IBear = {
   Id: 'polly',
@@ -11,8 +11,8 @@ export const polly: IBear = {
   Description: ``,
   UploadedOn: new Date(2018, 11, 3),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Rabbit,
+    Brand: buildABear,
+    Species: rabbit,
   },
   Rescued: {
     Location: haylingIsland,

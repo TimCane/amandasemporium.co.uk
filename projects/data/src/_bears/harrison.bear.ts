@@ -1,9 +1,9 @@
 import { E20221127 } from '../_events/E2022-11-27.event';
 import { odiham } from '../_locations/odiham.location';
 import { tonbridge } from '../_locations/tonbridge.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { bearFactory } from './_brands/bear-factory.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const harrison: IBear = {
   Id: 'harrison',
@@ -11,8 +11,8 @@ export const harrison: IBear = {
   Description: ``,
   UploadedOn: new Date(2022, 7, 17),
   Info: {
-    Brand: BearBrandEnum.BearFactory,
-    Species: BearSpeciesEnum.Bear,
+    Brand: bearFactory,
+    Species: bear,
   },
   Rescued: {
     Location: tonbridge,

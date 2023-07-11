@@ -1,8 +1,8 @@
 import { bansted } from '../_locations/bansted.location';
 import { chertsey } from '../_locations/chertsey.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { beamFeatureLtd } from './_brands/beam-feature-ltd.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const chloe: IBear = {
   Id: 'chloe',
@@ -10,8 +10,8 @@ export const chloe: IBear = {
   Description: ``,
   UploadedOn: new Date(2019, 4, 31),
   Info: {
-    Brand: BearBrandEnum.BeamFeatureLtd,
-    Species: BearSpeciesEnum.Bear,
+    Brand: beamFeatureLtd,
+    Species: bear,
   },
   Rescued: {
     Location: chertsey,

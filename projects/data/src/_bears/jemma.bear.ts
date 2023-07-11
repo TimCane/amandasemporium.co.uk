@@ -1,7 +1,7 @@
 import { chicester } from '../_locations/chicester.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { dog } from './_species/dog.bear-species';
 
 export const jemma: IBear = {
   Id: 'jemma',
@@ -9,8 +9,8 @@ export const jemma: IBear = {
   Description: ``,
   UploadedOn: new Date(2023, 4, 30),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Dog,
+    Brand: buildABear,
+    Species: dog,
   },
   Rescued: {
     Location: chicester,

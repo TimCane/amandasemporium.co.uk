@@ -1,9 +1,9 @@
 import { E20221210 } from '../_events/E2022-12-10.event';
 import { horley } from '../_locations/horley.location';
 import { westWittering } from '../_locations/westWittering.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { rabbit } from './_species/rabbit.bear-species';
 
 export const merida: IBear = {
   Id: 'merida',
@@ -11,8 +11,8 @@ export const merida: IBear = {
   Description: ``,
   UploadedOn: new Date(2022, 11, 9),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Rabbit,
+    Brand: buildABear,
+    Species: rabbit,
   },
   Rescued: {
     Location: westWittering,

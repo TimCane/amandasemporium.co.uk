@@ -1,9 +1,9 @@
 import { E20190928 } from '../_events/E2019-09-28.event';
 import { surbiton } from '../_locations/surbiton.location';
 import { waltonUponThames } from '../_locations/waltonUponThames.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { gloriousBritian } from './_brands/glorious-britian.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const charlotte: IBear = {
   Id: 'charlotte',
@@ -11,8 +11,8 @@ export const charlotte: IBear = {
   Description: ``,
   UploadedOn: new Date(2019, 6, 18),
   Info: {
-    Brand: BearBrandEnum.GloriousBritianBear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: gloriousBritian,
+    Species: bear,
   },
   Rescued: {
     Location: waltonUponThames,

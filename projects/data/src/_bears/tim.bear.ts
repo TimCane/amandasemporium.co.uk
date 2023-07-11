@@ -1,8 +1,8 @@
 import { horsham } from '../_locations/horsham.location';
 import { southsea } from '../_locations/southsea.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { valentineHeart } from './_brands/valentine-heart.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const tim: IBear = {
   Id: 'tim',
@@ -10,8 +10,8 @@ export const tim: IBear = {
   Description: ``,
   UploadedOn: new Date(2019, 6, 18),
   Info: {
-    Brand: BearBrandEnum.ValentineHeartBear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: valentineHeart,
+    Species: bear,
   },
   Rescued: {
     Location: southsea,

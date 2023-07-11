@@ -1,9 +1,9 @@
 import { E20181122 } from '../_events/E2018-11-22.event';
 import { chertsey } from '../_locations/chertsey.location';
 import { hongKong } from '../_locations/hongKong.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { asWatsonHealthAndBeautyCo } from './_brands/as-watson-health-and-beauty-co.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const primrose: IBear = {
   Id: 'primrose',
@@ -11,8 +11,8 @@ export const primrose: IBear = {
   Description: ``,
   UploadedOn: new Date(2018, 3, 29),
   Info: {
-    Brand: BearBrandEnum.AsWatsonHealthAndBeautyCo,
-    Species: BearSpeciesEnum.Bear,
+    Brand: asWatsonHealthAndBeautyCo,
+    Species: bear,
   },
   Rescued: {
     Location: chertsey,

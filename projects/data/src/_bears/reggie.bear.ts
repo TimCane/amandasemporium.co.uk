@@ -1,9 +1,9 @@
 import { E20181110 } from '../_events/E2018-11-10.event';
 import { reading } from '../_locations/reading.location';
 import { southsea } from '../_locations/southsea.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const reggie: IBear = {
   Id: 'reggie',
@@ -11,8 +11,8 @@ export const reggie: IBear = {
   Description: ``,
   UploadedOn: new Date(2018, 10, 12),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: southsea,

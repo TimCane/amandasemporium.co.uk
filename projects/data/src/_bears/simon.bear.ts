@@ -1,8 +1,8 @@
 import { addlestone } from '../_locations/addlestone.location';
 import { upton } from '../_locations/upton.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { teddyTastic } from './_brands/teddy-tastic.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const simon: IBear = {
   Id: 'simon',
@@ -10,8 +10,8 @@ export const simon: IBear = {
   Description: ``,
   UploadedOn: new Date(2023, 4, 30),
   Info: {
-    Brand: BearBrandEnum.TeddyTastic,
-    Species: BearSpeciesEnum.Bear,
+    Brand: teddyTastic,
+    Species: bear,
   },
   Rescued: {
     Location: addlestone,

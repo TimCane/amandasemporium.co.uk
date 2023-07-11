@@ -1,7 +1,7 @@
 import { guildford } from '../_locations/guildford.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { keelTeddy } from './_brands/keel-teddy.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const kara: IBear = {
   Id: 'kara',
@@ -9,8 +9,8 @@ export const kara: IBear = {
   Description: ``,
   UploadedOn: new Date(2023, 4, 30),
   Info: {
-    Brand: BearBrandEnum.KeelTeddybear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: keelTeddy,
+    Species: bear,
   },
   Rescued: {
     Location: guildford,

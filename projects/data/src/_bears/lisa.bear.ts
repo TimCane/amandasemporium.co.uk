@@ -1,9 +1,9 @@
 import { E20191201 } from '../_events/E2019-12-01.event';
 import { haylingIsland } from '../_locations/haylingIsland.location';
 import { horsley } from '../_locations/horsley.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { cuddlesCollection } from './_brands/cuddles-collection.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const lisa: IBear = {
   Id: 'lisa',
@@ -11,8 +11,8 @@ export const lisa: IBear = {
   Description: ``,
   UploadedOn: new Date(2019, 10, 22),
   Info: {
-    Brand: BearBrandEnum.CuddlesCollection,
-    Species: BearSpeciesEnum.Bear,
+    Brand: cuddlesCollection,
+    Species: bear,
   },
   Rescued: {
     Location: haylingIsland,

@@ -1,8 +1,8 @@
 import { shepperton } from '../_locations/shepperton.location';
 import { shrewsbury } from '../_locations/shrewsbury.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { whsmith } from './_brands/whsmith.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const william: IBear = {
   Id: 'william',
@@ -10,8 +10,8 @@ export const william: IBear = {
   Description: ``,
   UploadedOn: new Date(2018, 3, 29),
   Info: {
-    Brand: BearBrandEnum.WHSmithBear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: whsmith,
+    Species: bear,
   },
   Rescued: {
     Location: shrewsbury,

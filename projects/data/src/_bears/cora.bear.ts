@@ -1,9 +1,9 @@
 import { E20230709 } from '../_events/E2023-07-09.event';
 import { guildford } from '../_locations/guildford.location';
 import { shepperton } from '../_locations/shepperton.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const cora: IBear = {
   Id: 'cora',
@@ -11,8 +11,8 @@ export const cora: IBear = {
   Description: ``,
   UploadedOn: new Date(2023, 5, 20),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: shepperton,

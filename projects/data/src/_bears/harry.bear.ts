@@ -1,8 +1,8 @@
 import { sunbury } from '../_locations/sunbury.location';
 import { tonbridge } from '../_locations/tonbridge.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { whsmith } from './_brands/whsmith.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const harry: IBear = {
   Id: 'harry',
@@ -10,8 +10,8 @@ export const harry: IBear = {
   Description: ``,
   UploadedOn: new Date(2019, 4, 24),
   Info: {
-    Brand: BearBrandEnum.WHSmithBear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: whsmith,
+    Species: bear,
   },
   Rescued: {
     Location: tonbridge,

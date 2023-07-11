@@ -1,9 +1,9 @@
 import { E20190928 } from '../_events/E2019-09-28.event';
 import { hunston } from '../_locations/hunston.location';
 import { westMolesey } from '../_locations/westMolesey.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { bearFactory } from './_brands/bear-factory.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const violet: IBear = {
   Id: 'violet',
@@ -11,8 +11,8 @@ export const violet: IBear = {
   Description: ``,
   UploadedOn: new Date(2019, 8, 30),
   Info: {
-    Brand: BearBrandEnum.BearFactory,
-    Species: BearSpeciesEnum.Bear,
+    Brand: bearFactory,
+    Species: bear,
   },
   Rescued: {
     Location: hunston,

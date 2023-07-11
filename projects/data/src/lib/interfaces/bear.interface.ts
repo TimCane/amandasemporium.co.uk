@@ -1,5 +1,5 @@
-import { IBearLocation } from './bear-location.interface';
-import { IBearInfo } from './bear-type.interface';
+import { IBearInfo } from './bear/bear-info.interface';
+import { IBearLocation } from './bear/bear-location.interface';
 import { IData } from './data.interface';
 import { IEvent } from './event.interface';
 

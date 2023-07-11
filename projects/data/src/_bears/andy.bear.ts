@@ -1,8 +1,8 @@
 import { pagham } from '../_locations/pagham.location';
 import { smallfield } from '../_locations/smallfield.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const andy: IBear = {
   Id: 'andy',
@@ -10,8 +10,8 @@ export const andy: IBear = {
   Description: ``,
   UploadedOn: new Date(2019, 8, 30),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: pagham,

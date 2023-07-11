@@ -1,8 +1,8 @@
 import { hammersmith } from '../_locations/hammersmith.location';
 import { horsham } from '../_locations/horsham.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { unknown } from './_brands/unknown.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const ben: IBear = {
   Id: 'ben',
@@ -10,8 +10,8 @@ export const ben: IBear = {
   Description: ``,
   UploadedOn: new Date(2018, 10, 24),
   Info: {
-    Brand: BearBrandEnum.Unknown,
-    Species: BearSpeciesEnum.Bear,
+    Brand: unknown,
+    Species: bear,
   },
   Rescued: {
     Location: hammersmith,

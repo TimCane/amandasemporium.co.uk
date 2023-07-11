@@ -1,9 +1,9 @@
 import { E20200304 } from '../_events/E2020-03-04.event';
 import { weybridge } from '../_locations/weybridge.location';
 import { woking } from '../_locations/woking.location';
-import { BearBrandEnum } from '../lib/enums/bear-brand.enum';
-import { BearSpeciesEnum } from '../lib/enums/bear-species.enum';
 import { IBear } from '../lib/interfaces/bear.interface';
+import { buildABear } from './_brands/build-a-bear.bear-brand';
+import { bear } from './_species/bear.bear-species';
 
 export const emma: IBear = {
   Id: 'emma',
@@ -11,8 +11,8 @@ export const emma: IBear = {
   Description: ``,
   UploadedOn: new Date(2018, 10, 24),
   Info: {
-    Brand: BearBrandEnum.BuildABear,
-    Species: BearSpeciesEnum.Bear,
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: weybridge,
