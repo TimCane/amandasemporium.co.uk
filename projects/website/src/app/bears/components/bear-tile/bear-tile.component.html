@@ -9,7 +9,7 @@
                   <dd *ngIf="bear.Rescued">
                     <div>{{ bear.Rescued.Location.Name }}</div><div>({{ bear.Rescued.Date | date:'d MMM yyyy' }})</div></dd>
                   <dt>Origin</dt>
-                  <dd>{{ bear.Info.Brand }}</dd>
+                  <dd>{{ bear.Info.Brand.Name }}</dd>
               </dl>
               <div class="rehomed text-center">
                   <ng-container *ngIf="bear.Rehomed; else waiting">
