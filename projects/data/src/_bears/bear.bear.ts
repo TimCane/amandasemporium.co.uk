@@ -1,8 +1,8 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { cobham } from '../_locations/cobham.location';
 import { surbiton } from '../_locations/surbiton.location';
+import { bear as bearSpecies } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { bear as bearSpecies } from './_species/bear.bear-species';
 
 export const bear: IBear = {
   Id: 'bear',

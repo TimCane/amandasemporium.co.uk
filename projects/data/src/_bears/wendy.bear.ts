@@ -1,7 +1,7 @@
+import { whsmith } from '../_brands/whsmith.bear-brand';
 import { woking } from '../_locations/woking.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { whsmith } from './_brands/whsmith.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const wendy: IBear = {
   Id: 'wendy',

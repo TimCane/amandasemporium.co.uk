@@ -1,8 +1,8 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { bridgemary } from '../_locations/bridgemary.location';
 import { cove } from '../_locations/cove.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const tamara: IBear = {
   Id: 'tamara',

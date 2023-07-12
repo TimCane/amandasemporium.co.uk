@@ -1,9 +1,9 @@
+import { giorgio } from '../_brands/giorgio.bear-brand';
 import { E20190817 } from '../_events/E2019-08-17.event';
 import { chertsey } from '../_locations/chertsey.location';
 import { farnham } from '../_locations/farnham.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { giorgio } from './_brands/giorgio.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const becky: IBear = {
   Id: 'becky',

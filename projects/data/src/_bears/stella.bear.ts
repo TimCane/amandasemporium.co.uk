@@ -1,9 +1,9 @@
+import { sainsburys } from '../_brands/sainsburys.bear-brand';
 import { E20210814 } from '../_events/E2021-08-14.event';
 import { farnborough } from '../_locations/farnborough.location';
 import { farnham } from '../_locations/farnham.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { sainsburys } from './_brands/sainsburys.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const stella: IBear = {
   Id: 'stella',

@@ -1,8 +1,8 @@
+import { bearFactory } from '../_brands/bear-factory.bear-brand';
 import { chertsey } from '../_locations/chertsey.location';
 import { horley } from '../_locations/horley.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { bearFactory } from './_brands/bear-factory.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const liam: IBear = {
   Id: 'liam',

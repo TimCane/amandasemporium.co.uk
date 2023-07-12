@@ -1,9 +1,9 @@
+import { unknown } from '../_brands/unknown.bear-brand';
 import { E20181202 } from '../_events/E2018-12-02.event';
 import { haylingIsland } from '../_locations/haylingIsland.location';
 import { send } from '../_locations/send.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { unknown } from './_brands/unknown.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const phoebe: IBear = {
   Id: 'phoebe',

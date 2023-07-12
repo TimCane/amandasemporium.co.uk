@@ -1,7 +1,7 @@
+import { keelTeddy } from '../_brands/keel-teddy.bear-brand';
 import { guildford } from '../_locations/guildford.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { keelTeddy } from './_brands/keel-teddy.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const kara: IBear = {
   Id: 'kara',

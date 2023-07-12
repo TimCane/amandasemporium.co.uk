@@ -1,9 +1,9 @@
+import { iLoveFancyDress } from '../_brands/i-love-fancy-dress.bear-brand';
 import { E20190413 } from '../_events/E2019-04-13.event';
 import { ashford } from '../_locations/ashford.location';
 import { chertseySouth } from '../_locations/chertseySouth.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { iLoveFancyDress } from './_brands/i-love-fancy-dress.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const elizabeth: IBear = {
   Id: 'elizabeth',

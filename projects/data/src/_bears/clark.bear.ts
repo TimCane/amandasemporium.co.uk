@@ -1,9 +1,9 @@
+import { unknown } from '../_brands/unknown.bear-brand';
 import { E20190413 } from '../_events/E2019-04-13.event';
 import { hurley } from '../_locations/hurley.location';
 import { weybridge } from '../_locations/weybridge.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { unknown } from './_brands/unknown.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const clark: IBear = {
   Id: 'clark',

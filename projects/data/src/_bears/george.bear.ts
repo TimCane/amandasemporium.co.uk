@@ -1,9 +1,9 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20180929 } from '../_events/E2018-09-29.event';
 import { haylingIsland } from '../_locations/haylingIsland.location';
 import { surbitonNurseySchool } from '../_locations/surbitonNurseySchool.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const george: IBear = {
   Id: 'george',

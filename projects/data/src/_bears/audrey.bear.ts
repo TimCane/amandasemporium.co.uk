@@ -1,9 +1,9 @@
+import { withLove } from '../_brands/with-love.bear-brand';
 import { E20220924 } from '../_events/E2022-09-24.event';
 import { hunston } from '../_locations/hunston.location';
 import { surbiton } from '../_locations/surbiton.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { withLove } from './_brands/with-love.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const audrey: IBear = {
   Id: 'audrey',

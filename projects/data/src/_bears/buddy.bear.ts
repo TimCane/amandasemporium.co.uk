@@ -1,8 +1,8 @@
+import { bearFactory } from '../_brands/bear-factory.bear-brand';
 import { chicester } from '../_locations/chicester.location';
 import { surbiton } from '../_locations/surbiton.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { bearFactory } from './_brands/bear-factory.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const buddy: IBear = {
   Id: 'buddy',

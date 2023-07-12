@@ -1,9 +1,9 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20221210 } from '../_events/E2022-12-10.event';
 import { horley } from '../_locations/horley.location';
 import { westWittering } from '../_locations/westWittering.location';
+import { rabbit } from '../_species/rabbit.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { rabbit } from './_species/rabbit.bear-species';
 
 export const merida: IBear = {
   Id: 'merida',

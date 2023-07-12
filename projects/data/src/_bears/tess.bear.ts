@@ -1,9 +1,9 @@
+import { morrisons } from '../_brands/morrisons.bear-brand';
 import { E20210925 } from '../_events/E2021-09-25.event';
 import { chessington } from '../_locations/chessington.location';
 import { chicester } from '../_locations/chicester.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { morrisons } from './_brands/morrisons.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const tess: IBear = {
   Id: 'tess',

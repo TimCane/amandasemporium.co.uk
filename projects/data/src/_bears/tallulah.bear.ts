@@ -1,8 +1,8 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { addlestone } from '../_locations/addlestone.location';
 import { horley } from '../_locations/horley.location';
+import { cat } from '../_species/cat.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { cat } from './_species/cat.bear-species';
 
 export const tallulah: IBear = {
   Id: 'tallulah',

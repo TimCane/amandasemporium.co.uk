@@ -1,9 +1,9 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20181202 } from '../_events/E2018-12-02.event';
 import { egham } from '../_locations/egham.location';
 import { leicester } from '../_locations/leicester.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const holly: IBear = {
   Id: 'holly',

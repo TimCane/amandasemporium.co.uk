@@ -1,9 +1,9 @@
+import { bearFactory } from '../_brands/bear-factory.bear-brand';
 import { E20220820 } from '../_events/E2022-08-20.event';
 import { chichester } from '../_locations/chichester.location';
 import { woking } from '../_locations/woking.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { bearFactory } from './_brands/bear-factory.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const roly: IBear = {
   Id: 'roly',

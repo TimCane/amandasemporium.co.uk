@@ -1,8 +1,8 @@
+import { teddyTastic } from '../_brands/teddy-tastic.bear-brand';
 import { addlestone } from '../_locations/addlestone.location';
 import { upton } from '../_locations/upton.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { teddyTastic } from './_brands/teddy-tastic.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const simon: IBear = {
   Id: 'simon',

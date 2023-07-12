@@ -1,9 +1,9 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20180929 } from '../_events/E2018-09-29.event';
 import { shepperton } from '../_locations/shepperton.location';
 import { surbiton } from '../_locations/surbiton.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const grace: IBear = {
   Id: 'grace',

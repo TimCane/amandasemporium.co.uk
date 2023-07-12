@@ -1,9 +1,9 @@
+import { funtastic } from '../_brands/funtastic.bear-brand';
 import { E20190928 } from '../_events/E2019-09-28.event';
 import { hailsham } from '../_locations/hailsham.location';
 import { haylingIsland } from '../_locations/haylingIsland.location';
+import { dog } from '../_species/dog.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { funtastic } from './_brands/funtastic.bear-brand';
-import { dog } from './_species/dog.bear-species';
 
 export const chester: IBear = {
   Id: 'chester',

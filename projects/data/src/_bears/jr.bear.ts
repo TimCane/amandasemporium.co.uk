@@ -1,8 +1,8 @@
+import { birthdays } from '../_brands/birthdays.bear-brand';
 import { bracknell } from '../_locations/bracknell.location';
 import { ottershaw } from '../_locations/ottershaw.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { birthdays } from './_brands/birthdays.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const jr: IBear = {
   Id: 'jr',

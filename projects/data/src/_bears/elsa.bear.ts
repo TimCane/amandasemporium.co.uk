@@ -1,9 +1,9 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20221127 } from '../_events/E2022-11-27.event';
 import { addlestone } from '../_locations/addlestone.location';
 import { odiham } from '../_locations/odiham.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const elsa: IBear = {
   Id: 'elsa',

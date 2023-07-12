@@ -1,8 +1,8 @@
+import { beamFeatureLtd } from '../_brands/beam-feature-ltd.bear-brand';
 import { bansted } from '../_locations/bansted.location';
 import { chertsey } from '../_locations/chertsey.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { beamFeatureLtd } from './_brands/beam-feature-ltd.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const chloe: IBear = {
   Id: 'chloe',

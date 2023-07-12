@@ -1,7 +1,7 @@
+import { wilkinson } from '../_brands/wilkinson.bear-brand';
 import { hunston } from '../_locations/hunston.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { wilkinson } from './_brands/wilkinson.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const danica: IBear = {
   Id: 'danica',

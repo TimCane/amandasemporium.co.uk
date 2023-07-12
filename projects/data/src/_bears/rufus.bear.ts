@@ -1,9 +1,9 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20191130 } from '../_events/E2019-11-30.event';
 import { bridgemary } from '../_locations/bridgemary.location';
 import { woking } from '../_locations/woking.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const rufus: IBear = {
   Id: 'rufus',

@@ -1,8 +1,8 @@
+import { bearFactory } from '../_brands/bear-factory.bear-brand';
 import { cobham } from '../_locations/cobham.location';
 import { southShields } from '../_locations/southShields.location';
+import { monkey } from '../_species/monkey.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { bearFactory } from './_brands/bear-factory.bear-brand';
-import { monkey } from './_species/monkey.bear-species';
 
 export const mo: IBear = {
   Id: 'mo',

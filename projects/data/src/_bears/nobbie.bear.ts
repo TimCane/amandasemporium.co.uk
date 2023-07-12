@@ -1,9 +1,9 @@
+import { russ } from '../_brands/russ.bear-brand';
 import { E20180408 } from '../_events/E2018-04-08.event';
 import { waltonUponThames } from '../_locations/waltonUponThames.location';
 import { windsor } from '../_locations/windsor.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { russ } from './_brands/russ.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const nobbie: IBear = {
   Id: 'nobbie',

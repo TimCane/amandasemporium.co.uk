@@ -1,9 +1,9 @@
+import { keelTeddy } from '../_brands/keel-teddy.bear-brand';
 import { E20181110 } from '../_events/E2018-11-10.event';
 import { haylingIsland } from '../_locations/haylingIsland.location';
 import { reading } from '../_locations/reading.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { keelTeddy } from './_brands/keel-teddy.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const clara: IBear = {
   Id: 'clara',

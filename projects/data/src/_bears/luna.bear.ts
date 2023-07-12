@@ -1,7 +1,7 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { addlestone } from '../_locations/addlestone.location';
+import { rabbit } from '../_species/rabbit.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { rabbit } from './_species/rabbit.bear-species';
 
 export const luna: IBear = {
   Id: 'luna',

@@ -1,8 +1,8 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { addlestone } from '../_locations/addlestone.location';
 import { leatherhead } from '../_locations/leatherhead.location';
+import { sheep } from '../_species/sheep.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { sheep } from './_species/sheep.bear-species';
 
 export const baaabara: IBear = {
   Id: 'baaabara',

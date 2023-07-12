@@ -1,9 +1,9 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20220924 } from '../_events/E2022-09-24.event';
 import { berrylands } from '../_locations/berrylands.location';
 import { westWittering } from '../_locations/westWittering.location';
+import { cat } from '../_species/cat.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { cat } from './_species/cat.bear-species';
 
 export const tabitha: IBear = {
   Id: 'tabitha',

@@ -1,9 +1,9 @@
+import { cuddlesCollection } from '../_brands/cuddles-collection.bear-brand';
 import { E20191201 } from '../_events/E2019-12-01.event';
 import { haylingIsland } from '../_locations/haylingIsland.location';
 import { horsley } from '../_locations/horsley.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { cuddlesCollection } from './_brands/cuddles-collection.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const lisa: IBear = {
   Id: 'lisa',

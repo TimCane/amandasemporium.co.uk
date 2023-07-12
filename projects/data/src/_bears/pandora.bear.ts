@@ -1,9 +1,9 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20221204 } from '../_events/E2022-12-04.event';
 import { addlestone } from '../_locations/addlestone.location';
 import { fetcham } from '../_locations/fetcham.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const pandora: IBear = {
   Id: 'pandora',

@@ -1,9 +1,9 @@
+import { cuddlesCollection } from '../_brands/cuddles-collection.bear-brand';
 import { E20181122 } from '../_events/E2018-11-22.event';
 import { bognor } from '../_locations/bognor.location';
 import { clapham } from '../_locations/clapham.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { cuddlesCollection } from './_brands/cuddles-collection.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const greg: IBear = {
   Id: 'greg',

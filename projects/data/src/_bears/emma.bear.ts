@@ -1,9 +1,9 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20200304 } from '../_events/E2020-03-04.event';
 import { weybridge } from '../_locations/weybridge.location';
 import { woking } from '../_locations/woking.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { buildABear } from './_brands/build-a-bear.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const emma: IBear = {
   Id: 'emma',

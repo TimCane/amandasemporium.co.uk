@@ -1,9 +1,9 @@
+import { unknown } from '../_brands/unknown.bear-brand';
 import { E20191006 } from '../_events/E2019-10-06.event';
 import { caterham } from '../_locations/caterham.location';
 import { southsea } from '../_locations/southsea.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { unknown } from './_brands/unknown.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const mabel: IBear = {
   Id: 'mabel',

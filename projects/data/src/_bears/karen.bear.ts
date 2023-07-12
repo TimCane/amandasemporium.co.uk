@@ -1,8 +1,8 @@
+import { unknown } from '../_brands/unknown.bear-brand';
 import { bexhillOnSea } from '../_locations/bexhillOnSea.location';
 import { stilton } from '../_locations/stilton.location';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
-import { unknown } from './_brands/unknown.bear-brand';
-import { bear } from './_species/bear.bear-species';
 
 export const karen: IBear = {
   Id: 'karen',
