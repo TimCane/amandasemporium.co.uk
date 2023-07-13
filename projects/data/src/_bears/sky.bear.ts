@@ -1,7 +1,8 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20210814 } from '../_events/E2021-08-14.event';
 import { binfield } from '../_locations/binfield.location';
 import { churchCrookham } from '../_locations/churchCrookham.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const sky: IBear = {
@@ -9,8 +10,9 @@ export const sky: IBear = {
   Name: 'Sky',
   Description: ``,
   UploadedOn: new Date(2021, 7, 11),
-  Type: {
-    Type: BearTypeEnum.BuildABear,
+  Info: {
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: binfield,

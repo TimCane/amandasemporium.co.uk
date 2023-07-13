@@ -1,4 +1,4 @@
-import { ILocation } from './location.interface';
+import { ILocation } from '../location.interface';
 
 export interface IBearLocation {
   Location: ILocation;

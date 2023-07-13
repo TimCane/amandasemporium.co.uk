@@ -1,5 +1,5 @@
-import { IBearLocation } from './bear-location.interface';
-import { IBearType } from './bear-type.interface';
+import { IBearInfo } from './bear/bear-info.interface';
+import { IBearLocation } from './bear/bear-location.interface';
 import { IData } from './data.interface';
 import { IEvent } from './event.interface';
 
@@ -7,7 +7,7 @@ export interface IBear extends IData {
   Name: string;
   Description: string;
   UploadedOn: Date;
-  Type: IBearType;
+  Info: IBearInfo;
   Rescued: IBearLocation;
   Event: IEvent | null;
   Rehomed: IBearLocation | null;

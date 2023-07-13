@@ -1,7 +1,8 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20220717 } from '../_events/E2022-07-17.event';
 import { addlestone } from '../_locations/addlestone.location';
 import { guildford } from '../_locations/guildford.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const thomas: IBear = {
@@ -9,8 +10,9 @@ export const thomas: IBear = {
   Name: 'Thomas',
   Description: ``,
   UploadedOn: new Date(2019, 11, 12),
-  Type: {
-    Type: BearTypeEnum.BuildABear,
+  Info: {
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: addlestone,

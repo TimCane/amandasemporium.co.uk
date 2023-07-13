@@ -1,7 +1,8 @@
+import { bearFactory } from '../_brands/bear-factory.bear-brand';
 import { E20190413 } from '../_events/E2019-04-13.event';
 import { bourneEnd } from '../_locations/bourneEnd.location';
 import { waltonUponThames } from '../_locations/waltonUponThames.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const jimmy: IBear = {
@@ -9,8 +10,9 @@ export const jimmy: IBear = {
   Name: 'Jimmy',
   Description: ``,
   UploadedOn: new Date(2019, 3, 7),
-  Type: {
-    Type: BearTypeEnum.BearFactory,
+  Info: {
+    Brand: bearFactory,
+    Species: bear,
   },
   Rescued: {
     Location: waltonUponThames,

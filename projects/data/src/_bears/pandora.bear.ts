@@ -1,7 +1,8 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20221204 } from '../_events/E2022-12-04.event';
 import { addlestone } from '../_locations/addlestone.location';
 import { fetcham } from '../_locations/fetcham.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const pandora: IBear = {
@@ -9,8 +10,9 @@ export const pandora: IBear = {
   Name: 'Pandora',
   Description: ``,
   UploadedOn: new Date(2022, 10, 18),
-  Type: {
-    Type: BearTypeEnum.BuildABear,
+  Info: {
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: addlestone,

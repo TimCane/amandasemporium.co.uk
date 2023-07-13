@@ -1,6 +1,7 @@
+import { whsmith } from '../_brands/whsmith.bear-brand';
 import { shepperton } from '../_locations/shepperton.location';
 import { shrewsbury } from '../_locations/shrewsbury.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const william: IBear = {
@@ -8,8 +9,9 @@ export const william: IBear = {
   Name: 'William',
   Description: ``,
   UploadedOn: new Date(2018, 3, 29),
-  Type: {
-    Type: BearTypeEnum.WHSmithBear,
+  Info: {
+    Brand: whsmith,
+    Species: bear,
   },
   Rescued: {
     Location: shrewsbury,

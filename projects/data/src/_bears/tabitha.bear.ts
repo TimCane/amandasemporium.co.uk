@@ -1,7 +1,8 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20220924 } from '../_events/E2022-09-24.event';
 import { berrylands } from '../_locations/berrylands.location';
 import { westWittering } from '../_locations/westWittering.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { cat } from '../_species/cat.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const tabitha: IBear = {
@@ -9,8 +10,9 @@ export const tabitha: IBear = {
   Name: 'Tabitha',
   Description: ``,
   UploadedOn: new Date(2022, 8, 26),
-  Type: {
-    Type: BearTypeEnum.BuildABear,
+  Info: {
+    Brand: buildABear,
+    Species: cat,
   },
   Rescued: {
     Location: westWittering,

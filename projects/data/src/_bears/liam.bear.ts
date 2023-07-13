@@ -1,6 +1,7 @@
+import { bearFactory } from '../_brands/bear-factory.bear-brand';
 import { chertsey } from '../_locations/chertsey.location';
 import { horley } from '../_locations/horley.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const liam: IBear = {
@@ -8,8 +9,9 @@ export const liam: IBear = {
   Name: 'Liam',
   Description: ``,
   UploadedOn: new Date(2022, 3, 24),
-  Type: {
-    Type: BearTypeEnum.BearFactory,
+  Info: {
+    Brand: bearFactory,
+    Species: bear,
   },
   Rescued: {
     Location: chertsey,

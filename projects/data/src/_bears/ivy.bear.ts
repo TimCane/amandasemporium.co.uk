@@ -1,6 +1,7 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { bansted } from '../_locations/bansted.location';
 import { binfield } from '../_locations/binfield.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const ivy: IBear = {
@@ -8,8 +9,9 @@ export const ivy: IBear = {
   Name: 'Ivy',
   Description: ``,
   UploadedOn: new Date(2021, 9, 7),
-  Type: {
-    Type: BearTypeEnum.BuildABear,
+  Info: {
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: binfield,

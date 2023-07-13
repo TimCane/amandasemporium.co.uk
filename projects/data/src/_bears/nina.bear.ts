@@ -1,7 +1,8 @@
+import { russ } from '../_brands/russ.bear-brand';
 import { E20220820 } from '../_events/E2022-08-20.event';
 import { chertsey } from '../_locations/chertsey.location';
 import { farnham } from '../_locations/farnham.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const nina: IBear = {
@@ -9,8 +10,9 @@ export const nina: IBear = {
   Name: 'Nina',
   Description: ``,
   UploadedOn: new Date(2022, 7, 17),
-  Type: {
-    Type: BearTypeEnum.RussBear,
+  Info: {
+    Brand: russ,
+    Species: bear,
   },
   Rescued: {
     Location: chertsey,

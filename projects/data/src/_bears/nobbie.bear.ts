@@ -1,7 +1,8 @@
+import { russ } from '../_brands/russ.bear-brand';
 import { E20180408 } from '../_events/E2018-04-08.event';
 import { waltonUponThames } from '../_locations/waltonUponThames.location';
 import { windsor } from '../_locations/windsor.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const nobbie: IBear = {
@@ -9,8 +10,9 @@ export const nobbie: IBear = {
   Name: 'Nobbie',
   Description: ``,
   UploadedOn: new Date(2018, 3, 29),
-  Type: {
-    Type: BearTypeEnum.RussBear,
+  Info: {
+    Brand: russ,
+    Species: bear,
   },
   Rescued: {
     Location: waltonUponThames,

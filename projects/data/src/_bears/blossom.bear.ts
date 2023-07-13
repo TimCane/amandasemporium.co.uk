@@ -1,7 +1,8 @@
+import { theWorks } from '../_brands/the-works.bear-brand';
 import { E20191019 } from '../_events/E2019-10-19.event';
 import { farnborough } from '../_locations/farnborough.location';
 import { southsea } from '../_locations/southsea.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const blossom: IBear = {
@@ -9,8 +10,9 @@ export const blossom: IBear = {
   Name: 'Blossom',
   Description: ``,
   UploadedOn: new Date(2019, 8, 30),
-  Type: {
-    Type: BearTypeEnum.TheWorks,
+  Info: {
+    Brand: theWorks,
+    Species: bear,
   },
   Rescued: {
     Location: southsea,
