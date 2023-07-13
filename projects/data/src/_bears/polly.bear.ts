@@ -1,8 +1,8 @@
-import { buildABear } from '../_brands/build-a-bear.bear-brand';
+import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
 import { E20190602 } from '../_events/E2019-06-02.event';
 import { dorchester } from '../_locations/dorchester.location';
 import { haylingIsland } from '../_locations/haylingIsland.location';
-import { rabbit } from '../_species/rabbit.bear-species';
+import { rabbit } from '../_bear-species/rabbit.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const polly: IBear = {

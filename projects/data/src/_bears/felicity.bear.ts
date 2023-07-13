@@ -1,8 +1,8 @@
-import { buildABear } from '../_brands/build-a-bear.bear-brand';
+import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
 import { E20191214 } from '../_events/E2019-12-14.event';
 import { ashford } from '../_locations/ashford.location';
 import { horley } from '../_locations/horley.location';
-import { cat } from '../_species/cat.bear-species';
+import { cat } from '../_bear-species/cat.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const felicity: IBear = {

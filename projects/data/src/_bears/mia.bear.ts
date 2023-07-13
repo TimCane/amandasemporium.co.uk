@@ -1,8 +1,8 @@
-import { babyGund } from '../_brands/baby-gund.bear-brand';
+import { babyGund } from '../_bear-brands/baby-gund.bear-brand';
 import { E20191214 } from '../_events/E2019-12-14.event';
 import { horley } from '../_locations/horley.location';
 import { shepperton } from '../_locations/shepperton.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const mia: IBear = {

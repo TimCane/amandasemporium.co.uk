@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { events } from '../arrays/events.array';
+import { Events } from '../arrays/events.array';
 import { IEvent } from '../interfaces/event.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EventService {
-  events = events;
+  events = Events;
   constructor() {}
 
   getEvents(): Observable<IEvent[]> {

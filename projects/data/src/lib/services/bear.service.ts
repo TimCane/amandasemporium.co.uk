@@ -1,13 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { bears } from '../arrays/bears.array';
+import { BearBrands } from '../arrays/bear-brands.array';
+import { BearSpecies } from '../arrays/bear-species.array';
+import { Bears } from '../arrays/bears.array';
+import { IBearBrand } from '../interfaces/bear-brand.interface';
+import { IBearSpecies } from '../interfaces/bear-species.interface';
 import { IBear } from '../interfaces/bear.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BearService {
-  bears = bears;
+  bears = Bears;
+  brands = BearBrands;
+  species = BearSpecies;
+
   constructor() {}
 
   getBears(): Observable<IBear[]> {
@@ -22,5 +29,13 @@ export class BearService {
     }
 
     return of(null);
+  }
+
+  getBrands(): Observable<IBearBrand[]> {
+    return of(Object.values(this.brands));
+  }
+
+  getSpecies(): Observable<IBearSpecies[]> {
+    return of(Object.values(this.species));
   }
 }

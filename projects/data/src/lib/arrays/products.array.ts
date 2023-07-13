@@ -24,4 +24,4 @@ import { soapBunnies } from '../../_products/soap-bunnies.product';
 import { taggy } from '../../_products/taggy.product';
 import { toothPocket } from '../../_products/tooth-pocket.product';
 import { toteBag } from '../../_products/tote-bag.product';
-export const products: IProduct[] = [anythingBag, apron, babyBag, bookmarks, bunting, cotTidy, crochetedBlanketWithRibbonTrim, crochetedBlanket, crochetedDressSet, dummyTaggy, fleeceBlanket, glassesCase, handKnittedCardigans, handmadeCards, hats, keyFobs, makeupBag, pairOfBurpCloths, ponchoAndHat, quiltedPlayMat, rescuedBears, soapBunnies, taggy, toothPocket, toteBag];
+export const Products: IProduct[] = [anythingBag, apron, babyBag, bookmarks, bunting, cotTidy, crochetedBlanketWithRibbonTrim, crochetedBlanket, crochetedDressSet, dummyTaggy, fleeceBlanket, glassesCase, handKnittedCardigans, handmadeCards, hats, keyFobs, makeupBag, pairOfBurpCloths, ponchoAndHat, quiltedPlayMat, rescuedBears, soapBunnies, taggy, toothPocket, toteBag];

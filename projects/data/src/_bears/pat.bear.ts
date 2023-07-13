@@ -1,8 +1,8 @@
-import { keelTeddy } from '../_brands/keel-teddy.bear-brand';
+import { keelTeddy } from '../_bear-brands/keel-teddy.bear-brand';
 import { E20180905 } from '../_events/E2018-09-05.event';
 import { hunston } from '../_locations/hunston.location';
 import { sunbury } from '../_locations/sunbury.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const pat: IBear = {

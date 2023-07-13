@@ -1,8 +1,8 @@
-import { buildABear } from '../_brands/build-a-bear.bear-brand';
+import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
 import { E20191130 } from '../_events/E2019-11-30.event';
 import { guildford } from '../_locations/guildford.location';
 import { titchfield } from '../_locations/titchfield.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const izzy: IBear = {

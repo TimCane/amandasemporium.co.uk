@@ -1,8 +1,8 @@
-import { keelCubby } from '../_brands/keel-cubby.bear-brand';
+import { keelCubby } from '../_bear-brands/keel-cubby.bear-brand';
 import { E20190525 } from '../_events/E2019-05-25.event';
 import { chertsey } from '../_locations/chertsey.location';
 import { miltonKeynes } from '../_locations/miltonKeynes.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const bob: IBear = {
