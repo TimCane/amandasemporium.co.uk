@@ -1,8 +1,8 @@
-import { buildABear } from '../_brands/build-a-bear.bear-brand';
+import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
 import { E20230617 } from '../_events/E2023-06-17.event';
 import { nottingham } from '../_locations/nottingham.location';
 import { pagham } from '../_locations/pagham.location';
-import { rabbit } from '../_species/rabbit.bear-species';
+import { rabbit } from '../_bear-species/rabbit.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const shelby: IBear = {

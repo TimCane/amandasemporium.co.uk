@@ -1,8 +1,8 @@
-import { keelTeddy } from '../_brands/keel-teddy.bear-brand';
+import { keelTeddy } from '../_bear-brands/keel-teddy.bear-brand';
 import { E20191201 } from '../_events/E2019-12-01.event';
 import { horsley } from '../_locations/horsley.location';
 import { tonbridge } from '../_locations/tonbridge.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const bunty: IBear = {

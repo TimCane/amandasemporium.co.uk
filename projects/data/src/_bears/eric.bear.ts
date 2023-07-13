@@ -1,6 +1,6 @@
-import { bearFactory } from '../_brands/bear-factory.bear-brand';
+import { bearFactory } from '../_bear-brands/bear-factory.bear-brand';
 import { addlestone } from '../_locations/addlestone.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const eric: IBear = {

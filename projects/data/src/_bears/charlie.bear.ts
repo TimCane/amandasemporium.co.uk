@@ -1,8 +1,8 @@
-import { ty } from '../_brands/ty.bear-brand';
+import { ty } from '../_bear-brands/ty.bear-brand';
 import { E20180506 } from '../_events/E2018-05-06.event';
 import { southsea } from '../_locations/southsea.location';
 import { sutton } from '../_locations/sutton.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const charlie: IBear = {

@@ -1,7 +1,7 @@
-import { buildABear } from '../_brands/build-a-bear.bear-brand';
+import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
 import { addlestone } from '../_locations/addlestone.location';
 import { horley } from '../_locations/horley.location';
-import { cat } from '../_species/cat.bear-species';
+import { cat } from '../_bear-species/cat.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const tallulah: IBear = {

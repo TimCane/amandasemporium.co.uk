@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { products } from '../arrays/products.array';
+import { Products } from '../arrays/products.array';
 import { IProduct } from '../interfaces/product.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  products = products;
+  products = Products;
   constructor() {}
 
   getProducts(): Observable<IProduct[]> {

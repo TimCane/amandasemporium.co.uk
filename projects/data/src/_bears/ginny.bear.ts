@@ -1,8 +1,8 @@
-import { inifiniteDesigns } from '../_brands/inifinite-designs.bear-brand';
+import { inifiniteDesigns } from '../_bear-brands/inifinite-designs.bear-brand';
 import { E20210814 } from '../_events/E2021-08-14.event';
 import { farnham } from '../_locations/farnham.location';
 import { haylingIsland } from '../_locations/haylingIsland.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const ginny: IBear = {

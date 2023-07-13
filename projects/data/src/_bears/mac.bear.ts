@@ -1,8 +1,8 @@
-import { buildABear } from '../_brands/build-a-bear.bear-brand';
+import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
 import { E20191214 } from '../_events/E2019-12-14.event';
 import { cobham } from '../_locations/cobham.location';
 import { horley } from '../_locations/horley.location';
-import { monkey } from '../_species/monkey.bear-species';
+import { monkey } from '../_bear-species/monkey.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const mac: IBear = {

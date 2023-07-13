@@ -1,8 +1,8 @@
-import { buildABear } from '../_brands/build-a-bear.bear-brand';
+import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
 import { E20221127 } from '../_events/E2022-11-27.event';
 import { addlestone } from '../_locations/addlestone.location';
 import { odiham } from '../_locations/odiham.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const elsa: IBear = {

@@ -1,8 +1,8 @@
-import { tesco } from '../_brands/tesco.bear-brand';
+import { tesco } from '../_bear-brands/tesco.bear-brand';
 import { E20180609 } from '../_events/E2018-06-09.event';
 import { minsterLovell } from '../_locations/minsterLovell.location';
 import { southsea } from '../_locations/southsea.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const clementine: IBear = {

@@ -1,6 +1,6 @@
-import { buildABear } from '../_brands/build-a-bear.bear-brand';
+import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
 import { chicester } from '../_locations/chicester.location';
-import { dog } from '../_species/dog.bear-species';
+import { dog } from '../_bear-species/dog.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const jemma: IBear = {

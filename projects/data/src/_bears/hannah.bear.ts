@@ -1,8 +1,8 @@
-import { buildABear } from '../_brands/build-a-bear.bear-brand';
+import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
 import { E20210808 } from '../_events/E2021-08-08.event';
 import { binfield } from '../_locations/binfield.location';
 import { windsor } from '../_locations/windsor.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const hannah: IBear = {

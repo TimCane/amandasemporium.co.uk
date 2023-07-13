@@ -1,8 +1,8 @@
-import { buildABear } from '../_brands/build-a-bear.bear-brand';
+import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
 import { E20180506 } from '../_events/E2018-05-06.event';
 import { portsmouth } from '../_locations/portsmouth.location';
 import { titchfield } from '../_locations/titchfield.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const bo: IBear = {

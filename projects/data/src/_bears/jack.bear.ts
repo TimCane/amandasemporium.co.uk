@@ -1,8 +1,8 @@
-import { gloriousBritainJointed } from '../_brands/glorious-britain-jointed.bear-brand';
+import { gloriousBritainJointed } from '../_bear-brands/glorious-britain-jointed.bear-brand';
 import { E20181202 } from '../_events/E2018-12-02.event';
 import { waltonUponThames } from '../_locations/waltonUponThames.location';
 import { wisley } from '../_locations/wisley.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const jack: IBear = {

@@ -1,7 +1,7 @@
-import { beamFeatureLtd } from '../_brands/beam-feature-ltd.bear-brand';
+import { beamFeatureLtd } from '../_bear-brands/beam-feature-ltd.bear-brand';
 import { bansted } from '../_locations/bansted.location';
 import { chertsey } from '../_locations/chertsey.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const chloe: IBear = {

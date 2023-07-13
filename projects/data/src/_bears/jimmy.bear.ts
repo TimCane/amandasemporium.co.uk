@@ -1,8 +1,8 @@
-import { bearFactory } from '../_brands/bear-factory.bear-brand';
+import { bearFactory } from '../_bear-brands/bear-factory.bear-brand';
 import { E20190413 } from '../_events/E2019-04-13.event';
 import { bourneEnd } from '../_locations/bourneEnd.location';
 import { waltonUponThames } from '../_locations/waltonUponThames.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const jimmy: IBear = {

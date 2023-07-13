@@ -1,8 +1,8 @@
-import { bearFactory } from '../_brands/bear-factory.bear-brand';
+import { bearFactory } from '../_bear-brands/bear-factory.bear-brand';
 import { E20210731 } from '../_events/E2021-07-31.event';
 import { chicester } from '../_locations/chicester.location';
 import { winnersh } from '../_locations/winnersh.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const martin: IBear = {

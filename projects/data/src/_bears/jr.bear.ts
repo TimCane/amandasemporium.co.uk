@@ -1,7 +1,7 @@
-import { birthdays } from '../_brands/birthdays.bear-brand';
+import { birthdays } from '../_bear-brands/birthdays.bear-brand';
 import { bracknell } from '../_locations/bracknell.location';
 import { ottershaw } from '../_locations/ottershaw.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const jr: IBear = {

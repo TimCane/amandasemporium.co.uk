@@ -14,4 +14,4 @@ import { stall5 } from '../../_photos/stall5.photo';
 import { stall6 } from '../../_photos/stall6.photo';
 import { stall7 } from '../../_photos/stall7.photo';
 import { taggy1 } from '../../_photos/taggy1.photo';
-export const photos: IPhoto[] = [bearSurbiton, bearXmas, bearsHorley220423, buzzPeter, hamper1, hamper2, hamper3, stall1, stall2, stall3, stall4, stall5, stall6, stall7, taggy1];
+export const Photos: IPhoto[] = [bearSurbiton, bearXmas, bearsHorley220423, buzzPeter, hamper1, hamper2, hamper3, stall1, stall2, stall3, stall4, stall5, stall6, stall7, taggy1];

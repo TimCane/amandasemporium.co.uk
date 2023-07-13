@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { locations } from '../arrays/locations.array';
+import { Locations } from '../arrays/locations.array';
 import { ILocation } from '../interfaces/location.interface';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LocationService {
-  locations = locations;
+  locations = Locations;
   constructor() {}
 
   getLocations(): Observable<ILocation[]> {

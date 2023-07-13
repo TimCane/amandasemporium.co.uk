@@ -1,8 +1,8 @@
-import { disneyStore } from '../_brands/disney-store.bear-brand';
+import { disneyStore } from '../_bear-brands/disney-store.bear-brand';
 import { E20210925 } from '../_events/E2021-09-25.event';
 import { cobham } from '../_locations/cobham.location';
 import { surbiton } from '../_locations/surbiton.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const duffy: IBear = {

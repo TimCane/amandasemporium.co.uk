@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { photos } from '../arrays/photos.array';
+import { Photos } from '../arrays/photos.array';
 import { PhotoTag } from '../enums/photo-tag.enum';
 import { IPhoto } from '../interfaces/photo.interface';
 
@@ -8,7 +8,7 @@ import { IPhoto } from '../interfaces/photo.interface';
   providedIn: 'root',
 })
 export class PhotoService {
-  photos = photos;
+  photos = Photos;
   constructor() {}
 
   getCategories(): Observable<PhotoTag[]> {

@@ -1,8 +1,8 @@
-import { theWorks } from '../_brands/the-works.bear-brand';
+import { theWorks } from '../_bear-brands/the-works.bear-brand';
 import { E20191019 } from '../_events/E2019-10-19.event';
 import { farnborough } from '../_locations/farnborough.location';
 import { southsea } from '../_locations/southsea.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const blossom: IBear = {

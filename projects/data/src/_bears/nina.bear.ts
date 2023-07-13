@@ -1,8 +1,8 @@
-import { russ } from '../_brands/russ.bear-brand';
+import { russ } from '../_bear-brands/russ.bear-brand';
 import { E20220820 } from '../_events/E2022-08-20.event';
 import { chertsey } from '../_locations/chertsey.location';
 import { farnham } from '../_locations/farnham.location';
-import { bear } from '../_species/bear.bear-species';
+import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const nina: IBear = {
