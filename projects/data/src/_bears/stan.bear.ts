@@ -1,6 +1,7 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { newbury } from '../_locations/newbury.location';
 import { ripley } from '../_locations/ripley.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const stan: IBear = {
@@ -8,8 +9,9 @@ export const stan: IBear = {
   Name: 'Stan',
   Description: ``,
   UploadedOn: new Date(2018, 8, 30),
-  Type: {
-    Type: BearTypeEnum.BuildABear,
+  Info: {
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: ripley,

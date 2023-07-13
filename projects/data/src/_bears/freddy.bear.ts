@@ -1,7 +1,8 @@
+import { barnesAndNoble } from '../_brands/barnes-and-noble.bear-brand';
 import { E20181208 } from '../_events/E2018-12-08.event';
 import { egham } from '../_locations/egham.location';
 import { horley } from '../_locations/horley.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const freddy: IBear = {
@@ -9,8 +10,9 @@ export const freddy: IBear = {
   Name: 'Freddy',
   Description: ``,
   UploadedOn: new Date(2018, 11, 3),
-  Type: {
-    Type: BearTypeEnum.BarnesAndNoble,
+  Info: {
+    Brand: barnesAndNoble,
+    Species: bear,
   },
   Rescued: {
     Location: egham,

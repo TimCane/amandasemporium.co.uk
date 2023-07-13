@@ -1,7 +1,8 @@
+import { inifiniteDesigns } from '../_brands/inifinite-designs.bear-brand';
 import { E20210814 } from '../_events/E2021-08-14.event';
 import { farnham } from '../_locations/farnham.location';
 import { haylingIsland } from '../_locations/haylingIsland.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const ginny: IBear = {
@@ -9,8 +10,9 @@ export const ginny: IBear = {
   Name: 'Ginny',
   Description: ``,
   UploadedOn: new Date(2019, 10, 22),
-  Type: {
-    Type: BearTypeEnum.InifiniteDesigns,
+  Info: {
+    Brand: inifiniteDesigns,
+    Species: bear,
   },
   Rescued: {
     Location: haylingIsland,

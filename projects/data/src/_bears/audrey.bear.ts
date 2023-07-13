@@ -1,7 +1,8 @@
+import { withLove } from '../_brands/with-love.bear-brand';
 import { E20220924 } from '../_events/E2022-09-24.event';
 import { hunston } from '../_locations/hunston.location';
 import { surbiton } from '../_locations/surbiton.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const audrey: IBear = {
@@ -9,8 +10,9 @@ export const audrey: IBear = {
   Name: 'Audrey',
   Description: ``,
   UploadedOn: new Date(2022, 7, 17),
-  Type: {
-    Type: BearTypeEnum.WithLoveBear,
+  Info: {
+    Brand: withLove,
+    Species: bear,
   },
   Rescued: {
     Location: hunston,

@@ -1,7 +1,8 @@
+import { keelTeddy } from '../_brands/keel-teddy.bear-brand';
 import { E20191201 } from '../_events/E2019-12-01.event';
 import { horsley } from '../_locations/horsley.location';
 import { tonbridge } from '../_locations/tonbridge.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const bunty: IBear = {
@@ -9,8 +10,9 @@ export const bunty: IBear = {
   Name: 'Bunty',
   Description: ``,
   UploadedOn: new Date(2019, 10, 22),
-  Type: {
-    Type: BearTypeEnum.KeelTeddybear,
+  Info: {
+    Brand: keelTeddy,
+    Species: bear,
   },
   Rescued: {
     Location: tonbridge,

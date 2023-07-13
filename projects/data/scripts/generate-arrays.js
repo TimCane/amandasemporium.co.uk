@@ -33,6 +33,7 @@ dataTypes.forEach((dataType) => {
 
   var dataItems = [];
   fs.readdirSync(folder).forEach((file) => {
+    if(file[0] != "_")
     dataItems.push(new DataItem(file));
   });
 

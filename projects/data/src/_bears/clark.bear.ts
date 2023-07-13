@@ -1,7 +1,8 @@
+import { unknown } from '../_brands/unknown.bear-brand';
 import { E20190413 } from '../_events/E2019-04-13.event';
 import { hurley } from '../_locations/hurley.location';
 import { weybridge } from '../_locations/weybridge.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const clark: IBear = {
@@ -9,8 +10,9 @@ export const clark: IBear = {
   Name: 'Clark',
   Description: ``,
   UploadedOn: new Date(2019, 3, 7),
-  Type: {
-    Type: BearTypeEnum.Unknown,
+  Info: {
+    Brand: unknown,
+    Species: bear,
   },
   Rescued: {
     Location: weybridge,

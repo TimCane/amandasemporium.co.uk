@@ -1,7 +1,8 @@
+import { keelTeddy } from '../_brands/keel-teddy.bear-brand';
 import { E20210925 } from '../_events/E2021-09-25.event';
 import { southsea } from '../_locations/southsea.location';
 import { surbiton } from '../_locations/surbiton.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const littleJohn: IBear = {
@@ -9,8 +10,9 @@ export const littleJohn: IBear = {
   Name: 'Little John',
   Description: ``,
   UploadedOn: new Date(2019, 10, 22),
-  Type: {
-    Type: BearTypeEnum.KeelTeddybear,
+  Info: {
+    Brand: keelTeddy,
+    Species: bear,
   },
   Rescued: {
     Location: southsea,

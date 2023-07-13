@@ -1,5 +1,6 @@
+import { wilkinson } from '../_brands/wilkinson.bear-brand';
 import { hunston } from '../_locations/hunston.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const danica: IBear = {
@@ -7,8 +8,9 @@ export const danica: IBear = {
   Name: 'Danica',
   Description: ``,
   UploadedOn: new Date(2023, 6, 11),
-  Type: {
-    Type: BearTypeEnum.Wilkinson,
+  Info: {
+    Brand: wilkinson,
+    Species: bear,
   },
   Rescued: {
     Location: hunston,

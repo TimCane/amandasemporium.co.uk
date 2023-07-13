@@ -1,7 +1,8 @@
+import { russ } from '../_brands/russ.bear-brand';
 import { E20230625 } from '../_events/E2023-06-25.event';
 import { maidenhead } from '../_locations/maidenhead.location';
 import { shepperton } from '../_locations/shepperton.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const sidney: IBear = {
@@ -9,8 +10,9 @@ export const sidney: IBear = {
   Name: 'Sidney',
   Description: ``,
   UploadedOn: new Date(2023, 5, 20),
-  Type: {
-    Type: BearTypeEnum.RussBear,
+  Info: {
+    Brand: russ,
+    Species: bear,
   },
   Rescued: {
     Location: shepperton,

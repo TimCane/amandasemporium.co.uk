@@ -1,7 +1,8 @@
+import { ty } from '../_brands/ty.bear-brand';
 import { E20180506 } from '../_events/E2018-05-06.event';
 import { southsea } from '../_locations/southsea.location';
 import { sutton } from '../_locations/sutton.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const charlie: IBear = {
@@ -9,8 +10,9 @@ export const charlie: IBear = {
   Name: 'Charlie',
   Description: ``,
   UploadedOn: new Date(2018, 4, 18),
-  Type: {
-    Type: BearTypeEnum.TyBear,
+  Info: {
+    Brand: ty,
+    Species: bear,
   },
   Rescued: {
     Location: southsea,

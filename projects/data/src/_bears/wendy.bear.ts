@@ -1,5 +1,6 @@
+import { whsmith } from '../_brands/whsmith.bear-brand';
 import { woking } from '../_locations/woking.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const wendy: IBear = {
@@ -7,8 +8,9 @@ export const wendy: IBear = {
   Name: 'Wendy',
   Description: ``,
   UploadedOn: new Date(2023, 4, 30),
-  Type: {
-    Type: BearTypeEnum.WHSmithBear,
+  Info: {
+    Brand: whsmith,
+    Species: bear,
   },
   Rescued: {
     Location: woking,

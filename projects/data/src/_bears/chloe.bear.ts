@@ -1,6 +1,7 @@
+import { beamFeatureLtd } from '../_brands/beam-feature-ltd.bear-brand';
 import { bansted } from '../_locations/bansted.location';
 import { chertsey } from '../_locations/chertsey.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const chloe: IBear = {
@@ -8,8 +9,9 @@ export const chloe: IBear = {
   Name: 'Chloe',
   Description: ``,
   UploadedOn: new Date(2019, 4, 31),
-  Type: {
-    Type: BearTypeEnum.BeamFeatureLtd,
+  Info: {
+    Brand: beamFeatureLtd,
+    Species: bear,
   },
   Rescued: {
     Location: chertsey,

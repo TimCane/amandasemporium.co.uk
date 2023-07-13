@@ -1,7 +1,8 @@
+import { buildABear } from '../_brands/build-a-bear.bear-brand';
 import { E20230709 } from '../_events/E2023-07-09.event';
 import { guildford } from '../_locations/guildford.location';
 import { shepperton } from '../_locations/shepperton.location';
-import { BearTypeEnum } from '../lib/enums/bear-type.enum';
+import { bear } from '../_species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const cora: IBear = {
@@ -9,8 +10,9 @@ export const cora: IBear = {
   Name: 'Cora',
   Description: ``,
   UploadedOn: new Date(2023, 5, 20),
-  Type: {
-    Type: BearTypeEnum.BuildABear,
+  Info: {
+    Brand: buildABear,
+    Species: bear,
   },
   Rescued: {
     Location: shepperton,
