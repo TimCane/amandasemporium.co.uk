@@ -37,6 +37,11 @@ const routes: Routes = [
       import('./locations/locations.module').then((m) => m.LocationsModule),
   },
   {
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((m) => m.AdminModule),
+  },
+  {
     path: '',
     loadChildren: () =>
       import('./errors/errors.module').then((m) => m.ErrorsModule),

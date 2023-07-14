@@ -1,0 +1,121 @@
+<form [formGroup]="bearForm">
+  <div>
+    <div>Name</div>
+    <input formControlName="name" id="name" type="text" placeholder="" />
+  </div>
+  <div>
+    <div>Description</div>
+    <textarea
+      formControlName="description"
+      id="description"
+      rows="5"
+      placeholder=""
+    ></textarea>
+  </div>
+  <div>
+    <div>Uploaded On</div>
+    <input
+      formControlName="uploadedOn"
+      id="uploadedOn"
+      type="date"
+      placeholder=""
+    />
+  </div>
+
+  <div *ngIf="brands$ | async as brands">
+    <div>Brand</div>
+
+    <select formControlName="brand">
+      <option [value]="null">--- Please Select ---</option>
+      <option *ngFor="let brand of brands" [ngValue]="brand">
+        {{ brand.Name }}
+      </option>
+    </select>
+  </div>
+
+  <div *ngIf="species$ | async as species">
+    <div>Species</div>
+    <select formControlName="species">
+        <option [value]="null">--- Please Select ---</option>
+        <option *ngFor="let species of species" [ngValue]="species">
+          {{ species.Name }}
+        </option>
+      </select>
+  </div>
+
+  <h2>Rescued</h2>
+
+  <div *ngIf="locations$ | async as locations">
+    <div>Location</div>
+
+    <select formControlName="rescuedLocation">
+      <option [value]="null">--- Please Select ---</option>
+      <option *ngFor="let location of locations" [ngValue]="location">
+        {{ location.Name }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <div>Date</div>
+    <input
+      formControlName="rescuedDate"
+      id="rescuedDate"
+      type="date"
+      placeholder=""
+    />
+  </div>
+
+  <div *ngIf="events$ | async as events">
+    <div>Event</div>
+
+    <select formControlName="event">
+      <option [value]="null">--- Please Select ---</option>
+      <option *ngFor="let event of events | reverse" [ngValue]="event">
+        {{ event.Date | date:"dd MMM yyyy" }} ({{ event.Name }})
+      </option>
+    </select>
+  </div>
+
+  <h2>Rehomed</h2>
+
+  <div *ngIf="locations$ | async as locations">
+    <div>Location</div>
+
+    <select formControlName="rehomedLocation">
+      <option [value]="null">--- Please Select ---</option>
+      <option *ngFor="let location of locations" [ngValue]="location">
+        {{ location.Name }}
+      </option>
+    </select>
+  </div>
+
+  <div>
+    <div>Date</div>
+    <input
+      formControlName="rehomedDate"
+      id="rehomedDate"
+      type="date"
+      placeholder=""
+    />
+  </div>
+
+
+
+</form>
+
+<div *ngIf="bearForm.valid">
+  <div>
+    <code class="select-all">
+      <pre>{{ generatedFile }}</pre>
+    </code>
+  </div>
+
+  <div>
+    <code class="select-all">
+      <pre>{{ generatedCommand }}</pre>
+    </code>
+  </div>
+
+  <button (click)="onClear()">Clear</button>
+</div>
