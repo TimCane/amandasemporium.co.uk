@@ -1,6 +1,7 @@
 import { bearFactory } from '../_bear-brands/bear-factory.bear-brand';
-import { addlestone } from '../_locations/addlestone.location';
 import { bear } from '../_bear-species/bear.bear-species';
+import { addlestone } from '../_locations/addlestone.location';
+import { farnham } from '../_locations/farnham.location';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const eric: IBear = {
@@ -17,5 +18,8 @@ export const eric: IBear = {
     Date: new Date(2023, 2, 16),
   },
   Event: null,
-  Rehomed: null,
+  Rehomed: {
+    Location: farnham,
+    Date: new Date(2023, 7, 12),
+  },
 };

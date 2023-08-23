@@ -1,6 +1,7 @@
 import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
-import { ascot } from '../_locations/ascot.location';
 import { bear } from '../_bear-species/bear.bear-species';
+import { ascot } from '../_locations/ascot.location';
+import { wimbledon } from '../_locations/wimbledon.location';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const isaac: IBear = {
@@ -17,5 +18,8 @@ export const isaac: IBear = {
     Date: new Date(2022, 2, 3),
   },
   Event: null,
-  Rehomed: null,
+  Rehomed: {
+    Location: wimbledon,
+    Date: new Date(2023, 7, 12),
+  },
 };
