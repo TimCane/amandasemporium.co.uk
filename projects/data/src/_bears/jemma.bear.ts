@@ -1,6 +1,8 @@
 import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
-import { chicester } from '../_locations/chicester.location';
 import { dog } from '../_bear-species/dog.bear-species';
+import { E20230923 } from '../_events/E2023-09-23.event';
+import { chicester } from '../_locations/chicester.location';
+import { surbiton } from '../_locations/surbiton.location';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const jemma: IBear = {
@@ -16,6 +18,9 @@ export const jemma: IBear = {
     Location: chicester,
     Date: new Date(2022, 8, 10),
   },
-  Event: null,
-  Rehomed: null,
+  Event: E20230923,
+  Rehomed: {
+    Location: surbiton,
+    Date: new Date(2023, 8, 23),
+  },
 };

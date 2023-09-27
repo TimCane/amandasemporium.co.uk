@@ -1,22 +1,23 @@
-import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
+// theo.bear.ts
+import { bearFactory } from '../_bear-brands/bear-factory.bear-brand';
 import { bear } from '../_bear-species/bear.bear-species';
 import { E20230923 } from '../_events/E2023-09-23.event';
-import { shepperton } from '../_locations/shepperton.location';
+import { longparish } from '../_locations/longparish.location';
 import { surbiton } from '../_locations/surbiton.location';
 import { IBear } from '../lib/interfaces/bear.interface';
 
-export const carly: IBear = {
-  Id: 'carly',
-  Name: 'Carly',
-  Description: ``,
-  UploadedOn: new Date(2023, 6, 11),
+export const theo: IBear = {
+  Id: 'theo',
+  Name: 'Theo',
+  Description: '',
+  UploadedOn: new Date(2023, 8, 27),
   Info: {
-    Brand: buildABear,
+    Brand: bearFactory,
     Species: bear,
   },
   Rescued: {
-    Location: shepperton,
-    Date: new Date(2023, 6, 1),
+    Location: longparish,
+    Date: new Date(2023, 8, 10),
   },
   Event: E20230923,
   Rehomed: {
