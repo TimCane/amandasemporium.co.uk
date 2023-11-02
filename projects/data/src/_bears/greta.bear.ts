@@ -1,6 +1,8 @@
 import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
-import { peterborough } from '../_locations/peterborough.location';
 import { rabbit } from '../_bear-species/rabbit.bear-species';
+import { E20230923 } from '../_events/E2023-09-23.event';
+import { peterborough } from '../_locations/peterborough.location';
+import { surbiton } from '../_locations/surbiton.location';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const greta: IBear = {
@@ -16,6 +18,9 @@ export const greta: IBear = {
     Location: peterborough,
     Date: new Date(2023, 4, 1),
   },
-  Event: null,
-  Rehomed: null,
+  Event: E20230923,
+  Rehomed: {
+    Location: surbiton,
+    Date: new Date(2023, 8, 23),
+  },
 };

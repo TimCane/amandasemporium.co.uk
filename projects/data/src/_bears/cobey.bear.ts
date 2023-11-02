@@ -1,6 +1,7 @@
 import { buildABear } from '../_bear-brands/build-a-bear.bear-brand';
-import { chertsey } from '../_locations/chertsey.location';
 import { bear } from '../_bear-species/bear.bear-species';
+import { chertsey } from '../_locations/chertsey.location';
+import { surbiton } from '../_locations/surbiton.location';
 import { IBear } from '../lib/interfaces/bear.interface';
 
 export const cobey: IBear = {
@@ -17,5 +18,8 @@ export const cobey: IBear = {
     Date: new Date(2020, 5, 1),
   },
   Event: null,
-  Rehomed: null,
+  Rehomed: {
+    Location: surbiton,
+    Date: new Date(2023, 6, 21),
+  },
 };
