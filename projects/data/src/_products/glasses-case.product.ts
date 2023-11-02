@@ -7,4 +7,5 @@ export const glassesCase: IProduct = {
   Price: 8.0,
   Hidden: false,
   Images: ['/assets/images/products/glasses-case.jpg'],
+  Order: 1,
 };

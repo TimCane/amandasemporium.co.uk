@@ -9,4 +9,5 @@ import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 export class OutgoingLinkComponent {
   faUpRightFromSquare = faUpRightFromSquare;
   @Input() href: string = '';
+  @Input() textColor: string = 'text-primary';
 }

@@ -7,7 +7,7 @@ export const E20190525: IEvent = {
   Date: new Date(2019, 4, 25),
   Description: '',
   Location: {
-    Name: 'Burnham Park. SL1 6DR',
+    Name: 'Burnham Park. SL1 6DR.',
     Location: burnham,
   },
   Website: 'https://www.burnhamdonkeyderby.co.uk/',

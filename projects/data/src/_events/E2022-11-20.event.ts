@@ -7,7 +7,7 @@ export const E20221120: IEvent = {
   Date: new Date(2022, 10, 20),
   Description: '',
   Location: {
-    Name: 'Andover High Street, Andover.',
+    Name: 'Andover High Street, Andover SP10 1LJ.',
     Location: andover,
   },
   Website: '',

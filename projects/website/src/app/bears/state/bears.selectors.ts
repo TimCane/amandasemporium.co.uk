@@ -1,4 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { IBear } from 'data';
 import { BearsState, bearsAdapter } from './bears.state';
 
 export const bearsFeature = createFeatureSelector<BearsState>('bearsFeature');
@@ -15,16 +16,30 @@ export const getSortDirection = selector((state) => state.sortDirection);
 export const getSortKey = selector((state) => state.sortKey);
 
 export const getLetterFilter = selector((state) => state.letterFilter);
+export const getFilter = selector((state) => state.filter);
 
-export const getRescuedBears = createSelector(getBears, (bears) => {
-  let rescued = bears.filter((b) => !b.Rehomed);
-  return [...rescued].sort((a, b) => {
-    return compare(a.Name, b.Name, 'asc');
-  });
-});
+export const getTypeFilteredBears = createSelector(
+  getBears,
+  getFilter,
+  (bears, filter) => {
+    let bearsToShow: IBear[] = [];
 
-export const getFilteredRescuedBears = createSelector(
-  getRescuedBears,
+    if (filter == null) {
+      bearsToShow = bears;
+    } else if (filter == 'rehomed') {
+      bearsToShow = bears.filter((b) => b.Rehomed);
+    } else if (filter == 'rescued') {
+      bearsToShow = bears.filter((b) => !b.Rehomed);
+    }
+
+    return [...bearsToShow].sort((a, b) => {
+      return compare(a.Name, b.Name, 'asc');
+    });
+  }
+);
+
+export const getFilteredBears = createSelector(
+  getTypeFilteredBears,
   getLetterFilter,
   (bears, letterFilter) => {
     if (letterFilter == null) {
@@ -36,33 +51,17 @@ export const getFilteredRescuedBears = createSelector(
   }
 );
 
-export const getRehomedBears = createSelector(getBears, (bears) => {
-  let rehomed = bears.filter((b) => b.Rehomed);
-  return [...rehomed].sort((a, b) => {
-    return compare(a.Name, b.Name, 'asc');
-  });
-});
-
-export const getFilteredRehomedBears = createSelector(
-  getRehomedBears,
-  getLetterFilter,
-  (bears, letterFilter) => {
-    if (letterFilter == null) {
-      return bears;
-    }
-
-    letterFilter = letterFilter.toLowerCase();
-    return bears.filter((b) => b.Name.toLowerCase().startsWith(letterFilter!));
+export const getAvailableLetters = createSelector(
+  getTypeFilteredBears,
+  (bears) => {
+    return bears
+      .map((b) => b.Name[0])
+      .filter((value, index, array) => array.indexOf(value) === index)
+      .sort((a, b) => {
+        return compare(a, b, 'asc');
+      });
   }
 );
-
-export const getCountOfBears = createSelector(getBears, (bears) => {
-  return bears.length;
-});
-
-export const getCountOfRehomedBears = createSelector(getBears, (bears) => {
-  return bears.filter((b) => b.Rehomed).length;
-});
 
 export const getSelectedBearId = selector((state) => state.selectedBearId);
 

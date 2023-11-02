@@ -8,4 +8,5 @@ export const rescuedBears: IProduct = {
   Price: 10.0,
   Hidden: false,
   Images: ['/assets/images/products/rescued-bears.jpg'],
+  Order: 1,
 };

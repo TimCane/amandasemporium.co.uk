@@ -8,4 +8,5 @@ export const cotTidy: IProduct = {
   Price: 7.0,
   Hidden: true,
   Images: ['/assets/images/products/cot-tidy.jpg'],
+  Order: 1,
 };

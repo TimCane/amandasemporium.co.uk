@@ -1,4 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import { compare } from '../../bears/state/bears.selectors';
 import { ProductsState, productsAdapter } from './products.state';
 
 export const productsFeature =
@@ -13,7 +14,11 @@ export const selectProductEntities = selector(selectEntities);
 export const getProducts = selector(selectAll);
 
 export const getVisibleProducts = createSelector(getProducts, (products) => {
-  return products.filter((p) => !p.Hidden);
+  let visibleProducts = products.filter((p) => !p.Hidden);
+
+  return [...visibleProducts].sort((a, b) => {
+    return compare(a.Order, b.Order, 'asc');
+  });
 });
 
 export const getSelectedProductId = selector(

@@ -18,6 +18,10 @@ export class EventTileComponent {
 
   @Input() event: IEvent | null;
 
+  @Input() bgColor: string = 'bg-white';
+  @Input() textColor: string = 'text-black';
+  @Input() borderColor: string = 'border-black';
+
   constructor() {
     this.event = null;
   }

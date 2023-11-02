@@ -7,7 +7,7 @@ export const E20180526: IEvent = {
   Date: new Date(2018, 4, 26),
   Description: '',
   Location: {
-    Name: 'Burnham Park. SL1 6DR',
+    Name: 'Burnham Park. SL1 6DR.',
     Location: burnham,
   },
   Website: '',

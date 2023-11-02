@@ -8,4 +8,5 @@ export const toothPocket: IProduct = {
   Price: 2.0,
   Hidden: true,
   Images: ['/assets/images/products/tooth-pocket.jpg'],
+  Order: 1,
 };

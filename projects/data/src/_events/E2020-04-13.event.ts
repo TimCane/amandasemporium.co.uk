@@ -7,7 +7,7 @@ export const E20200413: IEvent = {
   Date: new Date(2020, 3, 13),
   Description: '',
   Location: {
-    Name: 'Shalford Park, Guildford. GU4 8BL',
+    Name: 'Shalford Park, Guildford. GU4 8BL.',
     Location: guildford,
   },
   Website: '',

@@ -7,4 +7,5 @@ export const keyFobs: IProduct = {
   Price: 5.0,
   Hidden: false,
   Images: ['/assets/images/products/key-fobs.jpg'],
+  Order: 1,
 };

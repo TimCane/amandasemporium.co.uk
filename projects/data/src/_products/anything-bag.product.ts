@@ -8,4 +8,5 @@ export const anythingBag: IProduct = {
   Price: 4.0,
   Hidden: true,
   Images: ['/assets/images/products/anything-bag.jpg'],
+  Order: 1,
 };

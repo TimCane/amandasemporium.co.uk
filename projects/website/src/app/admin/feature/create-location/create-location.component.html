@@ -1,0 +1,47 @@
+<form [formGroup]="locationForm">
+  <div>
+    <div>Name</div>
+    <input formControlName="name" id="name" type="text" placeholder="" />
+    <div class="flex flex-col md:flex-row gap-4 content-center">
+      <button [disabled]="!name" (click)="onGetLongLat()">Get Lat/Long</button>
+      <div>
+        <small>{{ fullAddress }}</small>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div>Latitude</div>
+    <input
+      formControlName="latitude"
+      id="latitude"
+      type="text"
+      placeholder=""
+    />
+  </div>
+  <div>
+    <div>Longitude</div>
+    <input
+      formControlName="longitude"
+      id="longitude"
+      type="text"
+      placeholder=""
+    />
+  </div>
+</form>
+
+<div *ngIf="locationForm.valid">
+  <div>
+    <code class="select-all">
+      <pre>{{ generatedFile }}</pre>
+    </code>
+  </div>
+
+  <div>
+    <code class="select-all">
+      <pre>{{ generatedCommand }}</pre>
+    </code>
+  </div>
+
+  <button (click)="onClear()">Clear</button>
+</div>

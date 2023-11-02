@@ -8,4 +8,5 @@ export const crochetedBlanketWithRibbonTrim: IProduct = {
   Price: 15.0,
   Hidden: true,
   Images: ['/assets/images/products/crocheted-blanket-with-ribbon-trim.jpg'],
+  Order: 1,
 };

@@ -1,22 +1,32 @@
+ul {
+  @apply flex flex-wrap justify-between;
+  li {
+    @apply list-none lg:p-1 cursor-pointer basis-2;
 
+    button {
+      @apply font-normal px-4;
+      @apply bg-white text-black;
 
-.wrapper{
-    display: flex;
-    flex-direction: column;
+      &.active {
+        @apply font-bold;
+        @apply text-primary;
+      }
 
-    align-items: center;
-
-    .pagination{
-        &.top{
-            margin-bottom: 3px;
+      @media (hover: hover) {
+        &:hover {
+          @apply cursor-pointer no-underline;
+          @apply text-primary-light;
         }
-        &.middle{
-            margin-bottom: 3px;
-            margin-top: 3px;
-        }
+      }
 
-        &.bottom{
-            margin-top: 3px;
-        }
+      &:focus-visible {
+        @apply outline-none;
+        @apply border-primary-light;
+      }
+
+      &:disabled {
+        @apply text-gray-light;
+      }
     }
+  }
 }

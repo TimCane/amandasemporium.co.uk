@@ -1,21 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { IBear, ILocation } from 'data';
-import {
-  BehaviorSubject,
-  Observable,
-  Subject,
-  combineLatest,
-  map,
-  of,
-} from 'rxjs';
+import { BehaviorSubject, Observable, map, of } from 'rxjs';
 import { AppState } from '../../../app.state';
 import { ScriptService } from '../../../shared/services/script.service';
 import { loadBears } from '../../state/bears.action';
 import { getBears } from '../../state/bears.selectors';
 
 interface MapMarker extends google.maps.LatLngLiteral {
-  name: string;
+  id: string;
 }
 
 @Component({
@@ -45,18 +39,17 @@ export class BearsMapComponent implements OnInit {
   public rescuedMarkers$: Observable<MapMarker[]> = of([]);
   public rehomedMarkers$: Observable<MapMarker[]> = of([]);
 
-  selectedMarkerSub: Subject<MapMarker | null> = new Subject();
-  selectedMarker$: Observable<MapMarker | null> =
-    this.selectedMarkerSub.asObservable();
-  visibleBears$: Observable<IBear[]> = of([]);
-
   scriptLoadedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     false
   );
 
   scriptLoaded$: Observable<boolean> = this.scriptLoadedSubject.asObservable();
 
-  constructor(private store: Store<AppState>, scriptService: ScriptService) {
+  constructor(
+    private store: Store<AppState>,
+    scriptService: ScriptService,
+    private router: Router
+  ) {
     scriptService.Load('googleMaps').subscribe((data) => {
       this.scriptLoadedSubject.next(true);
 
@@ -76,7 +69,7 @@ export class BearsMapComponent implements OnInit {
             return {
               lat: location.Latitude,
               lng: location.Longitude,
-              name: location.Name,
+              id: location.Id,
             };
           });
         })
@@ -99,46 +92,9 @@ export class BearsMapComponent implements OnInit {
             return {
               lat: location.Latitude,
               lng: location.Longitude,
-              name: location.Name,
+              id: location.Id,
             };
           });
-        })
-      );
-
-      this.visibleBears$ = combineLatest([
-        this.allBears$,
-        this.selectedMarker$,
-      ]).pipe(
-        map(([bears, selectedMarker]) => {
-          let visible: IBear[] = [];
-
-          if (selectedMarker == null) {
-            return visible;
-          }
-
-          for (let i = 0; i < bears.length; i++) {
-            const bear = bears[i];
-
-            if (bear.Rescued) {
-              if (bear.Rescued.Location) {
-                if (bear.Rescued.Location.Name == selectedMarker.name) {
-                  visible.push(bear);
-                  continue;
-                }
-              }
-            }
-
-            if (bear.Rehomed) {
-              if (bear.Rehomed.Location) {
-                if (bear.Rehomed.Location.Name == selectedMarker.name) {
-                  visible.push(bear);
-                  continue;
-                }
-              }
-            }
-          }
-
-          return visible;
         })
       );
     });
@@ -149,7 +105,7 @@ export class BearsMapComponent implements OnInit {
   }
 
   onMarkerClick(marker: MapMarker) {
-    this.selectedMarkerSub.next(marker);
+    this.router.navigate(['/', 'locations', marker.id]);
   }
 
   rehomedOptions(index: number): google.maps.MarkerOptions {

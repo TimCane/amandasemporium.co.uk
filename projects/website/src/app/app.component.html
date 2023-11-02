@@ -3,25 +3,12 @@
   [duration]="0.5"
   [animationDuration]="0.75"
 ></splash-screen>
-<div class="container">
-  <div class="navbar-container">
-    <app-navigation></app-navigation>
-  </div>
-  <h2 class="text-center" id="ribbon">
-    <div id="content">{{ title }}</div>
-  </h2>
-  <div class="featureimage-container">
-    <img class="featureimage" src="/assets/images/feature.jpg" />
-  </div>
 
-  <div class="mainContent-container">
-    <div class="mainContent">
-      <hr />
-      <router-outlet></router-outlet>
-    </div>
-    <div class="footerContent">
-      <app-footer></app-footer>
-    </div>
-  </div>
-  <app-site-disclosure></app-site-disclosure>
-</div>
+<app-navigation></app-navigation>
+
+<app-page-title></app-page-title>
+<app-back-a-page></app-back-a-page>
+
+<router-outlet></router-outlet>
+<app-footer></app-footer>
+<app-site-disclosure></app-site-disclosure>

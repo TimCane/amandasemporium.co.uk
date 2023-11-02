@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../app.state';
-import { loadBears, setLetterFilter } from '../../state/bears.action';
 import {
-  getCountOfBears,
-  getCountOfRehomedBears,
-  getFilteredRehomedBears,
-  getFilteredRescuedBears,
+  loadBears,
+  setFilter,
+  setLetterFilter,
+} from '../../state/bears.action';
+import {
+  getAvailableLetters,
+  getFilteredBears,
 } from '../../state/bears.selectors';
 
 @Component({
@@ -15,16 +18,18 @@ import {
   styleUrls: ['./bears-list.component.scss'],
 })
 export class BearsListComponent implements OnInit {
-  public rescuedBears$ = this.store.select(getFilteredRescuedBears);
-  public rehomedBears$ = this.store.select(getFilteredRehomedBears);
+  public bears$ = this.store.select(getFilteredBears);
+  public availableLetters$ = this.store.select(getAvailableLetters);
 
-  public countOfBears$ = this.store.select(getCountOfBears);
-  public countOfRehomedBears$ = this.store.select(getCountOfRehomedBears);
-
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>, private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.store.dispatch(loadBears());
+
+    let filter: string | null = this.route!.snapshot.data['filter'];
+    this.store.dispatch(setFilter({ filter }));
+
+    this.onLetterClicked(null);
   }
 
   onLetterClicked(letter: string | null) {

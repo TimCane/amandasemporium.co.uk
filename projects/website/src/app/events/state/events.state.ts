@@ -4,6 +4,8 @@ import { IEvent } from 'data';
 export interface EventsState extends EntityState<IEvent> {
   selectedEventId: string | null;
 
+  pastEventCount: number;
+
   error: string | null;
   status: 'pending' | 'loading' | 'error' | 'success'; //TODO: Enum
 }
@@ -22,6 +24,7 @@ export const eventsAdapter = createEntityAdapter<IEvent>({
 });
 
 export const initialState: EventsState = eventsAdapter.getInitialState({
+  pastEventCount: 3,
   selectedEventId: null,
   error: null,
   status: 'pending',

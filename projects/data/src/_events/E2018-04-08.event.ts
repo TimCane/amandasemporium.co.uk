@@ -5,7 +5,7 @@ export const E20180408: IEvent = {
   Id: '2018-04-08-windsor-spring-food-and-craft-fair',
   Name: 'Windsor Spring Food & Craft Fair',
   Date: new Date(2018, 3, 8),
-  Description: '10am til 4pm, free parking.</br> Tickets on the gate.',
+  Description: '10am til 4pm, free parking. Tickets on the gate',
   Location: {
     Name: 'Royal Windsor Racecourse, SL4 5EZ.',
     Location: windsor,
