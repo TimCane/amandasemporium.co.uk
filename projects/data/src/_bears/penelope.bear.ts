@@ -3,6 +3,8 @@ import { bear } from '../_bear-species/bear.bear-species';
 import { IBear } from '../lib/interfaces/bear.interface';
 import { addlestone } from '../_locations/addlestone.location';
 import { jacobsWell } from '../_locations/jacobsWell.location';
+import { alton } from '../_locations/alton.location';
+import { E20240622 } from '../_events/E2024-06-22.event';
 
 export const penelope: IBear = {
   Id: 'penelope',
@@ -17,6 +19,9 @@ export const penelope: IBear = {
     Location: jacobsWell,
     Date: new Date(2023, 8, 17),
   },
-  Event: null,
-  Rehomed: null
+  Event: E20240622,
+  Rehomed: {
+    Location: alton,
+    Date: new Date(2024, 5, 22),
+  }
 };
