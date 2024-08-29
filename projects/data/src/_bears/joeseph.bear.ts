@@ -22,6 +22,6 @@ export const joeseph: IBear = {
   Event: E20240810,
   Rehomed: {
     Location: churchCrookham,
-    Date: new Date(2024, 9, 10)
+    Date: new Date(2024, 8, 11)
   },
 };
