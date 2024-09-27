@@ -7,7 +7,7 @@ export const E20200620: IEvent = {
   Date: new Date(2020, 5, 20),
   Description: '',
   Location: {
-    Name: 'Alton Highstreet, GU34 1AB',
+    Name: 'Alton Highstreet, GU34 1AB.',
     Location: alton,
   },
   Website: '',

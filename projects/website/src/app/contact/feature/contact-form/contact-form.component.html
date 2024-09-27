@@ -1,30 +1,20 @@
 <div
-  class="row"
   *ngIf="{
     success: success$ | async,
     isLoading: isLoading$ | async,
   } as view"
 >
-  <div class="col-md-8 col-md-offset-2 contact-form">
-    <div *ngIf="view.success; else showForm" class="success">
-      <p class="text-center description">
-        Thank you for your message! I will be in contact shortly.
-      </p>
+  <div>
+    <div *ngIf="view.success; else showForm">
+      <p>Thank you for your message! I will be in contact shortly.</p>
     </div>
 
     <ng-template #showForm>
-      <form
-        [formGroup]="contactForm"
-        (ngSubmit)="onSubmit()"
-        class="form"
-        role="form"
-      >
-        <p class="text-center description">Use the form below to contact me</p>
-        <div class="row">
-          <div class="col-xs-6 col-md-6 form-group">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <p>Use the form below to contact me</p>
+        <div>
+          <div>
             <input
-              class="form-control"
-              id="name"
               name="name"
               placeholder="Name"
               type="text"
@@ -33,10 +23,8 @@
               formControlName="name"
             />
           </div>
-          <div class="col-xs-6 col-md-6 form-group">
+          <div>
             <input
-              class="form-control"
-              id="email"
               name="email"
               placeholder="Email"
               type="email"
@@ -46,17 +34,14 @@
           </div>
         </div>
         <textarea
-          class="form-control"
-          id="message"
           name="message"
           placeholder="Message"
           rows="5"
           required
           formControlName="message"
         ></textarea>
-        <br />
-        <div class="row">
-          <div class="col-xs-12 col-md-12">
+        <div>
+          <div>
             <small
               >By using the contact form you are giving me permission to store
               your name, email and message within Google Sheets. Once I have
@@ -65,11 +50,10 @@
             >
           </div>
         </div>
-        <div class="row">
-          <div class="col-xs-12 col-md-12 form-group">
+        <div>
+          <div>
             <button
               [disabled]="view.isLoading || !contactForm.valid"
-              class="btn btn-primary pull-right"
               type="submit"
             >
               Submit

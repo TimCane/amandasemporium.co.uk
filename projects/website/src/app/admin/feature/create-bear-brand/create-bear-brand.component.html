@@ -1,0 +1,22 @@
+<form [formGroup]="bearBrandForm">
+  <div>
+    <div>Name</div>
+    <input formControlName="name" id="name" type="text" placeholder="" />
+  </div>
+</form>
+
+<div *ngIf="bearBrandForm.valid">
+    <div>
+        <code class="select-all">
+          <pre>{{ generatedFile }}</pre>
+        </code>
+      </div>
+    
+      <div>
+        <code class="select-all">
+          <pre>{{ generatedCommand }}</pre>
+        </code>
+      </div>
+    
+      <button (click)="onClear()">Clear</button>
+</div>

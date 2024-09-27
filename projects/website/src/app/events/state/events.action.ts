@@ -8,6 +8,16 @@ export const selectEvent = createAction(
 
 export const loadEvents = createAction('[Event Page] Load Events');
 
+export const getMorePastEvents = createAction(
+  '[Event Page] Get More Past Events',
+  props<{ count: number }>()
+);
+
+export const getLessPastEvents = createAction(
+  '[Event Page] Get Less Past Events',
+  props<{ count: number }>()
+);
+
 export const loadEventsSuccess = createAction(
   '[Event API] Event Load Success',
   props<{ events: IEvent[] }>()

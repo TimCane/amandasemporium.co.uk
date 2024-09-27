@@ -10,10 +10,10 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: () =>
-          import('./feature/bears-list/bears-list.module').then(
-            (m) => m.BearsListModule
+          import('./feature/bears-home/bears-home.module').then(
+            (m) => m.BearsHomeModule
           ),
-        data: { title: 'Rescued Bears' },
+        data: { title: 'Bears' },
       },
       {
         path: 'map',
@@ -24,12 +24,27 @@ const routes: Routes = [
         data: { title: 'A Bears Journey' },
       },
       {
-        path: ':bearId',
+        path: 'profile/:bearId',
         loadChildren: () =>
           import('./feature/bear-detail/bear-detail.module').then(
             (m) => m.BearDetailModule
           ),
-        data: { title: 'Rescued Bears' },
+        data: { title: '' },
+      },
+      {
+        path: 'my-story',
+        loadChildren: () =>
+          import('./feature/bears-story/bears-story.module').then(
+            (m) => m.BearsStoryModule
+          ),
+        data: { title: 'My Bear Story' },
+      },
+      {
+        path: '',
+        loadChildren: () =>
+          import('./feature/bears-list/bears-list.module').then(
+            (m) => m.BearsListModule
+          ),
       },
     ],
   },

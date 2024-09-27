@@ -7,7 +7,7 @@ export const E20230709: IEvent = {
   Date: new Date(2023, 6, 9),
   Description: '',
   Location: {
-    Name: 'Morden Sports Ground. SM4 5AD',
+    Name: 'Morden Sports Ground. SM4 5AD.',
     Location: morden,
   },
   Website: 'https://www.mordenfunday.com/',

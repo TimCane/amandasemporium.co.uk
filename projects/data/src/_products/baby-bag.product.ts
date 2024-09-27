@@ -8,4 +8,5 @@ export const babyBag: IProduct = {
   Price: 18.0,
   Hidden: true,
   Images: ['/assets/images/products/baby-bag.jpg'],
+  Order: 1,
 };

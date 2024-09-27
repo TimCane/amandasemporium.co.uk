@@ -1,2 +1,252 @@
-@import "_scss/bootstrap";
-@import "_scss/custom";
+@tailwind base;
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border antialiased font-sans;
+
+    text-rendering: geometricPrecision;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    @apply p-0 leading-8 m-auto min-h-full overflow-x-hidden;
+
+    font-size: calc(16px + ((100vw - 600px) / 250));
+    text-decoration-skip-ink: "auto";
+  }
+
+  body {
+    @apply p-0 break-words;
+    @apply bg-white text-black caret-black;
+
+    margin-top: calc((100vh / 25) * 1.563);
+    margin-bottom: calc(((100vh / 25) * 1.563) / 2);
+
+    margin-left: calc((100vw / 25) * 1.563);
+    margin-right: calc((100vw / 25) * 1.563);
+  }
+
+  header {
+    margin-bottom: calc(((100vw / 25) * 1.563) / 2);
+  }
+
+  footer {
+    margin-top: calc(((100vw / 25) * 1.563) / 2);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply my-4 font-bold font-serif;
+  }
+
+  h1 {
+    @apply text-5xl tracking-tight;
+  }
+
+  h2 {
+    @apply text-4xl tracking-tight;
+  }
+
+  h3 {
+    @apply text-3xl tracking-tight;
+  }
+
+  h4 {
+    @apply text-2xl tracking-tight;
+  }
+
+  h5 {
+    @apply text-xl tracking-tight;
+  }
+
+  h6 {
+    @apply text-lg tracking-normal;
+  }
+
+  p {
+    @apply mb-6;
+  }
+
+  p > *:last-child {
+    @apply mb-0;
+  }
+
+  blockquote {
+    @apply border-l-2 border-solid py-0 px-4 mb-6;
+    @apply border-gray-light;
+  }
+
+  a {
+    @apply no-underline;
+    @apply text-primary;
+  }
+
+  @media (hover: hover) {
+    a:hover {
+      @apply underline;
+    }
+  }
+
+  small {
+    @apply text-sm;
+  }
+
+  hr {
+    @apply border-0 h-1 my-4 mx-0;
+    @apply bg-gray-light;
+  }
+
+  fieldset {
+    @apply border-0 p-0 m-0;
+  }
+
+  label,
+  legend {
+    @apply font-bold inline-block;
+  }
+
+  input[type="email"],
+  input[type="text"],
+  input[type="number"],
+  input[type="password"],
+  input[type="date"],
+  input[type="month"],
+  input[type="week"],
+  input[type="datetime"],
+  input[type="datetime-local"],
+  input[type="url"],
+  input[type="search"],
+  input[type="tel"],
+  input:not([type]) {
+    @apply appearance-none border-2 border-solid block text-base p-4 w-full my-2;
+    @apply bg-gray-lighter border-gray-lighter text-black;
+  }
+
+  select {
+    @apply appearance-none border-2 border-solid block text-base p-4 w-full my-2;
+    @apply bg-gray-lighter border-gray-lighter text-black;
+  }
+
+  textarea {
+    @apply appearance-none border-2 border-solid block text-base p-4 resize-none box-border leading-4 w-full my-2;
+    @apply bg-gray-lighter border-gray-lighter text-black;
+  }
+
+  input:invalid,
+  select:invalid,
+  textarea:invalid {
+    @apply outline-none;
+    @apply border-error;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus {
+    @apply outline-none;
+    @apply border-primary;
+  }
+
+  input[type="checkbox"]:hover,
+  input[type="radio"]:hover {
+    @apply cursor-pointer;
+  }
+
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"],
+  button,
+  button[type="submit"],
+  .button {
+    @apply py-2 px-5 text-base border-0 h-10 appearance-none font-bold no-underline text-center;
+    @apply text-gray-lighter bg-primary;
+
+    @media (hover: hover) {
+      &:hover {
+        @apply cursor-pointer no-underline;
+        @apply bg-primary-light;
+      }
+    }
+
+    &:focus-visible {
+      @apply outline-none;
+      @apply border-primary-light;
+    }
+  
+    &:disabled {
+      @apply bg-gray;
+    }
+  
+  }
+  table {
+    @apply w-full border-collapse my-7 mx-0 tabular-nums;
+  }
+
+  th,
+  td {
+    @apply align-top border-b-2 border-solid leading-4 p-4;
+    @apply border-gray-light;
+  }
+
+  th {
+    @apply font-bold text-left;
+    @apply text-gray-dark;
+  }
+
+  code,
+  pre {
+    @apply font-mono text-sm align-middle overflow-scroll;
+    @apply text-gray-dark bg-gray-lighter;
+  }
+
+  code {
+    @apply whitespace-nowrap align-baseline py-0 mx-2;
+  }
+
+  pre {
+    @apply whitespace-pre mx-0 my-1 px-4 py-3;
+  }
+
+  pre::after {
+    content: " ";
+  }
+
+  ul {
+    @apply m-0 p-0 list-disc list-outside tabular-nums;
+  }
+
+  ol {
+    @apply list-decimal list-outside;
+  }
+
+  ol,
+  ul {
+    @apply pl-4 mb-4;
+  }
+
+  li {
+    @apply list-inside;
+  }
+
+  kbd {
+    @apply inline-block py-0 px-2 font-mono text-xs align-middle border-solid border-2 border-b-4;
+    @apply text-gray-dark bg-gray-lighter border-gray-light;
+  }
+
+  abbr {
+    @apply no-underline border-b-2 border-dashed;
+    @apply border-gray-light;
+  }
+
+  @media (hover: hover) {
+    abbr:hover {
+      @apply cursor-help;
+    }
+  }
+}
+
+@tailwind components;
+@tailwind utilities;

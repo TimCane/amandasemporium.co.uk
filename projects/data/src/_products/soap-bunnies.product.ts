@@ -8,4 +8,5 @@ export const soapBunnies: IProduct = {
   Price: 4.0,
   Hidden: true,
   Images: ['/assets/images/products/soap-bunnies.jpg'],
+  Order: 1,
 };

@@ -8,4 +8,5 @@ export const dummyTaggy: IProduct = {
   Price: 6.0,
   Hidden: true,
   Images: ['/assets/images/products/dummy-taggy.jpg'],
+  Order: 1,
 };

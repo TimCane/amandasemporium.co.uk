@@ -1,7 +1,53 @@
-<div class="row">
-  <div class="col-md-10 col-md-offset-1 events">
-    <ng-container *ngFor="let event of allEvents$ | async">
-      <app-event-tile [event]="event"></app-event-tile>
-    </ng-container>
+<div class="mb-10">
+  <h2 class="mb-2">Next Event</h2>
+  <div>
+    <app-event-tile
+      [event]="nextEvent$ | async"
+      bgColor="bg-primary"
+      textColor="text-primary-content"
+      borderColor="border-primary-content"
+    ></app-event-tile>
+  </div>
+</div>
+
+<div class="mb-10">
+  <h2 class="mb-2">Upcoming Events</h2>
+  <div>
+    <app-event-tile
+      *ngFor="let event of upcomingEvents$ | async; even as isEven"
+      [event]="event"
+      [bgColor]="isEven ? 'bg-gray-lighter' : 'bg-white'"
+      [textColor]="isEven ? 'text-gray-dark' : 'text-black'"
+      [borderColor]="isEven ? 'border-gray-dark' : 'border-black'"
+    ></app-event-tile>
+  </div>
+</div>
+
+<div class="mb-10">
+  <h2 class="mb-2">Past Events</h2>
+  <div>
+    <app-event-tile
+      *ngFor="let event of pastEvents$ | async; even as isEven"
+      [event]="event"
+      [bgColor]="isEven ? 'bg-gray-lighter' : 'bg-white'"
+      [textColor]="isEven ? 'text-gray-dark' : 'text-black'"
+      [borderColor]="isEven ? 'border-gray-dark' : 'border-black'"
+    ></app-event-tile>
+  </div>
+  <div class="text-center mt-2">
+    <button
+      class="md:w-1/4 lg:w-1/6 bg-primary hover:bg-primary-light disabled:bg-gray"
+      [disabled]="!(canSeeMore$ | async)"
+      (click)="onSeeMore()"
+    >
+      See more
+    </button>
+    <button
+      class="md:w-1/4 lg:w-1/6 bg-secondary hover:bg-secondary-light disabled:bg-gray"
+      [disabled]="!(canSeeLess$ | async)"
+      (click)="onSeeLess()"
+    >
+      See less
+    </button>
   </div>
 </div>

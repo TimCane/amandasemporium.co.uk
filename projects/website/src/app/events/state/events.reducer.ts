@@ -1,5 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import {
+  getLessPastEvents,
+  getMorePastEvents,
   loadEvents,
   loadEventsFailure,
   loadEventsSuccess,
@@ -35,6 +37,26 @@ export const eventsReducer = createReducer<EventsState>(
       error: error,
       status: 'error',
     });
+  }),
+
+  on(getMorePastEvents, (state, { count }) => {
+    let newCount = state.pastEventCount + count;
+
+    if (newCount > state.ids.length) {
+      newCount = state.ids.length;
+    }
+
+    return { ...state, pastEventCount: newCount };
+  }),
+
+  on(getLessPastEvents, (state, { count }) => {
+    let newCount = state.pastEventCount - count;
+
+    if (newCount < 0) {
+      newCount = 3;
+    }
+
+    return { ...state, pastEventCount: newCount };
   })
 );
 

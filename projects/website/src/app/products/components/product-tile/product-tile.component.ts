@@ -9,6 +9,10 @@ import { IProduct } from 'data';
 export class ProductTileComponent {
   @Input() product: IProduct | null;
 
+  @Input() bgColor: string = 'bg-white';
+  @Input() textColor: string = 'text-black';
+  @Input() borderColor: string = 'border-black';
+
   constructor() {
     this.product = null;
   }

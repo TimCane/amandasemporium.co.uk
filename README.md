@@ -5,7 +5,7 @@
 1. Run the following command
 
 ```bash
-ng g module [name] --module=app --project=website --routing=true
+ng g module [name] --project=website --routing=true
 ```
 
 2. Update `app-routing.module.ts` with a new route
@@ -30,6 +30,6 @@ ng g module [module]/feature/[name] --module=[module] --project=website --routin
 1. Run the following command
 
 ```bash
-ng g module [module]/components/[name] --module=[module]
+ng g module [module]/components/[name]
 ng g component [module]/components/[name]
 ```

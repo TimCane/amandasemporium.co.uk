@@ -7,4 +7,5 @@ export const handmadeCards: IProduct = {
   Price: 1.5,
   Hidden: true,
   Images: ['/assets/images/products/handmade-cards.jpg'],
+  Order: 1,
 };

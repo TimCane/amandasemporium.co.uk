@@ -8,4 +8,5 @@ export const pairOfBurpCloths: IProduct = {
   Price: 6.0,
   Hidden: true,
   Images: ['/assets/images/products/pair-of-burp-cloths.jpg'],
+  Order: 1,
 };

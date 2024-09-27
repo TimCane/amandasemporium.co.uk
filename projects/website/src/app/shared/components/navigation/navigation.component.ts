@@ -1,20 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { AppState } from '../../../app.state';
-import { loadEvents } from '../../../events/state/events.action';
-import { getNextEvent } from '../../../events/state/events.selectors';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.scss'],
 })
-export class NavigationComponent implements OnInit {
-  public nextEvent$ = this.store.select(getNextEvent);
+export class NavigationComponent {
+  menuHidden: boolean = true;
 
-  constructor(private store: Store<AppState>) {}
-
-  ngOnInit() {
-    this.store.dispatch(loadEvents());
+  toggleMenu() {
+    this.menuHidden = !this.menuHidden;
   }
 }

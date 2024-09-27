@@ -13,6 +13,11 @@ export const setLetterFilter = createAction(
 
 export const loadBears = createAction('[Bear Page] Load Bears');
 
+export const setFilter = createAction(
+  '[Bear Page] Set Filter',
+  props<{ filter: string | null }>()
+);
+
 export const loadBearsSuccess = createAction(
   '[Bear API] Bear Load Success',
   props<{ bears: IBear[] }>()

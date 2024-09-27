@@ -1,18 +1,35 @@
-<div class="row">
+<div>
   <div
-    class="col-md-10 col-md-offset-1 bears-map"
     *ngIf="{
       rescuedMarkers: rescuedMarkers$ | async,
-      rehomedMarkers: rehomedMarkers$ | async,
-      visibleBears: visibleBears$ | async,
-      selectedMarker: selectedMarker$ | async
+      rehomedMarkers: rehomedMarkers$ | async
     } as state"
   >
     <p>Click on a bears face to see see who has been rehomed where!</p>
+    <div>
+      <div>
+        <input
+          type="checkbox"
+          name="rehomed"
+          [checked]="showRehomed"
+          (change)="toggleRehomed()"
+          checked
+        /><label>Show Rehomed</label>
+      </div>
+      <div>
+        <input
+          type="checkbox"
+          name="rescued"
+          [checked]="showRescued"
+          (change)="toggleRescued()"
+        /><label> Show Rescued</label>
+      </div>
+    </div>
     <div *ngIf="scriptLoaded$ | async">
       <google-map
         width="100%"
-        style="width: 100%; height: 500px"
+        height="750px"
+        class="block w-full"
         [options]="options"
       >
         <ng-container *ngIf="showRescued">
@@ -33,41 +50,6 @@
           ></map-marker>
         </ng-container>
       </google-map>
-    </div>
-    <div class="map-controls">
-      <div class="control-rehomed">
-        <input
-          type="checkbox"
-          name="rehomed"
-          id="cbRehomed"
-          [checked]="showRehomed"
-          (change)="toggleRehomed()"
-          checked
-        /><label for="cbRehomed"> Show Rehomed</label>
-      </div>
-      <div class="control-rescued">
-        <input
-          type="checkbox"
-          name="rescued"
-          id="cbRescued"
-          [checked]="showRescued"
-          (change)="toggleRescued()"
-        /><label for="cbRescued"> Show Rescued</label>
-      </div>
-    </div>
-    <div id="bears-map" *ngIf="state.selectedMarker">
-      <h3 id="location-name" style="text-align: center">{{state.selectedMarker.name}}</h3>
-      <hr />
-      <div class="bears">
-        <div class="col-md-10 col-md-offset-1">
-          <div
-            class="col-xs-12 col-sm-6 col-md-4 bear"
-            *ngFor="let bear of state.visibleBears"
-          >
-            <app-bear-tile [bear]="bear"></app-bear-tile>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </div>

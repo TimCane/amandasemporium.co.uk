@@ -8,4 +8,5 @@ export const handKnittedCardigans: IProduct = {
   Price: 8.0,
   Hidden: false,
   Images: ['/assets/images/products/hand-knitted-cardigans.jpg'],
+  Order: 1,
 };
