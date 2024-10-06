@@ -1,0 +1,40 @@
+---
+import { Breadcrumb } from "@/components/layouts/breadcrumb";
+import { Footer } from "@/components/layouts/footer";
+import { Nav } from "@/components/layouts/nav";
+import { Title } from "@/components/layouts/title";
+import BaseLayout from "@/layouts/base.layout.astro";
+import { fade } from "astro:transitions";
+import { Menubar } from "primereact/menubar";
+
+interface Props {
+    title: string;
+}
+
+const { title }: Props = Astro.props;
+
+const url = Astro.url.pathname;
+---
+
+<BaseLayout title={title}>
+    <div class="min-h-screen flex flex-column surface-ground">
+        <div class="bg-indigo-500 h-12rem pt-2">
+            <Nav client:load url={url} />
+            <Breadcrumb client:load url={url} />
+        </div>
+        <div class="md:p-5 flex flex-column flex-auto -mt-8">
+            <div class="md:border-round surface-section flex-auto">
+                <main
+                    class="px-2 md:px-8"
+                    transition:animate={fade({ duration: "0.2s" })}
+                >
+                    <Title title={title} />
+
+                    <slot />
+                </main>
+            </div>
+        </div>
+
+        <Footer />
+    </div>
+</BaseLayout>

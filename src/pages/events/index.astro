@@ -1,0 +1,18 @@
+---
+import PageLayout from "../../layouts/page.layout.astro";
+import { getCollection } from "astro:content";
+
+const eventEntries = await getCollection("events");
+---
+
+<PageLayout title="Events">
+  <ul>
+    {
+      eventEntries.map((eventEntry) => (
+        <li>
+          <a href={`/events/${eventEntry.slug}`}>{eventEntry.data.name}</a>
+        </li>
+      ))
+    }
+  </ul>
+</PageLayout>

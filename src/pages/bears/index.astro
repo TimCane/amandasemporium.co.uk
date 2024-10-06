@@ -1,0 +1,12 @@
+---
+import { BearsList } from "@/components/bears/bears-list";
+import PageLayout from "../../layouts/page.layout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { MapBears } from "@/components/bears/types/bear.type";
+
+const bears = MapBears(await getCollection("bears"));
+---
+
+<PageLayout title="Bears">
+  <BearsList client:load bears={bears} />
+</PageLayout>

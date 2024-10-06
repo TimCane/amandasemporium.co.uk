@@ -1,0 +1,36 @@
+---
+import { type CollectionEntry, getCollection, getEntry } from "astro:content";
+import PageLayout from "../../layouts/page.layout.astro";
+import { date } from "astro:schema";
+import { Debug } from "astro:components";
+
+export async function getStaticPaths() {
+    const eventsCollection = await getCollection("events");
+
+    return eventsCollection.map((event, i) => ({
+        params: { slug: event.slug },
+        props: {
+            event,
+        },
+    }));
+}
+type Props = {
+    event: CollectionEntry<"events">;
+};
+
+const { event } = Astro.props;
+
+const { name } = event.data;
+
+const bears = await getCollection("bears", ({ data }) => {
+    return data.event && data.event.slug == event.slug;
+});
+
+const { Content } = await event.render();
+---
+
+<PageLayout title={name}>
+    <h1>
+        {name}
+    </h1>
+</PageLayout>
