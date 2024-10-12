@@ -1,6 +1,0 @@
-export interface IEnvironment {
-  contactFormKey: string;
-  production: boolean;
-  googleMapsKey: string;
-  clarityProjectId: string;
-}
