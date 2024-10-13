@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@/layouts/base.layout.astro";
+import Navbar from "@/components/ui/navbar.astro";
+import Banner from "@/components/ui/banner.astro";
+import PawPrints from "@/components/ui/paw-prints.astro";
+
+interface Props {
+    title: string;
+    heading: string;
+    subText: string;
+}
+
+const { title, heading, subText }: Props = Astro.props;
+
+const url = Astro.url.pathname;
+---
+
+<BaseLayout title={title}>
+    <Navbar url={url} />
+    <Banner heading={heading} subText={subText} />
+    <PawPrints />
+
+    <slot />
+</BaseLayout>
