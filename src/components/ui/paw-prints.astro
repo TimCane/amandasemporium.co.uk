@@ -1,11 +1,204 @@
 ---
-import { PawPrint } from "lucide-react";
+interface Props {
+    bears: string[];
+}
+
+const { bears }: Props = Astro.props;
 ---
 
-<div class="container mx-auto flex justify-center my-8 md:my-10 lg:my-16">
-    <PawPrint width={32} className="stroke-none fill-mandy-50 mt-6" />
-    <PawPrint width={32} className="stroke-none fill-mandy-100 mt-2" />
-    <PawPrint width={32} className="stroke-none fill-mandy-200 " />
-    <PawPrint width={32} className="stroke-none fill-mandy-300  mt-2" />
-    <PawPrint width={32} className="stroke-none fill-mandy-300 " />
-</div>
+<paw-prints data-bears={bears}>
+    <svg class="absolute h-full w-full pointer-events-none" id="svgContainer">
+    </svg>
+</paw-prints>
+
+<style is:global>
+    .bear-print {
+        @apply fill-footprints opacity-100 cursor-pointer pointer-events-auto transition-opacity ease-in-out duration-1000;
+    }
+
+    .bear-print.opacity-zero {
+        opacity: 0;
+    }
+</style>
+<script>
+    const STEP_SIZE = 60;
+    const ANGLE_VARIATION_MULTIPLIER = 0.8;
+    const WAIT_BETWEEN_TRAILS = 10000;
+
+    const MIN_STEPS = 6;
+    const MAX_STEPS = 200;
+
+    const FOOTPRINT_INTERVAL = 300;
+
+    const FOOTPRINT_SHOW_INTERVAL = 100;
+    const FOOTPRINT_HIDE_INTERVAL = 2000;
+    const FOOTPRINT_REMOVE_INTERVAL = 4000;
+
+    const BASE_SVG_ROTATION = 200;
+
+    class PawPrints extends HTMLElement {
+        svgContainer: HTMLElement | null | undefined;
+        width = window.innerWidth;
+        height = window.innerHeight;
+
+        lastX: number = 0;
+        lastY: number = 0;
+        angle: number = 0;
+        stepCount: number = 0;
+        maxSteps: number = 0;
+        trailActive: boolean = true;
+        bear: string | null = null;
+
+        bears: string[] = [];
+
+        connectedCallback() {
+            this.svgContainer = document.getElementById("svgContainer");
+
+            if (this.dataset.bears) {
+                this.bears = this.dataset.bears.split(",");
+            }
+
+            if (this.bears.length > 0) {
+                this.start();
+            }
+        }
+
+        start() {
+            this.resetTrail();
+            setInterval(() => this.createFootprintGroup(), FOOTPRINT_INTERVAL);
+        }
+
+        resetTrail() {
+            this.trailActive = false;
+
+            setTimeout(() => {
+                this.lastX = Math.random() * this.width;
+                this.lastY = Math.random() * this.height;
+
+                this.angle = Math.random() * Math.PI * 2;
+
+                this.maxSteps =
+                    Math.floor(Math.random() * MIN_STEPS) + MAX_STEPS;
+                this.stepCount = 0;
+                this.trailActive = true;
+
+                this.bear =
+                    this.bears[Math.floor(Math.random() * this.bears.length)];
+            }, WAIT_BETWEEN_TRAILS);
+        }
+
+        createFootprintGroup() {
+            if (!this.trailActive) return;
+
+            if (this.stepCount >= this.maxSteps) {
+                this.resetTrail();
+                return;
+            }
+
+            const nextX = this.lastX + Math.cos(this.angle) * STEP_SIZE;
+            const nextY = this.lastY + Math.sin(this.angle) * STEP_SIZE;
+
+            if (
+                nextX < 0 ||
+                nextX > this.width ||
+                nextY < 0 ||
+                nextY > this.height
+            ) {
+                this.resetTrail();
+                return;
+            }
+
+            this.lastX = nextX;
+            this.lastY = nextY;
+
+            const angleInDegrees = this.angle * (BASE_SVG_ROTATION / Math.PI);
+
+            let group = this.createPawPrint(
+                this.lastX,
+                this.lastY,
+                angleInDegrees,
+            );
+
+            this.svgContainer?.appendChild(group);
+
+            this.stepCount++;
+
+            const angleVariation =
+                (Math.random() - 0.5) * ANGLE_VARIATION_MULTIPLIER;
+            this.angle += angleVariation;
+        }
+
+        navigateToBear() {
+            if (this.bears && this.bears.length > 0) {
+                window.open(`/bears/${this.bear}`);
+            }
+        }
+
+        createPawPrint(
+            lastX: number,
+            lastY: number,
+            angleInDegrees: number,
+        ): SVGElement {
+            // Create the group element to contain circles and path
+            const group = document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "g",
+            );
+
+            // Apply translation and rotation
+            group.setAttribute(
+                "transform",
+                `translate(${lastX}, ${lastY}) rotate(${angleInDegrees})`,
+            );
+            group.setAttribute("class", "bear-print opacity-zero");
+
+            // Add a click event listener to the group
+            group.addEventListener("click", () => this.navigateToBear());
+
+            let toes: number[][] = [
+                [11, 4],
+                [18, 8],
+                [20, 16],
+            ];
+            for (let index = 0; index < toes.length; index++) {
+                const toe = toes[index];
+
+                const circle = document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "circle",
+                );
+                circle.setAttribute("cx", `${toe[0]}`);
+                circle.setAttribute("cy", `${toe[1]}`);
+                circle.setAttribute("r", "2");
+                group.appendChild(circle);
+            }
+
+            // Path
+            const path = document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "path",
+            );
+            path.setAttribute(
+                "d",
+                "M9 10a5 5 0 0 1 5 5v3.5a3.5 3.5 0 0 1-6.84 1.045Q6.52 17.48 4.46 16.84A3.5 3.5 0 0 1 5.5 10Z",
+            );
+            group.appendChild(path);
+
+            setTimeout(() => {
+                group.classList.remove("opacity-zero");
+            }, FOOTPRINT_SHOW_INTERVAL);
+
+            setTimeout(() => {
+                group.classList.add("opacity-zero");
+            }, FOOTPRINT_HIDE_INTERVAL);
+
+            setTimeout(() => {
+                group.remove();
+            }, FOOTPRINT_REMOVE_INTERVAL);
+
+            return group;
+        }
+    }
+
+    customElements.define("paw-prints", PawPrints);
+</script>

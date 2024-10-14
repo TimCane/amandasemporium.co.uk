@@ -1,0 +1,20 @@
+---
+import BaseLayout from "@/layouts/base.layout.astro";
+import Navbar from "@/components/ui/navbar.astro";
+import Banner from "@/components/ui/banner.astro";
+
+interface Props {
+    title: string;
+    heading: string;
+}
+
+const { title, heading }: Props = Astro.props;
+
+const url = Astro.url.pathname;
+---
+
+<BaseLayout title={title}>
+    <Navbar url={url} />
+    <Banner heading={heading} />
+    <slot />
+</BaseLayout>

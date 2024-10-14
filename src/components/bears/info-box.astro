@@ -1,0 +1,29 @@
+---
+import { cn } from "@/libs/class-name";
+
+interface Props {
+    href?: string;
+    title: string;
+    color: string;
+    outline: boolean;
+}
+
+const { href, title, color, outline }: Props = Astro.props;
+---
+
+<a
+    href={href}
+    class={cn(
+        "flex flex-col p-4 flex-1 border-dashed border-" + color,
+        outline ? "border-4" : "bg-" + color,
+    )}
+>
+    <h2 class="text-3xl font-serif capitalize font-bold mb-2">
+        {title}
+    </h2>
+    <p class="flex flex-1 items-center">
+        <span class="block">
+            <slot />
+        </span>
+    </p>
+</a>

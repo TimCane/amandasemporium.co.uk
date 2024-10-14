@@ -30,6 +30,7 @@ export default {
 				'950': '#48091a',
 			},
 
+			footprints: "#a98766",
 		}
 	},
 	plugins: [],

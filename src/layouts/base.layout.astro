@@ -1,6 +1,8 @@
 ---
+import { getCollection } from "astro:content";
 import { ViewTransitions } from "astro:transitions";
 import { SITE_TITLE } from "@/libs/consts";
+import PawPrints from "@/components/ui/paw-prints.astro";
 
 import "@fontsource-variable/open-sans";
 import "@fontsource-variable/bitter";
@@ -11,6 +13,12 @@ interface Props {
 }
 
 const { title }: Props = Astro.props;
+
+const rescuedBears = await getCollection("bears", ({ data }) => {
+    return data.status == "rescued";
+});
+
+const bearSlugs = rescuedBears.map((b) => b.slug.toString());
 ---
 
 <html transition:animate="none" lang="en">
@@ -24,6 +32,7 @@ const { title }: Props = Astro.props;
         <ViewTransitions />
     </head>
     <body>
+        <PawPrints bears={bearSlugs} />
         <slot />
     </body>
 </html>
