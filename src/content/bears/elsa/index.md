@@ -2,13 +2,14 @@
 name: "Elsa"
 uploadedOn: 2022-11-18
 picture: "./elsa.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "addlestone"
     date: 2022-11-14
-event: "e20221127"
+event: "2022-11-27-christmas-extravaganza"
 rehomed:
     location: "odiham"
     date: 2022-11-27

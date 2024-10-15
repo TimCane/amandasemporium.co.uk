@@ -2,9 +2,10 @@
 name: "Rory"
 uploadedOn: 2018-11-12
 picture: "./rory.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "walton-on-thames"
     date: 2018-10-13

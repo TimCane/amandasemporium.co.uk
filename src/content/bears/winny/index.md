@@ -2,13 +2,14 @@
 name: "Winny"
 uploadedOn: 2018-11-12
 picture: "./winny.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "shepperton"
     date: 2018-09-08
-event: "e20181109"
+event: "2018-11-09-berkshire-christmas-fair"
 rehomed:
     location: "theale"
     date: 2018-11-09

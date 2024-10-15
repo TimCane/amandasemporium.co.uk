@@ -2,9 +2,10 @@
 name: "Tallulah"
 uploadedOn: 2022-11-18
 picture: "./tallulah.jpg"
-info:
-    brand: "build-a-bear"
-    species: "cat"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "cat"
 rescued:
     location: "addlestone"
     date: 2022-11-14

@@ -2,9 +2,10 @@
 name: "Chris"
 uploadedOn: 2019-05-31
 picture: "./chris.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "weybridge"
     date: 2019-03-29

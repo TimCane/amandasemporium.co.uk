@@ -2,13 +2,14 @@
 name: "Dotty"
 uploadedOn: 2019-09-09
 picture: "./dotty.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "birdham"
     date: 2019-08-24
-event: "e20190921"
+event: "2019-09-21-farnborough-high-street"
 rehomed:
     location: "bordon"
     date: 2019-09-21

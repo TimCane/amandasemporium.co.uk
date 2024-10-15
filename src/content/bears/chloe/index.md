@@ -2,9 +2,10 @@
 name: "Chloe"
 uploadedOn: 2019-05-31
 picture: "./chloe.jpg"
-info:
-    brand: "beam-feature-ltd"
-    species: "bear"
+description: ""
+tags: []
+brand: "beam-feature-ltd"
+species: "bear"
 rescued:
     location: "chertsey"
     date: 2019-03-29

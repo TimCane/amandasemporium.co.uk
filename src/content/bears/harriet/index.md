@@ -2,13 +2,14 @@
 name: "Harriet"
 uploadedOn: 2022-11-08
 picture: "./harriet.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "emsworth"
     date: 2022-07-16
-event: "e20221120"
+event: "2022-11-20-andover-artisan-market"
 rehomed:
     location: "andover"
     date: 2022-11-20

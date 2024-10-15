@@ -2,9 +2,10 @@
 name: "Simon"
 uploadedOn: 2023-05-30
 picture: "./simon.jpg"
-info:
-    brand: "teddy-tastic"
-    species: "bear"
+description: ""
+tags: []
+brand: "teddy-tastic"
+species: "bear"
 rescued:
     location: "addlestone"
     date: 2023-03-16

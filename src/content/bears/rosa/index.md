@@ -2,9 +2,10 @@
 name: "Rosa"
 uploadedOn: 2019-09-09
 picture: "./rosa.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "southsea"
     date: 2019-06-02

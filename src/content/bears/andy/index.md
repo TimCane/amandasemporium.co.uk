@@ -2,9 +2,10 @@
 name: "Andy"
 uploadedOn: 2019-09-30
 picture: "./andy.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: ["toy story"]
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "pagham"
     date: 2019-09-07

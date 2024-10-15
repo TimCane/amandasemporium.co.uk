@@ -2,9 +2,10 @@
 name: "Mo"
 uploadedOn: 2021-07-16
 picture: "./mo.jpg"
-info:
-    brand: "bear-factory"
-    species: "monkey"
+description: ""
+tags: []
+brand: "bear-factory"
+species: "monkey"
 rescued:
     location: "cobham"
     date: 2020-12-05

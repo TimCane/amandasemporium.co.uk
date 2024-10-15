@@ -2,9 +2,10 @@
 name: "Olga"
 uploadedOn: 2021-10-07
 picture: "./olga.jpg"
-info:
-    brand: "build-a-bear"
-    species: "dog"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "dog"
 rescued:
     location: "cobham"
     date: 2019-12-05

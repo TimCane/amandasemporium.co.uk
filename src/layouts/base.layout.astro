@@ -32,7 +32,7 @@ const bearSlugs = rescuedBears.map((b) => b.slug.toString());
         <ViewTransitions />
     </head>
     <body>
-        <PawPrints bears={bearSlugs} />
+        <PawPrints transition:persist bears={bearSlugs} />
         <slot />
     </body>
 </html>

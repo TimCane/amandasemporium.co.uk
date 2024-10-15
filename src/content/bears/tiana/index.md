@@ -2,13 +2,14 @@
 name: "Tiana"
 uploadedOn: 2023-11-02
 picture: "./tiana.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "jacobs-well"
     date: 2023-09-17
-event: "e20231124"
+event: "2023-11-24-alton-christmas-light-switch-on"
 rehomed:
     location: "holybourne"
     date: 2023-11-24

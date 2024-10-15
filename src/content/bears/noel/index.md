@@ -2,13 +2,14 @@
 name: "Noel"
 uploadedOn: 2018-12-03
 picture: "./noel.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "egham"
     date: 2018-11-26
-event: "e20181208"
+event: "2018-12-08-horley-christmas-fair"
 rehomed:
     location: "horley"
     date: 2018-12-08

@@ -2,9 +2,10 @@
 name: "Stan"
 uploadedOn: 2018-09-30
 picture: "./stan.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "ripley"
     date: 2018-06-10

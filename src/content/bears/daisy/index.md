@@ -2,9 +2,10 @@
 name: "Daisy"
 uploadedOn: 2021-10-07
 picture: "./daisy.jpg"
-info:
-    brand: "build-a-bear"
-    species: "dog"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "dog"
 rescued:
     location: "staines"
     date: 2021-08-26

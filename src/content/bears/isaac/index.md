@@ -2,9 +2,10 @@
 name: "Isaac"
 uploadedOn: 2023-07-11
 picture: "./isaac.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "ascot"
     date: 2022-03-03

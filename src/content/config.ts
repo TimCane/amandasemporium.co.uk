@@ -15,10 +15,10 @@ const bearsCollection = defineCollection({
             name: z.string(),
             uploadedOn: z.date(),
             picture: image(),
-            info: z.object({
-                brand: reference("bearBrands"),
-                species: reference("bearSpecies"),
-            }),
+            description: z.string(),
+            tags: z.array(z.string()),
+            brand: reference("bearBrands"),
+            species: reference("bearSpecies"),
             rescued: z.object({
                 location: reference("locations"),
                 date: z.date(),

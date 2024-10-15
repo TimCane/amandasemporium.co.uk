@@ -2,13 +2,14 @@
 name: "Freya"
 uploadedOn: 2023-05-30
 picture: "./freya.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "ruislip"
     date: 2022-12-21
-event: "e20230617"
+event: "2023-06-17-alton-regency-day-market"
 rehomed:
     location: "hartley-wintney"
     date: 2023-06-17

@@ -2,9 +2,10 @@
 name: "Richard"
 uploadedOn: 2021-08-11
 picture: "./richard.jpg"
-info:
-    brand: "build-a-bear"
-    species: "dog"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "dog"
 rescued:
     location: "ashford"
     date: 2019-10-24

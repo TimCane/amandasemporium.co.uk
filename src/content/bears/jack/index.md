@@ -2,13 +2,14 @@
 name: "Jack"
 uploadedOn: 2018-04-29
 picture: "./jack.jpg"
-info:
-    brand: "glorious-britain-jointed"
-    species: "bear"
+description: ""
+tags: []
+brand: "glorious-britain-jointed"
+species: "bear"
 rescued:
     location: "walton-on-thames"
     date: 2018-04-18
-event: "e20181202"
+event: "2018-12-02-ripley-christmas-fair"
 rehomed:
     location: "wisley"
     date: 2018-12-02

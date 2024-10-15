@@ -2,6 +2,7 @@
 import PageLayout from "@/layouts/page.layout.astro";
 import { Image } from "astro:assets";
 import daisy from "@/images/daisy.jpg";
+import Separator from "@/components/ui/separator.astro";
 ---
 
 <PageLayout
@@ -36,5 +37,21 @@ import daisy from "@/images/daisy.jpg";
             src={daisy}
             alt="a picture of my rabbit teddy Daisy"
         />
+    </div>
+</div>
+
+<Separator />
+
+<div
+    class="container mx-auto flex flex-wrap lg:flex-row flex-col justify-center items-center gap-4 mb-4"
+>
+    <p class="order-1 w-full text-center text-lg mb-2">
+        Now you have meet Daisy, take a look at all the other bears I have
+        rescued
+    </p>
+    <div class="order-2 text-xl bg-mandy-100 p-4">Awaiting a forever home</div>
+    <div class="order-2 text-xl bg-mandy-100 p-4">Found their forever home</div>
+    <div class="order-2 text-xl bg-mandy-100 p-4">
+        All the bears I have cared for
     </div>
 </div>

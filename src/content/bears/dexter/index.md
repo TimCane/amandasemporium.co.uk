@@ -2,13 +2,14 @@
 name: "Dexter"
 uploadedOn: 2024-06-18
 picture: "./dexter.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "addlestone"
     date: 2024-02-26
-event: "e20240630"
+event: "2024-06-30-thatcham-family-fun-day"
 rehomed:
     location: "newbury"
     date: 2024-06-30

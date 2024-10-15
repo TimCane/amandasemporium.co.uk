@@ -2,9 +2,10 @@
 name: "Baaabara"
 uploadedOn: 2021-10-07
 picture: "./baaabara.jpg"
-info:
-    brand: "build-a-bear"
-    species: "sheep"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "sheep"
 rescued:
     location: "addlestone"
     date: 2019-11-14

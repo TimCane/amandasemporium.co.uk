@@ -2,9 +2,10 @@
 name: "Monty"
 uploadedOn: 2019-09-30
 picture: "./monty.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "shepperton"
     date: 2019-08-24

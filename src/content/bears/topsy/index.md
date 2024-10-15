@@ -2,9 +2,10 @@
 name: "Topsy"
 uploadedOn: 2022-12-09
 picture: "./topsy.jpg"
-info:
-    brand: "build-a-bear"
-    species: "bear"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
 rescued:
     location: "addlestone"
     date: 2022-11-25
