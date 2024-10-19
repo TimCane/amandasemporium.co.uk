@@ -6,7 +6,8 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Open Sans Variable', ...defaultTheme.fontFamily.sans],
+				sans: ['Overpass Variable', ...defaultTheme.fontFamily.sans],
+				mono: ['Overpass Mono Variable', ...defaultTheme.fontFamily.mono],
 				serif: ['Bitter Variable', ...defaultTheme.fontFamily.serif],
 			},
 		},

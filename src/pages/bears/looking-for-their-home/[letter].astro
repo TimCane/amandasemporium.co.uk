@@ -1,0 +1,55 @@
+---
+import AlphabetButtons from "@/components/bears/alphabet-buttons.astro";
+import BearsList from "@/components/bears/bears-list.astro";
+import Block from "@/components/ui/block.astro";
+import Container from "@/components/ui/container.astro";
+import PageLayout from "@/layouts/page.layout.astro";
+import { bearNamesAlphabet } from "@/libs/alphabet";
+import { cn } from "@/libs/class-name";
+import type { Page } from "astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+    const bears = await getCollection("bears", ({ data }) => {
+        return data.status == "rescued";
+    });
+
+    const alphabet = await bearNamesAlphabet("rescued");
+    return alphabet.map((letter) => ({
+        params: { letter: letter },
+        props: {
+            letter: letter,
+            bears: bears.filter((b) =>
+                b.data.name.toLowerCase().startsWith(letter),
+            ),
+        },
+    }));
+}
+
+const alphabet = await bearNamesAlphabet("rescued");
+interface Props {
+    bears: CollectionEntry<"bears">[];
+    letter: string;
+}
+
+const { bears, letter } = Astro.props;
+---
+
+<PageLayout
+    title="Bears who found their home"
+    heading="Bears who found their home"
+    subText="..."
+>
+    <Container>
+        <Block>
+            <AlphabetButtons
+                alphabet={alphabet}
+                url="/bears/looking-for-their-home/"
+                letter={letter}
+            />
+        </Block>
+        <Block>
+            <BearsList bears={bears} />
+        </Block>
+    </Container>
+</PageLayout>

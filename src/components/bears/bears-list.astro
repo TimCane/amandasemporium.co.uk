@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    bears: CollectionEntry<"bears">[];
+}
+
+const { bears }: Props = Astro.props;
+---
+
+{
+    bears.map((bear) => (
+        <div>
+            <a href={"/bears/profile/" + bear.slug}>{bear.data.name}</a>
+        </div>
+    ))
+}

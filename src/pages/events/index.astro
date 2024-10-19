@@ -1,8 +1,6 @@
 ---
 import PageLayout from "@/layouts/page.layout.astro";
 import { getCollection } from "astro:content";
-import { string } from "astro:schema";
-import moment from "moment";
 
 const eventEntries = await getCollection("events");
 
@@ -21,6 +19,4 @@ const slugify = (str: string) => {
     title="Where to Find Me"
     heading="Come and find me"
     subText="... at Christmas fairs, community events and craft markets alongside my friends, excited to share my passion for teddy bears and all things crafting. Whether you’re searching for something special or just want to stop by for a chat, I’d love for you to come and see me!"
->
-
-</PageLayout>
+/>

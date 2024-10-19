@@ -6,8 +6,14 @@ interface Props {
 const { bears }: Props = Astro.props;
 ---
 
-<paw-prints data-bears={bears}>
-    <svg class="absolute h-full w-full pointer-events-none" id="svgContainer">
+<paw-prints
+    class="block absolute h-full w-full top-0 bottom-0 left-0 right-0 pointer-events-none"
+    data-bears={bears}
+>
+    <svg
+        class="absolute h-full w-full top-0 bottom-0 left-0 right-0 pointer-events-none"
+        id="svgContainer"
+    >
     </svg>
 </paw-prints>
 
@@ -130,7 +136,7 @@ const { bears }: Props = Astro.props;
 
         navigateToBear() {
             if (this.bears && this.bears.length > 0) {
-                window.open(`/bears/${this.bear}`);
+                window.open(`/bears/profile/${this.bear}`);
             }
         }
 

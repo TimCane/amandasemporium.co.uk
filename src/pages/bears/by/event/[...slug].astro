@@ -1,0 +1,45 @@
+---
+import AlphabetButtons from "@/components/bears/alphabet-buttons.astro";
+import BearsList from "@/components/bears/bears-list.astro";
+import Block from "@/components/ui/block.astro";
+import Container from "@/components/ui/container.astro";
+import PageLayout from "@/layouts/page.layout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import moment from "moment";
+
+export async function getStaticPaths() {
+    const eventsCollection = await getCollection("events");
+
+    return eventsCollection.map((event, i) => ({
+        params: { slug: event.slug },
+        props: {
+            event,
+        },
+    }));
+}
+type Props = {
+    event: CollectionEntry<"events">;
+};
+
+const { event } = Astro.props;
+
+const { name, date } = event.data;
+
+const bears = await getCollection("bears", ({ data }) => {
+    return data.event && data.event.slug == event.slug;
+});
+
+const { Content } = await event.render();
+---
+
+<PageLayout
+    title={`My bears from ${name} on ${moment(date).format("Do MMMM YYYY")}`}
+    heading={`My bears from ${name} on ${moment(date).format("Do MMMM YYYY")}`}
+    subText="..."
+>
+    <Container>
+        <Block>
+            <BearsList bears={bears} />
+        </Block>
+    </Container>
+</PageLayout>

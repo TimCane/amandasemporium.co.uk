@@ -1,0 +1,13 @@
+---
+import { cn } from "@/libs/class-name";
+
+interface Props {
+    className?: string;
+}
+
+const { className }: Props = Astro.props;
+---
+
+<div class={cn("p-4 md:px-4 my-8 lg:my-10", className)}>
+    <slot />
+</div>

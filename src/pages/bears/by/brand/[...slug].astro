@@ -1,0 +1,44 @@
+---
+import AlphabetButtons from "@/components/bears/alphabet-buttons.astro";
+import BearsList from "@/components/bears/bears-list.astro";
+import Block from "@/components/ui/block.astro";
+import Container from "@/components/ui/container.astro";
+import PageLayout from "@/layouts/page.layout.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+    const brandsCollection = await getCollection("bearBrands");
+
+    return brandsCollection.map((brand, i) => ({
+        params: { slug: brand.slug },
+        props: {
+            brand,
+        },
+    }));
+}
+type Props = {
+    brand: CollectionEntry<"bearBrands">;
+};
+
+const { brand } = Astro.props;
+
+const { name } = brand.data;
+
+const bears = await getCollection("bears", ({ data }) => {
+    return data.brand && data.brand.slug == brand.slug;
+});
+
+const { Content } = await brand.render();
+---
+
+<PageLayout
+    title={"my " + name + " bears"}
+    heading={"my " + name + " bears"}
+    subText="..."
+>
+    <Container>
+        <Block>
+            <BearsList bears={bears} />
+        </Block>
+    </Container>
+</PageLayout>

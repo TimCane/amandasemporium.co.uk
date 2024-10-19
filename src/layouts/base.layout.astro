@@ -2,9 +2,10 @@
 import { getCollection } from "astro:content";
 import { ViewTransitions } from "astro:transitions";
 import { SITE_TITLE } from "@/libs/consts";
-import PawPrints from "@/components/ui/paw-prints.astro";
+import PawPrints from "@/components/layout/paw-prints.astro";
 
-import "@fontsource-variable/open-sans";
+import "@fontsource-variable/overpass-mono";
+import "@fontsource-variable/overpass";
 import "@fontsource-variable/bitter";
 import "@/styles/global.css";
 
@@ -31,7 +32,7 @@ const bearSlugs = rescuedBears.map((b) => b.slug.toString());
         <title>{title} | {SITE_TITLE}</title>
         <ViewTransitions />
     </head>
-    <body>
+    <body class="relative lg:text-lg">
         <PawPrints transition:persist bears={bearSlugs} />
         <slot />
     </body>

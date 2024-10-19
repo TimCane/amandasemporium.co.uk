@@ -1,0 +1,30 @@
+---
+import Block from "@/components/ui/block.astro";
+import Container from "@/components/ui/container.astro";
+import PageLayout from "@/layouts/page.layout.astro";
+import { bearNamesAlphabet } from "@/libs/alphabet";
+
+import ClickALetter from "@/images/click-a-letter.svg";
+import { Image } from "astro:assets";
+import AlphabetButtons from "@/components/bears/alphabet-buttons.astro";
+
+const alphabet = await bearNamesAlphabet("all");
+---
+
+<PageLayout title="All the bears" heading="All the bears" subText="...">
+    <Container>
+        <Block>
+            <AlphabetButtons alphabet={alphabet} url="/bears/all/" />
+        </Block>
+
+        <Block>
+            <div class="flex items-center justify-center">
+                <Image
+                    src={ClickALetter}
+                    alt="Click a letter"
+                    class="-rotate-3"
+                />
+            </div>
+        </Block>
+    </Container>
+</PageLayout>

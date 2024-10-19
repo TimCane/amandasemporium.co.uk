@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import Logo from "@/images/logo.svg";
 import { Menu } from "lucide-react";
 import { cn } from "@/libs/class-name";
+import Container from "../ui/container.astro";
 
 interface Props {
     url: string;
@@ -36,11 +37,11 @@ const links: Link[] = [
 ---
 
 <nav-bar>
-    <div class="container mx-auto">
+    <Container>
         <div
-            class="py-2 flex flex-wrap items-center justify-center lg:justify-between gap-4"
+            class="flex flex-wrap items-center justify-center lg:justify-between gap-4"
         >
-            <div class="px-4 flex-grow flex justify-center lg:justify-start">
+            <div class="flex-grow flex justify-center lg:justify-start">
                 <a class="" href="/">
                     <Image
                         src={Logo}
@@ -51,7 +52,7 @@ const links: Link[] = [
             </div>
 
             <ul
-                class="list-none flex flex-wrap items-center justify-center flex-row select-none"
+                class="list-none flex flex-wrap items-center justify-center flex-row select-none gap-x-8 gap-y-4"
             >
                 {
                     links &&
@@ -60,7 +61,7 @@ const links: Link[] = [
                                 <a
                                     href={href}
                                     class={cn(
-                                        "block px-4 py-2 font-medium hover:text-mandy-500",
+                                        "block font-medium hover:text-mandy-500",
                                         {
                                             "transition-all duration-200 underline-offset-8 decoration-wavy underline decoration-2 decoration-mandy-500":
                                                 url == href,
@@ -74,5 +75,5 @@ const links: Link[] = [
                 }
             </ul>
         </div>
-    </div>
+    </Container>
 </nav-bar>
