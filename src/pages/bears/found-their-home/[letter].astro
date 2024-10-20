@@ -5,7 +5,6 @@ import Block from "@/components/ui/block.astro";
 import Container from "@/components/ui/container.astro";
 import PageLayout from "@/layouts/page.layout.astro";
 import { bearNamesAlphabet } from "@/libs/alphabet";
-import { cn } from "@/libs/class-name";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
@@ -13,7 +12,9 @@ export async function getStaticPaths() {
         return data.status == "rehomed";
     });
 
-    const alphabet = await bearNamesAlphabet("rehomed");
+    const alphabet = await bearNamesAlphabet(
+        ({ data }) => data.status == "rehomed",
+    );
     return alphabet.map((letter) => ({
         params: { letter: letter.toLowerCase() },
         props: {
@@ -25,7 +26,9 @@ export async function getStaticPaths() {
     }));
 }
 
-const alphabet = await bearNamesAlphabet("rehomed");
+const alphabet = await bearNamesAlphabet(
+    ({ data }) => data.status == "rehomed",
+);
 interface Props {
     bears: CollectionEntry<"bears">[];
     letter: string;

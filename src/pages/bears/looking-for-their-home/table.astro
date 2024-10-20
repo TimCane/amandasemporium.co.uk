@@ -1,15 +1,21 @@
 ---
-import AlphabetButtons from "@/components/bears/alphabet-buttons.astro";
 import Block from "@/components/ui/block.astro";
 import Container from "@/components/ui/container.astro";
 import PageLayout from "@/layouts/page.layout.astro";
 import { bearNamesAlphabet } from "@/libs/alphabet";
-import { Image } from "astro:assets";
+
+import AlphabetButtons from "@/components/bears/alphabet-buttons.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import BearsTable from "@/components/bears/bears-table.astro";
 
 const alphabet = await bearNamesAlphabet(
     ({ data }) => data.status == "rescued",
 );
-import ClickALetter from "@/images/click-a-letter.svg";
+
+const bears: CollectionEntry<"bears">[] = await getCollection(
+    "bears",
+    ({ data }) => data.status == "rescued",
+);
 ---
 
 <PageLayout
@@ -26,19 +32,11 @@ import ClickALetter from "@/images/click-a-letter.svg";
         </Block>
 
         <Block>
-            <div class="flex items-center justify-center flex-col gap-8">
-                <Image
-                    src={ClickALetter}
-                    alt="Click a letter"
-                    class="-rotate-3"
-                />
-                <a
-                    class="hidden md:block"
-                    href="/bears/looking-for-their-home/table"
-                >
-                    <small> or view as a table</small>
-                </a>
-            </div>
+            <BearsTable
+                bears={bears}
+                hideEventCol={true}
+                hideRehomedCol={true}
+            />
         </Block>
     </Container>
 </PageLayout>

@@ -1,9 +1,9 @@
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 
-export async function bearNamesAlphabet(status: "rehomed" | "rescued" | "all") {
+export async function bearNamesAlphabet(filter: (data: CollectionEntry<"bears">) => boolean) {
 
     const alphabet = (
-        await getCollection("bears", ({ data }) => status == "all" || data.status == status)
+        await getCollection("bears", filter)
     )
         .map((b) => b.data.name[0].toLowerCase())
         .filter((value, index, array) => array.indexOf(value) === index);

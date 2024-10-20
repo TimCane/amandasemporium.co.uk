@@ -5,8 +5,6 @@ import Block from "@/components/ui/block.astro";
 import Container from "@/components/ui/container.astro";
 import PageLayout from "@/layouts/page.layout.astro";
 import { bearNamesAlphabet } from "@/libs/alphabet";
-import { cn } from "@/libs/class-name";
-import type { Page } from "astro";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
@@ -14,7 +12,9 @@ export async function getStaticPaths() {
         return data.status == "rescued";
     });
 
-    const alphabet = await bearNamesAlphabet("rescued");
+    const alphabet = await bearNamesAlphabet(
+        ({ data }) => data.status == "rescued",
+    );
     return alphabet.map((letter) => ({
         params: { letter: letter },
         props: {
@@ -26,7 +26,9 @@ export async function getStaticPaths() {
     }));
 }
 
-const alphabet = await bearNamesAlphabet("rescued");
+const alphabet = await bearNamesAlphabet(
+    ({ data }) => data.status == "rescued",
+);
 interface Props {
     bears: CollectionEntry<"bears">[];
     letter: string;
@@ -36,8 +38,8 @@ const { bears, letter } = Astro.props;
 ---
 
 <PageLayout
-    title="Bears who found their home"
-    heading="Bears who found their home"
+    title="Bears looking for their home"
+    heading="Bears looking for their home"
     subText="..."
 >
     <Container>

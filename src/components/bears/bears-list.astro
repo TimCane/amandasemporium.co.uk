@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import { House, Sparkles } from "lucide-react";
 
 interface Props {
     bears: CollectionEntry<"bears">[];
@@ -8,10 +10,36 @@ interface Props {
 const { bears }: Props = Astro.props;
 ---
 
-{
-    bears.map((bear) => (
-        <div>
-            <a href={"/bears/profile/" + bear.slug}>{bear.data.name}</a>
-        </div>
-    ))
-}
+<div class="flex flex-wrap justify-center items-center">
+    {
+        bears.map((bear) => (
+            <a
+                class="flex flex-col w-full md:w-1/2 xl:w-1/4 p-4 relative"
+                href={"/bears/profile/" + bear.slug}
+            >
+                {bear.data.rehomed && (
+                    <div class="absolute right-0 top-0 p-3">
+                        <div class="relative rounded px-2 bg-mandy-200">
+                            <small class="text-mandy-600 font-bold align-middle">
+                                Rehomed
+                            </small>
+                        </div>
+                    </div>
+                )}
+
+                <div class="w-full">
+                    <Image
+                        class="rounded border-8 border-mandy-200"
+                        src={bear.data.picture}
+                        alt={"A picture of " + bear.data.name}
+                        width={640}
+                        height={480}
+                    />
+                </div>
+                <div class="p-4 text-center text-xl font-bold hover:underline">
+                    {bear.data.name}
+                </div>
+            </a>
+        ))
+    }
+</div>

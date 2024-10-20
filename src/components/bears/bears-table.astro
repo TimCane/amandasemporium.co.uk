@@ -1,0 +1,45 @@
+---
+import { cn } from "@/libs/class-name";
+import Image from "astro/components/Image.astro";
+import type { CollectionEntry } from "astro:content";
+import moment from "moment";
+import BearsTableRow from "./bears-table-row.astro";
+
+interface Props {
+    bears: CollectionEntry<"bears">[];
+    hideEventCol: boolean;
+    hideRehomedCol: boolean;
+}
+
+const { bears, hideEventCol, hideRehomedCol }: Props = Astro.props;
+---
+
+<div>
+    <table class="w-full table-fixed border-collapse text-center flex md:table">
+        <thead class="hidden md:table-header-group">
+            <tr class="border-b-2 border-mandy-100">
+                <th class="p-4 w-20"></th>
+                <th class="p-4">Name</th>
+                <th class="p-4">Brand / Species</th>
+                <th class="p-4">Rescued </th>
+                <th class="p-4">Uploaded On</th>
+
+                {!hideEventCol && <th class="p-4">Event</th>}
+                {!hideRehomedCol && <th class="p-4">Rehomed</th>}
+            </tr>
+        </thead>
+        <tbody class="w-full">
+            {
+                bears &&
+                    bears.map((bear, index) => (
+                        <BearsTableRow
+                            bear={bear}
+                            index={index}
+                            hideEventCol={hideEventCol}
+                            hideRehomedCol={hideRehomedCol}
+                        />
+                    ))
+            }
+        </tbody>
+    </table>
+</div>

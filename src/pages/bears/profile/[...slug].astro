@@ -60,7 +60,7 @@ if (event) {
     eventDate = eventEntry.data.date;
 }
 
-const { Content } = await bear.render();
+// const { Content } = await bear.render();
 ---
 
 <!-- bg-mandy-400 --><!-- bg-mandy-300 --><!-- bg-mandy-200 --><!-- bg-mandy-100 --><!-- border-mandy-400 --><!-- border-mandy-300 --><!-- border-mandy-200 --><!-- border-mandy-100 -->
@@ -82,31 +82,16 @@ const { Content } = await bear.render();
         </Block>
         <Block className="order-2 lg:w-2/4 flex flex-col gap-4">
             <div class="flex flex-col lg:flex-row w-full flex-1 gap-4">
-                <BearInfoBox
-                    href={"/bears/by/brand/" + brand.slug}
-                    title="Brand"
-                    color="mandy-400"
-                    outline={false}
-                >
+                <BearInfoBox title="Brand" color="mandy-400" outline={false}>
                     {brandName}
                 </BearInfoBox>
 
-                <BearInfoBox
-                    href={"/bears/by/species/" + species.slug}
-                    title="Species"
-                    color="mandy-400"
-                    outline={false}
-                >
+                <BearInfoBox title="Species" color="mandy-400" outline={false}>
                     {speciesName}
                 </BearInfoBox>
             </div>
 
-            <BearInfoBox
-                href={"/bears/by/location/" + rescued.location.slug}
-                title="Rescued"
-                color="mandy-300"
-                outline={false}
-            >
+            <BearInfoBox title="Rescued" color="mandy-300" outline={false}>
                 {moment(rescued.date).format("Do MMMM YYYY")} from {rescuedName}
             </BearInfoBox>
 
@@ -115,7 +100,6 @@ const { Content } = await bear.render();
             </BearInfoBox>
 
             <BearInfoBox
-                href={event ? "/bears/by/event/" + event.slug : undefined}
                 title="Event"
                 color="mandy-200"
                 outline={event == null}
@@ -133,9 +117,6 @@ const { Content } = await bear.render();
             </BearInfoBox>
 
             <BearInfoBox
-                href={rehomed
-                    ? "/bears/by/location/" + rehomed.location.slug
-                    : undefined}
                 title="Rehomed"
                 color="mandy-100"
                 outline={rehomed == undefined}

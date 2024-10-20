@@ -11,8 +11,7 @@ interface Props {
 const { href, title, color, outline }: Props = Astro.props;
 ---
 
-<a
-    href={href}
+<div
     class={cn(
         "flex flex-col flex-1 p-4 rounded border-dashed border-" + color,
         outline ? "border-4" : "bg-" + color,
@@ -26,4 +25,4 @@ const { href, title, color, outline }: Props = Astro.props;
             <slot />
         </span>
     </p>
-</a>
+</div>

@@ -11,7 +11,7 @@ import { getCollection, type CollectionEntry } from "astro:content";
 export async function getStaticPaths() {
     const bears = await getCollection("bears");
 
-    const alphabet = await bearNamesAlphabet("all");
+    const alphabet = await bearNamesAlphabet(() => true);
     return alphabet.map((letter) => ({
         params: { letter: letter.toLowerCase() },
         props: {
@@ -23,7 +23,7 @@ export async function getStaticPaths() {
     }));
 }
 
-const alphabet = await bearNamesAlphabet("all");
+const alphabet = await bearNamesAlphabet(() => true);
 interface Props {
     bears: CollectionEntry<"bears">[];
     letter: string;
@@ -32,11 +32,7 @@ interface Props {
 const { bears, letter } = Astro.props;
 ---
 
-<PageLayout
-    title="Bears who found their home"
-    heading="Bears who found their home"
-    subText="..."
->
+<PageLayout title="All my bears" heading="All my bears" subText="...">
     <Container>
         <Block>
             <AlphabetButtons

@@ -1,0 +1,134 @@
+---
+import { cn } from "@/libs/class-name";
+import Image from "astro/components/Image.astro";
+import { Debug } from "astro:components";
+import { type CollectionEntry, getEntry } from "astro:content";
+import moment from "moment";
+
+interface Props {
+    bear: CollectionEntry<"bears">;
+    index: number;
+
+    hideEventCol: boolean;
+    hideRehomedCol: boolean;
+}
+
+const {
+    bear: { data, slug },
+    index,
+    hideEventCol,
+    hideRehomedCol
+}: Props = Astro.props;
+
+const brand = await getEntry("bearBrands", data.brand.slug);
+const species = await getEntry("bearSpecies", data.species.slug);
+
+const rescuedLocation = await getEntry("locations", data.rescued.location.slug);
+
+var event = null;
+if (data.event) {
+    event = await getEntry("events", data.event.slug);
+}
+
+var rehomedLocation = null;
+if (data.rehomed) {
+    rehomedLocation = await getEntry("locations", data.rehomed.location.slug);
+}
+---
+
+<tr
+    class={cn("hover:bg-mandy-100 flex flex-col md:table-row", {
+        "bg-mandy-50": index % 2 !== 0,
+    })}
+>
+    <td class="border-x-2 border-mandy-100 px-4 pt-4 md:pt-0">
+        <a class="flex justify-center items-center" href={"/bears/profile/" + slug}>
+            <Image
+                src={data.picture}
+                alt={"An image of " + data.name}
+                width={80}
+                height={80}
+                decoding="async"
+                loading="lazy"
+                class="rounded"
+            /> </a
+        >
+    </td>
+    <td class="border-x-2 border-mandy-100 p-4 font-bold">
+        <div class="md:hidden">
+            <b>Name</b>
+        </div>
+        <div>
+            <a href={"/bears/profile/" + slug}>{data.name}</a>
+        </div>
+        
+    </td>
+    <td class="border-x-2 border-mandy-100 p-4">
+        <div class="md:hidden">
+            <b>Brand</b>
+        </div>
+        <div>
+            {brand.data.name}
+        </div>
+        <div class="pt-4 md:pt-0 md:hidden">
+            <b>Species</b>
+        </div>
+        <div>
+            {species.data.name}
+        </div>
+    </td>
+
+    <td class="border-x-2 border-mandy-100 p-4">
+        <div class="md:hidden">
+            <b>Rescued</b>
+        </div>
+        <div>
+            {moment(data.rescued.date).format("Do MMMM YYYY")}
+        </div>
+        <small>{rescuedLocation.data.name}</small>
+
+    </td>
+    <td class="border-x-2 border-mandy-100 p-4">
+        <div class="md:hidden">
+            <b>Uploaded On</b>
+        </div>
+        {moment(data.uploadedOn).format("Do MMMM YYYY")}
+    </td>
+
+    {!hideEventCol && (
+    <td class="border-x-2 border-mandy-100 p-4">
+        {
+        data.event && event && (
+        <div class="md:hidden">
+            <b>Event</b>
+        </div>        <div>
+            {event?.data.name}
+            </div>
+        )
+    }
+    </td>
+    )}
+
+    {!hideRehomedCol && (
+    <td class="border-x-2 border-mandy-100 p-4">
+        {
+            data.rehomed && rehomedLocation && (
+            <div class="md:hidden">
+            <b>Rehomed</b>
+        </div>
+            <div>
+                {moment(data.rehomed.date).format("Do MMMM YYYY")}
+            </div>
+            <small>{rehomedLocation.data.name}</small>
+
+            )
+        }
+
+    </td>
+    )}
+
+
+
+
+
+</tr>
