@@ -1,0 +1,28 @@
+---
+import RedirectLayout from "@/layouts/redirect.layout.astro";
+import { noBearNamesAlphabet } from "@/libs/alphabet";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+    const bears = await getCollection("bears");
+
+    const alphabet = await noBearNamesAlphabet(() => true);
+    return alphabet.map((letter) => ({
+        params: { blank: letter.toLowerCase() },
+        props: {
+            blank: letter.toLowerCase(),
+        },
+    }));
+}
+
+interface Props {
+    blank: string;
+}
+
+const { blank } = Astro.props;
+
+const newUrl = "/bears/looking-for-their-home";
+const oldUrl = `${newUrl}/${blank}/`;
+---
+
+<RedirectLayout newUrl={newUrl} oldUrl={oldUrl} />

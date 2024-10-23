@@ -10,6 +10,9 @@ export default {
 				mono: ['Overpass Mono Variable', ...defaultTheme.fontFamily.mono],
 				serif: ['Bitter Variable', ...defaultTheme.fontFamily.serif],
 			},
+			spacing: {
+				'128': '32rem',
+			  }
 		},
 		colors: {
 			transparent: 'transparent',

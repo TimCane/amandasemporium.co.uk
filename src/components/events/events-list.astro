@@ -1,0 +1,56 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { MapPin, Clock3, Link } from 'lucide-react';
+import moment from 'moment';
+
+interface Props {
+    events: CollectionEntry<"events">[];
+}
+
+const { events }: Props = Astro.props;
+---
+
+<div class="flex flex-col gap-10 md:justify-center md:items-center">
+    {
+        events &&
+            events.map(({ data }) => (
+                <div class="flex flex-col md:flex-row gap-4 items-center border-b-2 pb-8 border-mandy-200">
+                    <div class="md:w-40">
+                        <div class="flex md:flex-col gap-2 items-center">
+                            <div class="text-2xl font-bold">
+                                {moment(data.date).format("Do")}
+                            </div>
+                            <div class="text-xl text-mandy-500 uppercase">
+                                {moment(data.date).format("MMMM")}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="md:w-128 flex flex-col gap-1 items-center">
+                        <div class="text-xl font-bold text-center">
+                            {data.name}
+                        </div>
+                        <div class="flex gap-2 text-center">
+                            <MapPin /> {data.location.name}
+                        </div>
+                        <div>{data.description}</div>
+
+                        {data.time && (
+                            <div class="flex gap-2 text-center">
+                                <Clock3 /> {data.time}
+                            </div>
+                        )}
+
+                        {data.website && (
+                            <div class="flex gap-2 text-center">
+                                <Link />
+                                <a href={data.website} class="text-mandy-500">
+                                    More Information
+                                </a>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            ))
+    }
+</div>

@@ -1,22 +1,32 @@
 ---
+import EventsList from "@/components/events/events-list.astro";
+import NoEvents from "@/components/events/no-events.astro";
+import Block from "@/components/ui/block.astro";
+import Container from "@/components/ui/container.astro";
 import PageLayout from "@/layouts/page.layout.astro";
 import { getCollection } from "astro:content";
 
-const eventEntries = await getCollection("events");
+const now = new Date();
 
-const slugify = (str: string) => {
-    str = str.replace(/^\s+|\s+$/g, ""); // trim leading/trailing white space
-    str = str.toLowerCase(); // convert string to lowercase
-    str = str
-        .replace(/[^a-z0-9 -]/g, "") // remove any non-alphanumeric characters
-        .replace(/\s+/g, "-") // replace spaces with hyphens
-        .replace(/-+/g, "-"); // remove consecutive hyphens
-    return str;
-};
+const events = (
+    await getCollection(
+        "events",
+        ({ data }) => data.date.getTime() > now.getTime(),
+    )
+).reverse();
+
+const noEventsMessage = "No Events";
 ---
 
 <PageLayout
     title="Where to Find Me"
     heading="Come and find me"
     subText="... at Christmas fairs, community events and craft markets alongside my friends, excited to share my passion for teddy bears and all things crafting. Whether you’re searching for something special or just want to stop by for a chat, I’d love for you to come and see me!"
-/>
+>
+    <Container>
+        <Block>
+            {events && events.length > 0 && <EventsList events={events} />}
+            {!events || events.length == 0 && <NoEvents message={noEventsMessage}  />}
+        </Block>
+    </Container>
+</PageLayout>

@@ -1,0 +1,42 @@
+---
+import Navbar from "@/components/layout/navbar.astro";
+import Block from "@/components/ui/block.astro";
+import Container from "@/components/ui/container.astro";
+import Banner from "@/components/layout/banner.astro";
+
+import "@fontsource-variable/overpass-mono";
+import "@fontsource-variable/overpass";
+import "@fontsource-variable/bitter";
+import "@/styles/global.css";
+
+interface Props {
+    newUrl: string;
+    oldUrl: string;
+}
+
+const { newUrl, oldUrl }: Props = Astro.props;
+---
+
+<!doctype html>
+<html>
+    <head>
+        <title>Redirecting to: {newUrl}</title>
+        <meta http-equiv="refresh" content={"0;url=" + newUrl} />
+        <meta name="robots" content="noindex" />
+        <link rel="canonical" href={newUrl} />
+    </head>
+    <body class="relative lg:text-lg">
+        <Navbar url={oldUrl} />
+        <Banner heading="Redirecting!" subText="Please wait..." />
+        <Container>
+            <Block className="text-center">
+                <a href={newUrl}>
+                    Redirecting from
+                    <code>{oldUrl}</code>
+                    to
+                    <code>{newUrl}</code>
+                </a>
+            </Block>
+        </Container>
+    </body>
+</html>

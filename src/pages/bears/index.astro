@@ -14,61 +14,64 @@ import { PawPrint } from "lucide-react";
     title="My Little bears"
     heading="My Little bears"
     subText="... were once lonely teddy bears waiting for a forever home and a new adventure, each one with a unique story and charm. They've been patiently hoping for someone to love, a warm hug and the chance to be part of a family. These bears, once forgotten, are ready to bring comfort, joy and companionship to anyone who welcomes them. All they need is a caring heart to give them a second chance at a life filled with love and adventure."
-/>
-
-<Container>
-    <Block>
-        <div class="flex flex-col md:flex-row gap-4 md:gap-8">
-            {
-                [
+>
+    <Container>
+        <Block>
+            <div class="flex flex-col md:flex-row gap-4 md:gap-8">
+                {
                     [
-                        "/bears/looking-for-their-home",
-                        "Awaiting a forever home",
-                    ],
-                    ["/bears/found-their-home", "Found their forever home"],
-                    ["/bears/all", "All the bears I have cared for"],
-                ].map(([url, label]) => (
-                    <a
-                        href={url}
-                        class="group relative overflow-hidden flex order-1 bg-mandy-100 hover:bg-mandy-200 p-4 flex-1 text-center justify-center items-center py-10 md:py-20 transition-colors delay-75 rounded"
-                    >
-                        <PawPrint className="absolute fill-mandy-50 stroke-mandy-50 z-0 -top-10 right-0 size-64 opacity-60" />
-                        <H3 className="z-10"> {label} </H3>
-                    </a>
-                ))
-            }
-        </div>
-    </Block>
-</Container>
-
-<Separator />
-
-<Container>
-    <H2 className="text-center"> Meet Daisy </H2>
-
-    <div class="flex justify-center items-center md:gap-8 flex-col md:flex-row">
-        <Block className="order-1 md:order-2 ">
-            <Image
-                class="rounded mx-auto"
-                src={daisy}
-                alt="a picture of my rabbit teddy Daisy"
-            />
-        </Block>
-        <Block className="order-2 md:order-1 md:w-2/4">
-            <div class="text-center">
-                <p>
-                    Courtesy of my 3 grown up sons, who took me to a
-                    Build-a-Bear Workshop for Mothers Day.
-                </p>
-                <p>
-                    I became the proud owner of Daisy. She has been on a number
-                    of adventures around the country with my husband and I
-                    already. My friends (who think I'm ever so slightly potty)
-                    can't wait for the latest photos and updates.
-                </p>
+                        [
+                            "/bears/looking-for-their-home",
+                            "Awaiting a forever home",
+                        ],
+                        ["/bears/found-their-home", "Found their forever home"],
+                        ["/bears/all", "All the bears I have cared for"],
+                    ].map(([url, label]) => (
+                        <a
+                            href={url}
+                            class="group relative overflow-hidden flex order-1 bg-mandy-100 hover:bg-mandy-200 p-4 flex-1 text-center justify-center items-center py-10 md:py-20 transition-colors delay-75 rounded"
+                        >
+                            <PawPrint className="absolute fill-mandy-50 stroke-mandy-50 z-0 -top-10 right-0 size-64 opacity-60" />
+                            <H3 className="z-10"> {label} </H3>
+                        </a>
+                    ))
+                }
             </div>
         </Block>
-    </div>
-</Container>
+    </Container>
 
-<Separator />
+    <Separator />
+
+    <Container>
+        <H2 className="text-center"> Meet Daisy </H2>
+
+        <div
+            class="flex justify-center items-center md:gap-8 flex-col md:flex-row"
+        >
+            <Block className="order-1 md:order-2 ">
+                <Image
+                    class="rounded mx-auto"
+                    src={daisy}
+                    alt="a picture of my rabbit teddy Daisy"
+                />
+            </Block>
+            <Block className="order-2 md:order-1 md:w-2/4">
+                <div class="text-center">
+                    <p>
+                        Courtesy of my 3 grown up sons, who took me to a
+                        Build-a-Bear Workshop for Mothers Day.
+                    </p>
+                    <p>
+                        I became the proud owner of Daisy. She has been on a
+                        number of adventures around the country with my husband
+                        and I already. My friends (who think I'm ever so
+                        slightly potty) can't wait for the latest photos and
+                        updates.
+                    </p>
+                </div>
+            </Block>
+        </div>
+    </Container>
+
+    <Separator />
+</PageLayout>

@@ -1,0 +1,97 @@
+---
+import Block from "@/components/ui/block.astro";
+import Container from "@/components/ui/container.astro";
+import PageLayout from "@/layouts/page.layout.astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import moment from "moment";
+
+interface TimelineItem {
+    type: "rescued" | "added" | "rehomed";
+    bear: CollectionEntry<"bears">;
+    date: Date;
+}
+
+type GroupBy<T> = {
+    [key: string]: T[];
+};
+
+function groupBy<T>(xs: T[], key: keyof T): GroupBy<T> {
+    return xs.reduce((rv: GroupBy<T>, x: T) => {
+        const groupKey = x[key] as unknown as string;
+        (rv[groupKey] = rv[groupKey] || []).push(x);
+        return rv;
+    }, {});
+}
+
+const items = (await getCollection("bears"))
+    .flatMap((bear) => {
+        var items: TimelineItem[] = [
+            {
+                type: "rescued",
+                bear: bear,
+                date: bear.data.rescued.date,
+            },
+        ];
+
+        if (bear.data.rehomed) {
+            items.push({
+                type: "rehomed",
+                bear: bear,
+                date: bear.data.rehomed.date,
+            });
+        }
+
+        return items;
+    })
+    .sort((a: TimelineItem, b: TimelineItem) => {
+        return a.date.getTime() - b.date.getTime();
+    })
+    .reverse();
+
+const groups = groupBy(items, "date");
+---
+
+<PageLayout title="Timeline" heading="Timeline" subText="...">
+    <Container>
+        <Block>
+            <ol class="relative border-s border-mandy-200 dark:border-mandy-700">
+
+                {
+                    groups &&
+                        Object.keys(groups).map((key, i) => (
+                            <>
+                            
+                <li class="ms-4">
+                    <div
+                        class="absolute w-3 h-3 bg-mandy-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-mandy-900 dark:bg-mandy-700"
+                    >
+                    </div>
+                    <time
+                        class="mb-1 text-sm font-normal leading-none text-mandy-400 dark:text-mandy-500"
+                        > {moment(key).format("Do MMMM YYYY")} </time>
+                    <p
+                        class="text-base font-normal text-mandy-500 dark:text-mandy-400"
+                    >
+                                <ul class="block list-dis ml-5">
+                                    {groups[key].map(
+                                        ({ bear, type }, index) => (
+                                            <li>
+                                                <h3>
+                                                    {type}: {bear.data.name}
+                                                </h3>
+                                            </li>
+                                        ),
+                                    )}
+                                </ul>
+                    </p>
+                </li>
+                            </>
+                        ))
+                }
+
+
+            </ol>
+        </Block>
+    </Container>
+</PageLayout>

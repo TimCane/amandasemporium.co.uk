@@ -7,24 +7,63 @@ interface Props {
     letter?: string;
 }
 
+const entireAlphabet = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+];
+
 const { alphabet, url, letter }: Props = Astro.props;
 ---
 
 <ul class="flex gap-2 flex-wrap items-center justify-center">
     {
-        alphabet.map((l) => (
+        entireAlphabet.map((l) => (
             <li
                 class={cn("rounded bg-mandy-50 hover:bg-mandy-300", {
                     "font-bold bg-mandy-200":
                         letter && l.toLowerCase() == letter.toLowerCase(),
+                    "bg-white hover:bg-white":
+                        alphabet.indexOf(l) == -1,
                 })}
             >
-                <a
-                    class="block py-2 px-4 aspect-square font-mono"
-                    href={url + l}
-                >
-                    {l.toUpperCase()}
-                </a>
+                {alphabet.indexOf(l) == -1 && (
+                    <span class="block py-2 px-4 aspect-square font-mono">
+                        {l.toUpperCase()}
+                    </span>
+                )}
+
+                {alphabet.indexOf(l) != -1 && (
+                    <a
+                        class="block py-2 px-4 aspect-square font-mono"
+                        href={url + l}
+                    >
+                        {l.toUpperCase()}
+                    </a>
+                )}
             </li>
         ))
     }
