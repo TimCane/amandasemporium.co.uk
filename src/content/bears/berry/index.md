@@ -1,5 +1,5 @@
 ---
-name: "Benny"
+name: "Berry"
 uploadedOn: 2022-12-09
 picture: "./berry.jpg"
 description: ""

@@ -9,4 +9,7 @@ species: "bear"
 rescued:
     location: "ockham"
     date: 2024-08-11
+rehomed:
+    location: "oswestry"
+    date: 2024-11-25
 ---
