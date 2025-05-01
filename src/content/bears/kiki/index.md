@@ -9,4 +9,8 @@ species: "frog"
 rescued:
     location: "west-wittering"
     date: 2024-09-21
+event: "2025-04-26-horley-st-georges-day"
+rehomed:
+    location: "worth"
+    date: 2025-04-26
 ---
