@@ -9,4 +9,8 @@ species: "bear"
 rescued:
     location: "farnborough"
     date: 2025-03-20
+event: "2025-05-26-farnborough-donkey-derby"
+rehomed:
+    location: "farnborough"
+    date: 2025-05-26
 ---
