@@ -9,4 +9,8 @@ species: "dog"
 rescued:
     location: "woking"
     date: 2024-09-14
+event: "2025-06-28-farnham-carnival"
+rehomed:
+    location: "farnham"
+    date: 2025-06-28
 ---

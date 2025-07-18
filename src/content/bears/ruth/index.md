@@ -9,4 +9,8 @@ species: "bear"
 rescued:
     location: "send"
     date: 2024-02-06
+event: "2025-07-05-mortimer-fun-day"
+rehomed:
+    location: "tadley"
+    date: 2025-07-05
 ---
