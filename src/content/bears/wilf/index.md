@@ -9,4 +9,8 @@ species: "hippo"
 rescued:
     location: "cobham"
     date: 2019-12-05
+event: 2025-08-09-royal-british-legion-vevj-day-fete
+rehomed:
+    location: farnham
+    date: 2025-08-09
 ---
