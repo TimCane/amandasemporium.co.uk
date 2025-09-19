@@ -1,0 +1,31 @@
+---
+import { cn } from "@/libs/class-name";
+import { seededRandom } from "@/libs/seeded-random";
+
+interface Props {
+    seed?: string;
+    className?: string;
+}
+
+const { className, seed }: Props = Astro.props;
+
+var rndSkew = Math.random();
+if (seed) {
+    rndSkew = seededRandom(seed)();
+}
+---
+
+<h1 class={cn("font-serif capitalize font-bold", className)}>
+    <div class="relative inline-block">
+        <div class="relative z-10 text-5xl">
+            <slot />
+        </div>
+        <div
+            class={cn(
+                "bg-mandy-200 block h-full w-full absolute top-0 z-0 mx-auto left-0 right-0 rounded",
+                rndSkew < 0.5 ? "skew-y-2" : "-skew-y-2",
+            )}
+        >
+        </div>
+    </div>
+</h1>

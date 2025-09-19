@@ -1,0 +1,60 @@
+---
+import Block from "@/components/ui/block.astro";
+import Container from "@/components/ui/container.astro";
+import PageLayout from "@/layouts/page.layout.astro";
+import { bearNamesAlphabet } from "@/libs/alphabet";
+
+import AlphabetButtons from "@/components/bears/alphabet-buttons.astro";
+import { getCollection, type CollectionEntry } from "astro:content";
+import BearsTable from "@/components/bears/bears-table.astro";
+import { groups, type BearGroup } from "@/libs/bear-groups";
+
+export async function getStaticPaths() {
+    var paths = [];
+
+    for (let i = 0; i < groups.length; i++) {
+        const group = groups[i];
+
+        const alphabet = await bearNamesAlphabet(group.filter);
+        const bears = await getCollection("bears", group.filter);
+
+        paths.push({
+            params: { group: group.slug },
+            props: {
+                alphabet: alphabet,
+                bears,
+                group,
+            },
+        });
+    }
+
+    return paths;
+}
+
+interface Props {
+    alphabet: string[];
+    bears: CollectionEntry<"bears">[];
+    group: BearGroup;
+}
+
+const { alphabet, group, bears }: Props = Astro.props;
+---
+
+<PageLayout title={group.title} heading={group.heading} subText={group.subText}>
+    <Container>
+        <Block>
+            <AlphabetButtons
+                alphabet={alphabet}
+                url={`/bears/${group.slug}/`}
+            />
+        </Block>
+
+        <Block>
+            <BearsTable
+                bears={bears}
+                hideEventCol={group.hideEventCol}
+                hideRehomedCol={group.hideRehomedCol}
+            />
+        </Block>
+    </Container>
+</PageLayout>

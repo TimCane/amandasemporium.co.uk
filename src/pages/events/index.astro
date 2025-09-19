@@ -1,0 +1,24 @@
+---
+import EventsList from "@/components/events/events-list.astro";
+import Block from "@/components/ui/block.astro";
+import Container from "@/components/ui/container.astro";
+import H2 from "@/components/ui/headings/h2.astro";
+import PageLayout from "@/layouts/page.layout.astro";
+import { getCollection } from "astro:content";
+
+const now = new Date();
+
+const events = (await getCollection("events")).reverse();
+---
+
+<PageLayout
+    title="Where to Find Me"
+    heading="Come and find me"
+    subText="... at Christmas fairs, community events and craft markets alongside my friends, excited to share my passion for teddy bears and all things crafting. Whether you’re searching for something special or just want to stop by for a chat, I’d love for you to come and see me!"
+>
+    <Container>
+        <Block>
+            <EventsList events={events} />
+        </Block>
+    </Container>
+</PageLayout>

@@ -1,0 +1,61 @@
+---
+import AlphabetButtons from "@/components/bears/alphabet-buttons.astro";
+import BearsList from "@/components/bears/bears-list.astro";
+import Block from "@/components/ui/block.astro";
+import Container from "@/components/ui/container.astro";
+import PageLayout from "@/layouts/page.layout.astro";
+import { bearNamesAlphabet } from "@/libs/alphabet";
+import { groups, type BearGroup } from "@/libs/bear-groups";
+import { getCollection, type CollectionEntry } from "astro:content";
+
+export async function getStaticPaths() {
+    var paths = [];
+
+    for (let i = 0; i < groups.length; i++) {
+        const group = groups[i];
+
+        const bears = await getCollection("bears", group.filter);
+        const alphabet = await bearNamesAlphabet(group.filter);
+
+        paths.push(
+            ...alphabet.map((letter) => ({
+                params: { letter: letter.toLowerCase(), group: group.slug },
+                props: {
+                    letter: letter.toLowerCase(),
+                    bears: bears.filter((b) =>
+                        b.data.name.toLowerCase().startsWith(letter),
+                    ),
+                    alphabet: alphabet,
+                    group,
+                },
+            })),
+        );
+    }
+
+    return paths;
+}
+
+interface Props {
+    bears: CollectionEntry<"bears">[];
+    letter: string;
+    alphabet: string[];
+    group: BearGroup;
+}
+
+const { bears, letter, alphabet, group }: Props = Astro.props;
+---
+
+<PageLayout title={group.title} heading={group.heading} subText={group.subText}>
+    <Container>
+        <Block>
+            <AlphabetButtons
+                alphabet={alphabet}
+                url={`/bears/${group.slug}/`}
+                letter={letter}
+            />
+        </Block>
+        <Block>
+            <BearsList bears={bears} />
+        </Block>
+    </Container>
+</PageLayout>

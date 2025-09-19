@@ -1,0 +1,62 @@
+---
+import Block from "@/components/ui/block.astro";
+import Container from "@/components/ui/container.astro";
+import PageLayout from "@/layouts/page.layout.astro";
+import { bearNamesAlphabet } from "@/libs/alphabet";
+
+import ClickALetter from "@/images/click-a-letter.svg";
+import { Image } from "astro:assets";
+import AlphabetButtons from "@/components/bears/alphabet-buttons.astro";
+import { groups, type BearGroup } from "@/libs/bear-groups";
+
+export async function getStaticPaths() {
+    var paths = [];
+
+    for (let i = 0; i < groups.length; i++) {
+        const group = groups[i];
+
+        const alphabet = await bearNamesAlphabet(group.filter);
+
+        paths.push({
+            params: { group: group.slug },
+            props: {
+                alphabet: alphabet,
+                group,
+            },
+        });
+    }
+
+    return paths;
+}
+
+interface Props {
+    alphabet: string[];
+    group: BearGroup;
+}
+
+const { alphabet, group }: Props = Astro.props;
+---
+
+<PageLayout title={group.title} heading={group.heading} subText={group.subText}>
+    <Container>
+        <Block>
+            <AlphabetButtons
+                alphabet={alphabet}
+                url={`/bears/${group.slug}/`}
+            />
+        </Block>
+
+        <Block>
+            <div class="flex items-center justify-center flex-col gap-8">
+                <Image
+                    src={ClickALetter}
+                    alt="Click a letter"
+                    class="-rotate-3"
+                />
+                <a class="hidden md:block" href={`/bears/${group.slug}/table`}>
+                    <small> or view as a table</small>
+                </a>
+            </div>
+        </Block>
+    </Container>
+</PageLayout>

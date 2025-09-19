@@ -1,0 +1,21 @@
+---
+import H1 from "../ui/headings/h1.astro";
+import Container from "../ui/container.astro";
+import Block from "../ui/block.astro";
+
+interface Props {
+    heading: string;
+    subText: string;
+}
+
+const { heading, subText }: Props = Astro.props;
+---
+
+<Container>
+    <Block className="flex flex-col gap-8 text-center items-center">
+        <H1 seed={heading}>{heading}</H1>
+        <p class="lg:w-3/4">
+            {subText}
+        </p>
+    </Block>
+</Container>

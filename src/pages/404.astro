@@ -1,0 +1,18 @@
+---
+import Buttons from "@/components/layout/buttons.astro";
+import PageLayout from "@/layouts/page.layout.astro";
+
+const buttons: string[][] = [
+    ["/", "Home"],
+    ["/bears", "My little bears"],
+    ["/events", "Where to find me"],
+];
+---
+
+<PageLayout
+    title="404 Page Not Found"
+    heading="Page Not Found"
+    subText="Looks like this page has wandered off, just like my bears when they find a new home. But don't worry, it hasn't gone far. You can explore the rest of the site and find your way back, or maybe discover something even better along the way. After all, even the best journeys take a few detours!"
+>
+    <Buttons buttons={buttons} />
+</PageLayout>

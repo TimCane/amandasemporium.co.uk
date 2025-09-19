@@ -1,0 +1,42 @@
+---
+import RedirectLayout from "@/layouts/redirect.layout.astro";
+import { noBearNamesAlphabet } from "@/libs/alphabet";
+import { groups, type BearGroup } from "@/libs/bear-groups";
+
+export async function getStaticPaths() {
+    var paths: {
+        params: { blank: string; group: string };
+        props: { blank: string };
+    }[] = [];
+
+    for (let i = 0; i < groups.length; i++) {
+        const group = groups[i];
+
+        const alphabet = await noBearNamesAlphabet(group.filter);
+
+        paths.push(
+            ...alphabet.flatMap((letter) => ({
+                params: { blank: letter.toLowerCase(), group: group.slug },
+                props: {
+                    blank: letter.toLowerCase(),
+                    group,
+                },
+            })),
+        );
+    }
+
+    return paths;
+}
+
+interface Props {
+    blank: string;
+    group: BearGroup;
+}
+
+const { blank, group }: Props = Astro.props;
+
+const newUrl = `/bears/${group.slug}`;
+const oldUrl = `${newUrl}/${blank}/`;
+---
+
+<RedirectLayout newUrl={newUrl} oldUrl={oldUrl} />

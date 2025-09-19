@@ -1,0 +1,24 @@
+---
+import BaseLayout from "@/layouts/base.layout.astro";
+import Navbar from "@/components/layout/navbar.astro";
+import Banner from "@/components/layout/banner.astro";
+import Seperator from "@/components/layout/separator.astro";
+
+interface Props {
+    title: string;
+    heading: string;
+    subText: string;
+}
+
+const { title, heading, subText }: Props = Astro.props;
+
+const url = Astro.url.pathname;
+---
+
+<BaseLayout title={title}>
+    <Navbar url={url} />
+    <Banner heading={heading} subText={subText} />
+    <Seperator />
+
+    <slot />
+</BaseLayout>

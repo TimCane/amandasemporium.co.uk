@@ -1,0 +1,59 @@
+---
+import PageLayout from "@/layouts/page.layout.astro";
+import { Image } from "astro:assets";
+import daisy from "@/images/daisy.jpg";
+import Separator from "@/components/layout/separator.astro";
+import H2 from "@/components/ui/headings/h2.astro";
+import Container from "@/components/ui/container.astro";
+import Block from "@/components/ui/block.astro";
+import Buttons from "@/components/layout/buttons.astro";
+
+const buttons: string[][] = [
+    ["/bears/looking-for-their-home", "Awaiting a forever home"],
+    ["/bears/found-their-home", "Found their forever home"],
+    ["/bears/all", "All the bears I have cared for"],
+];
+---
+
+<PageLayout
+    title="My Little bears"
+    heading="My Little bears"
+    subText="... were once lonely teddy bears waiting for a forever home and a new adventure, each one with a unique story and charm. They've been patiently hoping for someone to love, a warm hug and the chance to be part of a family. These bears, once forgotten, are ready to bring comfort, joy and companionship to anyone who welcomes them. All they need is a caring heart to give them a second chance at a life filled with love and adventure."
+>
+    <Buttons buttons={buttons} />
+
+    <Separator />
+
+    <Container>
+        <H2 className="text-center"> Meet Daisy </H2>
+
+        <div
+            class="flex justify-center items-center md:gap-8 flex-col md:flex-row"
+        >
+            <Block className="order-1 md:order-2 ">
+                <Image
+                    class="rounded mx-auto"
+                    src={daisy}
+                    alt="a picture of my rabbit teddy Daisy"
+                />
+            </Block>
+            <Block className="order-2 md:order-1 md:w-2/4">
+                <div class="text-center">
+                    <p>
+                        Courtesy of my 3 grown up sons, who took me to a
+                        Build-a-Bear Workshop for Mothers Day.
+                    </p>
+                    <p>
+                        I became the proud owner of Daisy. She has been on a
+                        number of adventures around the country with my husband
+                        and I already. My friends (who think I'm ever so
+                        slightly potty) can't wait for the latest photos and
+                        updates.
+                    </p>
+                </div>
+            </Block>
+        </div>
+    </Container>
+
+    <Separator />
+</PageLayout>
