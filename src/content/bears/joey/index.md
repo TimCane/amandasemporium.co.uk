@@ -8,5 +8,5 @@ brand: "build-a-bear"
 species: "bear"
 rescued:
     location: "horley"
-    date: 2025-04g-26
+    date: 2025-04-26
 ---

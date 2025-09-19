@@ -7,6 +7,6 @@ tags: []
 brand: "build-a-bear"
 species: "bear"
 rescued:
-    location: "west-witterings"
+    location: "west-wittering"
     date: 2025-07-21
 ---
