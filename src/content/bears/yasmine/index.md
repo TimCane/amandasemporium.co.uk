@@ -9,4 +9,8 @@ species: "bear"
 rescued:
     location: "new-milton"
     date: 2024-08-20
+event: 2025-08-09-royal-british-legion-vevj-day-fete
+rehomed:
+    location: farnham
+    date: 2025-08-09
 ---
