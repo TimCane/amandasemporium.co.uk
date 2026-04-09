@@ -1,5 +1,0 @@
----
-name: "Manchester"
-latitude: 53.480759
-longitude: -2.242631
----

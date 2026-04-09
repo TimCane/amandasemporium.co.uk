@@ -1,3 +1,0 @@
----
-name: "Glorious Britain Jointed"
----
