@@ -1,0 +1,288 @@
+{
+  "$ref": "#/definitions/bears",
+  "definitions": {
+    "bears": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "tagline": {
+          "type": "string"
+        },
+        "uploadedOn": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "picture": {
+          "type": "string"
+        },
+        "photos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "featured": {
+          "type": "boolean"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "brand": {
+          "type": "string",
+          "enum": [
+            "as-watson",
+            "baby-gund",
+            "barnes-and-noble",
+            "beam-feature-ltd",
+            "bear-factory",
+            "birthdays",
+            "build-a-bear",
+            "cuddles-collection",
+            "disney-store",
+            "funtastic",
+            "giorgio",
+            "glorious-britain-jointed",
+            "glorious-britain",
+            "i-love-fancy-dress",
+            "infinite-designs",
+            "john-lewis",
+            "keel-cubby",
+            "keel-teddy",
+            "lbi-ltd",
+            "morrisons",
+            "plush-company",
+            "russ",
+            "sainsburys",
+            "teddy-tastic",
+            "tesco",
+            "the-christmas-magical-adventure-bear",
+            "the-works",
+            "ty",
+            "unknown",
+            "valentine-heart",
+            "wh-smith",
+            "wilkinson",
+            "with-love"
+          ]
+        },
+        "species": {
+          "type": "string",
+          "enum": [
+            "bear",
+            "cat",
+            "dog",
+            "frog",
+            "hippo",
+            "koala",
+            "monkey",
+            "rabbit",
+            "sheep"
+          ]
+        },
+        "rescued": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "collection": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "collection"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "slug": {
+                      "type": "string"
+                    },
+                    "collection": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "slug",
+                    "collection"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "date": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "integer",
+                  "format": "unix-time"
+                }
+              ]
+            }
+          },
+          "required": [
+            "location",
+            "date"
+          ],
+          "additionalProperties": false
+        },
+        "event": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "collection": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "collection"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "slug": {
+                  "type": "string"
+                },
+                "collection": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "slug",
+                "collection"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        },
+        "rehomed": {
+          "type": "object",
+          "properties": {
+            "location": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "collection": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "collection"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "slug": {
+                      "type": "string"
+                    },
+                    "collection": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "slug",
+                    "collection"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            },
+            "date": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "integer",
+                  "format": "unix-time"
+                }
+              ]
+            }
+          },
+          "required": [
+            "location",
+            "date"
+          ],
+          "additionalProperties": false
+        },
+        "notes": {
+          "type": "string"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "uploadedOn",
+        "picture",
+        "tags",
+        "brand",
+        "species",
+        "rescued"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

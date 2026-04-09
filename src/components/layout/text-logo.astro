@@ -1,0 +1,11 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { size = 'md' } = Astro.props;
+---
+
+<a href="/" class={`text-logo text-logo--${size}`} aria-label="Amanda's Emporium — Home">
+  Amanda's Emporium
+</a>

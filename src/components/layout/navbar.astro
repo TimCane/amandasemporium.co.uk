@@ -1,0 +1,73 @@
+---
+import TextLogo from './text-logo.astro';
+
+const pathname = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/bears', label: 'Bears' },
+  { href: '/products', label: 'Products' },
+  { href: '/events', label: 'Events' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<nav class="navbar" aria-label="Main navigation">
+  <div class="navbar__inner">
+    <TextLogo />
+    <ul class="navbar__links">
+      {navLinks.map(link => (
+        <li class="navbar__item">
+          <a
+            href={link.href}
+            class:list={['navbar__link', { 'navbar__link--active': pathname.startsWith(link.href) }]}
+            aria-current={pathname.startsWith(link.href) ? 'page' : undefined}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <button
+      class="navbar__hamburger"
+      aria-expanded="false"
+      aria-controls="navbar-menu"
+      aria-label="Toggle navigation menu"
+    >
+      <span class="navbar__hamburger-line"></span>
+      <span class="navbar__hamburger-line"></span>
+      <span class="navbar__hamburger-line"></span>
+    </button>
+  </div>
+  <div id="navbar-menu" class="navbar__mobile-menu navbar__mobile-menu--hidden">
+    <ul class="navbar__mobile-links">
+      {navLinks.map(link => (
+        <li class="navbar__mobile-item">
+          <a
+            href={link.href}
+            class:list={['navbar__mobile-link', { 'navbar__mobile-link--active': pathname.startsWith(link.href) }]}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<script>
+  function initNavbar() {
+    const hamburger = document.querySelector('.navbar__hamburger');
+    const mobileMenu = document.getElementById('navbar-menu');
+
+    hamburger?.addEventListener('click', () => {
+      const isOpen = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', String(!isOpen));
+      mobileMenu?.classList.toggle('navbar__mobile-menu--hidden');
+    });
+  }
+
+  initNavbar();
+  document.addEventListener('astro:after-swap', initNavbar);
+</script>

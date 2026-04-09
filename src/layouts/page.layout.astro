@@ -1,0 +1,25 @@
+---
+import BaseLayout from './base.layout.astro';
+import Navbar from '@/components/layout/navbar.astro';
+import Footer from '@/components/layout/footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<BaseLayout title={title} description={description}>
+  <slot name="og-meta" slot="og-meta" />
+  <Navbar transition:persist />
+  <main id="main-content">
+    <div class="page-wrapper">
+      <div class="page-content">
+        <slot />
+      </div>
+    </div>
+  </main>
+  <Footer transition:persist />
+</BaseLayout>

@@ -1,0 +1,46 @@
+// Grid area assignments — GLOBAL, shared by all themes
+// Themes only control grid-template-areas layout, not the area names
+
+.navbar {
+  grid-area: navbar;
+}
+
+.footer {
+  grid-area: footer;
+}
+
+.hero {
+  grid-area: hero;
+}
+
+.page-content {
+  grid-area: content;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.card-grid {
+  grid-area: card-grid;
+}
+
+.filter-bar {
+  grid-area: filter-bar;
+}
+
+.pagination {
+  grid-area: pagination;
+}
+
+.map-container {
+  grid-area: map;
+}
+
+.timeline {
+  grid-area: timeline;
+}
+
+.gallery-grid {
+  grid-area: gallery;
+}

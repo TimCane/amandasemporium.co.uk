@@ -1,0 +1,17 @@
+---
+// Component spec: docs/components/Card.md (if exists) / Task 1.5 shared UI
+interface Props {
+  href?: string;
+  class?: string;
+}
+
+const { href, class: className } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag href={href} class:list={['card', className]}>
+  <div class="card__inner">
+    <slot />
+  </div>
+  <div class="card__decoration"></div>
+</Tag>

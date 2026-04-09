@@ -1,0 +1,28 @@
+---
+// Component spec: Task 1.5 shared UI — Filter Tabs
+interface Tab {
+  label: string;
+  value: string;
+  href: string;
+}
+
+interface Props {
+  tabs: Tab[];
+  activeValue: string;
+}
+
+const { tabs, activeValue } = Astro.props;
+---
+
+<div class="filter-tabs" role="tablist" aria-label="Filter">
+  {tabs.map(tab => (
+    <a
+      href={tab.href}
+      class:list={['filter-tabs__tab', { 'filter-tabs__tab--active': tab.value === activeValue }]}
+      role="tab"
+      aria-selected={tab.value === activeValue ? 'true' : 'false'}
+    >
+      {tab.label}
+    </a>
+  ))}
+</div>

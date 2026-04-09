@@ -1,0 +1,42 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import CookieBanner from '@/components/layout/cookie-banner.astro';
+import '@/styles/global.scss';
+
+// Import all 4 theme stylesheets — Astro will compile them
+import '@/styles/themes/boutique.scss';
+import '@/styles/themes/whimsical.scss';
+import '@/styles/themes/modern.scss';
+import '@/styles/themes/fun.scss';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" data-theme="boutique">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | Amanda's Emporium</title>
+  <meta name="description" content={description} />
+
+  <script is:inline>
+    const theme = localStorage.getItem('ae-theme') || 'boutique';
+    document.documentElement.setAttribute('data-theme', theme);
+  </script>
+
+  <slot name="og-meta" />
+
+  <ViewTransitions />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <slot />
+  <CookieBanner />
+</body>
+</html>

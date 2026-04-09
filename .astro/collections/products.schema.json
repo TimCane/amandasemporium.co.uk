@@ -1,0 +1,53 @@
+{
+  "$ref": "#/definitions/products",
+  "definitions": {
+    "products": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "tagline": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "bags-and-cases",
+            "baby-and-children",
+            "knitted-and-crocheted",
+            "home-and-gifts",
+            "soaps",
+            "rescued-bears"
+          ]
+        },
+        "price": {
+          "type": "string"
+        },
+        "materials": {
+          "type": "string"
+        },
+        "photos": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "category",
+        "price",
+        "photos"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

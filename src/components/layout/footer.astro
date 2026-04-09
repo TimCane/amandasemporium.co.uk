@@ -1,0 +1,58 @@
+---
+import { themes } from '@/libs/themes';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__content">
+    <div class="footer__links">
+      <a href="/about" class="footer__link">About</a>
+      <a href="/contact" class="footer__link">Contact</a>
+      <a href="/privacy" class="footer__link">Privacy Policy</a>
+    </div>
+    <div class="footer__copyright">
+      &copy; {currentYear} Amanda's Emporium
+    </div>
+    <div class="footer__theme-switcher">
+      <span class="footer__theme-label">Theme:</span>
+      {themes.map(theme => (
+        <button
+          class="footer__theme-btn"
+          data-theme-switch={theme.id}
+          aria-label={`Switch to ${theme.name} theme`}
+        >
+          {theme.name}
+        </button>
+      ))}
+    </div>
+  </div>
+  <div class="footer__decoration"></div>
+</footer>
+
+<script>
+  function initThemeSwitcher() {
+    document.querySelectorAll('[data-theme-switch]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const theme = (btn as HTMLElement).dataset.themeSwitch;
+        if (theme) {
+          document.documentElement.setAttribute('data-theme', theme);
+          localStorage.setItem('ae-theme', theme);
+          // Update active state
+          document.querySelectorAll('[data-theme-switch]').forEach(b => {
+            b.classList.toggle('footer__theme-btn--active', (b as HTMLElement).dataset.themeSwitch === theme);
+          });
+        }
+      });
+    });
+
+    // Set initial active state
+    const current = document.documentElement.getAttribute('data-theme') || 'boutique';
+    document.querySelectorAll('[data-theme-switch]').forEach(btn => {
+      btn.classList.toggle('footer__theme-btn--active', (btn as HTMLElement).dataset.themeSwitch === current);
+    });
+  }
+
+  initThemeSwitcher();
+  document.addEventListener('astro:after-swap', initThemeSwitcher);
+</script>
