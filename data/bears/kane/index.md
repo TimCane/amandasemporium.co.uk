@@ -1,0 +1,16 @@
+---
+name: "Kane"
+uploadedOn: 2023-11-02
+picture: "./kane.jpg"
+description: ""
+tags: []
+brand: "build-a-bear"
+species: "bear"
+rescued:
+    location: "addlestone"
+    date: 2023-10-01
+event: "2024-06-29-farnham-carnival"
+rehomed:
+    location: "godalming"
+    date: 2024-06-29
+---
