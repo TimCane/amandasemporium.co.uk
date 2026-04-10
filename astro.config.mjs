@@ -12,6 +12,9 @@ export default defineConfig({
   },
   site: 'https://amandasemporium.co.uk',
   vite: {
+    optimizeDeps: {
+      include: ['leaflet', 'leaflet.markercluster'],
+    },
     css: {
       preprocessorOptions: {
         scss: {
