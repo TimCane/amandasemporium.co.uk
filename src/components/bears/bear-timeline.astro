@@ -1,0 +1,106 @@
+---
+import { Image } from 'astro:assets';
+
+interface TimelineEntry {
+  date: Date;
+  type: 'rescued' | 'rehomed';
+  bearName: string;
+  bearSlug: string;
+  bearPicture: ImageMetadata;
+  locationName: string;
+}
+
+interface Props {
+  entries: TimelineEntry[];
+}
+
+const { entries } = Astro.props;
+
+const dateFormatter = new Intl.DateTimeFormat('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+
+const monthYearFormatter = new Intl.DateTimeFormat('en-GB', {
+  month: 'long',
+  year: 'numeric',
+});
+
+// Group entries by year for navigation and visual grouping
+const entriesByYear = new Map<number, TimelineEntry[]>();
+for (const entry of entries) {
+  const year = entry.date.getFullYear();
+  if (!entriesByYear.has(year)) {
+    entriesByYear.set(year, []);
+  }
+  entriesByYear.get(year)!.push(entry);
+}
+
+const years = [...entriesByYear.keys()].sort((a, b) => b - a);
+---
+
+<div class="timeline">
+  <div class="timeline__decoration timeline__decoration--top" aria-hidden="true"></div>
+
+  <nav class="timeline__year-nav" aria-label="Jump to year">
+    <span class="timeline__year-nav-label">Jump to year:</span>
+    <div class="timeline__year-nav-links">
+      {years.map(year => (
+        <a href={`#year-${year}`} class="timeline__year-nav-link">{year}</a>
+      ))}
+    </div>
+  </nav>
+
+  <ol class="timeline__list" role="list">
+    {years.map((year, yearIndex) => (
+      <>
+        <li class="timeline__year-marker" id={`year-${year}`}>
+          <div class="timeline__year-marker-line" aria-hidden="true"></div>
+          <span class="timeline__year-marker-label">{year}</span>
+          <div class="timeline__year-marker-line" aria-hidden="true"></div>
+        </li>
+        {entriesByYear.get(year)!.map((entry, entryIndex) => {
+          const isEven = (yearIndex + entryIndex) % 2 === 0;
+          return (
+            <li class={`timeline__entry timeline__entry--${entry.type} ${isEven ? 'timeline__entry--left' : 'timeline__entry--right'}`}>
+              <div class="timeline__connector" aria-hidden="true">
+                <div class="timeline__line"></div>
+                <div class={`timeline__marker timeline__marker--${entry.type}`}></div>
+                <div class="timeline__line"></div>
+              </div>
+
+              <div class="timeline__date">
+                <time datetime={entry.date.toISOString().split('T')[0]}>
+                  {dateFormatter.format(entry.date)}
+                </time>
+              </div>
+
+              <a href={`/bears/${entry.bearSlug}`} class="timeline__content">
+                <div class="timeline__image-wrapper">
+                  <Image
+                    src={entry.bearPicture}
+                    alt={entry.bearName}
+                    width={80}
+                    height={80}
+                    class="timeline__image"
+                  />
+                </div>
+                <div class="timeline__details">
+                  <h3 class="timeline__bear-name">{entry.bearName}</h3>
+                  <span class={`timeline__badge timeline__badge--${entry.type}`}>
+                    {entry.type === 'rescued' ? 'Rescued' : 'Rehomed'}
+                  </span>
+                  <span class="timeline__location">{entry.locationName}</span>
+                </div>
+                <div class="timeline__content-decoration" aria-hidden="true"></div>
+              </a>
+            </li>
+          );
+        })}
+      </>
+    ))}
+  </ol>
+
+  <div class="timeline__decoration timeline__decoration--bottom" aria-hidden="true"></div>
+</div>

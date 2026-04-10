@@ -1,0 +1,57 @@
+---
+import { ALPHABET } from '@/libs/alphabet';
+
+interface Props {
+  activeLetters: string[];
+  currentLetter?: string;
+  baseUrl: string;
+  params: Record<string, string>;
+}
+
+const { activeLetters, currentLetter, baseUrl, params } = Astro.props;
+
+function buildLetterUrl(letter: string): string {
+  const searchParams = new URLSearchParams(params);
+  searchParams.set('letter', letter);
+  searchParams.delete('page'); // Reset page when changing letter
+  return `${baseUrl}?${searchParams.toString()}`;
+}
+
+function buildClearUrl(): string {
+  const searchParams = new URLSearchParams(params);
+  searchParams.delete('letter');
+  searchParams.delete('page');
+  const qs = searchParams.toString();
+  return qs ? `${baseUrl}?${qs}` : baseUrl;
+}
+---
+
+<nav class="alphabet-nav" aria-label="Filter by letter">
+  <a
+    href={buildClearUrl()}
+    class:list={['alphabet-nav__clear', { 'alphabet-nav__clear--active': !currentLetter }]}
+    aria-current={!currentLetter ? 'page' : undefined}
+  >
+    All
+  </a>
+  <div class="alphabet-nav__letters">
+    {ALPHABET.map((letter) =>
+      activeLetters.includes(letter) ? (
+        <a
+          href={buildLetterUrl(letter)}
+          class:list={[
+            'alphabet-nav__letter',
+            { 'alphabet-nav__letter--active': letter === currentLetter },
+          ]}
+          aria-current={letter === currentLetter ? 'page' : undefined}
+        >
+          {letter}
+        </a>
+      ) : (
+        <span class="alphabet-nav__letter alphabet-nav__letter--disabled" aria-disabled="true">
+          {letter}
+        </span>
+      )
+    )}
+  </div>
+</nav>

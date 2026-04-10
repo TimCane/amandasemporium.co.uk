@@ -1,0 +1,122 @@
+---
+/**
+ * /bears/map — Interactive full-page map of all bear journeys.
+ *
+ * Static page (pre-rendered at build time).
+ * All bear + location data is resolved server-side and serialised as
+ * JSON for the client-side Leaflet map.
+ */
+export const prerender = true;
+
+import { getCollection, getEntry } from 'astro:content';
+import PageLayout from '@/layouts/page.layout.astro';
+import BearMap from '@/components/bears/bear-map.astro';
+import type { BearMapData } from '@/components/bears/bear-map.astro';
+
+// Load all bears and all events
+const allBears = await getCollection('bears');
+
+// Build map data — resolve location references to lat/lng
+const mapBears: BearMapData[] = [];
+
+for (const bear of allBears) {
+  const { data } = bear;
+
+  // Resolve rescued location
+  const rescuedLocEntry = await getEntry(data.rescued.location);
+  if (!rescuedLocEntry) continue; // Skip bears with missing locations
+
+  const rescued = {
+    lat: rescuedLocEntry.data.latitude,
+    lng: rescuedLocEntry.data.longitude,
+    name: rescuedLocEntry.data.name,
+    date: data.rescued.date.toISOString().split('T')[0],
+  };
+
+  // Resolve event location (if present)
+  let eventData: BearMapData['event'] = undefined;
+  if (data.event) {
+    const eventEntry = await getEntry(data.event);
+    if (eventEntry) {
+      const eventLocEntry = await getEntry(eventEntry.data.location.location);
+      if (eventLocEntry) {
+        eventData = {
+          lat: eventLocEntry.data.latitude,
+          lng: eventLocEntry.data.longitude,
+          name: eventEntry.data.name,
+        };
+      }
+    }
+  }
+
+  // Resolve rehomed location (if present)
+  let rehomedData: BearMapData['rehomed'] = undefined;
+  if (data.rehomed) {
+    const rehomedLocEntry = await getEntry(data.rehomed.location);
+    if (rehomedLocEntry) {
+      rehomedData = {
+        lat: rehomedLocEntry.data.latitude,
+        lng: rehomedLocEntry.data.longitude,
+        name: rehomedLocEntry.data.name,
+        date: data.rehomed.date.toISOString().split('T')[0],
+      };
+    }
+  }
+
+  mapBears.push({
+    name: data.name,
+    slug: bear.slug,
+    picture: '', // Not needed for map markers
+    status: data.rehomed ? 'rehomed' : 'rescued',
+    rescued,
+    event: eventData,
+    rehomed: rehomedData,
+  });
+}
+---
+
+<PageLayout
+  title="Bear Map"
+  description="Interactive map of all rescued bear journeys — see where our bears have been rescued from and rehomed to."
+>
+  <Fragment slot="og-meta">
+    <meta property="og:title" content="Bear Map | Amanda's Emporium" />
+    <meta property="og:description" content="Interactive map of all rescued bear journeys" />
+    <meta property="og:type" content="website" />
+  </Fragment>
+
+  <div class="bear-map-page">
+    <header class="bear-map-page__header">
+      <h1 class="bear-map-page__title">Bear Map</h1>
+      <p class="bear-map-page__description">
+        See where our bears have been rescued from and rehomed to.
+        Click on a marker to learn more about each bear's journey.
+      </p>
+    </header>
+
+    <BearMap variant="full" bears={mapBears} />
+  </div>
+</PageLayout>
+
+<style lang="scss">
+  .bear-map-page {
+    &__header {
+      text-align: center;
+      padding: 1.5rem 0 1rem;
+    }
+
+    &__title {
+      font-family: var(--font-heading);
+      color: var(--color-text);
+      margin: 0 0 0.5rem;
+    }
+
+    &__description {
+      font-family: var(--font-body);
+      color: var(--color-text-muted);
+      max-width: 40rem;
+      margin: 0 auto;
+      font-size: 1.05rem;
+    }
+  }
+</style>

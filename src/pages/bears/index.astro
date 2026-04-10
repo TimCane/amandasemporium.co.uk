@@ -1,0 +1,142 @@
+---
+export const prerender = false;
+
+import { getCollection } from 'astro:content';
+import PageLayout from '@/layouts/page.layout.astro';
+import FilterTabs from '@/components/ui/filter-tabs.astro';
+import AlphabetNav from '@/components/bears/alphabet-nav.astro';
+import BearCard from '@/components/bears/bear-card.astro';
+import Pagination from '@/components/ui/pagination.astro';
+import { ITEMS_PER_PAGE } from '@/libs/consts';
+import { getActiveLetters, filterByLetter } from '@/libs/alphabet';
+import {
+  parseBearGroup,
+  filterByGroup,
+  groupLabel,
+  buildBearsUrl,
+  type BearGroup,
+} from '@/libs/bear-groups';
+
+// --- Parse query params ---
+const url = new URL(Astro.request.url);
+const group: BearGroup = parseBearGroup(url.searchParams.get('group'));
+const letter = url.searchParams.get('letter')?.toUpperCase() || undefined;
+const pageParam = Math.max(1, parseInt(url.searchParams.get('page') || '1', 10));
+
+// --- Fetch and filter bears ---
+let allBears = await getCollection('bears');
+
+// 1. Filter by group
+let bears = filterByGroup(allBears, group);
+
+// Compute active letters from the group-filtered set (before letter filter)
+const activeLetters = getActiveLetters(bears);
+
+// Validate letter param
+const validLetter = letter && activeLetters.includes(letter) ? letter : undefined;
+
+// 2. Filter by letter
+if (validLetter) {
+  bears = filterByLetter(bears, validLetter);
+}
+
+// 3. Sort alphabetically by name
+bears.sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+// 4. Paginate
+const totalBears = bears.length;
+const totalPages = Math.max(1, Math.ceil(totalBears / ITEMS_PER_PAGE));
+const currentPage = Math.min(pageParam, totalPages);
+const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+const paginatedBears = bears.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+// --- Build tab data ---
+const tabs = [
+  { label: 'All', value: 'all', href: buildBearsUrl({ group: 'all' }) },
+  { label: 'Looking for a Home', value: 'looking', href: buildBearsUrl({ group: 'looking' }) },
+  { label: 'Found Their Home', value: 'found', href: buildBearsUrl({ group: 'found' }) },
+];
+
+// --- Params to preserve in pagination/alphabet links ---
+const preserveParams: Record<string, string> = {};
+if (group !== 'all') preserveParams.group = group;
+if (validLetter) preserveParams.letter = validLetter;
+
+const paginationParams: Record<string, string> = { ...preserveParams };
+
+// --- SEO ---
+const heading = groupLabel(group);
+const pageTitle = validLetter
+  ? `${heading} - ${validLetter}`
+  : heading;
+const description = `Browse ${totalBears} rescued bears at Amanda's Emporium. Find a bear looking for a home or see which bears have been rehomed.`;
+
+// Pagination rel links
+const prevUrl = currentPage > 1 ? buildBearsUrl({ group, letter: validLetter, page: currentPage - 1 }) : undefined;
+const nextUrl = currentPage < totalPages ? buildBearsUrl({ group, letter: validLetter, page: currentPage + 1 }) : undefined;
+---
+
+<PageLayout title={pageTitle} description={description}>
+  <Fragment slot="og-meta">
+    <meta property="og:title" content={`${pageTitle} | Amanda's Emporium`} />
+    <meta property="og:description" content={description} />
+    {prevUrl && <link rel="prev" href={prevUrl} />}
+    {nextUrl && <link rel="next" href={nextUrl} />}
+  </Fragment>
+
+  <section class="bears-page">
+    <header class="bears-page__header">
+      <h1 class="bears-page__title">{heading}</h1>
+      <p class="bears-page__count">
+        {totalBears} {totalBears === 1 ? 'bear' : 'bears'}
+      </p>
+    </header>
+
+    <div class="bears-page__filters">
+      <FilterTabs tabs={tabs} activeValue={group} />
+    </div>
+
+    <div class="bears-page__alphabet">
+      <AlphabetNav
+        activeLetters={activeLetters}
+        currentLetter={validLetter}
+        baseUrl="/bears"
+        params={preserveParams}
+      />
+    </div>
+
+    {paginatedBears.length > 0 ? (
+      <div class="bears-page__grid">
+        {paginatedBears.map((bear, index) => (
+          <BearCard
+            bear={bear}
+            loading={index < 8 ? 'eager' : 'lazy'}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="bears-page__empty">
+        <p class="bears-page__empty-text">
+          No bears found matching your filters. Try a different letter or group.
+        </p>
+        <a href="/bears" class="bears-page__empty-link">View all bears</a>
+      </div>
+    )}
+
+    {totalPages > 1 && (
+      <div class="bears-page__pagination">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          baseUrl="/bears"
+          params={paginationParams}
+        />
+      </div>
+    )}
+
+    <nav class="bears-page__section-links" aria-label="Related sections">
+      <a href="/bears/map" class="bears-page__section-link">View on Map</a>
+      <a href="/bears/timeline" class="bears-page__section-link">View Timeline</a>
+    </nav>
+  </section>
+</PageLayout>

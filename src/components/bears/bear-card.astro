@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import Card from '@/components/ui/card.astro';
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  bear: CollectionEntry<'bears'>;
+  loading?: 'lazy' | 'eager';
+}
+
+const { bear, loading = 'lazy' } = Astro.props;
+
+const { name, picture, species, rehomed } = bear.data;
+const status = rehomed ? 'Found Their Home' : 'Looking for a Home';
+const statusClass = rehomed ? 'bear-card__status--found' : 'bear-card__status--looking';
+const speciesLabel = species.charAt(0).toUpperCase() + species.slice(1);
+const slug = bear.slug;
+---
+
+<Card href={`/bears/${slug}`} class="bear-card">
+  <div class="bear-card__image-wrapper">
+    <Image
+      src={picture}
+      alt={`${name} the ${speciesLabel}`}
+      width={300}
+      height={300}
+      loading={loading}
+      class="bear-card__image"
+    />
+    <div class="bear-card__overlay"></div>
+  </div>
+  <div class="bear-card__body">
+    <h3 class="bear-card__name">{name}</h3>
+    <span class:list={['bear-card__status', statusClass]}>{status}</span>
+    <span class="bear-card__species">{speciesLabel}</span>
+  </div>
+  <div class="bear-card__decoration-element"></div>
+</Card>

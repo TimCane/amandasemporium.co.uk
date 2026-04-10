@@ -1,0 +1,113 @@
+---
+export const prerender = true;
+
+import { getCollection, getEntry } from 'astro:content';
+import PageLayout from '@/layouts/page.layout.astro';
+import BearTimeline from '@/components/bears/bear-timeline.astro';
+
+const title = 'Bear Timeline';
+const description = 'Chronological timeline of all bear rescues and rehoming events at Amanda\'s Emporium.';
+
+// Load all bears
+const bears = await getCollection('bears');
+
+// Build timeline entries
+interface TimelineEntry {
+  date: Date;
+  type: 'rescued' | 'rehomed';
+  bearName: string;
+  bearSlug: string;
+  bearPicture: ImageMetadata;
+  locationName: string;
+}
+
+const entries: TimelineEntry[] = [];
+
+// Resolve locations in parallel for performance
+const locationCache = new Map<string, string>();
+
+async function getLocationName(locationRef: { collection: string; id: string } | string): Promise<string> {
+  const id = typeof locationRef === 'string' ? locationRef : locationRef.id;
+  if (locationCache.has(id)) {
+    return locationCache.get(id)!;
+  }
+  try {
+    const location = await getEntry('locations', id);
+    const name = location?.data?.name ?? id;
+    locationCache.set(id, name);
+    return name;
+  } catch {
+    locationCache.set(id, id);
+    return id;
+  }
+}
+
+for (const bear of bears) {
+  const rescuedLocationName = await getLocationName(bear.data.rescued.location);
+
+  entries.push({
+    date: bear.data.rescued.date,
+    type: 'rescued',
+    bearName: bear.data.name,
+    bearSlug: bear.slug,
+    bearPicture: bear.data.picture,
+    locationName: rescuedLocationName,
+  });
+
+  if (bear.data.rehomed) {
+    const rehomedLocationName = await getLocationName(bear.data.rehomed.location);
+    entries.push({
+      date: bear.data.rehomed.date,
+      type: 'rehomed',
+      bearName: bear.data.name,
+      bearSlug: bear.slug,
+      bearPicture: bear.data.picture,
+      locationName: rehomedLocationName,
+    });
+  }
+}
+
+// Sort chronologically, newest first
+entries.sort((a, b) => b.date.getTime() - a.date.getTime());
+
+// Compute stats
+const totalBears = bears.length;
+const totalRehomed = bears.filter(b => b.data.rehomed).length;
+const allDates = entries.map(e => e.date);
+const earliestDate = new Date(Math.min(...allDates.map(d => d.getTime())));
+const latestDate = new Date(Math.max(...allDates.map(d => d.getTime())));
+
+const yearFormatter = new Intl.DateTimeFormat('en-GB', { year: 'numeric' });
+const dateRange = `${yearFormatter.format(earliestDate)} - ${yearFormatter.format(latestDate)}`;
+---
+
+<PageLayout title={title} description={description}>
+  <section class="timeline-page">
+    <header class="timeline-page__header">
+      <h1 class="timeline-page__title">Bear Timeline</h1>
+      <p class="timeline-page__subtitle">The story of our rescues, one bear at a time</p>
+      <div class="timeline-page__stats">
+        <div class="timeline-page__stat">
+          <span class="timeline-page__stat-value">{totalBears}</span>
+          <span class="timeline-page__stat-label">Bears rescued</span>
+        </div>
+        <div class="timeline-page__stat">
+          <span class="timeline-page__stat-value">{totalRehomed}</span>
+          <span class="timeline-page__stat-label">Bears rehomed</span>
+        </div>
+        <div class="timeline-page__stat">
+          <span class="timeline-page__stat-value">{dateRange}</span>
+          <span class="timeline-page__stat-label">Date range</span>
+        </div>
+      </div>
+      <div class="timeline-page__decoration" aria-hidden="true"></div>
+    </header>
+
+    <BearTimeline entries={entries} />
+
+    <nav class="timeline-page__nav" aria-label="Bear section navigation">
+      <a href="/bears" class="timeline-page__nav-link">Back to bears</a>
+      <a href="/bears/map" class="timeline-page__nav-link">View on map</a>
+    </nav>
+  </section>
+</PageLayout>
