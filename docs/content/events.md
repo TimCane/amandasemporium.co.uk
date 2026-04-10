@@ -33,7 +33,7 @@ const events = defineCollection({
   type: 'content',
   schema: ({ image }) => z.object({
     name: z.string(),
-    tagline: z.string().optional(),        // Short one-liner for cards/SEO
+    info: z.string().optional(),            // Visitor info (parking, tickets, etc.)
     date: z.date(),
     recapPhotos: z.array(image()).optional(),
     location: z.object({
@@ -73,7 +73,7 @@ const events = defineCollection({
 - **Upcoming sort:** Ascending by date (nearest first).
 - **Past sort:** Descending by date (most recent first).
 - **Available years:** Derive from distinct years in past events for year filter buttons.
-- **Empty tagline:** Component auto-generates from structured data at render time.
+- **Empty info:** No visitor info shown — this is optional practical detail (parking, tickets, etc.).
 - **Empty body:** Event page shows structured data only, no narrative section rendered.
 - **Missing `## Recap`:** Recap section hidden on past event profile. `description`, `narrative`, and `recap` have been removed from frontmatter and moved to the markdown body.
 
@@ -84,7 +84,7 @@ const events = defineCollection({
 ```markdown
 ---
 name: Horley Spring Fair
-tagline: "A lovely spring craft fair in the heart of Horley"
+info: "Free entry, parking available on site"
 date: 2025-03-15
 location:
   name: Horley Community Centre
@@ -103,7 +103,7 @@ and plenty of friendly faces.
 ```markdown
 ---
 name: Surbiton Festival
-tagline: "Annual community festival with craft stalls and entertainment"
+info: ""
 date: 2024-06-22
 recapPhotos:
   - ./surbiton-2024-stall.jpg

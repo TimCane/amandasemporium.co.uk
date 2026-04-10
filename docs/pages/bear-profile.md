@@ -36,7 +36,6 @@ Individual bear detail page. Tells the full story of one rescued bear — where 
 - If the bear's markdown body is present, render it as the full narrative (2-3 paragraphs telling the bear's story)
 - If the body is empty, auto-generate a summary from structured data (species, rescue location, status, etc.)
 - The `tagline` frontmatter field is used for cards and SEO (short one-liner); it is not displayed in this section
-- Notes field displayed separately if present (optional fun fact)
 
 ### 3. Bear Details
 
@@ -45,7 +44,6 @@ Individual bear detail page. Tells the full story of one rescued bear — where 
 | Species | e.g., "Bear", "Cat", "Dog" |
 | Brand | e.g., "Ty", "Build-A-Bear" |
 | Tags | List of tags |
-| Notes | Optional fun fact (if present) |
 
 ### 4. Rescue Story
 

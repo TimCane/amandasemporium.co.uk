@@ -56,7 +56,7 @@ const bears = defineCollection({
     picture: image(),
     photos: z.array(image()).optional(),   // Additional photos beyond main picture
     featured: z.boolean().optional(),      // Manual override for featuring
-    tags: z.array(z.string()),
+    tags: z.array(z.string()).optional(),
     brand: bearBrands,
     species: bearSpecies,
     rescued: z.object({
@@ -68,7 +68,6 @@ const bears = defineCollection({
       location: reference('locations'),
       date: z.date(),
     }).optional(),
-    notes: z.string().optional(),
   }),
   // Markdown body = narrative (optional, full story in markdown)
 });
@@ -128,7 +127,6 @@ event: 2019-05-25-burnham-donkey-derby
 rehomed:
   location: eton-wick
   date: 2019-05-25
-notes: Limited Edition Build-a-Bear
 ---
 
 Aaron is a lovable teddy bear with a passion for football. A die-hard

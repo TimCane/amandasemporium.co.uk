@@ -34,6 +34,9 @@ const locations = defineCollection({
     name: z.string(),
     latitude: z.number(),
     longitude: z.number(),
+    country: z.string().optional(),
+    county: z.string().optional(),
+    postcode: z.string().optional(),   // Postcode district, e.g. "KT6"
   }),
 });
 ```
@@ -66,5 +69,8 @@ Referenced by:
 name: Guildford
 latitude: 51.2362
 longitude: -0.5704
+country: United Kingdom
+county: Surrey
+postcode: GU1
 ---
 ```

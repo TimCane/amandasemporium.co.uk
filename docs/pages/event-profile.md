@@ -34,7 +34,7 @@ Individual event detail page. Upcoming events show a rich description of what to
 - Rendered from the markdown body if present
 - Rich description of what to expect at this event
 - If the body is empty, no narrative section is shown
-- The `tagline` frontmatter field is used for cards and SEO (short one-liner); it is not displayed in this section
+- The `info` frontmatter field (visitor info like parking, tickets) is displayed in the event header, not in this section
 
 ### 3. Venue Map (upcoming events)
 
@@ -102,5 +102,5 @@ None — all content comes from the content collection.
 
 - Title: "{Event Name} | Amanda's Emporium"
 - Description: "{Event Name} — {date} at {location name}"
-- Open Graph: event photo (if available from recap or gallery), name, tagline
-- JSON-LD: `Event` schema for upcoming events (with startDate, location, name, tagline as description)
+- Open Graph: event photo (if available from recap or gallery), name, info
+- JSON-LD: `Event` schema for upcoming events (with startDate, location, name)

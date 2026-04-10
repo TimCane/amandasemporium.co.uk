@@ -69,9 +69,9 @@ Components emit semantic HTML with plenty of class hooks, wrapper elements, and 
 
 | Collection | Count | Source | Schema |
 | ---------- | ----- | ------ | ------ |
-| `bears` | 307 | V3 (direct copy) | name, picture, description, narrative?, photos?, tags[], brand (enum), species (enum), rescued, rehomed?, event?, notes? |
+| `bears` | 307 | V3 (direct copy) | name, picture, description, narrative?, photos?, tags[]?, brand (enum), species (enum), rescued, rehomed?, event? |
 | `events` | 103 | V3 (direct copy) | name, date, description, narrative?, recap?, recapPhotos?, location, website, time |
-| `locations` | 179 | V3 (direct copy) | name, latitude, longitude |
+| `locations` | 179 | V3 (direct copy) | name, latitude, longitude, country?, county?, postcode? |
 | `products` | 25 | V2 (converted TS→MD) | name, description, narrative?, howItsMade?, category (enum), price, photos[] |
 | `gallery` | 17 | V2 (converted TS→MD) | image, caption, category? |
 

@@ -31,7 +31,7 @@ export const GET: APIRoute = async ({ params }) => {
 
   const { value } = createEvent({
     title: event.data.name,
-    description: event.data.tagline || getBodyExcerpt(event),
+    description: event.data.info || getBodyExcerpt(event),
     location: `${event.data.location.name}`,
     start: [date.getFullYear(), date.getMonth() + 1, date.getDate()],
     url: event.data.website,

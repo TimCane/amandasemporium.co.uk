@@ -32,7 +32,7 @@ interface Props {
       <span class="event-card__time">{event.data.time}</span>
       <span class="event-card__location">{event.data.location.name}</span>
     </p>
-    <p class="event-card__tagline">{event.data.tagline}</p>
+    {event.data.info && <p class="event-card__info">{event.data.info}</p>}
     <div class="event-card__actions">
       <a href={event.data.website} target="_blank" rel="noopener">Website</a>
       {showCalendarButton && (
