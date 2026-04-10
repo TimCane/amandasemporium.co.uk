@@ -21,20 +21,6 @@ export const themes: ThemeConfig[] = [
     headingFont: 'Nunito',
     bodyFont: 'Quicksand',
   },
-  {
-    id: 'modern',
-    name: 'Modern & Vibrant',
-    description: 'Bold, professional, impactful',
-    headingFont: 'Montserrat',
-    bodyFont: 'Source Sans 3',
-  },
-  {
-    id: 'fun',
-    name: 'Fun & Energetic',
-    description: 'Bright, playful, bouncy',
-    headingFont: 'Fredoka',
-    bodyFont: 'Nunito Sans',
-  },
 ];
 
 export const defaultTheme = themes[0];
