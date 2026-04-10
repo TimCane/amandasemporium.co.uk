@@ -161,29 +161,26 @@ const jsonLd = {
   </Fragment>
 
   <article class="bear-profile">
-    {/* ── Section 1: Hero / Photos ── */}
-    <section class="bear-profile__hero">
-      <div class="bear-profile__hero-inner">
-        <div class="bear-profile__image-wrapper">
-          <Image
-            src={picture}
-            alt={`${name} the ${speciesLabel}`}
-            width={600}
-            height={600}
-            loading="eager"
-            class="bear-profile__image"
-          />
-          <div class="bear-profile__image-decoration" aria-hidden="true"></div>
-        </div>
+    {/* ── Image (independent grid item — themes position freely) ── */}
+    <div class="bear-profile__image-wrapper">
+      <Image
+        src={picture}
+        alt={`${name} the ${speciesLabel}`}
+        width={600}
+        height={600}
+        loading="eager"
+        class="bear-profile__image"
+      />
+      <div class="bear-profile__image-decoration" aria-hidden="true"></div>
+    </div>
 
-        <div class="bear-profile__header">
-          <h1 class="bear-profile__name">{name}</h1>
-          <span class:list={['bear-profile__status', statusClass]}>{status}</span>
-          <span class="bear-profile__species">{speciesLabel}</span>
-        </div>
-      </div>
-      <div class="bear-profile__hero-decoration" aria-hidden="true"></div>
-    </section>
+    {/* ── Header: name, status, species (independent grid item) ── */}
+    <header class="bear-profile__header">
+      <h1 class="bear-profile__name">{name}</h1>
+      <span class:list={['bear-profile__status', statusClass]}>{status}</span>
+      <span class="bear-profile__species">{speciesLabel}</span>
+      <div class="bear-profile__header-decoration" aria-hidden="true"></div>
+    </header>
 
     {/* ── Additional Photos ── */}
     {hasPhotos && (
