@@ -138,14 +138,15 @@ Custom agents (defined in `.claude/agents/`) automate repeatable workflows. Use 
 
 | Phase | Agents | When to Run |
 |-------|--------|-------------|
-| **1 — Foundation** | `@content-migrator`, `@bear-data-auditor`, `@component-builder`, `@theme-validator` | Migrator for 1.4/1.4b, component-builder for 1.3/1.5, theme-validator after each theme skeleton |
+| **1 — Foundation** | `@content-migrator`, `@bear-data-auditor`, `@component-builder`, `@theme-validator`, `@amandas-voice` | Migrator for 1.4/1.4b, amandas-voice for bear narratives/taglines in 1.4b, component-builder for 1.3/1.5, theme-validator after each theme skeleton |
 | **2 — Admin Panel** | `@component-builder`, `@doc-checker` | Component-builder for admin forms/views, doc-checker after smart features |
-| **3 — Bears** | `@page-builder`, `@component-builder`, `@theme-validator` | Page-builder for each page (3.1–3.4), component-builder for bear card/map/timeline, theme-validator after styling |
-| **4 — Static Pages** | `@page-builder`, `@theme-validator` | Page-builder for each page (4.1–4.5), theme-validator after styling |
-| **5 — Products & Events** | `@page-builder`, `@component-builder`, `@content-migrator`, `@theme-validator` | Content-migrator for 5.1, page-builder for listings/profiles, theme-validator after styling |
-| **6 — Gallery & Polish** | `@a11y-auditor`, `@theme-validator`, `@component-builder`, `@doc-checker` | A11y-auditor for 6.3, theme-validator for 6.4, component-builder for SEO components, doc-checker across all |
+| **3 — Bears** | `@page-builder`, `@component-builder`, `@theme-validator`, `@amandas-voice` | Page-builder for each page (3.1–3.4), amandas-voice for auto-generated bear summaries, theme-validator after styling |
+| **4 — Static Pages** | `@page-builder`, `@theme-validator`, `@amandas-voice` | Page-builder for each page (4.1–4.5), amandas-voice for all page copy (home hero, about page, 404 message, contact intro), theme-validator after styling |
+| **5 — Products & Events** | `@page-builder`, `@component-builder`, `@content-migrator`, `@theme-validator`, `@amandas-voice` | Content-migrator for 5.1, amandas-voice for product descriptions and event recaps, page-builder for listings/profiles, theme-validator after styling |
+| **6 — Gallery & Polish** | `@a11y-auditor`, `@theme-validator`, `@component-builder`, `@doc-checker`, `@amandas-voice` | Amandas-voice for SEO meta descriptions across all pages, a11y-auditor for 6.3, theme-validator for 6.4, doc-checker across all |
 | **7 — Deployment** | `@phase-reviewer`, `@doc-checker` | Phase-reviewer to confirm readiness, doc-checker to verify config matches spec |
 
 **Cross-cutting agents** (run at any phase boundary):
 - **`@phase-reviewer`** — Run at the start of each phase to see status, or when transitioning between phases
 - **`@doc-checker`** — Run after completing a batch of work to catch drift between docs and implementation
+- **`@amandas-voice`** — Use whenever any website copy needs to be written or rewritten to maintain consistent brand voice

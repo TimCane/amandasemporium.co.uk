@@ -99,7 +99,7 @@ Extensive specs exist in `docs/`:
 - `content/` — collection schemas
 - `features/` — 11 feature specs (docker, SSR, SEO, etc.)
 - `pages/` — 14 page designs
-- `themes/` — 4 theme design docs
+- `themes/` — 2 theme design docs
 - `implementation/` — per-phase task breakdowns
 
 Always consult the relevant doc before implementing a feature.
@@ -122,8 +122,9 @@ When the user says something like "implement phase 2" or "let's build the bears 
 
 Each implementation doc has a `## Recommended Agents` section listing which agents to use. When spawning teammates:
 
-- **Component + page tasks** → Teammate reads the spec, builds HTML, then styles all 4 themes
+- **Component + page tasks** → Teammate reads the spec, builds HTML, then styles all themes
 - **Content migration tasks** → Teammate uses `@content-collection-migrator` workflow
+- **Copy/content writing tasks** → Teammate uses `@amandas-voice` for any text that appears on the site (taglines, narratives, page intros, meta descriptions, empty states, 404 messages)
 - **Validation/audit tasks** → Teammate runs read-only agents (`@theme-scss-validator`, `@bears-data-auditor`, `@astro-a11y-reviewer`)
 - **Cross-cutting tasks** (SEO, a11y, responsive) → One teammate per concern, runs after page work completes
 
@@ -157,3 +158,4 @@ Custom agents live in `.claude/agents/`. Teammates can use them via `@agent-name
 | `@docs-code-drift-auditor` | Check code matches documentation specs | Sonnet |
 | `@bears-data-auditor` | Audit bear data quality | Haiku |
 | `@astro-a11y-reviewer` | WCAG AA accessibility audit | Sonnet |
+| `@amandas-voice` | Generate copy in Amanda's consistent brand voice | Sonnet |
