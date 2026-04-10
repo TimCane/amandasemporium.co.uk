@@ -14,15 +14,14 @@ interface Props {
 const { tabs, activeValue } = Astro.props;
 ---
 
-<div class="filter-tabs" role="tablist" aria-label="Filter">
+<nav class="filter-tabs" aria-label="Filter bears">
   {tabs.map(tab => (
     <a
       href={tab.href}
       class:list={['filter-tabs__tab', { 'filter-tabs__tab--active': tab.value === activeValue }]}
-      role="tab"
-      aria-selected={tab.value === activeValue ? 'true' : 'false'}
+      aria-current={tab.value === activeValue ? 'page' : undefined}
     >
       {tab.label}
     </a>
   ))}
-</div>
+</nav>
