@@ -1,7 +1,7 @@
 ---
 name: "New Addington Carnival"
 date: 2019-06-09
-tagline: ""
+info: ""
 location:
     name: "Milne Park, CR0 0DN."
     location: "croydon"

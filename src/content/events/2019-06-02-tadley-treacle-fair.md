@@ -1,7 +1,7 @@
 ---
 name: "Tadley Treacle Fair"
 date: 2019-06-02
-tagline: ""
+info: ""
 location:
     name: "Saunders Fields, Tadley, RG26 4FF."
     location: "tadley"

@@ -1,7 +1,7 @@
 ---
 name: "Windsor Spring Food, Home & Craft Fair"
 date: 2019-04-14
-tagline: "Tickets on the gate, adults £6, free carpark."
+info: "Tickets on the gate, adults £6, free carpark."
 location:
     name: "Royal Windsor Racecourse, SL4 5EZ."
     location: "windsor"

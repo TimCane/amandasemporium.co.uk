@@ -1,7 +1,7 @@
 ---
 name: "The Big Purple Xmas Special"
 date: 2021-10-24
-tagline: "Vintage, New Age, Craft, Gift & Foodies"
+info: "Vintage, New Age, Craft, Gift & Foodies"
 location:
     name: "Ardingly South of England Showground"
     location: "ardingly"

@@ -31,7 +31,7 @@ const bears = defineCollection({
     picture: image(),
     photos: z.array(image()).optional(),
     featured: z.boolean().optional(),
-    tags: z.array(z.string()),
+    tags: z.array(z.string()).optional(),
     brand: bearBrands,
     species: bearSpecies,
     rescued: z.object({
@@ -43,7 +43,6 @@ const bears = defineCollection({
       location: reference('locations'),
       date: z.date(),
     }).optional(),
-    notes: z.string().optional(),
   }),
 });
 
@@ -52,7 +51,7 @@ const events = defineCollection({
   type: 'content',
   schema: ({ image }) => z.object({
     name: z.string(),
-    tagline: z.string().optional(),
+    info: z.string().optional(),
     date: z.date(),
     recapPhotos: z.array(image()).optional(),
     location: z.object({
@@ -71,6 +70,9 @@ const locations = defineCollection({
     name: z.string(),
     latitude: z.number(),
     longitude: z.number(),
+    country: z.string().optional(),
+    county: z.string().optional(),
+    postcode: z.string().optional(),
   }),
 });
 

@@ -1,7 +1,7 @@
 ---
 name: "Andover Artisan Market"
 date: 2022-11-20
-tagline: ""
+info: ""
 location:
     name: "Andover High Street, Andover."
     location: "andover"

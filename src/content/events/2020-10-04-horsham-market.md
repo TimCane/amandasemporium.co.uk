@@ -1,7 +1,7 @@
 ---
 name: "Horsham Market"
 date: 2020-10-04
-tagline: ""
+info: ""
 location:
     name: "Carfax, Horsham, RH12 1EQ"
     location: "horsham"

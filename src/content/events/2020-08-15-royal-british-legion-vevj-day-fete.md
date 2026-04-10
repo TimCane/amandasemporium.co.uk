@@ -1,7 +1,7 @@
 ---
 name: "Royal British Legion VE/VJ Day Fete"
 date: 2020-08-15
-tagline: ""
+info: ""
 location:
     name: "Gostrey Meadow, Farnham. GU9 7PT."
     location: "farnham"

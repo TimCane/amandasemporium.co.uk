@@ -1,7 +1,7 @@
 ---
 name: "Charity Easter Fayre, Shalford Park."
 date: 2019-04-22
-tagline: ""
+info: ""
 location:
     name: "Guildford, GU4 8AA."
     location: "guildford"

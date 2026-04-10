@@ -1,7 +1,7 @@
 ---
 name: "Andover Carnival"
 date: 2025-07-20
-tagline: ""
+info: ""
 location:
     name: "Vigo Recreation Ground, Andover SP10 1HH."
     location: "andover"

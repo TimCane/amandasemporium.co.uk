@@ -1,7 +1,7 @@
 ---
 name: "Horley Christmas Fair"
 date: 2022-12-10
-tagline: ""
+info: ""
 location:
     name: "Horley High Street, RH6 7AY."
     location: "horley"

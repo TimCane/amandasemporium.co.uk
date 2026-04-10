@@ -1,7 +1,7 @@
 ---
 name: "Windsor Spring Food & Craft Fair"
 date: 2018-04-07
-tagline: "10am til 4pm, free parking. Tickets on the gate."
+info: "10am til 4pm, free parking. Tickets on the gate."
 location:
     name: "Royal Windsor Racecourse, SL4 5EZ."
     location: "windsor"

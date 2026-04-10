@@ -1,7 +1,7 @@
 ---
 name: "Alton Regency Day Market"
 date: 2023-06-17
-tagline: ""
+info: ""
 location:
     name: "High St, Alton GU34 1ET."
     location: "alton"

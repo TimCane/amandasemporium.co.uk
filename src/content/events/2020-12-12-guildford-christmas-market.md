@@ -1,7 +1,7 @@
 ---
 name: "Guildford Christmas Market"
 date: 2020-12-12
-tagline: ""
+info: ""
 location:
     name: "Guildford High Street, GU1 3YL."
     location: "guildford"

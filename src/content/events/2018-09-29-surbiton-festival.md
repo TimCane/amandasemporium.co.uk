@@ -1,7 +1,7 @@
 ---
 name: "Surbiton Festival"
 date: 2018-09-29
-tagline: ""
+info: ""
 location:
     name: "Claremont Gardens, KT6 4TN."
     location: "surbiton"

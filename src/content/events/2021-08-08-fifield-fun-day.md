@@ -1,7 +1,7 @@
 ---
 name: "Fifield Fun Day"
 date: 2021-08-08
-tagline: ""
+info: ""
 location:
     name: "Fifield Rd, Maidenhead SL6 2DX."
     location: "maidenhead"

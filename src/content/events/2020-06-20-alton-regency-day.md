@@ -1,7 +1,7 @@
 ---
 name: "Alton Regency Day"
 date: 2020-06-20
-tagline: ""
+info: ""
 location:
     name: "Alton Highstreet, GU34 1AB"
     location: "alton"

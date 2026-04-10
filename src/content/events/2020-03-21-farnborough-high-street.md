@@ -1,7 +1,7 @@
 ---
 name: "Farnborough High Street"
 date: 2020-03-21
-tagline: ""
+info: ""
 location:
     name: "Farnborough"
     location: "farnborough"

@@ -1,7 +1,7 @@
 ---
 name: "Morden Family Funday"
 date: 2022-07-17
-tagline: ""
+info: ""
 location:
     name: "Morden Sports Ground. SM4 5AD"
     location: "morden"

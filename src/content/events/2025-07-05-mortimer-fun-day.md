@@ -1,7 +1,7 @@
 ---
 name: "Mortimer Fun Day"
 date: 2025-07-05
-tagline: ""
+info: ""
 location:
     name: "Mortimer Recreation Ground, Reading RG7 3ST."
     location: "mortimer"
