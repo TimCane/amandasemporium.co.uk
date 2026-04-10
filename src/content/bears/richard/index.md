@@ -3,7 +3,7 @@ name: "Richard"
 uploadedOn: 2021-08-11
 picture: "./richard.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "black-suit", "white-shirt", "black-tie", "formal-wear", "embroidered-eyes", "embroidered-nose", "stitched-mouth", "fluffy", "soft", "floppy-ears"]
 brand: "build-a-bear"
 species: "dog"
 rescued:

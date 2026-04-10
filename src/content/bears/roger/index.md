@@ -3,7 +3,7 @@ name: "Roger"
 uploadedOn: 2023-05-30
 picture: "./roger.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "tan-fur", "multi-coloured-t-shirt", "mr-men", "character-costume", "printed-face", "embroidered-nose", "tongue-out", "well-loved", "smooth", "floppy-ears"]
 brand: "build-a-bear"
 species: "dog"
 rescued:

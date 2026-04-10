@@ -3,7 +3,7 @@ name: "Paul"
 uploadedOn: 2021-07-16
 picture: "./paul.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "fluffy", "soft", "argyle-sweater-vest", "brown-trousers", "embroidered-nose", "stitched-mouth", "button-eyes", "well-loved", "vintage"]
 brand: "keel-teddy"
 species: "bear"
 rescued:

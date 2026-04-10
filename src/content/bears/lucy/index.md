@@ -3,7 +3,7 @@ name: "Lucy"
 uploadedOn: 2018-11-12
 picture: "./lucy.jpg"
 tagline: ""
-tags: []
+tags: ["white-fur", "fluffy", "soft", "crochet-dress", "purple-dress", "lavender-and-purple-dress", "bow", "white-bow", "embroidered-nose", "pink-nose", "button-eyes", "ear-tag", "keel-toys"]
 brand: "keel-teddy"
 species: "bear"
 rescued:

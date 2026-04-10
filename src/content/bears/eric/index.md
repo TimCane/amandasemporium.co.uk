@@ -3,7 +3,7 @@ name: "Eric"
 uploadedOn: 2023-05-30
 picture: "./eric.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "navy-knitted-jumper", "red-stripe", "button-front", "fluffy", "well-loved", "embroidered-nose", "stitched-mouth", "paw-pads", "classic-style", "vintage"]
 brand: "bear-factory"
 species: "bear"
 rescued:

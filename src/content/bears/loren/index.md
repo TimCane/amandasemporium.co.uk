@@ -3,7 +3,7 @@ name: "Loren"
 uploadedOn: 2021-07-16
 picture: "./loren.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "long-ears", "black-trousers", "patterned-top", "black-top-with-colourful-print", "purple-glitter-shoes", "embroidered-nose", "embroidered-eyes", "soft", "fluffy", "dressed"]
 brand: "build-a-bear"
 species: "rabbit"
 rescued:

@@ -3,7 +3,7 @@ name: "Mac"
 uploadedOn: 2019-12-12
 picture: "./mac.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "cream-fur", "racing-suit", "hat", "dungarees", "rust-eze-racing", "disney-cars", "lightning-mcqueen", "character-costume", "number-95", "checkered-pattern", "red-outfit", "well-loved", "printed-face", "smooth"]
 brand: "build-a-bear"
 species: "monkey"
 rescued:

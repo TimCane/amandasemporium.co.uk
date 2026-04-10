@@ -3,7 +3,7 @@ name: "Mabel"
 uploadedOn: 2019-09-30
 picture: "./mabel.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "fluffy", "curly-fur", "dress", "red-dress", "polka-dot-dress", "white-belt", "hair-clip", "red-bow", "button-accessory", "embroidered-nose", "well-loved", "soft"]
 brand: "unknown"
 species: "bear"
 rescued:

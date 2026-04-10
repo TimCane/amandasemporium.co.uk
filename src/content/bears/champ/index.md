@@ -3,7 +3,7 @@ name: "Champ"
 uploadedOn: 2021-07-16
 picture: "./champ.jpg"
 tagline: ""
-tags: ["scuba"]
+tags: ["brown-fur", "scuba-suit", "teal-and-yellow-outfit", "diving-mask", "snorkel", "flippers", "gloves", "embroidered-nose", "stitched-mouth", "well-loved", "soft", "printed-face"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

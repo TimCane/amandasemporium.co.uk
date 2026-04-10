@@ -3,7 +3,7 @@ name: "Isla"
 uploadedOn: 2022-12-02
 picture: "./isla.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "fluffy", "soft", "dress", "tartan-dress", "red-and-black-dress", "headband", "bow", "handbag", "red-handbag", "black-bow", "embroidered-nose", "stitched-mouth"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

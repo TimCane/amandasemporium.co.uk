@@ -3,7 +3,7 @@ name: "Ava"
 uploadedOn: 2023-06-20
 picture: "./ava.jpg"
 tagline: ""
-tags: []
+tags: ["pink-fur", "cream-fur", "multi-coloured-fur", "dark-pink-dress", "dress", "tiara", "fluffy", "soft", "embroidered-nose", "build-a-bear", "sparkly-dress", "layered-skirt"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

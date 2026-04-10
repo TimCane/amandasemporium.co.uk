@@ -3,7 +3,7 @@ name: "Max"
 uploadedOn: 2024-10-01
 picture: "./max.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "grey-sweater-vest", "white-shirt", "striped-tie", "black-trousers", "school-uniform", "backpack", "paw-pads", "fluffy", "soft", "embroidered-nose", "build-a-bear"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

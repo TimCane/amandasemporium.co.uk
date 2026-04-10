@@ -3,7 +3,7 @@ name: "Lewis"
 uploadedOn: 2025-09-18
 picture: "./lewis.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "white-t-shirt", "red-cardigan", "red-shorts", "fluffy", "soft", "embroidered-nose", "stitched-mouth", "printed-face", "graphic-tee"]
 brand: "john-lewis"
 species: "bear"
 rescued:

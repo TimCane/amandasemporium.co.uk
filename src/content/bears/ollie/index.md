@@ -3,7 +3,7 @@ name: "Ollie"
 uploadedOn: 2018-09-30
 picture: "./ollie.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "onesie", "striped-onesie", "knitted-outfit", "multi-coloured-onesie", "button-detail", "build-a-bear", "smooth", "fluffy", "embroidered-nose", "printed-face", "paw-pads", "wrist-tag"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

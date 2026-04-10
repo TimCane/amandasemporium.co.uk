@@ -3,7 +3,7 @@ name: "Leonardo"
 uploadedOn: 2021-08-11
 picture: "./leonardo.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "blue-t-shirt", "pyjama-bottoms", "slippers", "mask", "teenage-mutant-ninja-turtles", "fluffy", "soft", "embroidered-nose", "printed-face", "character-costume"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

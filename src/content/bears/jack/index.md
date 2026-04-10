@@ -3,7 +3,7 @@ name: "Jack"
 uploadedOn: 2018-04-29
 picture: "./jack.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "fair-isle-jumper", "green-jumper", "green-shorts", "embroidered-nose", "stitched-mouth", "fluffy", "soft", "well-loved", "smooth-fur"]
 brand: "glorious-britain-jointed"
 species: "bear"
 rescued:

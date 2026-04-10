@@ -3,7 +3,7 @@ name: "George"
 uploadedOn: 2018-09-30
 picture: "./george.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "curly-fur", "knitted-jumper", "knitted-trousers", "teal-jumper", "brown-trousers", "fluffy", "embroidered-nose", "paw-pads", "well-loved", "soft"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

@@ -3,7 +3,7 @@ name: "Andy"
 uploadedOn: 2019-09-30
 picture: "./andy.jpg"
 tagline: ""
-tags: ["toy story"]
+tags: ["white-fur", "toy-story-shirt", "beige-shorts", "red-neckerchief", "woody-print", "disney-character", "button-eyes", "brown-nose", "fluffy", "soft", "build-a-bear-style"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

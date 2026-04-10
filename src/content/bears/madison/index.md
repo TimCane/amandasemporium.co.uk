@@ -3,7 +3,7 @@ name: "Madison"
 uploadedOn: 2018-09-30
 picture: "./madison.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "onesie", "teal-knitted-onesie", "yellow-stripe-detail", "soft", "fluffy", "embroidered-nose", "stitched-mouth", "smooth-face", "plump"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

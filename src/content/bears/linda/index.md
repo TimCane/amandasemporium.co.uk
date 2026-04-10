@@ -3,7 +3,7 @@ name: "Linda"
 uploadedOn: 2025-09-18
 picture: "./linda.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "supergirl", "blue-top", "red-tutu", "red-cape", "star-print-boots", "embroidered-eyes", "embroidered-nose", "fluffy", "soft", "superman-logo", "long-ears"]
 brand: "build-a-bear"
 species: "rabbit"
 rescued:

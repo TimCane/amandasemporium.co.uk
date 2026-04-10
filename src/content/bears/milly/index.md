@@ -3,7 +3,7 @@ name: "Milly"
 uploadedOn: 2021-07-16
 picture: "./milly.jpg"
 tagline: ""
-tags: []
+tags: ["blue-fur", "curly-fur", "fluffy", "dress", "anna-frozen", "disney-princess", "frozen", "black-bodice", "blue-skirt", "embroidered-bodice", "gold-trim", "white-paw-pads", "embroidered-nose", "build-a-bear"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

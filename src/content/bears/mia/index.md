@@ -3,7 +3,7 @@ name: "Mia"
 uploadedOn: 2018-11-12
 picture: "./mia.jpg"
 tagline: ""
-tags: []
+tags: ["pink-fur", "fluffy", "soft", "crochet-dress", "pink-dress", "flower-hair-clip", "blue-flower-accessory", "embroidered-nose", "button-eyes", "paw-pads", "cream-trim-dress"]
 brand: "baby-gund"
 species: "bear"
 rescued:

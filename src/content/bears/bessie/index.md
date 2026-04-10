@@ -3,7 +3,7 @@ name: "Bessie"
 uploadedOn: 2019-05-31
 picture: "./bessie.jpg"
 tagline: ""
-tags: []
+tags: ["white-fur", "fluffy", "soft", "striped-cardigan", "multicolour-cardigan", "polka-dot-dress", "pink-dress", "knitted-clothing", "embroidered-nose", "button-eyes", "pink-patch"]
 brand: "keel-teddy"
 species: "bear"
 rescued:

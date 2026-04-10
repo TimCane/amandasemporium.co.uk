@@ -3,7 +3,7 @@ name: "Henry"
 uploadedOn: 2018-04-29
 picture: "./henry.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "fluffy", "curly-fur", "soft", "crochet-jumper", "blue-and-brown-striped-jumper", "blue-shorts", "bow-tie", "paw-pads", "embroidered-nose", "well-loved"]
 brand: "wh-smith"
 species: "bear"
 rescued:

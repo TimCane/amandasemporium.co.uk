@@ -3,7 +3,7 @@ name: "Simon"
 uploadedOn: 2023-05-30
 picture: "./simon.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "curly-fur", "cream-t-shirt", "off-roading-graphic-tee", "khaki-shorts", "paw-pads", "embroidered-nose", "button-eyes", "fluffy", "soft", "well-loved"]
 brand: "teddy-tastic"
 species: "bear"
 rescued:

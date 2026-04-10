@@ -3,7 +3,7 @@ name: "Primrose"
 uploadedOn: 2018-04-29
 picture: "./primrose.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "fluffy", "soft", "yellow-crochet-dress", "matching-headband", "pom-pom-headband", "handmade-outfit", "cream-paw-pads", "embroidered-nose", "well-loved"]
 brand: "as-watson"
 species: "bear"
 rescued:

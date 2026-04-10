@@ -3,7 +3,7 @@ name: "Billy"
 uploadedOn: 2022-08-17
 picture: "./billy.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "blue-jacket", "union-jack-t-shirt", "red-shorts", "varsity-jacket", "british-themed", "embroidered-nose", "stitched-mouth", "smooth", "printed-face", "soft"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

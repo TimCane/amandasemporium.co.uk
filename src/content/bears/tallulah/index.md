@@ -3,7 +3,7 @@ name: "Tallulah"
 uploadedOn: 2022-11-18
 picture: "./tallulah.jpg"
 tagline: ""
-tags: []
+tags: ["multi-coloured-fur", "pink-fur", "white-fur", "pastel-fur", "dress", "pink-dress", "tutu", "tiara", "pink-bow", "hello-kitty", "character-costume", "blue-eyes", "embroidered-nose", "stitched-mouth", "fluffy", "cat-ears", "pink-paw-pads"]
 brand: "build-a-bear"
 species: "cat"
 rescued:

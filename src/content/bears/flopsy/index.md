@@ -3,7 +3,7 @@ name: "Flopsy"
 uploadedOn: 2024-10-01
 picture: "./flopsy.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "pink-inner-ears", "knitted-cardigan", "teal-cardigan", "blue-stripe-detail", "button-fastening", "naked-lower-body", "floppy-ears", "soft", "fluffy", "embroidered-nose", "button-eyes", "white-paws"]
 brand: "build-a-bear"
 species: "rabbit"
 rescued:

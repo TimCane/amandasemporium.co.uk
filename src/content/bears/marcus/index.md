@@ -3,7 +3,7 @@ name: "Marcus"
 uploadedOn: 2025-09-18
 picture: "./marcus.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "football-kit", "red-and-white-shirt", "england-kit", "black-boots", "football-boots", "smooth", "fluffy", "embroidered-nose", "england"]
 brand: "the-christmas-magical-adventure-bear"
 species: "bear"
 rescued:

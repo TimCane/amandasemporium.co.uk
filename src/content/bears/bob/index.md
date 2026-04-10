@@ -3,7 +3,7 @@ name: "Bob"
 uploadedOn: 2019-04-07
 picture: "./bob.jpg"
 tagline: ""
-tags: ["minion"]
+tags: ["cream-fur", "fluffy", "dungarees", "yellow-jumper", "blue-dungarees", "knitted-outfit", "brown-nose", "embroidered-nose", "soft", "well-loved"]
 brand: "keel-cubby"
 species: "bear"
 rescued:

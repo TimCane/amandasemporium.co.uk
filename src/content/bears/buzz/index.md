@@ -3,7 +3,7 @@ name: "Buzz"
 uploadedOn: 2019-09-30
 picture: "./buzz.jpg"
 tagline: ""
-tags: ["toy story"]
+tags: ["cream-fur", "space-suit", "hat", "buzz-lightyear", "toy-story", "disney", "fluffy", "soft", "embroidered-nose", "stitched-mouth", "button-eyes", "smooth"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

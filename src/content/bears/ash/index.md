@@ -3,7 +3,7 @@ name: "Ash"
 uploadedOn: 2024-04-22
 picture: "./ash.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "knitted-cardigan", "yellow-stripe", "fluffy", "soft", "paw-pads", "embroidered-nose", "stitched-mouth", "well-loved", "seated"]
 brand: "unknown"
 species: "bear"
 rescued:

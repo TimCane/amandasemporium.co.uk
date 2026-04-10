@@ -3,7 +3,7 @@ name: "Greta"
 uploadedOn: 2023-07-11
 picture: "./greta.jpg"
 tagline: ""
-tags: []
+tags: ["multi-coloured-fur", "pastel-fur", "pink-fur", "blue-fur", "yellow-fur", "knitted-dress", "striped-dress", "bow", "flower-hair-accessory", "long-ears", "embroidered-nose", "embroidered-eyes", "soft", "fluffy", "white-paws"]
 brand: "build-a-bear"
 species: "rabbit"
 rescued:

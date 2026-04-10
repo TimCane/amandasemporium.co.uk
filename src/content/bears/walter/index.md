@@ -3,7 +3,7 @@ name: "Walter"
 uploadedOn: 2025-04-24
 picture: "./walter.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "white-t-shirt", "black-trousers", "well-loved", "fluffy", "embroidered-nose", "stitched-mouth", "button-eyes", "soft"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

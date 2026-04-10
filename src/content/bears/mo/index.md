@@ -3,7 +3,7 @@ name: "Mo"
 uploadedOn: 2021-07-16
 picture: "./mo.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "white-face", "orange-knitted-onesie", "teal-detail", "button-fastening", "embroidered-nose", "stitched-mouth", "button-eyes", "soft", "fluffy", "white-paw-pads"]
 brand: "bear-factory"
 species: "monkey"
 rescued:

@@ -3,7 +3,7 @@ name: "Sophie"
 uploadedOn: 2018-11-24
 picture: "./sophie.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "smooth", "soft", "knitted-dress", "blue-cardigan", "cream-pinafore", "well-loved", "embroidered-nose", "button-eyes", "vintage"]
 brand: "unknown"
 species: "bear"
 rescued:

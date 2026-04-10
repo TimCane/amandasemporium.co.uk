@@ -3,7 +3,7 @@ name: "Grayson"
 uploadedOn: 2022-04-24
 picture: "./grayson.jpg"
 tagline: ""
-tags: ["medical","doctor"]
+tags: ["cream-fur", "white-lab-coat", "dark-trousers", "blue-tie", "stethoscope", "doctor-costume", "smooth", "embroidered-nose", "embroidered-eyes", "soft", "doctor-outfit"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

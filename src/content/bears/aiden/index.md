@@ -3,7 +3,7 @@ name: "Aiden"
 uploadedOn: 2018-11-12
 picture: "./aiden.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "dungarees", "blue-t-shirt", "denim-dungarees", "fluffy", "embroidered-nose", "button-eyes", "soft", "well-loved"]
 brand: "bear-factory"
 species: "bear"
 rescued:

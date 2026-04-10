@@ -3,7 +3,7 @@ name: "Jemma"
 uploadedOn: 2023-05-30
 picture: "./jemma.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "cream-fur", "pink-knitted-onesie", "knitted-outfit", "soft", "fluffy", "embroidered-nose", "button-eyes", "cream-paw-pads", "well-loved"]
 brand: "build-a-bear"
 species: "dog"
 rescued:

@@ -3,7 +3,7 @@ name: "Gregory"
 uploadedOn: 2019-12-12
 picture: "./gregory.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "red-checked-jacket", "navy-gilet", "denim-shorts", "hat", "sherpa-lined-hood", "hooded-jacket", "embroidered-nose", "embroidered-eyes", "paw-pads", "fluffy", "soft"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

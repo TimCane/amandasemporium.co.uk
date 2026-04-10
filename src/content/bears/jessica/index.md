@@ -3,7 +3,7 @@ name: "Jessica"
 uploadedOn: 2022-12-02
 picture: "./jessica.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "pink-inner-ears", "knitted-onesie", "pink-striped-knit", "floral-headband", "floral-bag", "shoulder-bag", "soft", "fluffy", "embroidered-nose", "well-loved"]
 brand: "build-a-bear"
 species: "rabbit"
 rescued:

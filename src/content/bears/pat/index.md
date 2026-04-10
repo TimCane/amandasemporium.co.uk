@@ -3,7 +3,7 @@ name: "Pat"
 uploadedOn: 2018-09-30
 picture: "./pat.jpg"
 tagline: ""
-tags: []
+tags: ["blue-fur", "knitted-outfit", "knitted-jumper", "knitted-trousers", "bow", "light-blue-bow", "fluffy", "soft", "embroidered-nose", "button-eyes", "smooth-face", "paw-pads"]
 brand: "keel-teddy"
 species: "bear"
 rescued:

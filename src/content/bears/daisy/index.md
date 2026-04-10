@@ -3,7 +3,7 @@ name: "Daisy"
 uploadedOn: 2021-10-07
 picture: "./daisy.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "pink-dress", "tutu-skirt", "white-bow", "headband", "handbag", "sparkly", "printed-face", "embroidered-nose", "fluffy", "soft"]
 brand: "build-a-bear"
 species: "dog"
 rescued:

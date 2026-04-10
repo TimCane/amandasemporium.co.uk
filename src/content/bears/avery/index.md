@@ -3,7 +3,7 @@ name: "Avery"
 uploadedOn: 2023-06-20
 picture: "./avery.jpg"
 tagline: ""
-tags: ["rainbow"]
+tags: ["multi-coloured-fur", "rainbow-fur", "leopard-print-pattern", "purple-top", "leopard-print-shorts", "crossbody-bag", "printed-face", "sparkly-eyes", "pink-nose", "love-slogan", "build-a-bear", "soft", "fluffy", "pink-paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

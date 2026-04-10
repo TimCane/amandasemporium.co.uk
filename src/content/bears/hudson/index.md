@@ -3,7 +3,7 @@ name: "Hudson"
 uploadedOn: 2023-11-02
 picture: "./hudson.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "cream-fur", "red-and-black-rugby-shirt", "dark-jeans", "collared-shirt", "printed-face", "embroidered-smile", "smooth", "large", "paw-pads"]
 brand: "build-a-bear"
 species: "monkey"
 rescued:

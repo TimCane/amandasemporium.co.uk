@@ -3,7 +3,7 @@ name: "Chester"
 uploadedOn: 2019-09-30
 picture: "./chester.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "brown-ears", "fluffy", "curly-fur", "knitted-onesie", "blue-onesie", "well-loved", "button-eyes", "embroidered-nose", "soft", "floppy-ears"]
 brand: "funtastic"
 species: "dog"
 rescued:

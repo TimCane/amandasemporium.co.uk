@@ -3,7 +3,7 @@ name: "Hannah"
 uploadedOn: 2021-07-16
 picture: "./hannah.jpg"
 tagline: ""
-tags: []
+tags: ["white-fur", "purple-pyjamas", "pyjamas", "green-eyes", "pink-nose", "fluffy", "soft", "hannah-montana", "character-costume", "embroidered-nose", "button-nose", "sparkly-outfit"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

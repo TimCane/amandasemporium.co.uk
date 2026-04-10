@@ -3,7 +3,7 @@ name: "Topsy"
 uploadedOn: 2022-12-09
 picture: "./topsy.jpg"
 tagline: ""
-tags: []
+tags: ["multi-coloured-fur", "rainbow-fur", "pink-sequin-dress", "pink-skirt", "pink-bow", "dress", "sequin-top", "fluffy", "smooth", "printed-face", "embroidered-nose", "sparkly", "build-a-bear", "colourful-paws"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

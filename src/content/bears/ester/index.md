@@ -3,7 +3,7 @@ name: "Ester"
 uploadedOn: 2024-10-01
 picture: "./ester.jpg"
 tagline: ""
-tags: ["wings"]
+tags: ["pink-fur", "fluffy", "curly-fur", "purple-tutu", "pink-belt", "fairy-wings", "fairy-costume", "soft", "button-eyes", "embroidered-nose", "cream-paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

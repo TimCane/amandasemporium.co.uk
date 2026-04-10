@@ -3,7 +3,7 @@ name: "Mimmy"
 uploadedOn: 2021-07-16
 picture: "./mimmy.jpg"
 tagline: ""
-tags: []
+tags: ["white-fur", "pink-fur-paws", "dress", "pink-black-dress", "sequined-dress", "striped-skirt", "hello-kitty", "hello-kitty-badge", "character-costume", "sparkly", "fluffy", "soft", "button-eyes", "pink-nose", "socks"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

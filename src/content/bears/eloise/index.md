@@ -3,7 +3,7 @@ name: "Eloise"
 uploadedOn: 2022-09-26
 picture: "./eloise.jpg"
 tagline: ""
-tags: []
+tags: ["white-fur", "fluffy", "blue-dress", "cape", "sheer-cape", "frozen-elsa", "disney-princess", "sparkly", "embroidered-nose", "pink-nose", "soft", "curly-fur"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

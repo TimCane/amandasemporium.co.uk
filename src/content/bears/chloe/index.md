@@ -3,7 +3,7 @@ name: "Chloe"
 uploadedOn: 2019-05-31
 picture: "./chloe.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "fluffy", "shaggy", "pink-crochet-dress", "white-trim-dress", "bow", "button-eyes", "embroidered-nose", "paw-pads", "well-loved"]
 brand: "beam-feature-ltd"
 species: "bear"
 rescued:

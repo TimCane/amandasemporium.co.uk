@@ -3,7 +3,7 @@ name: "Cora"
 uploadedOn: 2023-06-20
 picture: "./cora.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "cream-fur", "dress", "red-dress", "heart-print", "red-bow", "bow", "printed-face", "embroidered-nose", "smooth", "fluffy", "soft", "build-a-bear"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

@@ -3,7 +3,7 @@ name: "Charlotte"
 uploadedOn: 2019-07-18
 picture: "./charlotte.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "cream-paw-pads", "knitted-dress", "blue-dress", "navy-dress", "two-tone-dress", "crochet-clothing", "embroidered-nose", "stitched-mouth", "smooth-fur", "soft", "well-loved"]
 brand: "glorious-britain"
 species: "bear"
 rescued:

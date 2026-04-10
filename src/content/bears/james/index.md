@@ -3,7 +3,7 @@ name: "James"
 uploadedOn: 2019-07-18
 picture: "./james.jpg"
 tagline: ""
-tags: []
+tags: ["white-fur", "fluffy", "soft", "pyjamas", "blue-pyjamas", "button-eyes", "embroidered-nose", "paw-pads"]
 brand: "russ"
 species: "bear"
 rescued:

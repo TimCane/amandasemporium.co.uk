@@ -3,7 +3,7 @@ name: "Harriet"
 uploadedOn: 2022-11-08
 picture: "./harriet.jpg"
 tagline: ""
-tags: []
+tags: ["white-fur", "multi-coloured-fur", "pink-heart-markings", "blue-heart-markings", "purple-markings", "pyjamas", "pink-heart-print-top", "white-trousers", "slippers", "hello-kitty-slippers", "hello-kitty", "pink-bow", "fluffy", "soft", "printed-face", "heart-eyes"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

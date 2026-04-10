@@ -3,7 +3,7 @@ name: "Thomas"
 uploadedOn: 2019-12-12
 picture: "./thomas.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "firefighter-uniform", "yellow-helmet", "black-jumpsuit", "hi-vis-stripes", "character-costume", "firefighter", "embroidered-eyes", "embroidered-nose", "soft", "fluffy"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

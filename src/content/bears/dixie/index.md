@@ -3,7 +3,7 @@ name: "Dixie"
 uploadedOn: 2023-11-02
 picture: "./dixie.jpg"
 tagline: ""
-tags: []
+tags: ["multi-coloured-fur", "pink-fur", "yellow-fur", "blue-fur", "tutu", "sequin-top", "rainbow-skirt", "teal-sequin-bodice", "fluffy", "soft", "embroidered-eyes", "sparkly", "pink-nose", "build-a-bear"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

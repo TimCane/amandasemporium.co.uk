@@ -3,7 +3,7 @@ name: "Bert"
 uploadedOn: 2019-11-22
 picture: "./bert.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "knitted-cardigan", "blue-jeans", "blue-grey-cardigan", "fair-isle-pattern", "button-eyes", "embroidered-nose", "soft", "fluffy", "smooth-fur", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

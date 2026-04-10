@@ -3,7 +3,7 @@ name: "Lavender"
 uploadedOn: 2021-07-16
 picture: "./lavender.jpg"
 tagline: ""
-tags: []
+tags: ["purple-fur", "white-fur", "multi-coloured-fur", "fluffy", "soft", "crochet-dress", "purple-dress", "white-bib", "sparkly-bow", "hair-bow", "embroidered-nose", "stitched-mouth", "white-muzzle", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

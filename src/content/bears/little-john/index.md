@@ -3,7 +3,7 @@ name: "Little John"
 uploadedOn: 2019-11-22
 picture: "./little-john.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "fluffy", "soft", "blue-striped-hoodie", "blue-shorts", "flat-cap", "button-eyes", "paw-pads", "well-loved", "casual-outfit"]
 brand: "keel-teddy"
 species: "bear"
 rescued:

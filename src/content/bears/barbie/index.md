@@ -3,7 +3,7 @@ name: "Barbie"
 uploadedOn: 2023-11-02
 picture: "./barbie.jpg"
 tagline: ""
-tags: []
+tags: ["pink-fur", "hot-pink-fur", "dress", "black-dress", "tutu-skirt", "polka-dot-shoes", "embroidered-nose", "heart-nose", "printed-face", "blue-eyes", "fluffy", "love-bug", "build-a-bear", "curly-fur"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

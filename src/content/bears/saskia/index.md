@@ -3,7 +3,7 @@ name: "Saskia"
 uploadedOn: 2024-06-18
 picture: "./saskia.jpg"
 tagline: ""
-tags: []
+tags: ["multi-coloured-fur", "pastel-fur", "pink-fur", "plaid-dress", "dress", "tutu", "headband", "purple-flower-accessory", "printed-face", "sparkly-eyes", "blue-eyes", "pink-nose", "fluffy", "soft", "build-a-bear"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

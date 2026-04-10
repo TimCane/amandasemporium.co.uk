@@ -3,7 +3,7 @@ name: "Benny"
 uploadedOn: 2019-09-30
 picture: "./benny.jpg"
 tagline: ""
-tags: []
+tags: ["white-fur", "blue-t-shirt", "jeans", "embroidered-nose", "embroidered-eyes", "fluffy", "soft", "smooth", "chest-pocket"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

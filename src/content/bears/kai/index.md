@@ -3,7 +3,7 @@ name: "Kai"
 uploadedOn: 2024-06-18
 picture: "./kai.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "black-onesie", "colourful-pattern", "star-wars-pattern", "character-costume", "smooth-fur", "embroidered-nose", "soft", "fluffy"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

@@ -3,7 +3,7 @@ name: "Abigail"
 uploadedOn: 2022-08-17
 picture: "./abigail.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "white-fur", "fluffy", "soft", "pink-top", "pink-shorts", "heart-print", "small-bag", "button-eyes", "embroidered-nose", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:
@@ -14,3 +14,4 @@ rehomed:
     location: "surbiton"
     date: 2022-09-24
 ---
+

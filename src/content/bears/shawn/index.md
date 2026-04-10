@@ -3,7 +3,7 @@ name: "Shawn"
 uploadedOn: 2024-06-18
 picture: "./shawn.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "green-knitted-cardigan", "dark-red-shorts", "button-detail", "smooth", "embroidered-nose", "stitched-mouth", "paw-pads", "well-loved"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

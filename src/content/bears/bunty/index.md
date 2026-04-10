@@ -3,7 +3,7 @@ name: "Bunty"
 uploadedOn: 2019-11-22
 picture: "./bunty.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "white-fur", "yellow-cardigan", "floral-skirt", "headband", "blue-flower-accessory", "button-eyes", "embroidered-nose", "fluffy", "soft", "well-loved"]
 brand: "keel-teddy"
 species: "bear"
 rescued:

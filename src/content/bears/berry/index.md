@@ -3,7 +3,7 @@ name: "Berry"
 uploadedOn: 2022-12-09
 picture: "./berry.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "fluffy", "soft", "knitted-onesie", "green-onesie", "red-and-green-stripes", "button-front", "christmas-slippers", "embroidered-nose", "button-eyes", "well-loved"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

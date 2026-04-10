@@ -3,7 +3,7 @@ name: "Elizabeth"
 uploadedOn: 2019-04-07
 picture: "./elizabeth.jpg"
 tagline: ""
-tags: []
+tags: ["grey-fur", "fluffy", "soft", "red-knitted-cardigan", "tartan-skirt", "button-eyes", "embroidered-nose", "stitched-mouth", "plush", "well-loved"]
 brand: "i-love-fancy-dress"
 species: "bear"
 rescued:

@@ -3,7 +3,7 @@ name: "Ivy"
 uploadedOn: 2021-10-07
 picture: "./ivy.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "fluffy", "soft", "red-knitted-onesie", "green-collar", "button-fastening", "hat", "red-hat", "floral-hat", "embroidered-nose", "stitched-mouth", "christmas-themed"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

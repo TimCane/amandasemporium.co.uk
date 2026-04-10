@@ -3,7 +3,7 @@ name: "Shelby"
 uploadedOn: 2023-05-30
 picture: "./shelby.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "dress", "floral-dress", "pink-inner-ears", "long-ears", "fluffy", "soft", "embroidered-nose", "curly-fur", "well-loved"]
 brand: "build-a-bear"
 species: "rabbit"
 rescued:

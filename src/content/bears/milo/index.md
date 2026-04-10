@@ -3,7 +3,7 @@ name: "Milo"
 uploadedOn: 2018-09-30
 picture: "./milo.jpg"
 tagline: ""
-tags: []
+tags: ["blue-fur", "cream-fur", "knitted-onesie", "blue-striped-jumper", "button-fastening", "fluffy", "soft", "embroidered-nose", "button-eyes", "smooth-face"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

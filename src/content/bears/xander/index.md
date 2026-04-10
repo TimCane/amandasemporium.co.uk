@@ -3,7 +3,7 @@ name: "Xander"
 uploadedOn: 2024-06-18
 picture: "./xander.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "dungarees", "striped-top", "dark-blue-dungarees", "green-star-detail", "fluffy", "soft", "embroidered-nose", "well-loved"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

@@ -3,7 +3,7 @@ name: "Sylvia"
 uploadedOn: 2022-11-08
 picture: "./sylvia.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "cream-fur", "red-knitted-cardigan", "dark-blue-shorts", "printed-face", "embroidered-nose", "smooth", "soft", "button-eyes", "well-loved"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

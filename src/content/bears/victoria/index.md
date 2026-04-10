@@ -3,7 +3,7 @@ name: "Victoria"
 uploadedOn: 2025-04-24
 picture: "./victoria.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "white-fur", "wedding-dress", "veil", "satin-dress", "floral-detail", "bridal-costume", "fluffy", "soft", "button-eyes", "embroidered-nose", "bow-detail"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

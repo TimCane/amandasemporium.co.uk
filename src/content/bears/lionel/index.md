@@ -3,7 +3,7 @@ name: "Lionel"
 uploadedOn: 2024-07-19
 picture: "./lionel.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "curly-fur", "fluffy", "floral-t-shirt", "shorts", "yellow-top", "houndstooth-shorts", "printed-face", "embroidered-nose", "soft"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

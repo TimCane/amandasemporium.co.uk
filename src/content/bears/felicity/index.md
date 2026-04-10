@@ -3,7 +3,7 @@ name: "Felicity"
 uploadedOn: 2019-12-12
 picture: "./felicity.jpg"
 tagline: ""
-tags: []
+tags: ["multi-coloured-fur", "pink-fur", "purple-fur", "pastel", "tutu", "dress", "necklace", "bow", "pink-nose", "embroidered-eyes", "sparkly", "fluffy", "soft", "build-a-bear"]
 brand: "build-a-bear"
 species: "cat"
 rescued:

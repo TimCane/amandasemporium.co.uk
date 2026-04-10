@@ -3,7 +3,7 @@ name: "Isaac"
 uploadedOn: 2023-07-11
 picture: "./isaac.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "orange-hoodie", "dark-trousers", "fluffy", "soft", "embroidered-nose", "stitched-mouth", "hoodie-with-logo", "zip-up-hoodie", "well-loved"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

@@ -3,7 +3,7 @@ name: "Wilson"
 uploadedOn: 2024-07-19
 picture: "./wilson.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "teal-t-shirt", "dark-shorts", "fluffy", "soft", "button-eyes", "embroidered-nose", "patch-pocket", "smooth"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

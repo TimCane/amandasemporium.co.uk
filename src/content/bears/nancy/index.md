@@ -3,7 +3,7 @@ name: "Nancy"
 uploadedOn: 2021-10-07
 picture: "./nancy.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "cheerleader-outfit", "purple-and-white-dress", "pom-poms", "hair-bows", "button-eyes", "embroidered-nose", "fluffy", "soft", "cheerleader"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

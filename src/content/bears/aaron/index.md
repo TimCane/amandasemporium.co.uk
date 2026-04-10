@@ -4,7 +4,7 @@ tagline: "A die-hard Arsenal fan who found his forever home at the Burnham Donke
 uploadedOn: 2018-11-12
 picture: "./aaron.jpg"
 featured: true
-tags: ["football", "arsenal", "build-a-bear"]
+tags: ["cream-fur", "football-kit", "red-football-kit", "arsenal", "fluffy", "soft", "embroidered-nose", "button-eyes", "well-loved"]
 brand: "build-a-bear"
 species: "bear"
 rescued:
@@ -14,7 +14,6 @@ event: "2019-05-25-burnham-donkey-derby"
 rehomed:
     location: "eton-wick"
     date: 2019-05-25
-notes: "Aaron arrived wearing a full Arsenal kit and hasn't taken it off since. He knows every player's name."
 ---
 
 Aaron came to us from a car boot sale in Southsea, still wearing his full Arsenal kit and clutching a tiny foam finger. His favourite players are Aubameyang and Saka — he'll correct you if you get the shirt numbers wrong.

@@ -3,7 +3,7 @@ name: "Arla"
 uploadedOn: 2022-12-02
 picture: "./arla.jpg"
 tagline: ""
-tags: []
+tags: ["pink-fur", "dress", "hot-pink-dress", "floral-headband", "flower-crown", "rose-detail", "fluffy", "soft", "embroidered-nose", "blue-eyes", "gold-belt", "satin-dress"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

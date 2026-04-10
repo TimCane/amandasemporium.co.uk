@@ -3,7 +3,7 @@ name: "Carly"
 uploadedOn: 2023-07-11
 picture: "./carly.jpg"
 tagline: ""
-tags: []
+tags: ["pink-fur", "purple-top", "denim-skirt", "floral-embroidery", "soft", "fluffy", "embroidered-nose", "embroidered-eyes", "build-a-bear"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

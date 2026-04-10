@@ -3,7 +3,7 @@ name: "Zara"
 uploadedOn: 2024-10-01
 picture: "./zara.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "black-sequin-top", "sparkly", "fluffy", "soft", "button-eyes", "embroidered-nose", "well-loved", "smooth"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

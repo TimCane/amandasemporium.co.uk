@@ -3,7 +3,7 @@ name: "Kenny"
 uploadedOn: 2018-09-30
 picture: "./kenny.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "fluffy", "soft", "crocheted-vest", "striped-trousers", "blue-outfit", "button-detail", "embroidered-nose", "well-loved", "smooth-face", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

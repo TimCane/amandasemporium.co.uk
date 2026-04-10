@@ -3,7 +3,7 @@ name: "Martin"
 uploadedOn: 2019-11-22
 picture: "./martin.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "printed-t-shirt", "black-trousers", "cartoon-print", "fluffy", "smooth", "embroidered-nose", "button-eyes", "soft", "well-loved"]
 brand: "bear-factory"
 species: "bear"
 rescued:

@@ -3,7 +3,7 @@ name: "Tess"
 uploadedOn: 2019-11-22
 picture: "./tess.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "fluffy", "soft", "pink-dress", "crochet-dress", "white-collar", "headband", "pink-flower-accessory", "button-eyes", "embroidered-nose", "stitched-mouth", "well-loved"]
 brand: "morrisons"
 species: "bear"
 rescued:

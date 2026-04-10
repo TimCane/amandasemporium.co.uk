@@ -3,7 +3,7 @@ name: "David"
 uploadedOn: 2019-09-09
 picture: "./david.jpg"
 tagline: ""
-tags: ["football", "england"]
+tags: ["golden-fur", "fluffy", "football-kit", "white-football-shirt", "navy-shorts", "trainers", "england-flag-patch", "england", "button-eyes", "embroidered-nose", "soft"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

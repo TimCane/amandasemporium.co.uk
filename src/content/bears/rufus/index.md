@@ -3,7 +3,7 @@ name: "Rufus"
 uploadedOn: 2019-07-18
 picture: "./rufus.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "fluffy", "soft", "animal-print-top", "dark-trousers", "outfit", "embroidered-nose", "stitched-mouth", "smooth-face", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

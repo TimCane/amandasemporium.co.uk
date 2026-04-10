@@ -3,7 +3,7 @@ name: "Coraline"
 uploadedOn: 2024-07-19
 picture: "./coraline.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "long-ears", "pink-inner-ears", "floral-dress", "black-and-white-dress", "sleeveless-dress", "soft", "fluffy", "embroidered-nose", "button-eyes", "smooth-paws"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

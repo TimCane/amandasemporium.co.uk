@@ -3,7 +3,7 @@ name: "Ethan"
 uploadedOn: 2023-11-02
 picture: "./ethan.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "red-knitted-jumper", "snowflake-pattern", "black-trousers", "fluffy", "soft", "embroidered-nose", "stitched-mouth", "well-loved", "curly-fur"]
 brand: "bear-factory"
 species: "bear"
 rescued:

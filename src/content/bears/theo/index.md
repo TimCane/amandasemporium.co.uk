@@ -3,7 +3,7 @@ name: "Theo"
 uploadedOn: 2023-09-27
 picture: "./theo.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "fluffy", "curly-fur", "white-t-shirt", "dark-jeans", "striped-sleeve-detail", "soft", "embroidered-nose", "stitched-mouth", "paw-pads"]
 brand: "bear-factory"
 species: "bear"
 rescued:

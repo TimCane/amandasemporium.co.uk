@@ -3,7 +3,7 @@ name: "Hugo"
 uploadedOn: 2022-09-26
 picture: "./hugo.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "hawaiian-shirt", "denim-jeans", "happy-birthday-shoes", "fluffy", "curly-fur", "button-eyes", "embroidered-nose", "stitched-mouth", "build-a-bear", "tropical-print"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

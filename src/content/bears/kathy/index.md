@@ -3,7 +3,7 @@ name: "Kathy"
 uploadedOn: 2024-06-18
 picture: "./kathy.jpg"
 tagline: ""
-tags: []
+tags: ["white-fur", "black-polka-dot-jacket", "white-skirt", "pink-shoes", "black-polka-dot-hat", "bucket-hat", "blue-eyes", "pink-nose", "embroidered-nose", "fluffy", "soft", "build-a-bear"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

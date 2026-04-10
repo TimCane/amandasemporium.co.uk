@@ -3,7 +3,7 @@ name: "Kiki"
 uploadedOn: 2025-04-24
 picture: "./kiki.jpg"
 tagline: ""
-tags: []
+tags: ["green-fur", "dungarees", "green-knitted-dungarees", "orange-bag", "accessory-bag", "button-eyes", "soft", "fluffy", "bright-coloured"]
 brand: "build-a-bear"
 species: "frog"
 rescued:

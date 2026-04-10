@@ -3,7 +3,7 @@ name: "Maya"
 uploadedOn: 2019-11-22
 picture: "./maya.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "fluffy", "soft", "red-outfit", "traditional-chinese-outfit", "embroidered-nose", "stitched-mouth", "printed-face", "smooth", "well-loved", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

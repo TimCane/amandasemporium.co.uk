@@ -3,7 +3,7 @@ name: "Zoe"
 uploadedOn: 2023-11-02
 picture: "./zoe.jpg"
 tagline: ""
-tags: []
+tags: ["golden-fur", "pink-inner-ears", "striped-t-shirt", "denim-shorts", "pink-cap", "heart-emblem", "sequin-heart", "navy-and-white-stripes", "soft", "fluffy", "embroidered-nose", "paw-pads"]
 brand: "build-a-bear"
 species: "rabbit"
 rescued:
@@ -14,3 +14,4 @@ rehomed:
     location: "farnham"
     date: 2024-06-29
 ---
+

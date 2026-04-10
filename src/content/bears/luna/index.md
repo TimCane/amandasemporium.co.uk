@@ -3,7 +3,7 @@ name: "Luna"
 uploadedOn: 2023-05-30
 picture: "./luna.jpg"
 tagline: ""
-tags: []
+tags: ["brown-fur", "cream-fur", "white-fur", "long-ears", "red-jumper", "denim-shorts", "heart-motif", "smooth", "soft", "embroidered-nose", "printed-face", "well-loved"]
 brand: "build-a-bear"
 species: "rabbit"
 rescued:

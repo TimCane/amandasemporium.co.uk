@@ -3,7 +3,7 @@ name: "Jazz"
 uploadedOn: 2022-08-17
 picture: "./jazz.jpg"
 tagline: ""
-tags: []
+tags: ["cream-fur", "curly-fur", "fluffy", "blue-t-shirt", "tartan-shorts", "embroidered-nose", "button-eyes", "paw-pads", "drum-kit-graphic", "music-themed"]
 brand: "build-a-bear"
 species: "bear"
 rescued:
