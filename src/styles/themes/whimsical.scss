@@ -898,6 +898,7 @@
         background: linear-gradient(to bottom, var(--color-primary-light), var(--color-accent), var(--color-primary-light));
         border-radius: 2px;
         box-shadow: 0 0 8px rgba(155, 142, 196, 0.2);
+        z-index: -10;
 
         @media (max-width: 768px) {
           left: 1.5rem;

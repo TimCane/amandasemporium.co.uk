@@ -1086,13 +1086,12 @@
       "related"
       "nav";
 
-    // Desktop: two-column layout for details + rescue
+    // Desktop: image left, header right, then two-column details + rescue
     @media (min-width: 768px) {
       grid-template-columns: 1fr 1fr;
       gap: 0 3rem;
       grid-template-areas:
-        "image image"
-        "header header"
+        "image header"
         "narrative narrative"
         "details rescue"
         "photos photos"
@@ -1108,6 +1107,7 @@
 
       @media (min-width: 768px) {
         justify-self: start;
+        padding-bottom: 0;
       }
     }
 
@@ -1143,6 +1143,10 @@
       @media (min-width: 768px) {
         text-align: left;
         align-items: flex-start;
+        justify-content: center;
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
       }
     }
 
@@ -1193,6 +1197,9 @@
 
     // Narrative — full width, generous reading measure
     &__narrative {
+      margin-top: 3rem;
+      padding-top: 3rem;
+      border-top: 1px solid var(--color-accent);
       margin-bottom: 3rem;
       padding-bottom: 3rem;
       border-bottom: 1px solid var(--color-accent);
