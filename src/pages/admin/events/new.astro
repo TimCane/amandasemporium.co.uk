@@ -1,0 +1,39 @@
+---
+export const prerender = false;
+import AdminLayout from '@/layouts/admin.layout.astro';
+import AdminForm from '@/components/admin/AdminForm';
+import { eventFields } from '@/lib/admin/field-defs';
+import { getEntry } from '@/lib/admin/content-manager';
+
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/404');
+}
+
+const cloneSlug = Astro.url.searchParams.get('clone');
+let cloneData: Record<string, any> | undefined;
+let cloneBody: string | undefined;
+
+if (cloneSlug) {
+  const source = await getEntry('events', cloneSlug);
+  if (source) {
+    cloneData = { ...source.frontmatter };
+    cloneBody = source.body;
+    // Clear the date so the user sets the new event date
+    delete cloneData.date;
+  }
+}
+
+const title = cloneData ? `Clone Event: ${cloneData.name}` : 'New Event';
+---
+
+<AdminLayout title={title}>
+  <h1>{title}</h1>
+  <AdminForm
+    client:load
+    collection="events"
+    fields={eventFields}
+    initialData={cloneData}
+    initialBody={cloneBody}
+    enableAI={true}
+  />
+</AdminLayout>

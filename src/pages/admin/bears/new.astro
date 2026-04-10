@@ -1,0 +1,15 @@
+---
+export const prerender = false;
+import AdminLayout from '@/layouts/admin.layout.astro';
+import AdminForm from '@/components/admin/AdminForm';
+import { bearFields } from '@/lib/admin/field-defs';
+
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/404');
+}
+---
+
+<AdminLayout title="New Bear">
+  <h1>New Bear</h1>
+  <AdminForm client:load collection="bears" fields={bearFields} enableAI={true} />
+</AdminLayout>

@@ -1,0 +1,31 @@
+---
+export const prerender = false;
+import AdminLayout from '@/layouts/admin.layout.astro';
+import AdminForm from '@/components/admin/AdminForm';
+import { galleryFields } from '@/lib/admin/field-defs';
+import { getEntry } from '@/lib/admin/content-manager';
+
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/404');
+}
+
+const { slug } = Astro.params;
+const entry = await getEntry('gallery', slug!);
+
+if (!entry) {
+  return Astro.redirect('/admin/gallery');
+}
+---
+
+<AdminLayout title={`Edit Gallery Item`}>
+  <h1>Edit Gallery: {entry.frontmatter.caption}</h1>
+  <AdminForm
+    client:load
+    collection="gallery"
+    fields={galleryFields}
+    initialData={entry.frontmatter}
+    initialBody={entry.body}
+    initialSlug={slug}
+    isEdit={true}
+  />
+</AdminLayout>

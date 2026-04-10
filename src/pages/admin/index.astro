@@ -1,0 +1,54 @@
+---
+export const prerender = false;
+import AdminLayout from '@/layouts/admin.layout.astro';
+import ValidationDashboard from '@/components/admin/ValidationDashboard';
+import { listEntries } from '@/lib/admin/content-manager';
+
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/404');
+}
+
+const [bears, events, products, gallery, locations] = await Promise.all([
+  listEntries('bears'),
+  listEntries('events'),
+  listEntries('products'),
+  listEntries('gallery'),
+  listEntries('locations'),
+]);
+
+const collections = [
+  { name: 'Bears', slug: 'bears', count: bears.length, icon: '🧸' },
+  { name: 'Events', slug: 'events', count: events.length, icon: '📅' },
+  { name: 'Products', slug: 'products', count: products.length, icon: '🛍' },
+  { name: 'Gallery', slug: 'gallery', count: gallery.length, icon: '🖼' },
+  { name: 'Locations', slug: 'locations', count: locations.length, icon: '📍' },
+];
+---
+
+<AdminLayout title="Dashboard">
+  <h1>Admin Dashboard</h1>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:2rem;">
+    {collections.map((col) => (
+      <a href={`/admin/${col.slug}`} class="admin-card" style="text-decoration:none;color:inherit;text-align:center;">
+        <div style="font-size:2rem;margin-bottom:0.5rem;">{col.icon}</div>
+        <div style="font-size:1.5rem;font-weight:700;">{col.count}</div>
+        <div style="font-size:0.9rem;color:#777;">{col.name}</div>
+      </a>
+    ))}
+  </div>
+
+  <div class="admin-card">
+    <h2 style="font-size:1.1rem;margin-bottom:1rem;">Quick Actions</h2>
+    <div style="display:flex;flex-wrap:wrap;gap:0.5rem;">
+      <a href="/admin/bears/new" class="admin-btn admin-btn--primary">+ New Bear</a>
+      <a href="/admin/events/new" class="admin-btn admin-btn--primary">+ New Event</a>
+      <a href="/admin/products/new" class="admin-btn admin-btn--primary">+ New Product</a>
+      <a href="/admin/gallery/new" class="admin-btn admin-btn--primary">+ New Gallery Item</a>
+      <a href="/admin/locations/new" class="admin-btn admin-btn--primary">+ New Location</a>
+    </div>
+  </div>
+
+  <h2 style="font-size:1.3rem;margin:2rem 0 1rem;">Content Validation</h2>
+  <ValidationDashboard client:load />
+</AdminLayout>
