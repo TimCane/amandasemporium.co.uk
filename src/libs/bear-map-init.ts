@@ -90,6 +90,12 @@ function bearPopup(bear: any, locationType: string, locName: string): string {
   `;
 }
 
+/** Move focus into the popup link after a marker popup opens (keyboard a11y) */
+function focusPopupLink(marker: L.Marker) {
+  const link = marker.getPopup()?.getElement()?.querySelector<HTMLAnchorElement>('.bear-map__popup-link');
+  if (link) setTimeout(() => link.focus(), 50);
+}
+
 // ── Initialise ───────────────────────────────────────────────────
 function initMap() {
   const container = document.getElementById('bear-map-container');
@@ -135,6 +141,7 @@ function initMap() {
         allLatLngs.push(ll);
         const marker = L.marker(ll, { icon: makeIcon(colRescued) })
           .bindPopup(bearPopup(bear, 'Rescued', bear.rescued.name));
+        marker.on('popupopen', () => focusPopupLink(marker));
         clusterGroup.addLayer(marker);
       }
 
@@ -143,6 +150,7 @@ function initMap() {
         allLatLngs.push(ll);
         const marker = L.marker(ll, { icon: makeIcon(colEvent) })
           .bindPopup(bearPopup(bear, 'Event', bear.event.name));
+        marker.on('popupopen', () => focusPopupLink(marker));
         clusterGroup.addLayer(marker);
       }
 
@@ -151,6 +159,7 @@ function initMap() {
         allLatLngs.push(ll);
         const marker = L.marker(ll, { icon: makeIcon(colRehomed) })
           .bindPopup(bearPopup(bear, 'Rehomed', bear.rehomed.name));
+        marker.on('popupopen', () => focusPopupLink(marker));
         clusterGroup.addLayer(marker);
       }
 
@@ -187,25 +196,28 @@ function initMap() {
     if (bear.rescued) {
       const ll = L.latLng(bear.rescued.lat, bear.rescued.lng);
       allLatLngs.push(ll);
-      L.marker(ll, { icon: makeIcon(colRescued, 14) })
+      const m1 = L.marker(ll, { icon: makeIcon(colRescued, 14) })
         .bindPopup(bearPopup(bear, 'Rescued', bear.rescued.name))
         .addTo(map);
+      m1.on('popupopen', () => focusPopupLink(m1));
     }
 
     if (bear.event) {
       const ll = L.latLng(bear.event.lat, bear.event.lng);
       allLatLngs.push(ll);
-      L.marker(ll, { icon: makeIcon(colEvent, 14) })
+      const m2 = L.marker(ll, { icon: makeIcon(colEvent, 14) })
         .bindPopup(bearPopup(bear, 'Event', bear.event.name))
         .addTo(map);
+      m2.on('popupopen', () => focusPopupLink(m2));
     }
 
     if (bear.rehomed) {
       const ll = L.latLng(bear.rehomed.lat, bear.rehomed.lng);
       allLatLngs.push(ll);
-      L.marker(ll, { icon: makeIcon(colRehomed, 14) })
+      const m3 = L.marker(ll, { icon: makeIcon(colRehomed, 14) })
         .bindPopup(bearPopup(bear, 'Rehomed', bear.rehomed.name))
         .addTo(map);
+      m3.on('popupopen', () => focusPopupLink(m3));
     }
 
     if (bear.rescued) {

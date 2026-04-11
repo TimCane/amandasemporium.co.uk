@@ -16,6 +16,11 @@
   --font-body: 'Quicksand', sans-serif;
   --radius-card: 16px;
   --shadow-card: 0 4px 16px rgba(74, 63, 92, 0.08);
+  --color-on-primary: #fff;
+  --color-badge-looking-bg: #a0527a;
+  --color-badge-looking-text: #fff;
+  --color-badge-found-bg: #3a8a60;
+  --color-badge-found-text: #fff;
 
   body { line-height: 1.7; }
   .page-content { max-width: 68rem; }
@@ -136,8 +141,8 @@
       }
 
       &--active {
-        background: var(--color-primary-light);
-        color: #fff;
+        background: var(--color-primary-dark);
+        color: var(--color-on-primary);
       }
     }
   }
@@ -573,22 +578,24 @@
       margin-bottom: 0.25rem;
 
       &--looking {
-        background: var(--color-accent);
-        color: #fff;
+        background: var(--color-badge-looking-bg);
+        color: var(--color-badge-looking-text);
       }
 
       &--found {
-        background: var(--color-secondary);
-        color: #fff;
+        background: var(--color-badge-found-bg);
+        color: var(--color-badge-found-text);
       }
     }
 
-    &__species {
+    &__subtitle {
       display: block;
       font-family: var(--font-body);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 400;
       color: var(--color-text-muted);
-      margin-top: 0.3rem;
+      margin-top: 0.35rem;
+      line-height: 1.4;
     }
 
     &__decoration-element {
@@ -1206,21 +1213,23 @@
       width: fit-content;
 
       &--looking {
-        background: var(--color-accent);
-        color: #fff;
+        background: var(--color-badge-looking-bg);
+        color: var(--color-badge-looking-text);
       }
 
       &--found {
-        background: var(--color-secondary);
-        color: #fff;
+        background: var(--color-badge-found-bg);
+        color: var(--color-badge-found-text);
       }
     }
 
-    &__species {
+    &__tagline {
       font-family: var(--font-body);
-      color: var(--color-text-muted);
-      font-size: 1rem;
-      font-weight: 500;
+      color: var(--color-text);
+      font-size: 1.05rem;
+      font-weight: 400;
+      line-height: 1.6;
+      margin: 0;
     }
 
     &__section-heading {

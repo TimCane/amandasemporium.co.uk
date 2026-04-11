@@ -38,11 +38,23 @@ export function filterByGroup(
 export function groupLabel(group: BearGroup): string {
   switch (group) {
     case 'looking':
-      return 'Bears Looking for a Home';
+      return 'Looking for a Home';
     case 'found':
-      return 'Bears Who Found Their Home';
+      return 'Found Their Home';
     default:
       return 'Our Bears';
+  }
+}
+
+/** Intro paragraph for each group. */
+export function groupIntro(group: BearGroup): string {
+  switch (group) {
+    case 'looking':
+      return 'These bears are waiting for their next chapter. Each one has been cleaned up, checked over, and is ready to find a new home.';
+    case 'found':
+      return 'These bears have already found new homes. Have a look through — you might spot a familiar face.';
+    default:
+      return 'Every bear here has been rescued from a car boot sale, charity shop, or market stall and given a proper clean-up. Some have found new homes already, and some are still waiting.';
   }
 }
 

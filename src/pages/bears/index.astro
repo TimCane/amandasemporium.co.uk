@@ -13,6 +13,7 @@ import {
   parseBearGroup,
   filterByGroup,
   groupLabel,
+  groupIntro,
   buildBearsUrl,
   type BearGroup,
 } from '@/libs/bear-groups';
@@ -69,7 +70,7 @@ const heading = groupLabel(group);
 const pageTitle = validLetter
   ? `${heading} - ${validLetter}`
   : heading;
-const description = `Browse ${totalBears} rescued bears at Amanda's Emporium. Find a bear looking for a home or see which bears have been rehomed.`;
+const description = `Browse ${totalBears} rescued bears at Amanda's Emporium — some still looking for a home, some already settled.`;
 
 // Pagination rel links
 const prevUrl = currentPage > 1 ? buildBearsUrl({ group, letter: validLetter, page: currentPage - 1 }) : undefined;
@@ -87,6 +88,7 @@ const nextUrl = currentPage < totalPages ? buildBearsUrl({ group, letter: validL
   <section class="bears-page">
     <header class="bears-page__header">
       <h1 class="bears-page__title">{heading}</h1>
+      <p class="bears-page__intro">{groupIntro(group)}</p>
       <p class="bears-page__count">
         {totalBears} {totalBears === 1 ? 'bear' : 'bears'}
       </p>
@@ -111,13 +113,14 @@ const nextUrl = currentPage < totalPages ? buildBearsUrl({ group, letter: validL
           <BearCard
             bear={bear}
             loading={index < 8 ? 'eager' : 'lazy'}
+            subtitle={bear.data.tagline}
           />
         ))}
       </div>
     ) : (
       <div class="bears-page__empty">
         <p class="bears-page__empty-text">
-          No bears found matching your filters. Try a different letter or group.
+          No bears match those filters. Try a different letter, or clear the filter to see everyone.
         </p>
         <a href="/bears" class="bears-page__empty-link">View all bears</a>
       </div>

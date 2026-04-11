@@ -56,54 +56,142 @@ const dateFmt = new Intl.DateTimeFormat('en-GB', {
 const autoDescription = `${name} — a rescued ${speciesLabel.toLowerCase()} from ${rescuedLocation?.data.name ?? 'unknown'}`;
 const metaDescription = tagline && tagline.trim().length > 0 ? tagline : autoDescription;
 
-// --- Related bears (same rescue location, event, or species — max 6) ---
+// --- "{name}'s Friends" — bears with meaningful connections ---
+import { seededRandom } from '@/libs/seeded-random';
+
+const funPhrases = [
+  'Shared a bath together',
+  'Sat together on the stall',
+  'Neighbours on the shelf',
+  'Travel companions',
+  'Cuddle buddies',
+  'Had a sleepover once',
+  'Came home together',
+  'Shared a suitcase',
+  'Kept each other company in the workshop',
+];
+
+function getFunPhrase(slugA: string, slugB: string): string {
+  const seed = [slugA, slugB].sort().join('-');
+  const rng = seededRandom(seed);
+  return funPhrases[Math.floor(rng() * funPhrases.length)];
+}
+
 const allBears = await getCollection('bears');
-const relatedBears: CollectionEntry<'bears'>[] = [];
-const seen = new Set<string>();
-seen.add(bear.id);
+const MAX_FRIENDS = 6;
 
-// Same event first (strongest connection)
-if (event) {
-  for (const b of allBears) {
-    if (seen.has(b.id)) continue;
-    if (b.data.event && typeof b.data.event === 'object' && 'id' in b.data.event
-      ? (b.data.event as any).id === (typeof event === 'object' && 'id' in event ? (event as any).id : event)
-      : b.data.event === event) {
-      relatedBears.push(b);
-      seen.add(b.id);
-      if (relatedBears.length >= 6) break;
+const eventId = event && typeof event === 'object' && 'id' in event ? (event as any).id : event;
+const rescueLocId = typeof rescued.location === 'object' && 'id' in rescued.location
+  ? (rescued.location as any).id
+  : rescued.location;
+const rescueDateStr = rescued.date.toISOString().split('T')[0];
+const eventName = eventEntry?.data.name;
+const rescueLocName = rescuedLocation?.data.name ?? 'the same place';
+
+// Collect ALL candidates with their best connection label (highest priority wins)
+// Priority: 1=event, 2=rescued together, 3=same rescue location, 4=same species, 5=tags, 6=fallback
+const candidates = new Map<string, { bear: CollectionEntry<'bears'>; label: string; priority: number }>();
+
+for (const b of allBears) {
+  if (b.id === bear.id) continue;
+
+  // 1. Same event
+  if (eventId && eventName) {
+    const bEventId = b.data.event && typeof b.data.event === 'object' && 'id' in b.data.event
+      ? (b.data.event as any).id : b.data.event;
+    if (bEventId === eventId) {
+      candidates.set(b.id, { bear: b, label: `Were both at ${eventName}`, priority: 1 });
+      continue;
     }
+  }
+
+  const bLocId = typeof b.data.rescued.location === 'object' && 'id' in b.data.rescued.location
+    ? (b.data.rescued.location as any).id : b.data.rescued.location;
+  const bDateStr = b.data.rescued.date.toISOString().split('T')[0];
+
+  // 2. Same rescue location + same date
+  if (bLocId === rescueLocId && bDateStr === rescueDateStr) {
+    candidates.set(b.id, { bear: b, label: `Rescued together from ${rescueLocName}`, priority: 2 });
+    continue;
+  }
+
+  // 3. Same rescue location, different date
+  if (bLocId === rescueLocId) {
+    candidates.set(b.id, { bear: b, label: `Both rescued from ${rescueLocName}`, priority: 3 });
+    continue;
+  }
+
+  // 4. Same species (non-bear only)
+  if (species !== 'bear' && b.data.species === species) {
+    candidates.set(b.id, { bear: b, label: `Fellow ${species}s`, priority: 4 });
+    continue;
+  }
+
+  // 5. Shared tags
+  if (tags && tags.length > 0) {
+    const bTags = b.data.tags ?? [];
+    if (bTags.some((t) => tags!.includes(t))) {
+      candidates.set(b.id, { bear: b, label: getFunPhrase(bear.slug, b.slug), priority: 5 });
+      continue;
+    }
+  }
+
+  // 6. Fallback — everyone is a potential friend
+  candidates.set(b.id, { bear: b, label: getFunPhrase(bear.slug, b.slug), priority: 6 });
+}
+
+// Pick 6 using seeded shuffle — prioritise stronger connections but mix in variety
+const allCandidates = [...candidates.values()];
+const rng = seededRandom(bear.slug + '-friends');
+
+// Shuffle within each priority group, then take up to 1-2 from each group
+const byPriority = new Map<number, typeof allCandidates>();
+for (const c of allCandidates) {
+  const group = byPriority.get(c.priority) ?? [];
+  group.push(c);
+  byPriority.set(c.priority, group);
+}
+
+// Shuffle each group
+for (const group of byPriority.values()) {
+  for (let i = group.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [group[i], group[j]] = [group[j], group[i]];
   }
 }
 
-// Same rescue location
-if (relatedBears.length < 6) {
-  const rescueLocId = typeof rescued.location === 'object' && 'id' in rescued.location
-    ? (rescued.location as any).id
-    : rescued.location;
-  for (const b of allBears) {
-    if (seen.has(b.id)) continue;
-    const bLocId = typeof b.data.rescued.location === 'object' && 'id' in b.data.rescued.location
-      ? (b.data.rescued.location as any).id
-      : b.data.rescued.location;
-    if (bLocId === rescueLocId) {
-      relatedBears.push(b);
-      seen.add(b.id);
-      if (relatedBears.length >= 6) break;
-    }
+// Pick friends: take up to 2 from each priority group until we have 6
+const friends: { bear: CollectionEntry<'bears'>; label: string }[] = [];
+const maxPerGroup = 2;
+
+for (const priority of [1, 2, 3, 4, 5, 6]) {
+  if (friends.length >= MAX_FRIENDS) break;
+  const group = byPriority.get(priority) ?? [];
+  const take = Math.min(maxPerGroup, MAX_FRIENDS - friends.length, group.length);
+  for (let i = 0; i < take; i++) {
+    friends.push({ bear: group[i].bear, label: group[i].label });
   }
 }
 
-// Same species
-if (relatedBears.length < 6) {
-  for (const b of allBears) {
-    if (seen.has(b.id)) continue;
-    if (b.data.species === species) {
-      relatedBears.push(b);
-      seen.add(b.id);
-      if (relatedBears.length >= 6) break;
-    }
+// If still under 6, fill from remaining candidates in shuffled order
+if (friends.length < MAX_FRIENDS) {
+  const picked = new Set(friends.map(f => f.bear.id));
+  const remaining = allCandidates.filter(c => !picked.has(c.bear.id));
+  // Shuffle remaining
+  for (let i = remaining.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [remaining[i], remaining[j]] = [remaining[j], remaining[i]];
   }
+  for (const c of remaining) {
+    if (friends.length >= MAX_FRIENDS) break;
+    friends.push({ bear: c.bear, label: c.label });
+  }
+}
+
+// Shuffle final display order
+for (let i = friends.length - 1; i > 0; i--) {
+  const j = Math.floor(rng() * (i + 1));
+  [friends[i], friends[j]] = [friends[j], friends[i]];
 }
 
 // --- Build map data ---
@@ -178,7 +266,7 @@ const jsonLd = {
     <header class="bear-profile__header">
       <h1 class="bear-profile__name">{name}</h1>
       <span class:list={['bear-profile__status', statusClass]}>{status}</span>
-      <span class="bear-profile__species">{speciesLabel}</span>
+      {tagline && <p class="bear-profile__tagline">{tagline}</p>}
       <div class="bear-profile__header-decoration" aria-hidden="true"></div>
     </header>
 
@@ -216,10 +304,10 @@ const jsonLd = {
           </div>
         ) : (
           <p class="bear-profile__narrative-auto">
-            {name} is a {speciesLabel.toLowerCase()} by {brandLabel}, rescued from {rescuedLocation?.data.name ?? 'an unknown location'} on {dateFmt.format(rescued.date)}.
+            {name} is a {speciesLabel.toLowerCase()}, made by {brandLabel}. We rescued them from {rescuedLocation?.data.name ?? 'an unknown location'} on {dateFmt.format(rescued.date)}.
             {rehomed && rehomLocation
               ? ` ${name} found a new home in ${rehomLocation.data.name} on ${dateFmt.format(rehomed.date)}.`
-              : ` ${name} is still looking for a forever home.`}
+              : ` ${name} is still with us, looking for the right home.`}
           </p>
         )}
       </div>
@@ -311,13 +399,13 @@ const jsonLd = {
       </section>
     )}
 
-    {/* ── Section 6: Related Bears ── */}
-    {relatedBears.length > 0 && (
+    {/* ── Section 6: Friends ── */}
+    {friends.length > 0 && (
       <section class="bear-profile__related">
-        <h2 class="bear-profile__section-heading">Related Bears</h2>
+        <h2 class="bear-profile__section-heading">{name}'s Friends</h2>
         <div class="bear-profile__related-grid">
-          {relatedBears.map((relBear) => (
-            <BearCard bear={relBear} />
+          {friends.map((friend) => (
+            <BearCard bear={friend.bear} subtitle={friend.label} />
           ))}
         </div>
         <div class="bear-profile__related-decoration" aria-hidden="true"></div>

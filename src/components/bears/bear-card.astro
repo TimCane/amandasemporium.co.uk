@@ -5,9 +5,10 @@ import type { CollectionEntry } from 'astro:content';
 interface Props {
   bear: CollectionEntry<'bears'>;
   loading?: 'lazy' | 'eager';
+  subtitle?: string;
 }
 
-const { bear, loading = 'lazy' } = Astro.props;
+const { bear, loading = 'lazy', subtitle } = Astro.props;
 
 const { name, picture, species, rehomed } = bear.data;
 const status = rehomed ? 'Found Their Home' : 'Looking for a Home';
@@ -26,12 +27,12 @@ const slug = bear.slug;
       loading={loading}
       class="bear-card__image"
     />
-    <div class="bear-card__overlay"></div>
+    <div class="bear-card__overlay" aria-hidden="true"></div>
   </div>
   <div class="bear-card__body">
     <h3 class="bear-card__name">{name}</h3>
     <span class:list={['bear-card__status', statusClass]}>{status}</span>
-    <span class="bear-card__species">{speciesLabel}</span>
+    {subtitle && <span class="bear-card__subtitle">{subtitle}</span>}
   </div>
   <div class="bear-card__decoration-element"></div>
 </Card>

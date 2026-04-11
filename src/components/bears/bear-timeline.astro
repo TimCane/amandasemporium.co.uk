@@ -55,9 +55,9 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
   <ol class="timeline__list" role="list">
     {years.map((year, yearIndex) => (
       <>
-        <li class="timeline__year-marker" id={`year-${year}`}>
+        <li class="timeline__year-marker" role="presentation">
           <div class="timeline__year-marker-line" aria-hidden="true"></div>
-          <span class="timeline__year-marker-label">{year}</span>
+          <span class="timeline__year-marker-label" id={`year-${year}`}>{year}</span>
           <div class="timeline__year-marker-line" aria-hidden="true"></div>
         </li>
         {entriesByYear.get(year)!.map((entry, entryIndex) => {
@@ -77,6 +77,7 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
               </div>
 
               <a href={`/bears/${entry.bearSlug}`} class="timeline__content">
+                <span class="sr-only">{dateFormatter.format(entry.date)} — </span>
                 <div class="timeline__image-wrapper">
                   <Image
                     src={entry.bearPicture}
