@@ -1,0 +1,99 @@
+---
+export const prerender = true;
+
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import PageLayout from '@/layouts/page.layout.astro';
+import { seededRandom } from '@/libs/seeded-random';
+
+// Pick a deterministic "random" bear that changes daily
+const bears = await getCollection('bears');
+const today = new Date();
+const seed = `404-${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`;
+const rng = seededRandom(seed);
+const randomIndex = Math.floor(rng() * bears.length);
+const featuredBear = bears[randomIndex];
+---
+
+<PageLayout title="Page Not Found" description="The page you were looking for could not be found.">
+  <Fragment slot="og-meta">
+    <meta name="robots" content="noindex, nofollow" />
+  </Fragment>
+
+  <div class="error-page">
+    <header class="error-page__header">
+      <h1 class="error-page__title">This Bear Has Wandered Off&hellip;</h1>
+      <p class="error-page__message">
+        I couldn't find the page you were looking for. It might have been moved,
+        renamed, or it never existed at all. Don't worry though &mdash;
+        there's plenty more to explore.
+      </p>
+    </header>
+
+    <nav class="error-page__nav" aria-label="Suggested pages">
+      <h2 class="error-page__nav-heading">Here are some places to start</h2>
+      <ul class="error-page__nav-list">
+        <li class="error-page__nav-item">
+          <a href="/" class="error-page__nav-link">
+            <span class="error-page__nav-icon" aria-hidden="true">&#127968;</span>
+            <span class="error-page__nav-text">
+              <strong>Home</strong>
+              <span class="error-page__nav-desc">Back to the beginning</span>
+            </span>
+          </a>
+        </li>
+        <li class="error-page__nav-item">
+          <a href="/bears" class="error-page__nav-link">
+            <span class="error-page__nav-icon" aria-hidden="true">&#128059;</span>
+            <span class="error-page__nav-text">
+              <strong>The Bears</strong>
+              <span class="error-page__nav-desc">Meet the rescued bears</span>
+            </span>
+          </a>
+        </li>
+        <li class="error-page__nav-item">
+          <a href="/products" class="error-page__nav-link">
+            <span class="error-page__nav-icon" aria-hidden="true">&#129526;</span>
+            <span class="error-page__nav-text">
+              <strong>Products</strong>
+              <span class="error-page__nav-desc">Browse handmade crafts</span>
+            </span>
+          </a>
+        </li>
+        <li class="error-page__nav-item">
+          <a href="/events" class="error-page__nav-link">
+            <span class="error-page__nav-icon" aria-hidden="true">&#128197;</span>
+            <span class="error-page__nav-text">
+              <strong>Events</strong>
+              <span class="error-page__nav-desc">Find me at a market</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    {featuredBear && (
+      <aside class="error-page__bear" aria-label="Featured bear">
+        <h2 class="error-page__bear-heading">
+          While you're here, meet {featuredBear.data.name}!
+        </h2>
+        <a href={`/bears/${featuredBear.slug}`} class="error-page__bear-link">
+          <div class="error-page__bear-image-wrapper">
+            <Image
+              src={featuredBear.data.picture}
+              alt={`Photo of ${featuredBear.data.name}`}
+              width={280}
+              height={280}
+              class="error-page__bear-image"
+            />
+          </div>
+          <p class="error-page__bear-name">{featuredBear.data.name}</p>
+          {featuredBear.data.tagline && (
+            <p class="error-page__bear-tagline">{featuredBear.data.tagline}</p>
+          )}
+          <span class="error-page__bear-cta">Say hello <span aria-hidden="true">&rarr;</span></span>
+        </a>
+      </aside>
+    )}
+  </div>
+</PageLayout>

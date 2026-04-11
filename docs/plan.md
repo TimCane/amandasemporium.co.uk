@@ -220,28 +220,30 @@ Home accessed via text logo / site name.
 ## Implementation Phases
 
 ### Phase 1: Foundation
-- [ ] Initialise Astro 5 project with SCSS + CSS Grid
-- [ ] Configure hybrid output mode with Node adapter
-- [ ] Set up project structure (layouts, components dirs)
-- [ ] Copy content collections from old site
-- [ ] Define content collection schemas and Zod enums in config.ts
-- [ ] Create base layout with view transitions
-- [ ] Implement theme system (CSS custom properties, 4 theme configs, localStorage switcher)
-- [ ] Create text logo component
-- [ ] Create navbar and footer (with theme switcher)
+- [x] Initialise Astro 5 project with SCSS + CSS Grid
+- [x] Configure hybrid output mode with Node adapter
+- [x] Set up project structure (layouts, components dirs)
+- [x] Copy content collections from old site
+- [x] Define content collection schemas and Zod enums in config.ts
+- [x] Create base layout with view transitions
+- [x] Implement theme system (CSS custom properties, 4 theme configs, localStorage switcher)
+- [x] Create text logo component
+- [x] Create navbar and footer (with theme switcher)
 
 ### Phase 2: Bears Section
-- [ ] Bear listing page (SSR with group/alphabet/pagination filters)
-- [ ] Bear profile pages (static — narrative, multiple photos, related bears)
-- [ ] Bear map page (vanilla Leaflet with seeded-random paths)
-- [ ] Bear timeline page
+- [x] Bear listing page (SSR with group/alphabet/pagination filters)
+- [x] Bear profile pages (static — narrative, multiple photos, related bears)
+- [x] Bear map page (vanilla Leaflet with seeded-random paths)
+- [x] Bear timeline page
 
 ### Phase 3: Static Pages
-- [ ] Home page (hero, about teaser, stats, events, products, photo strip, bear of the month, activity feed)
-- [ ] About page (story, bear rescue, craft, stall, milestones)
-- [ ] Contact page with form (SSR POST stub), FAQ, next event callout
-- [ ] Privacy policy page (stubbed)
-- [ ] 404 page
+- [x] Home page (hero, about teaser, stats, events, products, photo strip, bear of the month, activity feed)
+- [x] About page (story, bear rescue, craft, stall, milestones)
+- [x] Contact page with form (SSR POST stub), FAQ, next event callout
+- [x] Privacy policy page (stubbed)
+- [x] 404 page
+- [ ] Style all static pages in Modern theme
+- [ ] Style all static pages in Fun theme
 
 ### Phase 4: Products & Events
 - [ ] Create product content files (migrate from old TS files to markdown)

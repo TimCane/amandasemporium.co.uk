@@ -1,0 +1,120 @@
+---
+export const prerender = true;
+
+import PageLayout from '@/layouts/page.layout.astro';
+---
+
+<PageLayout title="Privacy Policy" description="Privacy policy for Amanda's Emporium — how I handle your data, cookies, and your rights.">
+  <Fragment slot="og-meta">
+    <meta name="robots" content="noindex, nofollow" />
+  </Fragment>
+
+  <article class="privacy-page">
+    <header class="privacy-page__header">
+      <h1 class="privacy-page__title">Privacy Policy</h1>
+      <p class="privacy-page__updated">Last updated: April 2026</p>
+    </header>
+
+    <!-- TODO: All sections below are stubs — requires legal review before launch -->
+
+    <section class="privacy-page__section" id="data-collection" aria-labelledby="data-collection-heading">
+      <h2 id="data-collection-heading" class="privacy-page__heading">What I Collect</h2>
+      <div class="privacy-page__body">
+        <p>
+          I keep things simple. The only personal information I collect is
+          what you choose to share through the contact form:
+        </p>
+        <ul>
+          <li>Your name</li>
+          <li>Your email address</li>
+          <li>The subject of your message</li>
+          <li>Your message itself</li>
+        </ul>
+        <p>
+          I use this information solely to respond to your enquiry. I do not
+          sell, share, or use your details for marketing purposes.
+        </p>
+        <!-- TODO: Specify data storage location and retention period after legal review -->
+      </div>
+    </section>
+
+    <section class="privacy-page__section" id="cookies" aria-labelledby="cookies-heading">
+      <h2 id="cookies-heading" class="privacy-page__heading">Cookies &amp; Local Storage</h2>
+      <div class="privacy-page__body">
+        <p>
+          I believe in keeping things fuss-free. This site does not use tracking
+          cookies of any kind.
+        </p>
+        <p>
+          I do store one small piece of information in your browser's local
+          storage: your chosen colour theme preference. This simply remembers
+          which visual theme you selected so it loads correctly next time you
+          visit. It contains no personal data and is never sent to my servers.
+        </p>
+        <p>
+          The website analytics are entirely cookie-free. I use a self-hosted,
+          privacy-friendly analytics tool that collects only anonymous page view
+          counts and referrer information &mdash; no personal data, no tracking
+          across sites, and no cookies.
+        </p>
+        <!-- TODO: Confirm analytics provider (Plausible/Umami) and link to its privacy page -->
+      </div>
+    </section>
+
+    <section class="privacy-page__section" id="third-party" aria-labelledby="third-party-heading">
+      <h2 id="third-party-heading" class="privacy-page__heading">Third-Party Services</h2>
+      <div class="privacy-page__body">
+        <p>
+          The interactive bear map uses <strong>Leaflet</strong> with map tiles
+          from <strong>OpenStreetMap</strong>. When you view the map, your
+          browser makes requests directly to OpenStreetMap's tile servers. These
+          servers may log your IP address in accordance with
+          <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" rel="noopener noreferrer" target="_blank">
+            OpenStreetMap's privacy policy<span class="sr-only"> (opens in a new tab)</span></a>.
+        </p>
+        <p>
+          The analytics are self-hosted on my own server &mdash; no data is
+          sent to any third-party analytics provider.
+        </p>
+        <!-- TODO: List any additional third-party services added during development -->
+      </div>
+    </section>
+
+    <section class="privacy-page__section" id="your-rights" aria-labelledby="your-rights-heading">
+      <h2 id="your-rights-heading" class="privacy-page__heading">Your Rights</h2>
+      <div class="privacy-page__body">
+        <p>
+          Under the UK General Data Protection Regulation (UK GDPR) and the
+          Data Protection Act 2018, you have the right to:
+        </p>
+        <ul>
+          <li><strong>Access</strong> &mdash; request a copy of any personal data I hold about you</li>
+          <li><strong>Rectification</strong> &mdash; ask me to correct any inaccurate information</li>
+          <li><strong>Erasure</strong> &mdash; ask me to delete your personal data</li>
+          <li><strong>Restriction</strong> &mdash; ask me to limit how I use your data</li>
+          <li><strong>Objection</strong> &mdash; object to my processing of your data</li>
+        </ul>
+        <p>
+          To exercise any of these rights, please get in touch using the contact
+          details below. I aim to respond to all requests within 30 days.
+        </p>
+        <!-- TODO: Add ICO registration number if applicable after legal review -->
+      </div>
+    </section>
+
+    <section class="privacy-page__section" id="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="privacy-page__heading">Get in Touch</h2>
+      <div class="privacy-page__body">
+        <p>
+          If you have any questions about this privacy policy or how I handle
+          your data, please get in touch:
+        </p>
+        <p>
+          <!-- TODO: Replace with actual privacy contact email -->
+          <strong>Email:</strong>
+          <a href="mailto:privacy@amandasemporium.co.uk">privacy@amandasemporium.co.uk</a>
+        </p>
+      </div>
+    </section>
+  </article>
+</PageLayout>

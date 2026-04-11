@@ -36,6 +36,41 @@
 .bear-map-page__header { grid-area: header; }
 .bear-map { grid-area: map; }
 
+// === Home page sections ===
+.home-hero { grid-area: hero; }
+.home-about { grid-area: about; }
+.home-stats { grid-area: stats; }
+.home-events { grid-area: events; }
+.home-products { grid-area: products; }
+.home-photos { grid-area: photos; }
+.home-bear-otm { grid-area: bear-otm; }
+.home-activity { grid-area: activity; }
+
+// === Privacy page sections ===
+.privacy-page__header { grid-area: header; }
+.privacy-page__section { grid-area: auto; }
+
+// === 404 page sections ===
+.error-page__header { grid-area: header; }
+.error-page__nav { grid-area: nav; }
+.error-page__bear { grid-area: bear; }
+
+// === About page sections ===
+.about-page__header { grid-area: header; }
+.about-page__story { grid-area: story; }
+.about-page__mission { grid-area: mission; }
+.about-page__craft { grid-area: craft; }
+.about-page__stall { grid-area: stall; }
+.about-page__milestones { grid-area: milestones; }
+.about-page__explore { grid-area: explore; }
+
+// === Contact page sections ===
+.contact-page__header { grid-area: header; }
+.contact-page__email { grid-area: email; }
+.contact-page__form { grid-area: form; }
+.contact-page__faq { grid-area: faq; }
+.contact-page__event-callout { grid-area: event-callout; }
+
 // === Shared components ===
 .pagination { grid-area: pagination; }
 .filter-tabs { grid-area: filters; }

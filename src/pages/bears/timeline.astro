@@ -6,7 +6,7 @@ import PageLayout from '@/layouts/page.layout.astro';
 import BearTimeline from '@/components/bears/bear-timeline.astro';
 
 const title = 'Bear Timeline';
-const description = 'Every bear rescue and rehoming at Amanda\'s Emporium, in date order. From our first rescue to the most recent.';
+const description = 'Every bear rescue and rehoming at Amanda\'s Emporium, in date order. From the first rescue to the most recent.';
 
 // Load all bears
 const bears = await getCollection('bears');
@@ -85,7 +85,7 @@ const dateRange = `${yearFormatter.format(earliestDate)} - ${yearFormatter.forma
   <section class="timeline-page">
     <header class="timeline-page__header">
       <h1 class="timeline-page__title">Bear Timeline</h1>
-      <p class="timeline-page__subtitle">Every bear we've rescued, in order.</p>
+      <p class="timeline-page__subtitle">Every bear I've rescued, in order.</p>
       <div class="timeline-page__stats">
         <div class="timeline-page__stat">
           <span class="timeline-page__stat-value">{totalBears}</span>

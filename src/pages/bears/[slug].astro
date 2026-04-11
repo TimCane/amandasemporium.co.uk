@@ -304,10 +304,10 @@ const jsonLd = {
           </div>
         ) : (
           <p class="bear-profile__narrative-auto">
-            {name} is a {speciesLabel.toLowerCase()}, made by {brandLabel}. We rescued them from {rescuedLocation?.data.name ?? 'an unknown location'} on {dateFmt.format(rescued.date)}.
+            {name} is a {speciesLabel.toLowerCase()}, made by {brandLabel}. I rescued them from {rescuedLocation?.data.name ?? 'an unknown location'} on {dateFmt.format(rescued.date)}.
             {rehomed && rehomLocation
               ? ` ${name} found a new home in ${rehomLocation.data.name} on ${dateFmt.format(rehomed.date)}.`
-              : ` ${name} is still with us, looking for the right home.`}
+              : ` ${name} is still with me, looking for the right home.`}
           </p>
         )}
       </div>
