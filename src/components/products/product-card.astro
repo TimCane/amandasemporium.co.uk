@@ -1,0 +1,46 @@
+---
+import { Image } from 'astro:assets';
+import Card from '@/components/ui/card.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  product: CollectionEntry<'products'>;
+  loading?: 'lazy' | 'eager';
+}
+
+const { product, loading = 'lazy' } = Astro.props;
+
+const { name, price, category, photos } = product.data;
+const slug = product.slug;
+
+const categoryLabels: Record<string, string> = {
+  'bags-and-cases': 'Bags & Cases',
+  'baby-and-children': 'Baby & Children',
+  'knitted-and-crocheted': 'Knitted & Crocheted',
+  'home-and-gifts': 'Home & Gifts',
+  'soaps': 'Soaps',
+  'rescued-bears': 'Rescued Bears',
+};
+
+const categoryLabel = categoryLabels[category] || category;
+---
+
+<Card href={`/products/${slug}`} class="product-card">
+  <div class="product-card__image-wrapper">
+    <Image
+      src={photos[0]}
+      alt={name}
+      width={300}
+      height={300}
+      loading={loading}
+      class="product-card__image"
+    />
+    <div class="product-card__overlay" aria-hidden="true"></div>
+  </div>
+  <div class="product-card__body">
+    <h3 class="product-card__name">{name}</h3>
+    <span class="product-card__price">{price}</span>
+    <span class="product-card__category">{categoryLabel}</span>
+  </div>
+  <div class="product-card__decoration-element"></div>
+</Card>

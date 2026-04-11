@@ -23,6 +23,7 @@
     "@fontsource/source-sans-3": "^5.2.9",
     "@types/leaflet": "^1.9.21",
     "astro": "^5.0.0",
+    "ics": "^3.11.0",
     "leaflet": "^1.9.4",
     "leaflet.markercluster": "^1.5.3",
     "preact": "^10.29.1",

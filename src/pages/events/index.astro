@@ -1,0 +1,152 @@
+---
+export const prerender = false;
+
+import { getCollection } from 'astro:content';
+import PageLayout from '@/layouts/page.layout.astro';
+import FilterTabs from '@/components/ui/filter-tabs.astro';
+import EventList from '@/components/events/event-list.astro';
+import Pagination from '@/components/ui/pagination.astro';
+import { ITEMS_PER_PAGE } from '@/libs/consts';
+
+// --- Parse query params ---
+const url = new URL(Astro.request.url);
+const view = url.searchParams.get('view') === 'past' ? 'past' : 'upcoming';
+const yearParam = url.searchParams.get('year');
+const pageParam = Math.max(1, parseInt(url.searchParams.get('page') || '1', 10));
+
+// --- Fetch all events ---
+const allEvents = await getCollection('events');
+const now = new Date();
+now.setHours(0, 0, 0, 0);
+
+// --- Split into upcoming and past ---
+const upcomingEvents = allEvents
+  .filter(e => e.data.date >= now)
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
+
+const pastEvents = allEvents
+  .filter(e => e.data.date < now)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// --- Compute available years from past events ---
+const availableYears = [...new Set(pastEvents.map(e => e.data.date.getFullYear()))]
+  .sort((a, b) => b - a);
+
+const mostRecentYear = availableYears[0];
+
+// --- For past view: filter by year, paginate ---
+const selectedYear = yearParam
+  ? parseInt(yearParam, 10)
+  : mostRecentYear;
+
+const validYear = availableYears.includes(selectedYear) ? selectedYear : mostRecentYear;
+
+const pastByYear = pastEvents.filter(e => e.data.date.getFullYear() === validYear);
+const totalPastEvents = pastByYear.length;
+const totalPages = Math.max(1, Math.ceil(totalPastEvents / ITEMS_PER_PAGE));
+const currentPage = Math.min(pageParam, totalPages);
+const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+const paginatedPast = pastByYear.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+// --- Build tab data ---
+const tabs = [
+  { label: `Upcoming (${upcomingEvents.length})`, value: 'upcoming', href: '/events' },
+  { label: `Past (${pastEvents.length})`, value: 'past', href: '/events?view=past' },
+];
+
+// --- Build year navigation for past view ---
+function buildEventsUrl(params: { view?: string; year?: number; page?: number }): string {
+  const searchParams = new URLSearchParams();
+  if (params.view) searchParams.set('view', params.view);
+  if (params.year) searchParams.set('year', String(params.year));
+  if (params.page && params.page > 1) searchParams.set('page', String(params.page));
+  const qs = searchParams.toString();
+  return qs ? `/events?${qs}` : '/events';
+}
+
+// --- Pagination params ---
+const paginationParams: Record<string, string> = { view: 'past' };
+if (validYear) paginationParams.year = String(validYear);
+
+// --- SEO ---
+const heading = 'Events';
+const subheading = view === 'upcoming'
+  ? 'Pop along and say hello at one of our upcoming craft fairs and markets.'
+  : `Looking back at the events we attended in ${validYear}.`;
+const eventCount = view === 'upcoming' ? upcomingEvents.length : totalPastEvents;
+const description = view === 'upcoming'
+  ? `Browse ${upcomingEvents.length} upcoming craft fairs and markets where you can find Amanda's Emporium.`
+  : `Browse past events from ${validYear} attended by Amanda's Emporium.`;
+
+const pageTitle = view === 'past' ? `Events - ${validYear}` : 'Events';
+
+// Pagination rel links (past view only)
+const prevUrl = view === 'past' && currentPage > 1
+  ? buildEventsUrl({ view: 'past', year: validYear, page: currentPage - 1 })
+  : undefined;
+const nextUrl = view === 'past' && currentPage < totalPages
+  ? buildEventsUrl({ view: 'past', year: validYear, page: currentPage + 1 })
+  : undefined;
+
+// --- Pick the events to display ---
+const displayEvents = view === 'upcoming' ? upcomingEvents : paginatedPast;
+const emptyMessage = view === 'upcoming'
+  ? 'No upcoming events at the moment — but keep an eye out, new dates are added all the time!'
+  : `No events found for ${validYear}.`;
+---
+
+<PageLayout title={pageTitle} description={description}>
+  <Fragment slot="og-meta">
+    <meta property="og:title" content={`${pageTitle} | Amanda's Emporium`} />
+    <meta property="og:description" content={description} />
+    {prevUrl && <link rel="prev" href={prevUrl} />}
+    {nextUrl && <link rel="next" href={nextUrl} />}
+  </Fragment>
+
+  <section class="events-page">
+    <header class="events-page__header">
+      <h1 class="events-page__title">{heading}</h1>
+      <p class="events-page__intro">{subheading}</p>
+      <p class="events-page__count">
+        {eventCount} {eventCount === 1 ? 'event' : 'events'}
+      </p>
+    </header>
+
+    <div class="events-page__filters">
+      <FilterTabs tabs={tabs} activeValue={view} ariaLabel="Filter events" />
+    </div>
+
+    {view === 'past' && availableYears.length > 1 && (
+      <nav class="events-page__years" aria-label="Filter by year">
+        {availableYears.map(y => (
+          <a
+            href={buildEventsUrl({ view: 'past', year: y })}
+            class:list={['events-page__year-link', { 'events-page__year-link--active': y === validYear }]}
+            aria-current={y === validYear ? 'page' : undefined}
+          >
+            {y}
+          </a>
+        ))}
+      </nav>
+    )}
+
+    <div class="events-page__list">
+      <EventList
+        events={displayEvents}
+        showCalendarButtons={view === 'upcoming'}
+        emptyMessage={emptyMessage}
+      />
+    </div>
+
+    {view === 'past' && totalPages > 1 && (
+      <div class="events-page__pagination">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          baseUrl="/events"
+          params={paginationParams}
+        />
+      </div>
+    )}
+  </section>
+</PageLayout>

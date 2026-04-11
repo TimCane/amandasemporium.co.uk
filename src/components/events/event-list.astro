@@ -1,0 +1,28 @@
+---
+import EventCard from '@/components/events/event-card.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  events: CollectionEntry<'events'>[];
+  showCalendarButtons?: boolean;
+  emptyMessage?: string;
+}
+
+const {
+  events,
+  showCalendarButtons = false,
+  emptyMessage = 'No events to show right now.',
+} = Astro.props;
+---
+
+{events.length > 0 ? (
+  <div class="event-list__grid">
+    {events.map(event => (
+      <EventCard event={event} showCalendarButton={showCalendarButtons} />
+    ))}
+  </div>
+) : (
+  <div class="event-list__empty">
+    <p class="event-list__empty-text">{emptyMessage}</p>
+  </div>
+)}

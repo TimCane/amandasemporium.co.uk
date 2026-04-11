@@ -1,0 +1,229 @@
+---
+export const prerender = true;
+
+import { getCollection, getEntry, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import PageLayout from '@/layouts/page.layout.astro';
+import BearCard from '@/components/bears/bear-card.astro';
+import VenueMap from '@/components/events/venue-map.astro';
+
+export async function getStaticPaths() {
+  const events = await getCollection('events');
+  return events.map((event) => ({
+    params: { slug: event.slug },
+    props: { event },
+  }));
+}
+
+interface Props {
+  event: CollectionEntry<'events'>;
+}
+
+const { event } = Astro.props;
+const { name, date, time, location, info, website, recapPhotos } = event.data;
+
+// --- Resolve location coordinates ---
+const locationEntry = await getEntry(event.data.location.location);
+const hasCoordinates = locationEntry?.data.latitude != null && locationEntry?.data.longitude != null;
+
+// --- Determine if upcoming or past ---
+const now = new Date();
+now.setHours(0, 0, 0, 0);
+const isUpcoming = date >= now;
+const isPast = !isUpcoming;
+
+// --- Render markdown body ---
+const { Content } = await render(event);
+const hasBody = event.body && event.body.trim().length > 0;
+const hasRecapHeading = hasBody && event.body!.includes('## Recap');
+
+// --- Date formatting ---
+const dateFmt = new Intl.DateTimeFormat('en-GB', {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+});
+const formattedDate = dateFmt.format(date);
+const isoDate = date.toISOString();
+
+// --- Bears at this event (past events only) ---
+let eventBears: CollectionEntry<'bears'>[] = [];
+if (isPast) {
+  const allBears = await getCollection('bears');
+  eventBears = allBears.filter((bear) => {
+    if (!bear.data.event) return false;
+    const bearEventId = typeof bear.data.event === 'object' && 'id' in bear.data.event
+      ? (bear.data.event as any).id
+      : bear.data.event;
+    return bearEventId === event.id || bearEventId === event.slug;
+  });
+}
+
+// --- SEO ---
+const description = `${name} — ${formattedDate} at ${location.name}`;
+
+// --- JSON-LD for upcoming events ---
+const jsonLd = isUpcoming ? {
+  '@context': 'https://schema.org',
+  '@type': 'Event',
+  name,
+  startDate: isoDate,
+  location: {
+    '@type': 'Place',
+    name: location.name,
+    ...(hasCoordinates ? {
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: locationEntry!.data.latitude,
+        longitude: locationEntry!.data.longitude,
+      },
+    } : {}),
+  },
+  url: Astro.url.href,
+} : null;
+---
+
+<PageLayout title={`${name}`} description={description}>
+  <Fragment slot="og-meta">
+    <meta property="og:title" content={`${name} | Amanda's Emporium`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={isUpcoming ? 'event' : 'website'} />
+    <meta property="og:url" content={Astro.url.href} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </Fragment>
+
+  <article class="event-profile">
+    {/* ── 1. Event Header ── */}
+    <header class="event-profile__header">
+      <h1 class="event-profile__title">{name}</h1>
+      <time class="event-profile__date" datetime={isoDate}>{formattedDate}</time>
+      {time && <span class="event-profile__time">{time}</span>}
+      <span class="event-profile__location">{location.name}</span>
+      {info && <p class="event-profile__info">{info}</p>}
+      <div class="event-profile__header-decoration" aria-hidden="true"></div>
+    </header>
+
+    {/* ── 2. Event Description (upcoming only, if body exists) ── */}
+    {isUpcoming && hasBody && !hasRecapHeading && (
+      <section class="event-profile__content">
+        <h2 class="event-profile__section-heading">What to Expect</h2>
+        <div class="event-profile__content-body">
+          <Content />
+        </div>
+        <div class="event-profile__content-decoration" aria-hidden="true"></div>
+      </section>
+    )}
+
+    {/* ── 3. Venue Map (upcoming only, if coordinates exist) ── */}
+    {isUpcoming && hasCoordinates && (
+      <section class="event-profile__map">
+        <h2 class="event-profile__section-heading">Find Us</h2>
+        <div class="event-profile__map-wrapper">
+          <VenueMap
+            lat={locationEntry!.data.latitude}
+            lng={locationEntry!.data.longitude}
+            name={location.name}
+          />
+        </div>
+        <div class="event-profile__map-decoration" aria-hidden="true"></div>
+      </section>
+    )}
+
+    {/* ── 4. Event Links (upcoming only) ── */}
+    {isUpcoming && (
+      <div class="event-profile__links">
+        {website && (
+          <a
+            href={website}
+            class="event-profile__link event-profile__link--website"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Visit Event Website
+          </a>
+        )}
+        <a
+          href={`/events/calendar/${event.slug}.ics`}
+          class="event-profile__link event-profile__link--calendar"
+        >
+          Add to Calendar
+        </a>
+        <div class="event-profile__links-decoration" aria-hidden="true"></div>
+      </div>
+    )}
+
+    {/* ── 5. Event Recap (past events) ── */}
+    {isPast && (
+      <section class="event-profile__recap">
+        {hasRecapHeading ? (
+          <Fragment>
+            <h2 class="event-profile__section-heading">Looking Back</h2>
+            <div class="event-profile__recap-body">
+              <Content />
+            </div>
+          </Fragment>
+        ) : hasBody ? (
+          <Fragment>
+            <h2 class="event-profile__section-heading">Looking Back</h2>
+            <p class="event-profile__past-note">This event has passed, but here is what it was all about.</p>
+            <div class="event-profile__recap-body">
+              <Content />
+            </div>
+          </Fragment>
+        ) : (
+          <Fragment>
+            <p class="event-profile__past-note">
+              This event took place on <time datetime={isoDate}>{formattedDate}</time> at {location.name}.
+            </p>
+          </Fragment>
+        )}
+        <div class="event-profile__recap-decoration" aria-hidden="true"></div>
+      </section>
+    )}
+
+    {/* ── 6. Recap Photos (past events) ── */}
+    {isPast && recapPhotos && recapPhotos.length > 0 && (
+      <section class="event-profile__photos" aria-label="Event photos">
+        <h2 class="event-profile__section-heading">Photos from the Day</h2>
+        <div class="event-profile__photos-grid">
+          {recapPhotos.map((photo, i) => (
+            <div class="event-profile__photo-wrapper">
+              <Image
+                src={photo}
+                alt={`${name} — photo ${i + 1}`}
+                width={400}
+                height={300}
+                loading="lazy"
+                class="event-profile__photo"
+              />
+            </div>
+          ))}
+        </div>
+        <div class="event-profile__photos-decoration" aria-hidden="true"></div>
+      </section>
+    )}
+
+    {/* ── 7. Bears at This Event (past events) ── */}
+    {isPast && eventBears.length > 0 && (
+      <section class="event-profile__bears">
+        <h2 class="event-profile__section-heading">Bears at This Event</h2>
+        <div class="event-profile__bears-grid">
+          {eventBears.map((bear) => (
+            <BearCard bear={bear} />
+          ))}
+        </div>
+        <div class="event-profile__bears-decoration" aria-hidden="true"></div>
+      </section>
+    )}
+
+    {/* ── Navigation ── */}
+    <nav class="event-profile__nav" aria-label="Event navigation">
+      <a href="/events" class="event-profile__back-link">
+        <span class="event-profile__back-arrow" aria-hidden="true">&larr;</span>
+        Back to Events
+      </a>
+    </nav>
+  </article>
+</PageLayout>

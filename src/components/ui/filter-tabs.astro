@@ -9,12 +9,13 @@ interface Tab {
 interface Props {
   tabs: Tab[];
   activeValue: string;
+  ariaLabel?: string;
 }
 
-const { tabs, activeValue } = Astro.props;
+const { tabs, activeValue, ariaLabel = 'Filter bears' } = Astro.props;
 ---
 
-<nav class="filter-tabs" aria-label="Filter bears">
+<nav class="filter-tabs" aria-label={ariaLabel}>
   {tabs.map(tab => (
     <a
       href={tab.href}

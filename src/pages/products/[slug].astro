@@ -1,0 +1,162 @@
+---
+export const prerender = true;
+
+import { getCollection, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import PageLayout from '@/layouts/page.layout.astro';
+import ProductCard from '@/components/products/product-card.astro';
+
+export async function getStaticPaths() {
+  const products = await getCollection('products');
+  return products
+    .filter(p => !p.data.hidden)
+    .map(product => ({
+      params: { slug: product.slug },
+      props: { product },
+    }));
+}
+
+interface Props {
+  product: CollectionEntry<'products'>;
+}
+
+const { product } = Astro.props;
+const { name, tagline, category, price, materials, photos } = product.data;
+
+// --- Category labels ---
+const categoryLabels: Record<string, string> = {
+  'bags-and-cases': 'Bags & Cases',
+  'baby-and-children': 'Baby & Children',
+  'knitted-and-crocheted': 'Knitted & Crocheted',
+  'home-and-gifts': 'Home & Gifts',
+  'soaps': 'Soaps',
+  'rescued-bears': 'Rescued Bears',
+};
+
+const categoryLabel = categoryLabels[category] || category;
+
+// --- Render markdown body ---
+const { Content } = await render(product);
+const hasBody = product.body && product.body.trim().length > 0;
+
+// --- Related products in the same category ---
+const allProducts = await getCollection('products');
+const relatedProducts = allProducts.filter(
+  p => p.slug !== product.slug && !p.data.hidden && p.data.category === category
+);
+
+// --- SEO ---
+const metaDescription = tagline
+  ? `${name} — ${tagline}`
+  : name;
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name,
+  description: metaDescription,
+  image: photos[0].src,
+  url: Astro.url.href,
+  offers: {
+    '@type': 'Offer',
+    price: price.replace(/[^0-9.]/g, ''),
+    priceCurrency: 'GBP',
+  },
+};
+---
+
+<PageLayout title={`${name}`} description={metaDescription}>
+  <Fragment slot="og-meta">
+    <meta property="og:title" content={`${name} | Amanda's Emporium`} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:type" content="product" />
+    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:image" content={photos[0].src} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </Fragment>
+
+  <article class="product-profile">
+    {/* ── Hero Image(s) ── */}
+    <div class="product-profile__hero">
+      {photos.length === 1 ? (
+        <Image
+          src={photos[0]}
+          alt={name}
+          width={600}
+          height={600}
+          loading="eager"
+          class="product-profile__photo product-profile__photo--main"
+        />
+      ) : (
+        <div class="product-profile__gallery">
+          {photos.map((photo, i) => (
+            <Image
+              src={photo}
+              alt={`${name} — photo ${i + 1}`}
+              width={600}
+              height={600}
+              loading={i === 0 ? 'eager' : 'lazy'}
+              class:list={[
+                'product-profile__photo',
+                i === 0 && 'product-profile__photo--main',
+              ]}
+            />
+          ))}
+        </div>
+      )}
+      <div class="product-profile__hero-decoration" aria-hidden="true"></div>
+    </div>
+
+    {/* ── Name + Price + Category ── */}
+    <header class="product-profile__header">
+      <h1 class="product-profile__title">{name}</h1>
+      <span class="product-profile__price">{price}</span>
+      <a
+        href={`/products?category=${category}`}
+        class="product-profile__category"
+      >
+        {categoryLabel}
+      </a>
+      {tagline && <p class="product-profile__tagline">{tagline}</p>}
+    </header>
+
+    {/* ── Product Story + How It's Made (rendered from markdown body) ── */}
+    {hasBody && (
+      <section class="product-profile__story">
+        <div class="product-profile__content">
+          <Content />
+        </div>
+        <div class="product-profile__story-decoration" aria-hidden="true"></div>
+      </section>
+    )}
+
+    {/* ── Materials ── */}
+    {materials && (
+      <section class="product-profile__materials">
+        <span class="product-profile__materials-label">Materials</span>
+        <p class="product-profile__materials-text">{materials}</p>
+      </section>
+    )}
+
+    {/* ── More in This Category ── */}
+    {relatedProducts.length > 0 && (
+      <section class="product-profile__related">
+        <h2 class="product-profile__related-heading">More {categoryLabel}</h2>
+        <div class="product-profile__related-grid">
+          {relatedProducts.map(p => (
+            <ProductCard product={p} />
+          ))}
+        </div>
+      </section>
+    )}
+
+    {/* ── Navigation ── */}
+    <nav class="product-profile__nav" aria-label="Product navigation">
+      <a href="/products" class="product-profile__back-link">
+        <span class="product-profile__back-arrow" aria-hidden="true">&larr;</span>
+        Back to Products
+      </a>
+    </nav>
+  </article>
+</PageLayout>
