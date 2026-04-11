@@ -42,7 +42,7 @@ export function groupLabel(group: BearGroup): string {
     case 'found':
       return 'Found Their Home';
     default:
-      return 'Our Bears';
+      return 'The Bears';
   }
 }
 
@@ -50,7 +50,7 @@ export function groupLabel(group: BearGroup): string {
 export function groupIntro(group: BearGroup): string {
   switch (group) {
     case 'looking':
-      return 'These bears are waiting for their next chapter. Each one has been cleaned up, checked over, and is ready to find a new home.';
+      return 'These bears are still with me, each one cleaned up and checked over. The right person just hasn\'t come along yet.';
     case 'found':
       return 'These bears have already found new homes. Have a look through — you might spot a familiar face.';
     default:

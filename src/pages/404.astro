@@ -24,9 +24,8 @@ const featuredBear = bears[randomIndex];
     <header class="error-page__header">
       <h1 class="error-page__title">This Bear Has Wandered Off&hellip;</h1>
       <p class="error-page__message">
-        I couldn't find the page you were looking for. It might have been moved,
-        renamed, or it never existed at all. Don't worry though &mdash;
-        there's plenty more to explore.
+        I couldn't find the page you were looking for. It might have moved,
+        been renamed, or never existed at all. There's plenty worth finding though.
       </p>
     </header>
 
@@ -75,7 +74,7 @@ const featuredBear = bears[randomIndex];
     {featuredBear && (
       <aside class="error-page__bear" aria-label="Featured bear">
         <h2 class="error-page__bear-heading">
-          While you're here, meet {featuredBear.data.name}!
+          While you're here, meet {featuredBear.data.name}.
         </h2>
         <a href={`/bears/${featuredBear.slug}`} class="error-page__bear-link">
           <div class="error-page__bear-image-wrapper">

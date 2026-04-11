@@ -68,7 +68,7 @@ const categoryTitle = category ? categoryLabels[category] : undefined;
 const pageTitle = categoryTitle
   ? `${categoryTitle} | Products`
   : 'Products';
-const description = 'Handmade crafts by Amanda\'s Emporium \u2014 bags, baby items, knitted goods, and more.';
+const description = 'Handmade bags, baby items, knitted goods, soaps, and more. All made by hand.';
 
 const prevUrl = currentPage > 1
   ? `/products?${new URLSearchParams({ ...paginationParams, page: String(currentPage - 1) }).toString()}`
@@ -88,9 +88,9 @@ const nextUrl = currentPage < totalPages
 
   <section class="products-page">
     <header class="products-page__header">
-      <h1 class="products-page__title">What We Make</h1>
+      <h1 class="products-page__title">What I Make</h1>
       <p class="products-page__intro">
-        Everything here is made by hand in Amanda's workshop. Have a browse and see what catches your eye.
+        Everything here is made by hand. Have a browse and see what catches your eye.
       </p>
       <p class="products-page__count">
         {totalProducts} {totalProducts === 1 ? 'product' : 'products'}
@@ -115,7 +115,7 @@ const nextUrl = currentPage < totalPages
     ) : (
       <div class="products-page__empty">
         <p class="products-page__empty-text">
-          Nothing in this category just now — but Amanda's always making something new. Check back soon or browse everything to see the full collection.
+          Nothing in this category just now. I'm always making something new though. Check back soon or browse everything to see the full collection.
         </p>
         <a href="/products" class="products-page__empty-link">View all products</a>
       </div>

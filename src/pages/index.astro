@@ -156,9 +156,9 @@ const jsonLd = {
       <div class="home-hero__decoration-top" aria-hidden="true"></div>
       <h1 class="home-hero__title">Amanda's Emporium</h1>
       <p class="home-hero__tagline">
-        Rescuing bears, crafting treasures, and spreading a little joy — one market stall at a time.
+        Rescuing bears, making things by hand, and turning up at markets across the south of England.
       </p>
-      <a href="/events" class="home-hero__cta">Find Me at My Next Event</a>
+      <a href="/events" class="home-hero__cta">Find me at my next event</a>
       <div class="home-hero__decoration-bottom" aria-hidden="true"></div>
     </div>
   </section>
@@ -169,10 +169,10 @@ const jsonLd = {
       <div class="home-about__decoration" aria-hidden="true"></div>
       <h2 class="home-about__heading" id="home-about-heading">My Story</h2>
       <p class="home-about__text">
-        What started as a love of crafting and a soft spot for scruffy teddy bears has grown into something rather
-        special. I rescue pre-loved bears from car boot sales, charity shops, and forgotten corners, giving each
-        one a clean, a cuddle, and a chance to find a new family. Alongside the bears, I make handmade bags, knitted
-        gifts, soaps, and all sorts of lovely bits and bobs.
+        What started as a love of crafting and a soft spot for scruffy teddy bears has turned into a regular stall
+        at fairs across the south of England. I rescue pre-loved bears from car boot sales and charity shops, give
+        them a proper clean and a new outfit, and bring them to the stall looking for a new home. Alongside the bears,
+        I make bags, knitted bits, soaps, and a few other things besides.
       </p>
       <a href="/about" class="home-about__link">Read my full story <span aria-hidden="true">&rarr;</span></a>
     </div>
@@ -228,7 +228,7 @@ const jsonLd = {
       ) : (
         <div class="home-events__empty">
           <p class="home-events__empty-text">
-            I'm busy planning my next adventure. Check back soon to see where I'll be popping up.
+            Nothing booked just yet. Check back and I'll add dates as they come in.
           </p>
         </div>
       )}
@@ -328,7 +328,7 @@ const jsonLd = {
   {activityFeed.length > 0 && (
     <section class="home-activity" aria-labelledby="home-activity-heading">
       <div class="home-activity__wrapper">
-        <h2 class="home-activity__heading" id="home-activity-heading">Latest from the Emporium</h2>
+        <h2 class="home-activity__heading" id="home-activity-heading">What's been happening</h2>
         <ul class="home-activity__list">
           {activityFeed.map((item) => (
             <li class={`home-activity__item home-activity__item--${item.type}`}>

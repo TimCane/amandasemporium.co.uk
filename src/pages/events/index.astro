@@ -71,12 +71,12 @@ if (validYear) paginationParams.year = String(validYear);
 // --- SEO ---
 const heading = 'Events';
 const subheading = view === 'upcoming'
-  ? 'Pop along and say hello at one of our upcoming craft fairs and markets.'
-  : `Looking back at the events we attended in ${validYear}.`;
+  ? 'Come and find me at one of my upcoming craft fairs and markets.'
+  : `A look back at the events I went to in ${validYear}.`;
 const eventCount = view === 'upcoming' ? upcomingEvents.length : totalPastEvents;
 const description = view === 'upcoming'
-  ? `Browse ${upcomingEvents.length} upcoming craft fairs and markets where you can find Amanda's Emporium.`
-  : `Browse past events from ${validYear} attended by Amanda's Emporium.`;
+  ? `${upcomingEvents.length} upcoming craft fairs and markets where you can come and find me.`
+  : `Events I attended in ${validYear}: markets, fairs, and community days across the south of England.`;
 
 const pageTitle = view === 'past' ? `Events - ${validYear}` : 'Events';
 
@@ -91,7 +91,7 @@ const nextUrl = view === 'past' && currentPage < totalPages
 // --- Pick the events to display ---
 const displayEvents = view === 'upcoming' ? upcomingEvents : paginatedPast;
 const emptyMessage = view === 'upcoming'
-  ? 'No upcoming events at the moment — but keep an eye out, new dates are added all the time!'
+  ? 'Nothing booked just yet. Check back soon and I\'ll have new dates up as I confirm them.'
   : `Nothing recorded for ${validYear}.`;
 ---
 
