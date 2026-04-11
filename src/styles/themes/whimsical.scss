@@ -38,6 +38,299 @@
   body { line-height: 1.7; }
   .page-content { max-width: 68rem; }
 
+  // ── Pattern Mixins ─────────────────────────────────────
+
+  // Listing page wrapper
+  @mixin _listing-page {
+    padding: 2rem 1rem;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  // Profile page wrapper
+  @mixin _profile-page {
+    padding: 2rem 1rem;
+    max-width: 52rem;
+    margin: 0 auto;
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  // Scrapbook background (for all profile pages)
+  @mixin _scrapbook-bg {
+    &::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(155, 142, 196, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(232, 160, 180, 0.04) 0%, transparent 50%),
+        radial-gradient(ellipse at 60% 80%, rgba(126, 200, 164, 0.04) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+  }
+
+  // Page header with flourish (listing pages)
+  @mixin _page-header {
+    text-align: center;
+    padding-bottom: 1rem;
+    position: relative;
+
+    &::after {
+      content: '~ ~ ~';
+      display: block;
+      color: var(--color-primary-light);
+      font-size: 1.2rem;
+      letter-spacing: 0.5rem;
+      margin-top: 0.75rem;
+      opacity: 0.6;
+    }
+  }
+
+  // Page title (listing pages)
+  @mixin _page-title {
+    font-family: var(--font-heading);
+    color: var(--color-primary-dark);
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 0 0 0.5rem;
+  }
+
+  // Count text
+  @mixin _page-count {
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin: 0;
+    font-style: italic;
+  }
+
+  // Card grid (responsive 1→2→3 columns with rotation)
+  @mixin _card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 480px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem 1.75rem;
+    }
+  }
+
+  // Card rotation (scattered handmade feel)
+  @mixin _card-rotation($scale: 1) {
+    > :nth-child(6n+1) { transform: rotate(#{-0.5 * $scale}deg); }
+    > :nth-child(6n+2) { transform: rotate(#{0.7 * $scale}deg); }
+    > :nth-child(6n+3) { transform: rotate(#{-0.3 * $scale}deg); }
+    > :nth-child(6n+4) { transform: rotate(#{0.5 * $scale}deg); }
+    > :nth-child(6n+5) { transform: rotate(#{-0.8 * $scale}deg); }
+    > :nth-child(6n+6) { transform: rotate(#{0.4 * $scale}deg); }
+
+    > * {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      &:hover {
+        transform: rotate(0deg) translateY(-4px) !important;
+      }
+    }
+  }
+
+  // Card image (with playful hover)
+  @mixin _card-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  @mixin _card-image-hover {
+    transform: scale(1.05) rotate(1deg);
+  }
+
+  // Card body
+  @mixin _card-body {
+    padding: 1.25rem 1.5rem;
+  }
+
+  // Card name
+  @mixin _card-name {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    color: var(--color-text);
+    margin: 0 0 0.4rem;
+    font-weight: 700;
+  }
+
+  // Card badge (pill-shaped)
+  @mixin _card-badge {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    padding: 0.2rem 0.75rem;
+    border-radius: 999px;
+    margin-bottom: 0.25rem;
+  }
+
+  // Empty state
+  @mixin _empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: var(--color-bg-alt);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+  }
+
+  @mixin _empty-text {
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    margin: 0 0 1rem;
+  }
+
+  @mixin _empty-link {
+    font-family: var(--font-body);
+    text-decoration: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 999px;
+    background: var(--color-primary-light);
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    transition: background 0.2s ease, color 0.2s ease;
+    &:hover {
+      background: var(--color-primary);
+      color: var(--color-on-primary);
+    }
+  }
+
+  // Pill button (used for section links, year filters, etc.)
+  @mixin _pill-button {
+    font-family: var(--font-body);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    padding: 0.6rem 1.25rem;
+    border-radius: 999px;
+    background: var(--color-bg-alt);
+    box-shadow: 0 2px 8px rgba(74, 63, 92, 0.06);
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    &:hover {
+      background: var(--color-primary-light);
+      color: var(--color-on-primary);
+      transform: scale(1.02);
+    }
+  }
+
+  // Filter wrapper
+  @mixin _filter-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  // Pagination wrapper
+  @mixin _pagination-wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  // Profile header
+  @mixin _profile-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  // Profile title
+  @mixin _profile-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    color: var(--color-primary-dark);
+    margin: 0;
+    font-weight: 800;
+  }
+
+  // Section heading (h2 inside profiles)
+  @mixin _section-heading {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-primary-dark);
+    margin: 0 0 1rem;
+    font-weight: 700;
+  }
+
+  // Polaroid frame (for featured images)
+  @mixin _polaroid-frame($rotation: -2deg) {
+    position: relative;
+    justify-self: center;
+    padding: 0.75rem;
+    background: var(--color-bg);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    transform: rotate($rotation);
+  }
+
+  // Tape decoration (on polaroid frames)
+  @mixin _tape-decoration {
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 16px;
+    background: var(--color-accent);
+    opacity: 0.6;
+    border-radius: 0 0 4px 4px;
+  }
+
+  // Polaroid image
+  @mixin _polaroid-image($size: 260px, $size-desktop: 300px) {
+    width: $size;
+    height: $size;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+
+    @media (min-width: 768px) {
+      width: $size-desktop;
+      height: $size-desktop;
+    }
+  }
+
+  // Nav link (back to listing)
+  @mixin _nav-link {
+    display: inline-block;
+    @include _pill-button;
+  }
+
+  // Profile body text
+  @mixin _profile-body-text {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.75;
+    font-size: 1.05rem;
+    p { margin: 0 0 1rem; }
+  }
+
+  // Section links (dashed border + pill buttons)
+  @mixin _section-links {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 2px dashed var(--color-border);
+  }
+
   // Card
   .card {
     background: var(--color-bg);
@@ -395,9 +688,7 @@
 
   // Bears Page — cozy browsing with scattered card feel
   .bears-page {
-    padding: 2rem 1rem;
-    display: grid;
-    gap: 1.5rem;
+    @include _listing-page;
     grid-template-areas:
       "header"
       "filters"
@@ -406,141 +697,26 @@
       "pagination"
       "section-links";
 
-    &__header {
-      text-align: center;
-      padding-bottom: 1rem;
-      position: relative;
-
-      // Decorative flourish under heading
-      &::after {
-        content: '~ ~ ~';
-        display: block;
-        color: var(--color-primary-light);
-        font-size: 1.2rem;
-        letter-spacing: 0.5rem;
-        margin-top: 0.75rem;
-        opacity: 0.6;
-      }
-    }
-
-    &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin: 0 0 0.5rem;
-    }
-
-    &__count {
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      font-size: 1rem;
-      margin: 0;
-      font-style: italic;
-    }
-
-    &__filters {
-      display: flex;
-      justify-content: center;
-    }
+    &__header { @include _page-header; }
+    &__title { @include _page-title; }
+    &__count { @include _page-count; }
+    &__filters { @include _filter-wrapper; }
 
     &__alphabet {
       // Friendly circular letter buttons are already styled via .alphabet-nav
     }
 
     &__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-
-      @media (min-width: 480px) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @media (min-width: 768px) {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem 1.75rem;
-      }
-
-      // Scattered card rotations for handmade feel
-      > :nth-child(6n+1) { transform: rotate(-0.5deg); }
-      > :nth-child(6n+2) { transform: rotate(0.7deg); }
-      > :nth-child(6n+3) { transform: rotate(-0.3deg); }
-      > :nth-child(6n+4) { transform: rotate(0.5deg); }
-      > :nth-child(6n+5) { transform: rotate(-0.8deg); }
-      > :nth-child(6n+6) { transform: rotate(0.4deg); }
-
-      > * {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        &:hover {
-          transform: rotate(0deg) translateY(-4px) !important;
-        }
-      }
+      @include _card-grid;
+      @include _card-rotation;
     }
 
-    &__empty {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: var(--color-bg-alt);
-      border-radius: 20px;
-      box-shadow: var(--shadow-card);
-    }
-
-    &__empty-text {
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      font-size: 1.1rem;
-      margin: 0 0 1rem;
-    }
-
-    &__empty-link {
-      font-family: var(--font-body);
-      color: var(--color-primary);
-      text-decoration: none;
-      padding: 0.5rem 1.25rem;
-      border-radius: 999px;
-      background: var(--color-primary-light);
-      color: var(--color-primary-dark);
-      font-weight: 600;
-      transition: background 0.2s ease, color 0.2s ease;
-
-      &:hover {
-        background: var(--color-primary);
-        color: var(--color-on-primary);
-      }
-    }
-
-    &__pagination {
-      display: flex;
-      justify-content: center;
-    }
-
-    &__section-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 2px dashed var(--color-border);
-    }
-
-    &__section-link {
-      font-family: var(--font-body);
-      color: var(--color-primary);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-      padding: 0.6rem 1.25rem;
-      border-radius: 999px;
-      background: var(--color-bg-alt);
-      box-shadow: 0 2px 8px rgba(74, 63, 92, 0.06);
-      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-
-      &:hover {
-        background: var(--color-primary-light);
-        color: var(--color-on-primary);
-        transform: scale(1.02);
-      }
-    }
+    &__empty { @include _empty-state; }
+    &__empty-text { @include _empty-text; }
+    &__empty-link { @include _empty-link; }
+    &__pagination { @include _pagination-wrapper; }
+    &__section-links { @include _section-links; }
+    &__section-link { @include _pill-button; }
   }
 
   // Bear Card
@@ -553,42 +729,14 @@
       border-radius: var(--radius-card) var(--radius-card) 0 0;
     }
 
-    &__image {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-
-    &:hover &__image {
-      transform: scale(1.05) rotate(1deg);
-    }
-
-    &__overlay {
-      display: none;
-    }
-
-    &__body {
-      padding: 1.25rem 1.5rem;
-    }
-
-    &__name {
-      font-family: var(--font-heading);
-      font-size: 1.15rem;
-      color: var(--color-text);
-      margin: 0 0 0.4rem;
-      font-weight: 700;
-    }
+    &__image { @include _card-image; }
+    &:hover &__image { @include _card-image-hover; }
+    &__overlay { display: none; }
+    &__body { @include _card-body; }
+    &__name { @include _card-name; }
 
     &__status {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      padding: 0.2rem 0.75rem;
-      border-radius: 999px;
-      margin-bottom: 0.25rem;
+      @include _card-badge;
 
       &--looking {
         background: var(--color-badge-looking-bg);
@@ -618,38 +766,15 @@
 
   // Products Page — cozy browsing with scattered card feel
   .products-page {
-    padding: 2rem 1rem;
-    display: grid;
-    gap: 1.5rem;
+    @include _listing-page;
     grid-template-areas:
       "header"
       "filters"
       "card-grid"
       "pagination";
 
-    &__header {
-      text-align: center;
-      padding-bottom: 1rem;
-      position: relative;
-
-      &::after {
-        content: '~ ~ ~';
-        display: block;
-        color: var(--color-primary-light);
-        font-size: 1.2rem;
-        letter-spacing: 0.5rem;
-        margin-top: 0.75rem;
-        opacity: 0.6;
-      }
-    }
-
-    &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin: 0 0 0.5rem;
-    }
+    &__header { @include _page-header; }
+    &__title { @include _page-title; }
 
     &__intro {
       font-family: var(--font-body);
@@ -660,88 +785,18 @@
       line-height: 1.6;
     }
 
-    &__count {
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      font-size: 1rem;
-      margin: 0;
-      font-style: italic;
-    }
-
-    &__filters {
-      display: flex;
-      justify-content: center;
-    }
+    &__count { @include _page-count; }
+    &__filters { @include _filter-wrapper; }
 
     &__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-
-      @media (min-width: 480px) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @media (min-width: 768px) {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem 1.75rem;
-      }
-
-      @media (min-width: 1024px) {
-        grid-template-columns: repeat(4, 1fr);
-      }
-
-      // Scattered card rotations for handmade feel
-      > :nth-child(6n+1) { transform: rotate(-0.5deg); }
-      > :nth-child(6n+2) { transform: rotate(0.7deg); }
-      > :nth-child(6n+3) { transform: rotate(-0.3deg); }
-      > :nth-child(6n+4) { transform: rotate(0.5deg); }
-      > :nth-child(6n+5) { transform: rotate(-0.8deg); }
-      > :nth-child(6n+6) { transform: rotate(0.4deg); }
-
-      > * {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        &:hover {
-          transform: rotate(0deg) translateY(-4px) !important;
-        }
-      }
+      @include _card-grid;
+      @include _card-rotation;
     }
 
-    &__empty {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-card);
-    }
-
-    &__empty-text {
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      font-size: 1.1rem;
-      margin: 0 0 1rem;
-    }
-
-    &__empty-link {
-      font-family: var(--font-body);
-      text-decoration: none;
-      padding: 0.5rem 1.25rem;
-      border-radius: 999px;
-      background: var(--color-primary-light);
-      color: var(--color-primary-dark);
-      font-weight: 600;
-      transition: background 0.2s ease, color 0.2s ease;
-
-      &:hover {
-        background: var(--color-primary);
-        color: var(--color-on-primary);
-      }
-    }
-
-    &__pagination {
-      display: flex;
-      justify-content: center;
-    }
+    &__empty { @include _empty-state; }
+    &__empty-text { @include _empty-text; }
+    &__empty-link { @include _empty-link; }
+    &__pagination { @include _pagination-wrapper; }
   }
 
   // Product Card
@@ -754,34 +809,11 @@
       border-radius: var(--radius-card) var(--radius-card) 0 0;
     }
 
-    &__image {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
-
-    &:hover &__image {
-      transform: scale(1.05) rotate(1deg);
-    }
-
-    &__overlay {
-      display: none;
-    }
-
-    &__body {
-      padding: 1.25rem 1.5rem;
-    }
-
-    &__name {
-      font-family: var(--font-heading);
-      font-size: 1.15rem;
-      color: var(--color-text);
-      margin: 0 0 0.4rem;
-      font-weight: 700;
-    }
+    &__image { @include _card-image; }
+    &:hover &__image { @include _card-image-hover; }
+    &__overlay { display: none; }
+    &__body { @include _card-body; }
+    &__name { @include _card-name; }
 
     &__price {
       display: block;
@@ -793,11 +825,7 @@
     }
 
     &__category {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 0.78rem;
-      padding: 0.2rem 0.75rem;
-      border-radius: 999px;
+      @include _card-badge;
       background: var(--color-badge-found-bg);
       color: var(--color-badge-found-text);
     }
@@ -879,27 +907,11 @@
       "map";
     padding-bottom: 2rem;
 
-    &__header {
-      text-align: center;
-      padding-bottom: 1.5rem;
-      position: relative;
-
-      &::after {
-        content: '~ ~ ~';
-        display: block;
-        color: var(--color-primary-light);
-        font-size: 1.2rem;
-        letter-spacing: 0.5rem;
-        margin-top: 0.75rem;
-        opacity: 0.6;
-      }
-    }
+    &__header { @include _page-header; padding-bottom: 1.5rem; }
 
     &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
+      @include _page-title;
       font-size: 2.2rem;
-      font-weight: 800;
     }
 
     &__description {
@@ -973,8 +985,7 @@
 
   // Timeline Page — personal journal feel
   .timeline-page {
-    padding: 2rem 1rem;
-    display: grid;
+    @include _listing-page;
     gap: 2rem;
     grid-template-areas:
       "header"
@@ -982,29 +993,8 @@
       "timeline"
       "nav";
 
-    &__header {
-      text-align: center;
-      padding-bottom: 1.5rem;
-      position: relative;
-
-      &::after {
-        content: '~ ~ ~';
-        display: block;
-        color: var(--color-primary-light);
-        font-size: 1.2rem;
-        letter-spacing: 0.5rem;
-        margin-top: 0.75rem;
-        opacity: 0.6;
-      }
-    }
-
-    &__title {
-      font-family: var(--font-heading);
-      font-size: 2.5rem;
-      color: var(--color-primary-dark);
-      margin: 0 0 0.5rem;
-      font-weight: 800;
-    }
+    &__header { @include _page-header; padding-bottom: 1.5rem; }
+    &__title { @include _page-title; }
 
     &__subtitle {
       font-family: var(--font-body);
@@ -1060,32 +1050,8 @@
       display: none;
     }
 
-    &__nav {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 2px dashed var(--color-border);
-    }
-
-    &__nav-link {
-      font-family: var(--font-body);
-      color: var(--color-primary);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
-      padding: 0.6rem 1.25rem;
-      border-radius: 999px;
-      background: var(--color-bg-alt);
-      box-shadow: 0 2px 8px rgba(74, 63, 92, 0.06);
-      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-
-      &:hover {
-        background: var(--color-primary-light);
-        color: var(--color-on-primary);
-        transform: scale(1.02);
-      }
-    }
+    &__nav { @include _section-links; }
+    &__nav-link { @include _pill-button; }
   }
 
   // Timeline Component — personal journal, scrapbook pages
@@ -1367,11 +1333,8 @@
 
   // Bear Profile — scrapbook page feel
   .bear-profile {
-    padding: 2rem 1rem;
-    max-width: 52rem;
-    margin: 0 auto;
-    display: grid;
-    gap: 2.5rem;
+    @include _profile-page;
+    @include _scrapbook-bg;
     grid-template-areas:
       "image"
       "header"
@@ -1383,76 +1346,12 @@
       "related"
       "nav";
 
-    // Scrapbook page background — subtle parchment texture feel
-    &::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background:
-        radial-gradient(ellipse at 20% 50%, rgba(155, 142, 196, 0.04) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(232, 160, 180, 0.04) 0%, transparent 50%),
-        radial-gradient(ellipse at 60% 80%, rgba(126, 200, 164, 0.04) 0%, transparent 50%);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    &__image-wrapper {
-      position: relative;
-      justify-self: center;
-      padding: 0.75rem;
-      background: var(--color-bg);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-card);
-      transform: rotate(-2deg);
-    }
-
-    &__image {
-      width: 260px;
-      height: 260px;
-      object-fit: cover;
-      border-radius: 12px;
-      display: block;
-
-      @media (min-width: 768px) {
-        width: 300px;
-        height: 300px;
-      }
-    }
-
-    &__image-decoration {
-      position: absolute;
-      top: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 16px;
-      background: var(--color-accent);
-      opacity: 0.6;
-      border-radius: 0 0 4px 4px;
-    }
-
-    &__header-decoration {
-      display: none;
-    }
-
-    &__header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 0.5rem;
-    }
-
-    &__name {
-      font-family: var(--font-heading);
-      font-size: 2.5rem;
-      color: var(--color-primary-dark);
-      margin: 0;
-      font-weight: 800;
-    }
+    &__image-wrapper { @include _polaroid-frame(-2deg); }
+    &__image { @include _polaroid-image; }
+    &__image-decoration { @include _tape-decoration; }
+    &__header-decoration { display: none; }
+    &__header { @include _profile-header; }
+    &__name { @include _profile-title; }
 
     &__status {
       display: inline-block;
@@ -1483,13 +1382,7 @@
       margin: 0;
     }
 
-    &__section-heading {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      color: var(--color-primary-dark);
-      margin: 0 0 1rem;
-      font-weight: 700;
-    }
+    &__section-heading { @include _section-heading; }
 
     // Photos — scattered scrapbook feel, hand-placed
     &__photos {
@@ -1816,20 +1709,7 @@
         grid-template-columns: repeat(3, 1fr);
       }
 
-      // Scattered rotations on related bear cards
-      > :nth-child(1) { transform: rotate(-0.5deg); }
-      > :nth-child(2) { transform: rotate(0.7deg); }
-      > :nth-child(3) { transform: rotate(-0.3deg); }
-      > :nth-child(4) { transform: rotate(0.5deg); }
-      > :nth-child(5) { transform: rotate(-0.8deg); }
-      > :nth-child(6) { transform: rotate(0.4deg); }
-
-      > * {
-        transition: transform 0.3s ease;
-        &:hover {
-          transform: rotate(0deg) translateY(-4px) !important;
-        }
-      }
+      @include _card-rotation;
     }
 
     &__related-decoration {
@@ -1842,18 +1722,13 @@
     }
 
     &__back-link {
-      font-family: var(--font-body);
-      text-decoration: none;
-      font-size: 0.95rem;
-      font-weight: 600;
+      @include _nav-link;
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
       padding: 0.65rem 1.5rem;
-      border-radius: 999px;
       background: var(--color-primary-light);
       color: var(--color-primary-dark);
-      transition: background 0.3s ease, transform 0.2s ease;
       box-shadow: 0 2px 8px rgba(155, 142, 196, 0.2);
 
       &:hover {
@@ -1929,29 +1804,12 @@
     margin-inline: auto;
 
     &__header {
-      text-align: center;
+      @include _page-header;
       margin-bottom: 2rem;
       padding-bottom: 1.5rem;
-      position: relative;
-
-      &::after {
-        content: '~ ~ ~';
-        display: block;
-        color: var(--color-primary-light);
-        font-size: 1.2rem;
-        letter-spacing: 0.5rem;
-        margin-top: 0.75rem;
-        opacity: 0.6;
-      }
     }
 
-    &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin: 0 0 0.5rem;
-    }
+    &__title { @include _page-title; }
 
     &__updated {
       font-family: var(--font-body);
@@ -2027,28 +1885,8 @@
       "bear"
       "nav";
 
-    &__header {
-      padding-bottom: 1rem;
-      position: relative;
-
-      &::after {
-        content: '~ ~ ~';
-        display: block;
-        color: var(--color-primary-light);
-        font-size: 1.2rem;
-        letter-spacing: 0.5rem;
-        margin-top: 0.75rem;
-        opacity: 0.6;
-      }
-    }
-
-    &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin: 0 0 1rem;
-    }
+    &__header { @include _page-header; }
+    &__title { @include _page-title; margin-bottom: 1rem; }
 
     &__message {
       font-family: var(--font-body);
@@ -2213,27 +2051,11 @@
       "milestones"
       "explore";
 
-    &__header {
-      text-align: center;
-      padding-bottom: 1.5rem;
-      position: relative;
-
-      &::after {
-        content: '~ ~ ~';
-        display: block;
-        color: var(--color-primary-light);
-        font-size: 1.2rem;
-        letter-spacing: 0.5rem;
-        margin-top: 0.75rem;
-        opacity: 0.6;
-      }
-    }
+    &__header { @include _page-header; padding-bottom: 1.5rem; }
 
     &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
+      @include _page-title;
       font-size: 2rem;
-      font-weight: 800;
       margin: 0 0 0.75rem;
     }
 
@@ -2249,11 +2071,8 @@
     &__header-decoration { display: none; }
 
     &__section-title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
+      @include _section-heading;
       font-size: 1.4rem;
-      font-weight: 700;
-      margin: 0 0 1rem;
     }
 
     &__story-inner,
@@ -2437,27 +2256,11 @@
       "faq"
       "event-callout";
 
-    &__header {
-      text-align: center;
-      padding-bottom: 1.5rem;
-      position: relative;
-
-      &::after {
-        content: '~ ~ ~';
-        display: block;
-        color: var(--color-primary-light);
-        font-size: 1.2rem;
-        letter-spacing: 0.5rem;
-        margin-top: 0.75rem;
-        opacity: 0.6;
-      }
-    }
+    &__header { @include _page-header; padding-bottom: 1.5rem; }
 
     &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
+      @include _page-title;
       font-size: 2rem;
-      font-weight: 800;
       margin: 0 0 0.75rem;
     }
 
@@ -2473,11 +2276,8 @@
     &__header-decoration { display: none; }
 
     &__section-title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
+      @include _section-heading;
       font-size: 1.4rem;
-      font-weight: 700;
-      margin: 0 0 1rem;
     }
 
     &__email-decoration,
@@ -3491,9 +3291,7 @@
   // Events Page — playful browsing layout
   // =============================================
   .events-page {
-    padding: 2rem 1rem;
-    display: grid;
-    gap: 1.5rem;
+    @include _listing-page;
     grid-template-areas:
       "header"
       "filters"
@@ -3501,29 +3299,8 @@
       "list"
       "pagination";
 
-    &__header {
-      text-align: center;
-      padding-bottom: 1rem;
-      position: relative;
-
-      &::after {
-        content: '~ ~ ~';
-        display: block;
-        color: var(--color-primary-light);
-        font-size: 1.2rem;
-        letter-spacing: 0.5rem;
-        margin-top: 0.75rem;
-        opacity: 0.6;
-      }
-    }
-
-    &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin: 0 0 0.5rem;
-    }
+    &__header { @include _page-header; }
+    &__title { @include _page-title; }
 
     &__intro {
       font-family: var(--font-body);
@@ -3533,18 +3310,8 @@
       line-height: 1.6;
     }
 
-    &__count {
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      font-size: 1rem;
-      margin: 0;
-      font-style: italic;
-    }
-
-    &__filters {
-      display: flex;
-      justify-content: center;
-    }
+    &__count { @include _page-count; }
+    &__filters { @include _filter-wrapper; }
 
     &__years {
       display: flex;
@@ -3554,15 +3321,11 @@
     }
 
     &__year-link {
-      font-family: var(--font-body);
+      @include _pill-button;
       font-size: 0.9rem;
       color: var(--color-text-muted);
-      text-decoration: none;
       padding: 0.35rem 0.9rem;
-      border-radius: 999px;
-      background: var(--color-bg-alt);
       font-weight: 500;
-      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 
       &:hover {
         background: var(--color-primary-light);
@@ -3581,10 +3344,7 @@
       // Let the event-list handle its own layout
     }
 
-    &__pagination {
-      display: flex;
-      justify-content: center;
-    }
+    &__pagination { @include _pagination-wrapper; }
   }
 
   // Event List
@@ -3599,34 +3359,13 @@
         gap: 2rem 1.75rem;
       }
 
-      // Scattered card rotations for handmade feel
-      > :nth-child(6n+1) { transform: rotate(-0.4deg); }
-      > :nth-child(6n+2) { transform: rotate(0.5deg); }
-      > :nth-child(6n+3) { transform: rotate(-0.2deg); }
-      > :nth-child(6n+4) { transform: rotate(0.4deg); }
-      > :nth-child(6n+5) { transform: rotate(-0.6deg); }
-      > :nth-child(6n+6) { transform: rotate(0.3deg); }
-
-      > * {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        &:hover {
-          transform: rotate(0deg) translateY(-3px) !important;
-        }
-      }
+      @include _card-rotation(0.5);
     }
 
-    &__empty {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-card);
-    }
+    &__empty { @include _empty-state; }
 
     &__empty-text {
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      font-size: 1.1rem;
+      @include _empty-text;
       margin: 0;
     }
   }
@@ -3678,7 +3417,7 @@
     }
 
     &__body {
-      padding: 1.25rem 1.5rem;
+      @include _card-body;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -3686,11 +3425,9 @@
     }
 
     &__name {
-      font-family: var(--font-heading);
+      @include _card-name;
       font-size: 1.1rem;
-      color: var(--color-text);
       margin: 0 0 0.5rem;
-      font-weight: 700;
       line-height: 1.3;
     }
 
@@ -3773,11 +3510,8 @@
   // Event Profile — playful, rounded detail page
   // =============================================
   .event-profile {
-    padding: 2.5rem 1rem 3.5rem;
-    max-width: 54rem;
-    margin: 0 auto;
-
-    display: grid;
+    @include _profile-page;
+    @include _scrapbook-bg;
     gap: 0;
     grid-template-areas:
       "header"
@@ -3790,37 +3524,13 @@
       "nav";
 
     &__header {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-      align-items: center;
-      text-align: center;
+      @include _profile-header;
       padding: 2rem 1.5rem;
       margin-bottom: 2rem;
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-card);
-      position: relative;
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: -6px;
-        left: 50%;
-        transform: translateX(-50%) rotate(2deg);
-        width: 90%;
-        height: 4px;
-        background: var(--color-accent);
-        border-radius: 999px;
-      }
     }
 
     &__title {
-      font-family: var(--font-heading);
-      font-size: 2.25rem;
-      color: var(--color-text);
-      margin: 0;
-      font-weight: 800;
+      @include _profile-title;
       line-height: 1.2;
     }
 
@@ -3860,9 +3570,8 @@
     }
 
     &__section-heading {
-      font-family: var(--font-heading);
+      @include _section-heading;
       font-size: 1.4rem;
-      color: var(--color-primary-dark);
       margin: 0 0 1.25rem;
       font-weight: 800;
     }
@@ -3870,22 +3579,11 @@
     // Content (upcoming event description)
     &__content {
       margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-card);
     }
 
     &__content-body {
-      font-family: var(--font-body);
-      color: var(--color-text);
-      line-height: 1.8;
-      font-size: 1rem;
+      @include _profile-body-text;
       font-weight: 500;
-
-      p {
-        margin: 0 0 1rem;
-      }
     }
 
     &__content-decoration {
@@ -3920,10 +3618,6 @@
       flex-wrap: wrap;
       justify-content: center;
       margin-bottom: 2rem;
-      padding: 1.25rem;
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-card);
     }
 
     &__link {
@@ -3964,22 +3658,11 @@
     // Recap (past events)
     &__recap {
       margin-bottom: 2rem;
-      padding: 1.5rem;
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-card);
     }
 
     &__recap-body {
-      font-family: var(--font-body);
-      color: var(--color-text);
-      line-height: 1.8;
-      font-size: 1rem;
+      @include _profile-body-text;
       font-weight: 500;
-
-      p {
-        margin: 0 0 1rem;
-      }
     }
 
     &__past-note {
@@ -4058,22 +3741,15 @@
     }
 
     &__back-link {
-      font-family: var(--font-heading);
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--color-primary);
-      text-decoration: none;
+      @include _nav-link;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
       padding: 0.4rem 1rem;
-      border-radius: 999px;
-      background: var(--color-bg-alt);
-      transition: background 0.2s ease, transform 0.2s ease;
+      font-family: var(--font-heading);
+      font-weight: 700;
 
       &:hover {
-        background: var(--color-primary-light);
-        color: var(--color-on-primary);
         transform: translateY(-1px);
       }
     }
@@ -4086,11 +3762,8 @@
   // ── Product Profile ──────────────────────────────────────────────
 
   .product-profile {
-    padding: 2rem 1rem;
-    max-width: 52rem;
-    margin: 0 auto;
-    display: grid;
-    gap: 2.5rem;
+    @include _profile-page;
+    @include _scrapbook-bg;
     grid-template-areas:
       "hero"
       "header"
@@ -4099,27 +3772,8 @@
       "related"
       "nav";
 
-    &__hero {
-      position: relative;
-      justify-self: center;
-      padding: 0.75rem;
-      background: var(--color-bg);
-      border-radius: var(--radius-card);
-      box-shadow: var(--shadow-card);
-      transform: rotate(-1.5deg);
-    }
-
-    &__hero-decoration {
-      position: absolute;
-      top: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 40px;
-      height: 16px;
-      background: var(--color-accent);
-      opacity: 0.6;
-      border-radius: 0 0 4px 4px;
-    }
+    &__hero { @include _polaroid-frame(-1.5deg); }
+    &__hero-decoration { @include _tape-decoration; }
 
     &__gallery {
       display: grid;
@@ -4147,21 +3801,8 @@
       }
     }
 
-    &__header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 0.5rem;
-    }
-
-    &__title {
-      font-family: var(--font-heading);
-      font-size: 2.5rem;
-      color: var(--color-primary-dark);
-      margin: 0;
-      font-weight: 800;
-    }
+    &__header { @include _profile-header; }
+    &__title { @include _profile-title; }
 
     &__price {
       display: inline-block;
@@ -4203,35 +3844,20 @@
     }
 
     &__story {
-      background: var(--color-bg-alt);
-      border-radius: var(--radius-card);
-      padding: 2rem;
       position: relative;
     }
 
     &__story-decoration {
-      position: absolute;
-      top: -6px;
-      right: 1.5rem;
-      width: 30px;
-      height: 14px;
-      background: var(--color-accent);
-      opacity: 0.5;
-      border-radius: 0 0 4px 4px;
+      display: none;
     }
 
     &__content {
-      font-family: var(--font-body);
-      font-size: 1rem;
-      line-height: 1.75;
-      color: var(--color-text);
+      @include _profile-body-text;
 
       h2 {
-        font-family: var(--font-heading);
+        @include _section-heading;
         font-size: 1.4rem;
-        color: var(--color-primary-dark);
         margin: 2rem 0 0.75rem;
-        font-weight: 700;
       }
 
       p {
@@ -4267,11 +3893,8 @@
     }
 
     &__related-heading {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      color: var(--color-primary-dark);
+      @include _section-heading;
       margin: 0 0 1.25rem;
-      font-weight: 700;
       text-align: center;
     }
 
@@ -4286,21 +3909,13 @@
     }
 
     &__back-link {
-      font-family: var(--font-body);
-      font-size: 0.95rem;
-      color: var(--color-primary);
-      text-decoration: none;
+      @include _nav-link;
       display: inline-flex;
       align-items: center;
       gap: 0.35rem;
       padding: 0.4rem 1rem;
-      border-radius: 999px;
-      background: var(--color-bg-alt);
-      transition: background 0.2s ease, transform 0.2s ease;
 
       &:hover {
-        background: var(--color-primary-light);
-        color: var(--color-on-primary);
         transform: translateY(-1px);
       }
     }

@@ -31,6 +31,236 @@
   body { line-height: 1.75; }
   .page-content { max-width: 72rem; }
 
+  // ── Pattern Mixins ─────────────────────────────────────────────
+
+  // Listing page wrapper
+  @mixin _listing-page {
+    padding: 2.5rem 1rem 3rem;
+    max-width: 72rem;
+    margin-inline: auto;
+    display: grid;
+    gap: 0;
+  }
+
+  // Profile page wrapper
+  @mixin _profile-page {
+    padding: 3rem 1rem 4rem;
+    max-width: 56rem;
+    margin: 0 auto;
+    display: grid;
+    gap: 0;
+  }
+
+  // Page header (listing pages)
+  @mixin _page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-accent);
+  }
+
+  // Page title (listing pages)
+  @mixin _page-title {
+    font-family: var(--font-heading);
+    color: var(--color-primary-dark);
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  // Count text (listing pages)
+  @mixin _page-count {
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0;
+  }
+
+  // Card grid (responsive 1→2→3 columns)
+  @mixin _card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    @media (min-width: 480px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  // Card image (square, with hover scale)
+  @mixin _card-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  @mixin _card-image-hover {
+    transform: scale(1.03);
+  }
+
+  // Card body
+  @mixin _card-body {
+    padding: 1rem 1.25rem;
+  }
+
+  // Card name (h3 inside cards)
+  @mixin _card-name {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin: 0 0 0.35rem;
+    font-weight: 600;
+  }
+
+  // Card badge (status/category)
+  @mixin _card-badge {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    padding: 0.15rem 0.5rem;
+    border-radius: 2px;
+    margin-bottom: 0.25rem;
+  }
+
+  // Empty state
+  @mixin _empty-state {
+    text-align: center;
+    padding: 4rem 1rem;
+  }
+
+  @mixin _empty-text {
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    margin: 0 0 1rem;
+  }
+
+  @mixin _empty-link {
+    font-family: var(--font-body);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 2px;
+    transition: color 0.2s ease;
+    &:hover { color: var(--color-primary-dark); }
+  }
+
+  // Pagination wrapper
+  @mixin _pagination-wrapper {
+    margin-top: 2.5rem;
+  }
+
+  // Filter wrapper
+  @mixin _filter-wrapper {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  // Profile header
+  @mixin _profile-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+    align-items: center;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-accent);
+    margin-bottom: 3rem;
+
+    @media (min-width: 768px) {
+      text-align: left;
+      align-items: flex-start;
+      justify-content: center;
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  // Profile title
+  @mixin _profile-title {
+    font-family: var(--font-heading);
+    font-size: 2.75rem;
+    color: var(--color-primary-dark);
+    margin: 0;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+  }
+
+  // Section heading (h2 inside profiles)
+  @mixin _section-heading {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--color-primary-dark);
+    margin: 0 0 1.25rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  // Section separator (between profile content sections)
+  @mixin _section-separator {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--color-accent);
+  }
+
+  // Section separator bottom
+  @mixin _section-separator-bottom {
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--color-accent);
+  }
+
+  // Profile nav link (back to listing)
+  @mixin _nav-link {
+    font-family: var(--font-body);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--color-accent);
+    padding-bottom: 2px;
+    transition: color 0.2s ease;
+    &:hover { color: var(--color-primary-dark); }
+  }
+
+  // Profile image
+  @mixin _profile-image($size: 300px, $size-desktop: 360px) {
+    width: $size;
+    height: $size;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+
+    @media (min-width: 768px) {
+      width: $size-desktop;
+      height: $size-desktop;
+    }
+  }
+
+  // Body text in profiles
+  @mixin _profile-body-text {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.85;
+    font-size: 1.05rem;
+
+    p { margin: 0 0 1.25rem; }
+  }
+
   // Card
   .card {
     background: var(--color-bg);
@@ -380,13 +610,7 @@
 
   // Bears Page — elegant browsing with CSS Grid layout
   .bears-page {
-    padding: 2.5rem 1rem 3rem;
-    max-width: 72rem;
-    margin-inline: auto;
-
-    // Grid layout with named areas
-    display: grid;
-    gap: 0;
+    @include _listing-page;
     grid-template-areas:
       "header"
       "filters"
@@ -395,35 +619,10 @@
       "pagination"
       "section-links";
 
-    &__header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--color-accent);
-    }
-
-    &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 2.25rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem;
-      letter-spacing: 0.01em;
-    }
-
-    &__count {
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      font-size: 1rem;
-      font-style: italic;
-      margin: 0;
-    }
-
-    &__filters {
-      margin-bottom: 1.5rem;
-      display: flex;
-      justify-content: center;
-    }
+    &__header { @include _page-header; }
+    &__title { @include _page-title; }
+    &__count { @include _page-count; }
+    &__filters { @include _filter-wrapper; }
 
     &__alphabet {
       margin-bottom: 2.5rem;
@@ -431,48 +630,11 @@
       justify-content: center;
     }
 
-    &__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-
-      @media (min-width: 480px) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @media (min-width: 768px) {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-      }
-    }
-
-    &__empty {
-      text-align: center;
-      padding: 4rem 1rem;
-    }
-
-    &__empty-text {
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      font-size: 1.1rem;
-      margin: 0 0 1rem;
-    }
-
-    &__empty-link {
-      font-family: var(--font-body);
-      color: var(--color-primary);
-      text-decoration: none;
-      font-size: 0.95rem;
-      border-bottom: 1px solid var(--color-accent);
-      padding-bottom: 2px;
-      transition: color 0.2s ease;
-
-      &:hover { color: var(--color-primary-dark); }
-    }
-
-    &__pagination {
-      margin-top: 2.5rem;
-    }
+    &__grid { @include _card-grid; }
+    &__empty { @include _empty-state; }
+    &__empty-text { @include _empty-text; }
+    &__empty-link { @include _empty-link; }
+    &__pagination { @include _pagination-wrapper; }
 
     &__section-links {
       display: flex;
@@ -518,42 +680,15 @@
       overflow: hidden;
     }
 
-    &__image {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
+    &__image { @include _card-image; }
+    &:hover &__image { @include _card-image-hover; }
 
-    &:hover &__image {
-      transform: scale(1.03);
-    }
-
-    &__overlay {
-      display: none;
-    }
-
-    &__body {
-      padding: 1rem 1.25rem;
-    }
-
-    &__name {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      color: var(--color-text);
-      margin: 0 0 0.35rem;
-      font-weight: 600;
-    }
+    &__overlay { display: none; }
+    &__body { @include _card-body; }
+    &__name { @include _card-name; }
 
     &__status {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 0.8rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 2px;
-      margin-bottom: 0.25rem;
+      @include _card-badge;
 
       &--looking {
         background: var(--color-badge-looking-bg);
@@ -576,40 +711,20 @@
       line-height: 1.4;
     }
 
-    &__decoration-element {
-      display: none;
-    }
+    &__decoration-element { display: none; }
   }
 
   // Products Page — elegant browsing with CSS Grid layout
   .products-page {
-    padding: 2.5rem 1rem 3rem;
-    max-width: 72rem;
-    margin-inline: auto;
-
-    display: grid;
-    gap: 0;
+    @include _listing-page;
     grid-template-areas:
       "header"
       "filters"
       "card-grid"
       "pagination";
 
-    &__header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--color-accent);
-    }
-
-    &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 2.25rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem;
-      letter-spacing: 0.01em;
-    }
+    &__header { @include _page-header; }
+    &__title { @include _page-title; }
 
     &__intro {
       font-family: var(--font-body);
@@ -620,66 +735,13 @@
       line-height: 1.6;
     }
 
-    &__count {
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      font-size: 1rem;
-      font-style: italic;
-      margin: 0;
-    }
-
-    &__filters {
-      margin-bottom: 1.5rem;
-      display: flex;
-      justify-content: center;
-    }
-
-    &__grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-
-      @media (min-width: 480px) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      @media (min-width: 768px) {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-      }
-
-      @media (min-width: 1024px) {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    &__empty {
-      text-align: center;
-      padding: 4rem 1rem;
-    }
-
-    &__empty-text {
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      font-size: 1.1rem;
-      margin: 0 0 1rem;
-    }
-
-    &__empty-link {
-      font-family: var(--font-body);
-      color: var(--color-primary);
-      text-decoration: none;
-      font-size: 0.95rem;
-      border-bottom: 1px solid var(--color-accent);
-      padding-bottom: 2px;
-      transition: color 0.2s ease;
-
-      &:hover { color: var(--color-primary-dark); }
-    }
-
-    &__pagination {
-      margin-top: 2.5rem;
-    }
+    &__count { @include _page-count; }
+    &__filters { @include _filter-wrapper; }
+    &__grid { @include _card-grid; }
+    &__empty { @include _empty-state; }
+    &__empty-text { @include _empty-text; }
+    &__empty-link { @include _empty-link; }
+    &__pagination { @include _pagination-wrapper; }
   }
 
   // Product Card
@@ -691,34 +753,12 @@
       overflow: hidden;
     }
 
-    &__image {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 1;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.3s ease;
-    }
+    &__image { @include _card-image; }
+    &:hover &__image { @include _card-image-hover; }
 
-    &:hover &__image {
-      transform: scale(1.03);
-    }
-
-    &__overlay {
-      display: none;
-    }
-
-    &__body {
-      padding: 1rem 1.25rem;
-    }
-
-    &__name {
-      font-family: var(--font-heading);
-      font-size: 1.1rem;
-      color: var(--color-text);
-      margin: 0 0 0.35rem;
-      font-weight: 600;
-    }
+    &__overlay { display: none; }
+    &__body { @include _card-body; }
+    &__name { @include _card-name; }
 
     &__price {
       display: block;
@@ -730,18 +770,12 @@
     }
 
     &__category {
-      display: inline-block;
-      font-family: var(--font-body);
-      font-size: 0.8rem;
-      padding: 0.15rem 0.5rem;
-      border-radius: 2px;
+      @include _card-badge;
       background: var(--color-badge-found-bg);
       color: var(--color-badge-found-text);
     }
 
-    &__decoration-element {
-      display: none;
-    }
+    &__decoration-element { display: none; }
   }
 
   // Alphabet Nav
@@ -1244,13 +1278,7 @@
 
   // Bear Profile — centred editorial layout with CSS Grid
   .bear-profile {
-    padding: 3rem 1rem 4rem;
-    max-width: 56rem;
-    margin: 0 auto;
-
-    // CSS Grid with named template areas — mobile-first single column
-    display: grid;
-    gap: 0;
+    @include _profile-page;
     grid-template-areas:
       "image"
       "header"
@@ -1287,54 +1315,15 @@
       }
     }
 
-    &__image {
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
-      border-radius: var(--radius-card);
-      border: 1px solid var(--color-border);
-      box-shadow: 0 2px 12px rgba(61, 50, 41, 0.08);
-
-      @media (min-width: 768px) {
-        width: 360px;
-        height: 360px;
-      }
-    }
+    &__image { @include _profile-image; }
 
     &__image-decoration,
     &__header-decoration {
       display: none;
     }
 
-    &__header {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      text-align: center;
-      align-items: center;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid var(--color-accent);
-      margin-bottom: 3rem;
-
-      @media (min-width: 768px) {
-        text-align: left;
-        align-items: flex-start;
-        justify-content: center;
-        border-bottom: none;
-        padding-bottom: 0;
-        margin-bottom: 0;
-      }
-    }
-
-    &__name {
-      font-family: var(--font-heading);
-      font-size: 2.75rem;
-      color: var(--color-primary-dark);
-      margin: 0;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      line-height: 1.15;
-    }
+    &__header { @include _profile-header; }
+    &__name { @include _profile-title; }
 
     &__status {
       display: inline-block;
@@ -1364,39 +1353,19 @@
       margin: 0;
     }
 
-    &__section-heading {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      color: var(--color-primary-dark);
-      margin: 0 0 1.25rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
+    &__section-heading { @include _section-heading; }
 
     // Narrative — full width, generous reading measure
     &__narrative {
-      margin-top: 3rem;
-      padding-top: 3rem;
-      border-top: 1px solid var(--color-accent);
-      margin-bottom: 3rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid var(--color-accent);
+      @include _section-separator;
+      @include _section-separator-bottom;
     }
 
     &__narrative-content {
       max-width: 42rem;
     }
 
-    &__narrative-body {
-      font-family: var(--font-body);
-      color: var(--color-text);
-      line-height: 1.85;
-      font-size: 1.05rem;
-
-      p {
-        margin: 0 0 1.25rem;
-      }
-    }
+    &__narrative-body { @include _profile-body-text; }
 
     &__narrative-auto {
       font-family: var(--font-body);
@@ -1571,9 +1540,8 @@
 
     // Photos — full width with generous spacing
     &__photos {
+      @include _section-separator;
       margin-bottom: 3rem;
-      padding-top: 3rem;
-      border-top: 1px solid var(--color-accent);
     }
 
     &__photos-grid {
@@ -1607,9 +1575,8 @@
 
     // Map — full width, elegant container
     &__map-section {
+      @include _section-separator;
       margin-bottom: 3rem;
-      padding-top: 3rem;
-      border-top: 1px solid var(--color-accent);
     }
 
     &__map-wrapper {
@@ -1624,9 +1591,8 @@
 
     // Related Bears — full width
     &__related {
+      @include _section-separator;
       margin-bottom: 3rem;
-      padding-top: 3rem;
-      border-top: 1px solid var(--color-accent);
     }
 
     &__related-grid {
@@ -1729,20 +1695,11 @@
     margin-inline: auto;
 
     &__header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--color-border);
+      @include _page-header;
+      border-bottom-color: var(--color-border);
     }
 
-    &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 2.25rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem;
-      letter-spacing: 0.01em;
-    }
+    &__title { @include _page-title; }
 
     &__updated {
       font-family: var(--font-body);
@@ -1764,10 +1721,7 @@
     }
 
     &__heading {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 1.5rem;
-      font-weight: 600;
+      @include _section-heading;
       margin: 0 0 1rem;
     }
 
@@ -1822,12 +1776,9 @@
     }
 
     &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
+      @include _page-title;
       font-size: 2.5rem;
-      font-weight: 700;
       margin: 0 0 1rem;
-      letter-spacing: 0.01em;
     }
 
     &__message {
@@ -1999,12 +1950,8 @@
     }
 
     &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 2.25rem;
-      font-weight: 700;
+      @include _page-title;
       margin: 0 0 0.75rem;
-      letter-spacing: 0.01em;
     }
 
     &__intro {
@@ -2019,13 +1966,7 @@
 
     &__header-decoration { display: none; }
 
-    &__section-title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin: 0 0 1.25rem;
-    }
+    &__section-title { @include _section-heading; }
 
     // Story, Mission, Craft sections — editorial style
     &__story-inner,
@@ -2209,12 +2150,8 @@
     }
 
     &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 2.25rem;
-      font-weight: 700;
+      @include _page-title;
       margin: 0 0 0.75rem;
-      letter-spacing: 0.01em;
     }
 
     &__intro {
@@ -2228,13 +2165,7 @@
 
     &__header-decoration { display: none; }
 
-    &__section-title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin: 0 0 1.25rem;
-    }
+    &__section-title { @include _section-heading; }
 
     &__email-decoration,
     &__form-decoration,
@@ -3111,12 +3042,7 @@
   // Events Page — elegant browsing with CSS Grid layout
   // =============================================
   .events-page {
-    padding: 2.5rem 1rem 3rem;
-    max-width: 72rem;
-    margin-inline: auto;
-
-    display: grid;
-    gap: 0;
+    @include _listing-page;
     grid-template-areas:
       "header"
       "filters"
@@ -3124,21 +3050,8 @@
       "list"
       "pagination";
 
-    &__header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--color-accent);
-    }
-
-    &__title {
-      font-family: var(--font-heading);
-      color: var(--color-primary-dark);
-      font-size: 2.25rem;
-      font-weight: 700;
-      margin: 0 0 0.5rem;
-      letter-spacing: 0.01em;
-    }
+    &__header { @include _page-header; }
+    &__title { @include _page-title; }
 
     &__intro {
       font-family: var(--font-body);
@@ -3148,19 +3061,8 @@
       line-height: 1.6;
     }
 
-    &__count {
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      font-size: 1rem;
-      font-style: italic;
-      margin: 0;
-    }
-
-    &__filters {
-      margin-bottom: 1.5rem;
-      display: flex;
-      justify-content: center;
-    }
+    &__count { @include _page-count; }
+    &__filters { @include _filter-wrapper; }
 
     &__years {
       display: flex;
@@ -3195,9 +3097,7 @@
       margin-bottom: 1rem;
     }
 
-    &__pagination {
-      margin-top: 2.5rem;
-    }
+    &__pagination { @include _pagination-wrapper; }
   }
 
   // Event List
@@ -3213,16 +3113,10 @@
       }
     }
 
-    &__empty {
-      text-align: center;
-      padding: 4rem 1rem;
-    }
+    &__empty { @include _empty-state; }
 
     &__empty-text {
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      font-size: 1.1rem;
-      margin: 0;
+      @include _empty-text;
       font-style: italic;
     }
   }
@@ -3271,7 +3165,7 @@
     }
 
     &__body {
-      padding: 1.25rem 1.5rem;
+      @include _card-body;
       display: flex;
       flex-direction: column;
       flex: 1;
@@ -3279,11 +3173,8 @@
     }
 
     &__name {
-      font-family: var(--font-heading);
-      font-size: 1.05rem;
-      color: var(--color-text);
+      @include _card-name;
       margin: 0 0 0.5rem;
-      font-weight: 600;
       line-height: 1.3;
     }
 
@@ -3358,12 +3249,7 @@
   // Event Profile — refined editorial detail page
   // =============================================
   .event-profile {
-    padding: 3rem 1rem 4rem;
-    max-width: 56rem;
-    margin: 0 auto;
-
-    display: grid;
-    gap: 0;
+    @include _profile-page;
     grid-template-areas:
       "header"
       "content"
@@ -3377,22 +3263,14 @@
     &__header {
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.75rem;
       text-align: center;
-      padding-bottom: 2.5rem;
-      margin-bottom: 2.5rem;
+      padding-bottom: 3rem;
+      margin-bottom: 3rem;
       border-bottom: 1px solid var(--color-accent);
     }
 
-    &__title {
-      font-family: var(--font-heading);
-      font-size: 2.5rem;
-      color: var(--color-primary-dark);
-      margin: 0;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      line-height: 1.15;
-    }
+    &__title { @include _profile-title; }
 
     &__date {
       font-family: var(--font-body);
@@ -3427,14 +3305,7 @@
       display: none;
     }
 
-    &__section-heading {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      color: var(--color-primary-dark);
-      margin: 0 0 1.25rem;
-      font-weight: 600;
-      letter-spacing: 0.01em;
-    }
+    &__section-heading { @include _section-heading; }
 
     // Content (upcoming event description)
     &__content {
@@ -3444,15 +3315,8 @@
     }
 
     &__content-body {
-      font-family: var(--font-body);
-      color: var(--color-text);
-      line-height: 1.85;
-      font-size: 1.05rem;
+      @include _profile-body-text;
       max-width: 42rem;
-
-      p {
-        margin: 0 0 1.25rem;
-      }
     }
 
     &__content-decoration {
@@ -3529,15 +3393,8 @@
     }
 
     &__recap-body {
-      font-family: var(--font-body);
-      color: var(--color-text);
-      line-height: 1.85;
-      font-size: 1.05rem;
+      @include _profile-body-text;
       max-width: 42rem;
-
-      p {
-        margin: 0 0 1.25rem;
-      }
     }
 
     &__past-note {
@@ -3631,11 +3488,7 @@
   // ── Product Profile ──────────────────────────────────────────────
 
   .product-profile {
-    padding: 3rem 1rem 4rem;
-    max-width: 56rem;
-    margin: 0 auto;
-    display: grid;
-    gap: 0;
+    @include _profile-page;
     grid-template-areas:
       "hero"
       "header"
@@ -3697,35 +3550,8 @@
       }
     }
 
-    &__header {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-      text-align: center;
-      align-items: center;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid var(--color-accent);
-      margin-bottom: 3rem;
-
-      @media (min-width: 768px) {
-        text-align: left;
-        align-items: flex-start;
-        justify-content: center;
-        border-bottom: none;
-        padding-bottom: 0;
-        margin-bottom: 0;
-      }
-    }
-
-    &__title {
-      font-family: var(--font-heading);
-      font-size: 2.75rem;
-      color: var(--color-primary-dark);
-      margin: 0;
-      font-weight: 700;
-      letter-spacing: -0.01em;
-      line-height: 1.15;
-    }
+    &__header { @include _profile-header; }
+    &__title { @include _profile-title; }
 
     &__price {
       display: inline-block;
@@ -3762,8 +3588,8 @@
     }
 
     &__story {
-      padding: 3rem 0;
-      border-top: 1px solid var(--color-border);
+      @include _section-separator;
+      padding-bottom: 3rem;
     }
 
     &__story-decoration {
@@ -3790,8 +3616,8 @@
     }
 
     &__materials {
-      padding: 2rem 0;
-      border-top: 1px solid var(--color-border);
+      @include _section-separator;
+      padding-bottom: 2rem;
     }
 
     &__materials-label {
@@ -3814,16 +3640,13 @@
     }
 
     &__related {
-      padding: 3rem 0;
-      border-top: 1px solid var(--color-border);
+      @include _section-separator;
+      padding-bottom: 3rem;
     }
 
     &__related-heading {
-      font-family: var(--font-heading);
-      font-size: 1.5rem;
-      color: var(--color-primary-dark);
+      @include _section-heading;
       margin: 0 0 1.5rem;
-      font-weight: 600;
     }
 
     &__related-grid {
@@ -3834,7 +3657,7 @@
 
     &__nav {
       padding-top: 2rem;
-      border-top: 1px solid var(--color-border);
+      border-top: 1px solid var(--color-accent);
     }
 
     &__back-link {
