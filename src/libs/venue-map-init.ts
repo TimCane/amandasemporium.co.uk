@@ -42,10 +42,15 @@ function initVenueMap(): void {
   const themeId = getThemeId();
   const tileConfig = tileLayers[themeId] || tileLayers.boutique;
 
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   const map = L.map(container, {
     center: [lat, lng],
     zoom: 14,
     scrollWheelZoom: false,
+    zoomAnimation: !prefersReducedMotion,
+    fadeAnimation: !prefersReducedMotion,
+    markerZoomAnimation: !prefersReducedMotion,
   });
 
   (container as any).__leaflet_map = map;

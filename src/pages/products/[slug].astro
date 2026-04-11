@@ -118,12 +118,12 @@ const jsonLd = {
       >
         {categoryLabel}
       </a>
-      {tagline && <p class="product-profile__tagline">{tagline}</p>}
     </header>
 
     {/* ── Product Story + How It's Made (rendered from markdown body) ── */}
     {hasBody && (
-      <section class="product-profile__story">
+      <section class="product-profile__story" aria-labelledby="product-story-heading">
+        <h2 id="product-story-heading" class="sr-only">Product Story</h2>
         <div class="product-profile__content">
           <Content />
         </div>
@@ -133,21 +133,24 @@ const jsonLd = {
 
     {/* ── Materials ── */}
     {materials && (
-      <section class="product-profile__materials">
-        <span class="product-profile__materials-label">Materials</span>
-        <p class="product-profile__materials-text">{materials}</p>
+      <section class="product-profile__materials" aria-labelledby="product-materials-heading">
+        <h2 id="product-materials-heading" class="sr-only">Materials</h2>
+        <dl class="product-profile__materials-list">
+          <dt class="product-profile__materials-label">Materials</dt>
+          <dd class="product-profile__materials-text">{materials}</dd>
+        </dl>
       </section>
     )}
 
     {/* ── More in This Category ── */}
     {relatedProducts.length > 0 && (
-      <section class="product-profile__related">
-        <h2 class="product-profile__related-heading">More {categoryLabel}</h2>
-        <div class="product-profile__related-grid">
+      <section class="product-profile__related" aria-labelledby="product-related-heading">
+        <h2 id="product-related-heading" class="product-profile__related-heading">More {categoryLabel}</h2>
+        <ul class="product-profile__related-grid" role="list">
           {relatedProducts.map(p => (
-            <ProductCard product={p} />
+            <li><ProductCard product={p} /></li>
           ))}
-        </div>
+        </ul>
       </section>
     )}
 

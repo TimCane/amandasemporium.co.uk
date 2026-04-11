@@ -92,7 +92,7 @@ const nextUrl = view === 'past' && currentPage < totalPages
 const displayEvents = view === 'upcoming' ? upcomingEvents : paginatedPast;
 const emptyMessage = view === 'upcoming'
   ? 'No upcoming events at the moment — but keep an eye out, new dates are added all the time!'
-  : `No events found for ${validYear}.`;
+  : `Nothing recorded for ${validYear}.`;
 ---
 
 <PageLayout title={pageTitle} description={description}>

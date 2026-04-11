@@ -48,18 +48,15 @@ const dateFmt = new Intl.DateTimeFormat('en-GB', {
 const formattedDate = dateFmt.format(date);
 const isoDate = date.toISOString();
 
-// --- Bears at this event (past events only) ---
-let eventBears: CollectionEntry<'bears'>[] = [];
-if (isPast) {
-  const allBears = await getCollection('bears');
-  eventBears = allBears.filter((bear) => {
-    if (!bear.data.event) return false;
-    const bearEventId = typeof bear.data.event === 'object' && 'id' in bear.data.event
-      ? (bear.data.event as any).id
-      : bear.data.event;
-    return bearEventId === event.id || bearEventId === event.slug;
-  });
-}
+// --- Bears at this event ---
+const allBears = await getCollection('bears');
+const eventBears = allBears.filter((bear) => {
+  if (!bear.data.event) return false;
+  const bearEventId = typeof bear.data.event === 'object' && 'id' in bear.data.event
+    ? (bear.data.event as any).id
+    : bear.data.event;
+  return bearEventId === event.id || bearEventId === event.slug;
+});
 
 // --- SEO ---
 const description = `${name} — ${formattedDate} at ${location.name}`;
@@ -107,8 +104,8 @@ const jsonLd = isUpcoming ? {
 
     {/* ── 2. Event Description (upcoming only, if body exists) ── */}
     {isUpcoming && hasBody && !hasRecapHeading && (
-      <section class="event-profile__content">
-        <h2 class="event-profile__section-heading">What to Expect</h2>
+      <section class="event-profile__content" aria-labelledby="event-what-to-expect">
+        <h2 id="event-what-to-expect" class="event-profile__section-heading">What to Expect</h2>
         <div class="event-profile__content-body">
           <Content />
         </div>
@@ -118,8 +115,8 @@ const jsonLd = isUpcoming ? {
 
     {/* ── 3. Venue Map (upcoming only, if coordinates exist) ── */}
     {isUpcoming && hasCoordinates && (
-      <section class="event-profile__map">
-        <h2 class="event-profile__section-heading">Find Us</h2>
+      <section class="event-profile__map" aria-labelledby="event-find-us">
+        <h2 id="event-find-us" class="event-profile__section-heading">Find Us</h2>
         <div class="event-profile__map-wrapper">
           <VenueMap
             lat={locationEntry!.data.latitude}
@@ -141,7 +138,7 @@ const jsonLd = isUpcoming ? {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Visit Event Website
+            Visit the event website<span class="sr-only"> (opens in new tab)</span>
           </a>
         )}
         <a
@@ -167,7 +164,7 @@ const jsonLd = isUpcoming ? {
         ) : hasBody ? (
           <Fragment>
             <h2 class="event-profile__section-heading">Looking Back</h2>
-            <p class="event-profile__past-note">This event has passed, but here is what it was all about.</p>
+            <p class="event-profile__past-note">This one has been and gone, but here's what it was about.</p>
             <div class="event-profile__recap-body">
               <Content />
             </div>
@@ -185,8 +182,8 @@ const jsonLd = isUpcoming ? {
 
     {/* ── 6. Recap Photos (past events) ── */}
     {isPast && recapPhotos && recapPhotos.length > 0 && (
-      <section class="event-profile__photos" aria-label="Event photos">
-        <h2 class="event-profile__section-heading">Photos from the Day</h2>
+      <section class="event-profile__photos" aria-labelledby="event-photos-heading">
+        <h2 id="event-photos-heading" class="event-profile__section-heading">Photos from the Day</h2>
         <div class="event-profile__photos-grid">
           {recapPhotos.map((photo, i) => (
             <div class="event-profile__photo-wrapper">
@@ -206,9 +203,9 @@ const jsonLd = isUpcoming ? {
     )}
 
     {/* ── 7. Bears at This Event (past events) ── */}
-    {isPast && eventBears.length > 0 && (
-      <section class="event-profile__bears">
-        <h2 class="event-profile__section-heading">Bears at This Event</h2>
+    {eventBears.length > 0 && (
+      <section class="event-profile__bears" aria-labelledby="event-bears-heading">
+        <h2 id="event-bears-heading" class="event-profile__section-heading">Bears at This Event</h2>
         <div class="event-profile__bears-grid">
           {eventBears.map((bear) => (
             <BearCard bear={bear} />

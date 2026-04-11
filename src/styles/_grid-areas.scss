@@ -71,6 +71,37 @@
 .contact-page__faq { grid-area: faq; }
 .contact-page__event-callout { grid-area: event-callout; }
 
+// === Product profile sections ===
+.product-profile__hero     { grid-area: hero; }
+.product-profile__header   { grid-area: header; }
+.product-profile__story    { grid-area: story; }
+.product-profile__materials { grid-area: materials; }
+.product-profile__related  { grid-area: related; }
+.product-profile__nav      { grid-area: nav; }
+
+// === Products listing sections ===
+.products-page__header     { grid-area: header; }
+.products-page__filters    { grid-area: filters; }
+.products-page__grid       { grid-area: card-grid; }
+.products-page__pagination { grid-area: pagination; }
+
+// === Events listing sections ===
+.events-page__header       { grid-area: header; }
+.events-page__filters      { grid-area: filters; }
+.events-page__years        { grid-area: years; }
+.events-page__list         { grid-area: list; }
+.events-page__pagination   { grid-area: pagination; }
+
+// === Event profile sections ===
+.event-profile__header     { grid-area: header; }
+.event-profile__content    { grid-area: content; }
+.event-profile__map        { grid-area: map; }
+.event-profile__links      { grid-area: links; }
+.event-profile__recap      { grid-area: recap; }
+.event-profile__photos     { grid-area: photos; }
+.event-profile__bears      { grid-area: bears; }
+.event-profile__nav        { grid-area: nav; }
+
 // === Shared components ===
 .pagination { grid-area: pagination; }
 .filter-tabs { grid-area: filters; }

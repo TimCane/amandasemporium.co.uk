@@ -8,7 +8,7 @@ photos:
   - "./makeup-bag.jpg"
 ---
 
-This makeup bag is properly spacious — none of that rummaging around trying to find your mascara in a bag the size of a purse. It zips shut so nothing escapes, and each one comes with a set of matching reusable face pads, because small swaps like that make a difference. The fabric prints are always fun, so your bathroom shelf gets a little colour boost too.
+This makeup bag is properly spacious — none of that rummaging around trying to find your mascara in a bag the size of a purse. It zips shut so nothing escapes, and each one comes with a set of matching reusable face pads as well. The fabric prints are always fun, so your bathroom shelf gets a little colour boost too.
 
 ## How It's Made
 

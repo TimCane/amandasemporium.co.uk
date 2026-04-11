@@ -8,7 +8,7 @@ photos:
   - "./key-fobs.jpg"
 ---
 
-These key fobs are one of those little things that make daily life a bit more cheerful. Made from vibrant quilting cotton wrapped around sturdy hardware, they're easy to spot in the depths of a handbag and handy for telling your house key from your car key at a glance. They make brilliant stocking fillers or a little treat for yourself — and at this price, why not grab a few?
+These key fobs are one of those little things that make daily life a bit more cheerful. Made from vibrant quilting cotton wrapped around sturdy hardware, they're easy to spot in the depths of a handbag and handy for telling your house key from your car key at a glance. They make brilliant stocking fillers or just a little treat for yourself.
 
 ## How It's Made
 

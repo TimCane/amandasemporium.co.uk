@@ -1,6 +1,6 @@
 ---
 name: "Bunting"
-tagline: "Colourful handmade fabric bunting to brighten up any room — approximately 1.5 metres of loveliness."
+tagline: "Colourful handmade fabric bunting to brighten up any room — approximately 1.5 metres per length."
 category: "home-and-gifts"
 price: "£8.00"
 materials: "Cotton quilting fabric, cotton bias binding"

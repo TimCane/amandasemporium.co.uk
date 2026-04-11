@@ -1,6 +1,6 @@
 ---
 name: "Tote bag"
-tagline: "One-of-a-kind tote bags made from repurposed fabrics — sturdy, stylish, and sustainable."
+tagline: "One-of-a-kind tote bags made from repurposed fabrics — sturdy, lined, and good for a proper shop."
 category: "bags-and-cases"
 price: "£15.00"
 materials: "Repurposed upholstery and furnishing fabrics, cotton lining, webbing handles"
@@ -12,4 +12,4 @@ These tote bags are made from repurposed fabrics — old curtains, upholstery sa
 
 ## How It's Made
 
-The outer is cut from repurposed furnishing fabric, chosen for character and durability. It's lined with cotton for structure and a neat interior, with the seams finished cleanly so nothing frays. Webbing handles are stitched down with a reinforced box-stitch to take the weight of a full bag. Each tote is slightly different in size and proportion depending on the fabric available, which is all part of the charm.
+The outer is cut from repurposed furnishing fabric, chosen for character and durability. It's lined with cotton for structure and a neat interior, with the seams finished cleanly so nothing frays. Webbing handles are stitched down with a reinforced box-stitch to take the weight of a full bag. Each tote is slightly different in size and proportion depending on the fabric available, so no two come out exactly the same.

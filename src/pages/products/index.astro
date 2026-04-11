@@ -90,7 +90,7 @@ const nextUrl = currentPage < totalPages
     <header class="products-page__header">
       <h1 class="products-page__title">What We Make</h1>
       <p class="products-page__intro">
-        Every stitch, every fold, every little flourish is done by hand in Amanda's workshop. Have a browse and see what catches your eye.
+        Everything here is made by hand in Amanda's workshop. Have a browse and see what catches your eye.
       </p>
       <p class="products-page__count">
         {totalProducts} {totalProducts === 1 ? 'product' : 'products'}
@@ -102,14 +102,16 @@ const nextUrl = currentPage < totalPages
     </div>
 
     {paginatedProducts.length > 0 ? (
-      <div class="products-page__grid">
+      <ul class="products-page__grid" role="list">
         {paginatedProducts.map((product, index) => (
-          <ProductCard
-            product={product}
-            loading={index < 8 ? 'eager' : 'lazy'}
-          />
+          <li>
+            <ProductCard
+              product={product}
+              loading={index < 8 ? 'eager' : 'lazy'}
+            />
+          </li>
         ))}
-      </div>
+      </ul>
     ) : (
       <div class="products-page__empty">
         <p class="products-page__empty-text">

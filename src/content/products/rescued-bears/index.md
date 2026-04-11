@@ -1,6 +1,6 @@
 ---
 name: "Rescued bears"
-tagline: "Pre-loved teddy bears, lovingly washed, groomed, and dressed — each one looking for a forever home."
+tagline: "Pre-loved teddy bears, washed, groomed, and dressed — each one looking for a new home."
 category: "rescued-bears"
 price: "£10.00"
 materials: "Pre-loved teddy bears, handmade outfits in assorted fabrics"
@@ -8,7 +8,7 @@ photos:
   - "./rescued-bears.jpg"
 ---
 
-This is the heart of Amanda's Emporium. Every bear on the stall has been rescued, given a proper bath, a good brush, and a brand new handmade outfit. They arrive in all shapes, sizes, and levels of cuddliness, but they all leave looking their best and ready for a new home. Have a browse through our [bears section](/bears) to meet them all — there are over 300 looking for their forever families.
+Bears are what we do first and foremost. Every bear on the stall has been rescued, given a proper bath, a good brush, and a brand new handmade outfit. They arrive in all shapes, sizes, and states, but they all leave looking their best and ready for a new home. Have a browse through our [bears section](/bears) to meet them all — there are over 300 looking for somewhere to go.
 
 ## How It's Made
 

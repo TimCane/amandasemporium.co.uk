@@ -21,14 +21,16 @@ const month = monthFormatter.format(date);
 const year = yearFormatter.format(date);
 ---
 
-<Card href={`/events/${slug}`} class="event-card">
-  <div class="event-card__date">
+<Card class="event-card">
+  <time datetime={date.toISOString().split('T')[0]} class="event-card__date">
     <span class="event-card__day">{day}</span>
     <span class="event-card__month">{month}</span>
     <span class="event-card__year">{year}</span>
-  </div>
+  </time>
   <div class="event-card__body">
-    <h3 class="event-card__name">{name}</h3>
+    <h3 class="event-card__name">
+      <a href={`/events/${slug}`} class="event-card__link">{name}</a>
+    </h3>
     <div class="event-card__meta">
       {time && <span class="event-card__time">{time}</span>}
       <span class="event-card__location">{location.name}</span>
@@ -40,17 +42,17 @@ const year = yearFormatter.format(date);
           href={website}
           class="event-card__website-link"
           target="_blank"
-          rel="noopener"
-          onclick="event.stopPropagation();"
+          rel="noopener noreferrer"
+          aria-label={`Visit website for ${name}`}
         >
-          Visit website
+          Visit website<span class="sr-only"> (opens in new tab)</span>
         </a>
       )}
       {showCalendarButton && (
         <a
           href={`/events/calendar/${slug}.ics`}
           class="event-card__calendar-btn"
-          onclick="event.stopPropagation();"
+          aria-label={`Add ${name} to your calendar`}
         >
           Add to Calendar
         </a>
@@ -59,3 +61,19 @@ const year = yearFormatter.format(date);
   </div>
   <div class="event-card__decoration-element"></div>
 </Card>
+
+<style>
+  .event-card {
+    position: relative;
+  }
+  .event-card__link::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .event-card__actions {
+    position: relative;
+    z-index: 1;
+  }
+</style>

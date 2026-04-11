@@ -8,7 +8,7 @@ photos:
   - "./fleece-blanket.jpg"
 ---
 
-These fleece blankets are wonderfully cuddly and just the right weight for keeping little ones (or big ones, honestly) warm on the sofa or in the pushchair. What makes them special is the hand-crocheted border — it gives a soft, decorative edge that turns a simple fleece into something you'd be proud to give as a gift. At around 100 by 80 centimetres, they're a generous size without being unwieldy.
+These fleece blankets are properly soft and just the right weight for keeping little ones (or big ones, honestly) warm on the sofa or in the pushchair. The hand-crocheted border is what sets them apart — it gives a soft, decorative edge that turns a simple fleece into something you'd be happy to give as a gift. At around 100 by 80 centimetres, they're a generous size without being unwieldy.
 
 ## How It's Made
 

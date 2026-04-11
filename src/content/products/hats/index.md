@@ -1,6 +1,6 @@
 ---
 name: "Hats"
-tagline: "Knitted and crocheted hats for babies and toddlers — cosy, colourful, and irresistibly cute."
+tagline: "Knitted and crocheted hats for babies and toddlers — cosy, colourful, and made to be worn."
 category: "knitted-and-crocheted"
 price: "£4.00"
 materials: "Double knit acrylic yarn"
