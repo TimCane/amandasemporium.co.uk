@@ -62,9 +62,10 @@ const year = yearFormatter.format(date);
   <div class="event-card__decoration-element"></div>
 </Card>
 
-<style>
+<style is:global>
   .event-card {
     position: relative;
+    overflow: hidden;
   }
   .event-card__link::after {
     content: '';
