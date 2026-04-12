@@ -4,6 +4,7 @@ export const prerender = true;
 import { getCollection, getEntry } from 'astro:content';
 import PageLayout from '@/layouts/page.layout.astro';
 import BearTimeline from '@/components/bears/bear-timeline.astro';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 
 const title = 'Bear Timeline';
 const description = 'Every bear rescue and rehoming at Amanda\'s Emporium, in date order. From the first rescue to the most recent.';
@@ -82,6 +83,13 @@ const dateRange = `${yearFormatter.format(earliestDate)} - ${yearFormatter.forma
 ---
 
 <PageLayout title={title} description={description}>
+  <OpenGraphMeta
+    slot="og-meta"
+    title={`${title} | Amanda's Emporium`}
+    description={description}
+    url={`${Astro.site}bears/timeline`}
+  />
+
   <section class="timeline-page">
     <header class="timeline-page__header">
       <h1 class="timeline-page__title">Bear Timeline</h1>

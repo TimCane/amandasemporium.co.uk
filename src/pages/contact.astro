@@ -3,6 +3,7 @@ export const prerender = false;
 
 import { getCollection } from 'astro:content';
 import PageLayout from '@/layouts/page.layout.astro';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 
 // --- Handle POST ---
 let formSuccess = false;
@@ -94,11 +95,12 @@ const description = 'Got a question about a bear or a custom order? Send me a me
 ---
 
 <PageLayout title={title} description={description}>
-  <Fragment slot="og-meta">
-    <meta property="og:title" content="Contact | Amanda's Emporium" />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-  </Fragment>
+  <OpenGraphMeta
+    slot="og-meta"
+    title={`Contact | Amanda's Emporium`}
+    description={description}
+    url={`${Astro.site}contact`}
+  />
 
   <article class="contact-page">
     <!-- Section 1: Page Header -->

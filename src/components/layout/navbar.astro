@@ -48,6 +48,7 @@ const navLinks = [
           <a
             href={link.href}
             class:list={['navbar__mobile-link', { 'navbar__mobile-link--active': pathname.startsWith(link.href) }]}
+            aria-current={pathname.startsWith(link.href) ? 'page' : undefined}
           >
             {link.label}
           </a>

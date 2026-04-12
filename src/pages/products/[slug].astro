@@ -5,6 +5,8 @@ import { getCollection, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import PageLayout from '@/layouts/page.layout.astro';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
+import JsonLd from '@/components/seo/json-ld.astro';
 import ProductCard from '@/components/products/product-card.astro';
 
 export async function getStaticPaths() {
@@ -67,14 +69,15 @@ const jsonLd = {
 ---
 
 <PageLayout title={`${name}`} description={metaDescription}>
-  <Fragment slot="og-meta">
-    <meta property="og:title" content={`${name} | Amanda's Emporium`} />
-    <meta property="og:description" content={metaDescription} />
-    <meta property="og:type" content="product" />
-    <meta property="og:url" content={Astro.url.href} />
-    <meta property="og:image" content={photos[0].src} />
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-  </Fragment>
+  <OpenGraphMeta
+    slot="og-meta"
+    title={`${name} | Amanda's Emporium`}
+    description={metaDescription}
+    url={Astro.url.href}
+    type="product"
+    image={photos[0].src}
+  />
+  <JsonLd data={jsonLd} />
 
   <article class="product-profile">
     {/* ── Hero Image(s) ── */}

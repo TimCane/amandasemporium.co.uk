@@ -102,6 +102,13 @@
 .event-profile__bears      { grid-area: bears; }
 .event-profile__nav        { grid-area: nav; }
 
+// === Gallery listing sections ===
+.gallery-page__header     { grid-area: header; }
+.gallery-page__filters    { grid-area: filters; }
+.gallery-page__grid       { grid-area: card-grid; }
+.gallery-page__empty      { grid-area: card-grid; }
+.gallery-page__pagination { grid-area: pagination; }
+
 // === Shared components ===
 .pagination { grid-area: pagination; }
 .filter-tabs { grid-area: filters; }

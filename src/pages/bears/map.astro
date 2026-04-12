@@ -11,6 +11,7 @@ export const prerender = true;
 import { getCollection, getEntry } from 'astro:content';
 import PageLayout from '@/layouts/page.layout.astro';
 import BearMap from '@/components/bears/bear-map.astro';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 import type { BearMapData } from '@/components/bears/bear-map.astro';
 
 // Load all bears and all events
@@ -79,11 +80,12 @@ for (const bear of allBears) {
   title="Bear Map"
   description="A map of where all the rescued bears came from and where they went. Click any marker to find out more about that bear."
 >
-  <Fragment slot="og-meta">
-    <meta property="og:title" content="Bear Map | Amanda's Emporium" />
-    <meta property="og:description" content="A map of where all the rescued bears came from and where they went" />
-    <meta property="og:type" content="website" />
-  </Fragment>
+  <OpenGraphMeta
+    slot="og-meta"
+    title="Bear Map | Amanda's Emporium"
+    description="A map of where all the rescued bears came from and where they went"
+    url={`${Astro.site}bears/map`}
+  />
 
   <div class="bear-map-page">
     <header class="bear-map-page__header">

@@ -4,6 +4,7 @@ export const prerender = true;
 import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import PageLayout from '@/layouts/page.layout.astro';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 import { seededRandom } from '@/libs/seeded-random';
 
 // Pick a deterministic "random" bear that changes daily
@@ -16,7 +17,13 @@ const featuredBear = bears[randomIndex];
 ---
 
 <PageLayout title="Page Not Found" description="The page you were looking for could not be found.">
-  <Fragment slot="og-meta">
+  <OpenGraphMeta
+    slot="og-meta"
+    title="Page Not Found | Amanda's Emporium"
+    description="The page you were looking for could not be found."
+    url={`${Astro.site}`}
+  />
+  <Fragment slot="head-extra">
     <meta name="robots" content="noindex, nofollow" />
   </Fragment>
 

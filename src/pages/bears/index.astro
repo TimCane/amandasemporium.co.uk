@@ -3,6 +3,7 @@ export const prerender = false;
 
 import { getCollection } from 'astro:content';
 import PageLayout from '@/layouts/page.layout.astro';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 import FilterTabs from '@/components/ui/filter-tabs.astro';
 import AlphabetNav from '@/components/bears/alphabet-nav.astro';
 import BearCard from '@/components/bears/bear-card.astro';
@@ -78,9 +79,13 @@ const nextUrl = currentPage < totalPages ? buildBearsUrl({ group, letter: validL
 ---
 
 <PageLayout title={pageTitle} description={description}>
-  <Fragment slot="og-meta">
-    <meta property="og:title" content={`${pageTitle} | Amanda's Emporium`} />
-    <meta property="og:description" content={description} />
+  <OpenGraphMeta
+    slot="og-meta"
+    title={`${pageTitle} | Amanda's Emporium`}
+    description={description}
+    url={Astro.url.href}
+  />
+  <Fragment slot="head-extra">
     {prevUrl && <link rel="prev" href={prevUrl} />}
     {nextUrl && <link rel="next" href={nextUrl} />}
   </Fragment>

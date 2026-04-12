@@ -5,6 +5,8 @@ import { getCollection, getEntry, render } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import PageLayout from '@/layouts/page.layout.astro';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
+import JsonLd from '@/components/seo/json-ld.astro';
 import BearCard from '@/components/bears/bear-card.astro';
 import VenueMap from '@/components/events/venue-map.astro';
 
@@ -83,13 +85,14 @@ const jsonLd = isUpcoming ? {
 ---
 
 <PageLayout title={`${name}`} description={description}>
-  <Fragment slot="og-meta">
-    <meta property="og:title" content={`${name} | Amanda's Emporium`} />
-    <meta property="og:description" content={description} />
-    <meta property="og:type" content={isUpcoming ? 'event' : 'website'} />
-    <meta property="og:url" content={Astro.url.href} />
-    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
-  </Fragment>
+  <OpenGraphMeta
+    slot="og-meta"
+    title={`${name} | Amanda's Emporium`}
+    description={description}
+    url={Astro.url.href}
+    type={isUpcoming ? 'event' : 'website'}
+  />
+  {jsonLd && <JsonLd data={jsonLd} />}
 
   <article class="event-profile">
     {/* ── 1. Event Header ── */}

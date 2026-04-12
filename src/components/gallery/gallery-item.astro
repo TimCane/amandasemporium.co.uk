@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  item: CollectionEntry<'gallery'>;
+  loading?: 'lazy' | 'eager';
+}
+
+const { item, loading = 'lazy' } = Astro.props;
+
+let resolvedLink: string | undefined;
+if (item.data.relatedBear) resolvedLink = `/bears/${item.data.relatedBear.slug}`;
+else if (item.data.relatedProduct) resolvedLink = undefined;
+else if (item.data.relatedEvent) resolvedLink = `/events`;
+
+const Tag = resolvedLink ? 'a' : 'div';
+
+const categoryLabels: Record<string, string> = {
+  'bears': 'Bears',
+  'markets': 'Markets',
+  'products': 'Products',
+};
+
+const categoryLabel = item.data.category
+  ? categoryLabels[item.data.category] || item.data.category
+  : undefined;
+---
+
+<Tag href={resolvedLink} class:list={['gallery-item', { 'gallery-item--linked': !!resolvedLink }]}>
+  <div class="gallery-item__image-wrapper">
+    <Image
+      src={item.data.image}
+      alt={item.data.caption || 'Gallery image'}
+      width={400}
+      loading={loading}
+      class="gallery-item__image"
+    />
+  </div>
+  <div class="gallery-item__caption">
+    {item.data.caption && <p class="gallery-item__text">{item.data.caption}</p>}
+    {categoryLabel && <span class="gallery-item__tag">{categoryLabel}</span>}
+  </div>
+</Tag>

@@ -2,10 +2,17 @@
 export const prerender = true;
 
 import PageLayout from '@/layouts/page.layout.astro';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 ---
 
 <PageLayout title="Privacy Policy" description="Privacy policy for Amanda's Emporium. How I handle your data, cookies, and your rights.">
-  <Fragment slot="og-meta">
+  <OpenGraphMeta
+    slot="og-meta"
+    title="Privacy Policy | Amanda's Emporium"
+    description="Privacy policy for Amanda's Emporium. How I handle your data, cookies, and your rights."
+    url={`${Astro.site}privacy`}
+  />
+  <Fragment slot="head-extra">
     <meta name="robots" content="noindex, nofollow" />
   </Fragment>
 

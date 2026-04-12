@@ -27,6 +27,7 @@
   --color-error-bg: #fce4ec;
   --color-error-border: #ef9a9a;
   --color-error-text: #c62828;
+  --color-focus: #2a6496;
 
   body { line-height: 1.75; }
   .page-content { max-width: 72rem; }
@@ -63,7 +64,7 @@
   @mixin _page-title {
     font-family: var(--font-heading);
     color: var(--color-primary-dark);
-    font-size: 2.25rem;
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
     font-weight: 700;
     margin: 0 0 0.5rem;
     letter-spacing: 0.01em;
@@ -91,6 +92,25 @@
     @media (min-width: 768px) {
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
+    }
+  }
+
+  // Gallery grid (responsive 1→2→3→4 columns)
+  @mixin _gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: 400px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
@@ -192,7 +212,7 @@
   // Profile title
   @mixin _profile-title {
     font-family: var(--font-heading);
-    font-size: 2.75rem;
+    font-size: clamp(1.75rem, 6vw, 2.75rem);
     color: var(--color-primary-dark);
     margin: 0;
     font-weight: 700;
@@ -238,8 +258,9 @@
 
   // Profile image
   @mixin _profile-image($size: 300px, $size-desktop: 360px) {
-    width: $size;
-    height: $size;
+    width: min($size, 100%);
+    height: auto;
+    aspect-ratio: 1;
     object-fit: cover;
     border-radius: var(--radius-card);
     border: 1px solid var(--color-border);
@@ -247,7 +268,6 @@
 
     @media (min-width: 768px) {
       width: $size-desktop;
-      height: $size-desktop;
     }
   }
 
@@ -300,7 +320,10 @@
       color: var(--color-primary);
       text-decoration: none;
       font-size: 0.9rem;
-      padding: 0.25rem 0.5rem;
+      padding: 0.5rem 0.75rem;
+      min-height: 2.75rem;
+      display: inline-flex;
+      align-items: center;
       transition: color 0.2s ease;
 
       &:hover { color: var(--color-primary-dark); }
@@ -316,14 +339,16 @@
       display: flex;
       align-items: center;
       gap: 0.25rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     &__page {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 2rem;
-      height: 2rem;
+      min-width: 2.5rem;
+      height: 2.5rem;
       padding: 0.25rem 0.5rem;
       font-size: 0.9rem;
       text-decoration: none;
@@ -350,7 +375,11 @@
     display: flex;
     gap: 1.5rem;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     padding-bottom: 0.25rem;
+
+    &::-webkit-scrollbar { display: none; }
 
     &__tab {
       text-decoration: none;
@@ -552,6 +581,7 @@
     &__links {
       display: flex;
       gap: var(--spacing-md);
+      flex-wrap: wrap;
     }
 
     &__link {
@@ -576,6 +606,19 @@
       align-items: center;
       gap: var(--spacing-sm);
       flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px) {
+      &__content {
+        flex-direction: column;
+        text-align: center;
+      }
+      &__links {
+        justify-content: center;
+      }
+      &__theme-switcher {
+        justify-content: center;
+      }
     }
 
     &__theme-label {
@@ -640,6 +683,7 @@
       display: flex;
       justify-content: center;
       gap: 2.5rem;
+      flex-wrap: wrap;
       margin-top: 3rem;
       padding-top: 2rem;
       border-top: 1px solid var(--color-accent);
@@ -784,7 +828,11 @@
     align-items: center;
     gap: 0.25rem;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     padding-bottom: 0.25rem;
+
+    &::-webkit-scrollbar { display: none; }
 
     &__clear {
       font-family: var(--font-body);
@@ -915,6 +963,7 @@
       display: flex;
       justify-content: center;
       gap: 2.5rem;
+      flex-wrap: wrap;
       margin-top: 3.5rem;
       padding-top: 2.5rem;
       border-top: 1px solid var(--color-accent);
@@ -1649,6 +1698,7 @@
     align-items: center;
     justify-content: center;
     gap: var(--spacing-md);
+    flex-wrap: wrap;
     box-shadow: 0 -2px 8px rgba(61, 50, 41, 0.1);
 
     &--hidden {
@@ -2568,6 +2618,8 @@
       text-align: center;
       flex: 1 1 auto;
       min-width: 8rem;
+      display: flex;
+      flex-direction: column;
     }
 
     &__number {
@@ -2577,6 +2629,7 @@
       font-weight: 700;
       color: var(--color-accent);
       line-height: 1.2;
+      order: -1;
     }
 
     &__label {
@@ -3687,5 +3740,93 @@
     border-radius: var(--radius-card);
     box-shadow: var(--shadow-card);
     overflow: hidden;
+  }
+
+  // ── Gallery Page ──────────────────────────────────────────────────
+
+  .gallery-page {
+    @include _listing-page;
+    grid-template-areas:
+      "header"
+      "filters"
+      "card-grid"
+      "pagination";
+
+    &__header { @include _page-header; }
+    &__title { @include _page-title; }
+
+    &__intro {
+      font-family: var(--font-body);
+      color: var(--color-text-muted);
+      font-size: 1.05rem;
+      max-width: 36rem;
+      margin: 0 auto 0.75rem;
+      line-height: 1.6;
+    }
+
+    &__count { @include _page-count; }
+    &__filters { @include _filter-wrapper; }
+    &__grid { @include _gallery-grid; }
+    &__empty { @include _empty-state; }
+    &__empty-text { @include _empty-text; }
+    &__empty-link { @include _empty-link; }
+    &__pagination { @include _pagination-wrapper; }
+  }
+
+  // Gallery Item
+  .gallery-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    transition: box-shadow 0.3s ease;
+
+    &--linked:hover {
+      box-shadow: 0 4px 12px rgba(61, 50, 41, 0.15);
+    }
+
+    &__image-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    &--linked:hover &__image {
+      transform: scale(1.03);
+    }
+
+    &__caption {
+      padding: 0.75rem 1rem;
+    }
+
+    &__text {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--color-text);
+      margin: 0 0 0.35rem;
+      line-height: 1.4;
+    }
+
+    &__tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-muted);
+      background: var(--color-bg-alt);
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+    }
   }
 }

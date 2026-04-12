@@ -5,6 +5,8 @@ import PageLayout from '@/layouts/page.layout.astro';
 import BearCard from '@/components/bears/bear-card.astro';
 import Card from '@/components/ui/card.astro';
 import { seededRandom } from '@/libs/seeded-random';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
+import JsonLd from '@/components/seo/json-ld.astro';
 import { SITE_TITLE, SITE_URL } from '@/libs/consts';
 
 export const prerender = true;
@@ -137,16 +139,14 @@ const jsonLd = {
 ---
 
 <PageLayout title={pageTitle} description={pageDescription}>
-  <Fragment slot="og-meta">
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={pageDescription} />
-    <meta property="og:url" content={SITE_URL} />
-    <meta property="og:site_name" content={SITE_TITLE} />
-  </Fragment>
+  <OpenGraphMeta
+    slot="og-meta"
+    title={pageTitle}
+    description={pageDescription}
+    url={SITE_URL}
+  />
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <JsonLd data={jsonLd} />
 
   <!-- 1. Hero -->
   <section class="home-hero" aria-label="Welcome">
@@ -182,23 +182,23 @@ const jsonLd = {
   <section class="home-stats" aria-label="The numbers so far">
     <dl class="home-stats__wrapper">
       <div class="home-stats__item">
-        <dd class="home-stats__number">{totalBears}+</dd>
         <dt class="home-stats__label">Bears Rescued</dt>
+        <dd class="home-stats__number">{totalBears}+</dd>
       </div>
       <div class="home-stats__divider" aria-hidden="true"></div>
       <div class="home-stats__item">
-        <dd class="home-stats__number">{rehomedBears}+</dd>
         <dt class="home-stats__label">Homes Found</dt>
+        <dd class="home-stats__number">{rehomedBears}+</dd>
       </div>
       <div class="home-stats__divider" aria-hidden="true"></div>
       <div class="home-stats__item">
-        <dd class="home-stats__number">{totalEvents}+</dd>
         <dt class="home-stats__label">Events Attended</dt>
+        <dd class="home-stats__number">{totalEvents}+</dd>
       </div>
       <div class="home-stats__divider" aria-hidden="true"></div>
       <div class="home-stats__item">
-        <dd class="home-stats__number">Since {startYear}</dd>
         <dt class="home-stats__label">And Still Going</dt>
+        <dd class="home-stats__number">Since {startYear}</dd>
       </div>
     </dl>
   </section>
@@ -276,7 +276,7 @@ const jsonLd = {
         <div class="home-photos__item">
           <Image
             src={item.data.image}
-            alt={item.data.caption}
+            alt={item.data.caption || 'Gallery photo'}
             width={320}
             height={240}
             loading="lazy"

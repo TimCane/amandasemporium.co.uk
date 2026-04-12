@@ -13,6 +13,7 @@ const { title, description } = Astro.props;
 
 <BaseLayout title={title} description={description}>
   <slot name="og-meta" slot="og-meta" />
+  <slot name="head-extra" slot="head-extra" />
   <Navbar transition:persist />
   <main id="main-content">
     <div class="page-wrapper">

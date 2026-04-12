@@ -27,6 +27,7 @@
   --color-error-bg: #fce4ec;
   --color-error-border: #ef9a9a;
   --color-error-text: #c62828;
+  --color-focus: #3b5ea7;
   --color-footer-bg: #ede5da;
   --color-hero-tint-start: #f0e8f5;
   --color-hero-tint-end: #e8f0e5;
@@ -95,7 +96,7 @@
   @mixin _page-title {
     font-family: var(--font-heading);
     color: var(--color-primary-dark);
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
     font-weight: 800;
     margin: 0 0 0.5rem;
   }
@@ -122,6 +123,25 @@
     @media (min-width: 768px) {
       grid-template-columns: repeat(3, 1fr);
       gap: 2rem 1.75rem;
+    }
+  }
+
+  // Gallery grid (responsive 1→2→3→4 columns)
+  @mixin _gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+
+    @media (min-width: 400px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 
@@ -254,7 +274,7 @@
   // Profile title
   @mixin _profile-title {
     font-family: var(--font-heading);
-    font-size: 2.5rem;
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
     color: var(--color-primary-dark);
     margin: 0;
     font-weight: 800;
@@ -295,15 +315,15 @@
 
   // Polaroid image
   @mixin _polaroid-image($size: 260px, $size-desktop: 300px) {
-    width: $size;
-    height: $size;
+    width: min($size, 100%);
+    height: auto;
+    aspect-ratio: 1;
     object-fit: cover;
     border-radius: 12px;
     display: block;
 
     @media (min-width: 768px) {
       width: $size-desktop;
-      height: $size-desktop;
     }
   }
 
@@ -327,6 +347,7 @@
     display: flex;
     justify-content: center;
     gap: 1.5rem;
+    flex-wrap: wrap;
     padding-top: 1.5rem;
     border-top: 2px dashed var(--color-border);
   }
@@ -393,14 +414,16 @@
       display: flex;
       align-items: center;
       gap: 0.375rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
     &__page {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 2.25rem;
-      height: 2.25rem;
+      min-width: 2.5rem;
+      height: 2.5rem;
       padding: 0.25rem 0.5rem;
       font-size: 0.9rem;
       text-decoration: none;
@@ -430,7 +453,11 @@
     display: flex;
     gap: 0.75rem;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     padding-bottom: 0.25rem;
+
+    &::-webkit-scrollbar { display: none; }
 
     &__tab {
       text-decoration: none;
@@ -629,6 +656,7 @@
     &__links {
       display: flex;
       gap: var(--spacing-md);
+      flex-wrap: wrap;
     }
 
     &__link {
@@ -654,6 +682,19 @@
       align-items: center;
       gap: var(--spacing-sm);
       flex-wrap: wrap;
+    }
+
+    @media (max-width: 640px) {
+      &__content {
+        flex-direction: column;
+        text-align: center;
+      }
+      &__links {
+        justify-content: center;
+      }
+      &__theme-switcher {
+        justify-content: center;
+      }
     }
 
     &__theme-label {
@@ -841,7 +882,11 @@
     align-items: center;
     gap: 0.375rem;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     padding-bottom: 0.25rem;
+
+    &::-webkit-scrollbar { display: none; }
 
     &__clear {
       font-family: var(--font-body);
@@ -905,7 +950,9 @@
     grid-template-areas:
       "header"
       "map";
-    padding-bottom: 2rem;
+    max-width: 68rem;
+    margin-inline: auto;
+    padding: 2rem 1rem 2rem;
 
     &__header { @include _page-header; padding-bottom: 1.5rem; }
 
@@ -1758,6 +1805,7 @@
     align-items: center;
     justify-content: center;
     gap: var(--spacing-md);
+    flex-wrap: wrap;
     box-shadow: var(--shadow-card);
 
     &--hidden {
@@ -2730,6 +2778,8 @@
       border-radius: var(--radius-card);
       box-shadow: var(--shadow-card);
       transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
 
       &:nth-child(1) { transform: rotate(-0.6deg); }
       &:nth-child(3) { transform: rotate(0.4deg); }
@@ -2748,6 +2798,7 @@
       font-weight: 800;
       color: var(--color-primary);
       line-height: 1.2;
+      order: -1;
     }
 
     &__label {
@@ -3936,6 +3987,100 @@
 
     &:hover {
       transform: rotate(0);
+    }
+  }
+
+  // ── Gallery Page ──────────────────────────────────────────────────
+
+  .gallery-page {
+    @include _listing-page;
+    grid-template-areas:
+      "header"
+      "filters"
+      "card-grid"
+      "pagination";
+
+    &__header { @include _page-header; }
+    &__title { @include _page-title; }
+
+    &__intro {
+      font-family: var(--font-body);
+      color: var(--color-text-muted);
+      font-size: 1.05rem;
+      max-width: 36rem;
+      margin: 0 auto 0.75rem;
+      line-height: 1.6;
+    }
+
+    &__count { @include _page-count; }
+    &__filters { @include _filter-wrapper; }
+
+    &__grid {
+      @include _gallery-grid;
+      @include _card-rotation;
+    }
+
+    &__empty { @include _empty-state; }
+    &__empty-text { @include _empty-text; }
+    &__empty-link { @include _empty-link; }
+    &__pagination { @include _pagination-wrapper; }
+  }
+
+  // Gallery Item
+  .gallery-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    background: var(--color-bg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &--linked:hover {
+      transform: translateY(-4px) rotate(0deg);
+      box-shadow: 0 8px 24px rgba(74, 63, 92, 0.12);
+    }
+
+    &__image-wrapper {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-card) var(--radius-card) 0 0;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    &--linked:hover &__image {
+      transform: scale(1.05);
+    }
+
+    &__caption {
+      padding: 0.85rem 1rem;
+    }
+
+    &__text {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--color-text);
+      margin: 0 0 0.4rem;
+      line-height: 1.4;
+    }
+
+    &__tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-on-primary);
+      background: var(--color-primary-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
     }
   }
 }
