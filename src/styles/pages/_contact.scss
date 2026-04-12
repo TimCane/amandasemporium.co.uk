@@ -14,7 +14,7 @@
 
   &__title {
     @include page-title;
-    margin: 0 0 0.75rem;
+    margin: 0 0 var(--spacing-ms);
   }
 
   &__intro {
@@ -48,11 +48,13 @@
   &__email-link {
     color: var(--color-primary-dark);
     font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 2px;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-primary-dark);
+    transition: color var(--transition-fast), border-color var(--transition-fast);
 
     &:hover {
       color: var(--color-accent);
+      border-bottom-color: var(--color-accent);
     }
   }
 
@@ -60,7 +62,7 @@
   &__form-element {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: var(--spacing-ml);
   }
 
   &__field {
@@ -92,12 +94,12 @@
   &__textarea {
     font-family: var(--font-body);
     font-size: var(--text-base);
-    padding: 0.65rem 0.85rem;
+    padding: var(--spacing-ms) var(--spacing-ms);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
     background: var(--color-bg);
     color: var(--color-text);
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 
     &:focus-visible {
       outline: none;
@@ -119,13 +121,13 @@
     font-family: var(--font-body);
     font-size: var(--text-base);
     font-weight: 600;
-    padding: 0.75rem var(--spacing-lg);
+    padding: var(--spacing-ms) var(--spacing-lg);
     background: var(--color-accent);
     color: var(--color-bg);
     border: 1px solid var(--color-accent);
     border-radius: var(--radius-card);
     cursor: pointer;
-    transition: filter 0.2s ease;
+    transition: filter var(--transition-fast);
 
     &:hover {
       filter: brightness(0.9);
@@ -157,7 +159,7 @@
     font-family: var(--font-body);
     font-weight: 600;
     color: var(--color-error-text);
-    margin: 0 0 0.75rem;
+    margin: 0 0 var(--spacing-ms);
   }
 
   &__errors-list {
@@ -205,7 +207,7 @@
     padding: var(--spacing-md) var(--spacing-md);
     cursor: pointer;
     list-style: none;
-    transition: color 0.2s ease;
+    transition: color var(--transition-fast);
 
     &::marker,
     &::-webkit-details-marker {
@@ -218,7 +220,7 @@
       font-size: var(--text-lg);
       color: var(--color-accent);
       font-weight: 400;
-      transition: transform 0.2s ease;
+      transition: transform var(--transition-fast);
     }
 
     [open] > &::before {
@@ -262,7 +264,7 @@
     font-weight: 600;
     font-size: var(--text-sm);
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color var(--transition-fast);
 
     &::after {
       content: ' \2192';

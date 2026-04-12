@@ -21,9 +21,9 @@
     font-size: var(--text-sm);
     color: var(--color-text-muted);
     text-decoration: none;
-    padding: var(--spacing-xs) 0.75rem;
+    padding: var(--spacing-xs) var(--spacing-ms);
     border-bottom: 2px solid transparent;
-    transition: color 0.2s ease, border-color 0.2s ease;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
 
     &:hover {
       color: var(--color-primary);

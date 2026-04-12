@@ -88,7 +88,7 @@ const year = yearFormatter.format(date);
 
     &__day {
       font-family: var(--font-heading);
-      font-size: 1.75rem;
+      font-size: var(--text-xl);
       font-weight: 700;
       line-height: 1;
     }
@@ -98,14 +98,14 @@ const year = yearFormatter.format(date);
       font-size: var(--text-sm);
       text-transform: uppercase;
       letter-spacing: var(--tracking-wide);
-      margin-top: 0.15rem;
+      margin-top: 2px;
     }
 
     &__year {
       font-family: var(--font-body);
-      font-size: 0.75rem;
+      font-size: var(--text-xs);
       opacity: 0.8;
-      margin-top: 0.1rem;
+      margin-top: 2px;
     }
 
     &__body {
@@ -128,8 +128,8 @@ const year = yearFormatter.format(date);
     &__meta {
       display: flex;
       flex-direction: column;
-      gap: 0.2rem;
-      margin-bottom: 0.5rem;
+      gap: var(--spacing-xs);
+      margin-bottom: var(--spacing-sm);
     }
 
     &__time {
@@ -169,7 +169,7 @@ const year = yearFormatter.format(date);
       text-decoration: none;
       border-bottom: 1px solid var(--color-accent);
       padding-bottom: 1px;
-      transition: color 0.2s ease;
+      transition: color var(--transition-fast);
 
       &:hover {
         color: var(--color-primary-dark);

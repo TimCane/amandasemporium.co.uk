@@ -9,7 +9,7 @@
   &__header {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: var(--spacing-ms);
     text-align: center;
   }
 
@@ -90,9 +90,9 @@
     font-family: var(--font-body);
     font-size: var(--text-sm);
     text-decoration: none;
-    padding: 0.6rem var(--spacing-lg);
+    padding: var(--spacing-ms) var(--spacing-lg);
     border-radius: var(--radius-sm);
-    transition: background 0.2s ease, color 0.2s ease;
+    transition: background var(--transition-fast), color var(--transition-fast);
 
     &--website {
       background: var(--color-primary);
@@ -134,7 +134,7 @@
     font-size: var(--text-md);
     font-style: italic;
     line-height: var(--leading-body);
-    margin: 0 0 1.25rem;
+    margin: 0 0 var(--spacing-ml);
   }
 
   &__recap-decoration {

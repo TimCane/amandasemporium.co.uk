@@ -34,29 +34,29 @@ Tracked issues from the full styling audit. Items are grouped by category and pr
 
 ### Home Page (`_home.scss`) — worst offender
 
-- [ ] `padding: 5rem 1.5rem 4rem` (hero, line ~10) — replace with tokens
-- [ ] `1.5rem` horizontal padding used 7+ times (lines ~91, 139, 203, 307, 404, 438, 564) — should be a consistent token
-- [ ] Mixed token/hardcoded padding: `var(--section-gap) 1.5rem` (line ~91)
-- [ ] Hardcoded margins: `2.5rem`, `1.25rem`, `0.75rem`, `0.375rem` throughout
+- [x] `padding: 5rem 1.5rem 4rem` (hero, line ~10) — replace with tokens
+- [x] `1.5rem` horizontal padding used 7+ times (lines ~91, 139, 203, 307, 404, 438, 564) — uses `var(--section-pad-x)` token
+- [x] Mixed token/hardcoded padding: `var(--section-gap) 1.5rem` (line ~91)
+- [x] Hardcoded margins: `2.5rem`, `1.25rem`, `0.75rem`, `0.375rem` throughout — replaced with `--page-pad-top`, `--spacing-ml`, `--spacing-ms`, `--spacing-xs`
 - [ ] Home page doesn't use `page-header`, `listing-page`, or `content-page` mixins like other pages
 
 ### Contact Page (`_contact.scss`)
 
-- [ ] Form input padding `0.65rem 0.85rem` (line ~102) — inconsistent with `var(--spacing-md)` used elsewhere
-- [ ] Button padding `0.75rem var(--spacing-lg)` (line ~129) — mixed hardcoded + token
-- [ ] Form gap `1.25rem` (line ~70) — hardcoded
+- [x] Form input padding `0.65rem 0.85rem` (line ~102) — now uses `var(--spacing-ms)`
+- [x] Button padding `0.75rem var(--spacing-lg)` (line ~129) — now uses `var(--spacing-ms) var(--spacing-lg)`
+- [x] Form gap `1.25rem` (line ~70) — now uses `var(--spacing-ml)`
 
 ### Components
 
-- [ ] `bear-timeline.astro`: `margin-bottom: 2rem`, `padding: 1rem`, `gap: 0.75rem` — all hardcoded
-- [ ] `bear-card.astro`: `margin: 0 0 0.35rem` — hardcoded micro-spacing
-- [ ] `event-card.astro`: `gap: 0.2rem` between meta items — hardcoded
-- [ ] `gallery-item.astro`: `padding: 0.75rem var(--spacing-md)` — mixed
+- [x] `bear-timeline.astro`: `margin-bottom: 2rem`, `padding: 1rem`, `gap: 0.75rem` — all replaced with tokens
+- [x] `bear-card.astro`: `margin: 0 0 0.35rem` — now uses `var(--spacing-xs)`
+- [x] `event-card.astro`: `gap: 0.2rem` between meta items — now uses `var(--spacing-xs)`
+- [x] `gallery-item.astro`: `padding: 0.75rem var(--spacing-md)` — now uses `var(--spacing-ms) var(--spacing-md)`
 
 ### About Page (`_about.scss`)
 
-- [ ] `margin: 0 0 0.75rem` (line ~99) — should use `var(--spacing-sm)` or similar
-- [ ] `gap: 0.75rem` (line ~97) — hardcoded
+- [x] `margin: 0 0 0.75rem` (line ~99) — now uses `var(--spacing-ms)`
+- [x] `gap: 0.75rem` (line ~97) — now uses `var(--spacing-ms)`
 
 ---
 
@@ -64,12 +64,12 @@ Tracked issues from the full styling audit. Items are grouped by category and pr
 
 Hardcoded font sizes that don't map to `--text-*` tokens.
 
-- [ ] `0.75rem` used in 5+ components (bear-map, bear-timeline, event-card, gallery-item) but `--text-xs` is `0.8rem` — decide which is correct and standardise
-- [ ] Home page heading sizes: `1.75rem` hardcoded in multiple places (lines ~109, 316) instead of `var(--text-xl)` (which is `1.5rem`) — mismatch
-- [ ] Event card day font: `1.75rem` hardcoded vs other headings using tokens
-- [ ] Home event card name: `1.15rem` hardcoded (line ~257)
-- [ ] Navbar padding `0.75rem 1.5rem` (line ~81) — hardcoded instead of spacing tokens
-- [ ] Consider adding a `--text-2xl` token if `1.75rem` is an intentional size
+- [x] `0.75rem` used in 5+ components (bear-map, bear-timeline, event-card, gallery-item) — standardised to `var(--text-xs)` (adjusted from `0.8rem` to `0.75rem`)
+- [x] Home page heading sizes: `1.75rem` hardcoded in multiple places — replaced with `var(--text-xl)`
+- [x] Event card day font: `1.75rem` hardcoded — replaced with `var(--text-xl)`
+- [x] Home event card name: `1.15rem` hardcoded — replaced with `var(--text-md)`
+- [x] Navbar padding `0.75rem 1.5rem` (line ~81) — replaced with `var(--spacing-ms) var(--section-pad-x)`
+- [x] `--text-xs` token adjusted from `0.8rem` to `0.75rem` to match widespread usage
 
 ---
 
@@ -77,10 +77,9 @@ Hardcoded font sizes that don't map to `--text-*` tokens.
 
 No single approach chosen across the site.
 
-- [ ] Some links use `border-bottom: 1px solid` with hover color change (home page links)
-- [ ] Others use `text-decoration: underline` with `text-underline-offset: 2px` (contact page)
-- [ ] Some use `border-bottom: 1px solid transparent` with hover transition
-- [ ] Pick one approach and apply consistently
+- [x] Standardised on `border-bottom: 1px solid transparent` with hover colour change
+- [x] Converted `text-decoration: underline` in contact, privacy, bear-profile, cookie-banner, bear-map
+- [x] All links now use consistent border-bottom approach
 
 ---
 
@@ -88,27 +87,27 @@ No single approach chosen across the site.
 
 Different components style badges/tags differently.
 
-- [ ] Bear status badges: use dedicated `--color-badge-looking-bg/text` and `--color-badge-found-bg/text` tokens
-- [ ] Product categories: reuse `--color-badge-found-bg` — should have dedicated product tokens
-- [ ] Gallery tags: use `--color-text-muted` on `--color-bg-alt` — completely different pattern from badges
-- [ ] Timeline badges: hardcoded `rgba(184, 120, 109, 0.15)` and `rgba(143, 174, 139, 0.15)` — should be CSS custom properties
-- [ ] Standardise badge styling: shared base mixin/component + contextual color tokens
+- [x] Bear status badges: use dedicated `--color-badge-looking-bg/text` and `--color-badge-found-bg/text` tokens
+- [x] Product categories: now use dedicated `--color-badge-product-bg/text` tokens (no longer reuses found-bg)
+- [x] Gallery tags: use `--color-text-muted` on `--color-bg-alt` — kept as distinct visual pattern (tags vs badges)
+- [x] Timeline badges: replaced hardcoded `rgba()` values with `--color-badge-rescued-bg/text` and `--color-badge-rehomed-bg/text` tokens
+- [x] Badge padding standardised to `2px var(--spacing-sm)` across all badge types
 
 ---
 
 ## Medium Priority: Shadow Inconsistencies
 
-- [ ] Cookie banner: hardcoded `0 -2px 8px rgba(61, 50, 41, 0.12)` instead of `var(--shadow-md)`
-- [ ] Cards use `var(--shadow-card)` and hover to `var(--shadow-md)` — good pattern, apply elsewhere
-- [ ] Gallery item hover shadow doesn't elevate like cards — inconsistent hover feedback
+- [x] Cookie banner: replaced hardcoded shadow with `var(--shadow-md-up)` token
+- [x] Cards use `var(--shadow-card)` and hover to `var(--shadow-md)` — consistent pattern
+- [x] Gallery item hover shadow now matches card pattern (shadow-card → shadow-md)
 
 ---
 
 ## Low Priority: Transition Timing
 
-- [ ] Most transitions use `0.2s ease` — good
-- [ ] Card images and gallery items use `0.3s ease` — intentional or inconsistent?
-- [ ] Consider a `--transition-fast` / `--transition-normal` token if not already present
+- [x] All `0.2s ease` transitions now use `var(--transition-fast)`
+- [x] All `0.3s ease` transitions now use `var(--transition-normal)`
+- [x] Added `--transition-fast` and `--transition-normal` tokens to `_variables.scss` and `_base.scss`
 
 ---
 
@@ -116,12 +115,15 @@ Different components style badges/tags differently.
 
 Tokens that would help standardise the codebase.
 
-- [ ] No token for `0.75rem` spacing (used frequently as gaps/margins)
-- [ ] No token for `1.25rem` spacing (contact form, other gaps)
-- [ ] No micro-spacing tokens (`0.15rem`, `0.2rem`, `0.35rem`) for badge padding, inline gaps
-- [ ] No dedicated product badge color tokens
-- [ ] No tokens for timeline badge RGBA colours
-- [ ] Consider `--text-2xl` for the `1.75rem` heading size
+- [x] `--spacing-ms: 0.75rem` added (used frequently as gaps/margins)
+- [x] `--spacing-ml: 1.25rem` added (contact form, other gaps)
+- [x] Micro-spacing (`0.15rem`, `0.2rem`) standardised to `2px` for badge padding
+- [x] Dedicated product badge colour tokens added (`--color-badge-product-bg/text`)
+- [x] Dedicated timeline badge tokens added (`--color-badge-rescued-bg/text`, `--color-badge-rehomed-bg/text`)
+- [x] `--text-xs` adjusted to `0.75rem` to cover that common size
+- [x] `--section-pad-x: 1.5rem` added for section horizontal padding
+- [x] `--shadow-md-up` added for upward-facing shadows
+- [x] `--transition-fast` and `--transition-normal` tokens added
 
 ---
 
@@ -131,3 +133,4 @@ These were identified but are separate work items, not part of the consistency c
 
 - Home page full-width bands (home-stats, home-photos, home-activity) — separate band/stripe component
 - Admin layout styling — not public-facing
+- Home page doesn't use `page-header`, `listing-page`, or `content-page` mixins (intentional — unique layout)

@@ -78,7 +78,7 @@ const navLinks = [
   .navbar {
     background: var(--color-bg);
     border-bottom: 1px solid var(--color-accent);
-    padding: 0.75rem 1.5rem;
+    padding: var(--spacing-ms) var(--section-pad-x);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -87,14 +87,14 @@ const navLinks = [
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 2rem;
+      gap: var(--spacing-lg);
       max-width: var(--page-width);
       margin-inline: auto;
     }
 
     &__links {
       display: flex;
-      gap: 1.25rem;
+      gap: var(--spacing-ml);
       list-style: none;
       margin: 0;
       padding: 0;
@@ -114,9 +114,9 @@ const navLinks = [
       text-decoration: none;
       font-size: var(--text-sm);
       letter-spacing: var(--tracking-normal);
-      padding: 0.25rem 0;
+      padding: var(--spacing-xs) 0;
       position: relative;
-      transition: color 0.3s ease;
+      transition: color var(--transition-normal);
       white-space: nowrap;
 
       &::after {
@@ -127,7 +127,7 @@ const navLinks = [
         width: 0;
         height: 1px;
         background: var(--color-accent);
-        transition: width 0.3s ease;
+        transition: width var(--transition-normal);
       }
 
       &:hover {
@@ -168,7 +168,7 @@ const navLinks = [
       width: 24px;
       height: 2px;
       background: var(--color-text);
-      transition: transform 0.3s ease;
+      transition: transform var(--transition-normal);
     }
 
     &__mobile-menu {
@@ -201,7 +201,7 @@ const navLinks = [
       padding: var(--spacing-xs) var(--spacing-sm);
       display: block;
       border-left: 3px solid transparent;
-      transition: border-color 0.2s ease;
+      transition: border-color var(--transition-fast);
 
       &:hover {
         color: var(--color-primary);

@@ -193,14 +193,14 @@ const mapData = JSON.stringify(bears);
     font-size: var(--text-sm);
   }
   :global(.bear-map__popup-name) {
-    font-size: 1rem;
+    font-size: var(--text-base);
     font-weight: 700;
   }
   :global(.bear-map__popup-badge) {
     display: inline-block;
-    padding: 0.1rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.75rem;
+    padding: 2px var(--spacing-sm);
+    border-radius: var(--radius-card);
+    font-size: var(--text-xs);
     text-transform: capitalize;
     width: fit-content;
   }
@@ -214,16 +214,18 @@ const mapData = JSON.stringify(bears);
   }
   :global(.bear-map__popup-location) {
     color: var(--color-text-muted);
-    font-size: 0.8rem;
+    font-size: var(--text-xs);
   }
   :global(.bear-map__popup-link) {
     color: var(--color-primary);
     text-decoration: none;
     font-weight: 600;
-    margin-top: 0.25rem;
+    margin-top: var(--spacing-xs);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition-fast);
   }
   :global(.bear-map__popup-link:hover) {
-    text-decoration: underline;
+    border-bottom-color: var(--color-primary);
   }
   /* Remove default Leaflet marker class styling that could interfere */
   :global(.bear-map__marker) {

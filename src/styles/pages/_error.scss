@@ -63,14 +63,14 @@
   &__nav-link {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: var(--spacing-ms);
     padding: var(--spacing-md) var(--spacing-md);
     background: var(--color-bg);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-card);
     text-decoration: none;
     color: inherit;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 
     &:hover {
       border-color: var(--color-accent);
@@ -120,7 +120,7 @@
     display: inline-block;
     text-decoration: none;
     color: inherit;
-    transition: transform 0.2s ease;
+    transition: transform var(--transition-fast);
 
     &:hover {
       transform: translateY(-2px);
@@ -155,7 +155,7 @@
     color: var(--color-text-muted);
     font-size: var(--text-sm);
     font-style: italic;
-    margin: 0 0 0.75rem;
+    margin: 0 0 var(--spacing-ms);
   }
 
   &__bear-cta {

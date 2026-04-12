@@ -93,11 +93,11 @@ const pageNumbers = getPageNumbers();
       color: var(--color-primary);
       text-decoration: none;
       font-size: var(--text-sm);
-      padding: var(--spacing-sm) 0.75rem;
+      padding: var(--spacing-sm) var(--spacing-ms);
       min-height: 2.75rem;
       display: inline-flex;
       align-items: center;
-      transition: color 0.2s ease;
+      transition: color var(--transition-fast);
 
       &:hover { color: var(--color-primary-dark); }
 
@@ -126,7 +126,7 @@ const pageNumbers = getPageNumbers();
       font-size: var(--text-sm);
       text-decoration: none;
       color: var(--color-text);
-      transition: color 0.2s ease;
+      transition: color var(--transition-fast);
 
       &:hover { color: var(--color-primary); }
 

@@ -240,9 +240,11 @@
     &--link {
       color: var(--color-primary);
       text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color var(--transition-fast);
 
       &:hover {
-        text-decoration: underline;
+        border-bottom-color: var(--color-primary);
       }
     }
   }
@@ -265,7 +267,7 @@
   &__photos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.25rem;
+    gap: var(--spacing-ml);
   }
 
   &__photo-wrapper {
@@ -280,7 +282,7 @@
     aspect-ratio: 1;
     object-fit: cover;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform var(--transition-normal);
   }
 
   &__photo-wrapper:hover &__photo {

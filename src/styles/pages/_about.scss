@@ -14,7 +14,7 @@
 
   &__title {
     @include page-title;
-    margin: 0 0 0.75rem;
+    margin: 0 0 var(--spacing-ms);
   }
 
   &__intro {
@@ -69,8 +69,8 @@
     font-weight: 600;
     font-size: var(--text-sm);
     text-decoration: none;
-    margin-top: 0.75rem;
-    transition: color 0.2s ease;
+    margin-top: var(--spacing-ms);
+    transition: color var(--transition-fast);
 
     &::after {
       content: ' \2192';
@@ -162,7 +162,7 @@
     padding: 0;
     margin: 0;
     display: grid;
-    gap: 0.75rem;
+    gap: var(--spacing-ms);
     grid-template-columns: 1fr;
 
     @media (min-width: 600px) {
@@ -180,7 +180,7 @@
     text-decoration: none;
     color: var(--color-primary-dark);
     font-weight: 600;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 
     &:hover {
       border-color: var(--color-accent);

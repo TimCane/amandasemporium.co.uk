@@ -53,7 +53,7 @@ const categoryLabel = productCategoryLabels[category] || category;
       aspect-ratio: 1;
       object-fit: cover;
       display: block;
-      transition: transform 0.3s ease;
+      transition: transform var(--transition-normal);
     }
 
     &:hover &__image {
@@ -70,7 +70,7 @@ const categoryLabel = productCategoryLabels[category] || category;
       font-family: var(--font-heading);
       font-size: var(--text-md);
       color: var(--color-text);
-      margin: 0 0 0.35rem;
+      margin: 0 0 var(--spacing-xs);
       font-weight: 600;
     }
 
@@ -80,18 +80,18 @@ const categoryLabel = productCategoryLabels[category] || category;
       font-size: var(--text-base);
       color: var(--color-primary-dark);
       font-weight: 600;
-      margin-bottom: 0.35rem;
+      margin-bottom: var(--spacing-xs);
     }
 
     &__category {
       display: inline-block;
       font-family: var(--font-body);
       font-size: var(--text-xs);
-      padding: 0.15rem var(--spacing-sm);
+      padding: 2px var(--spacing-sm);
       border-radius: var(--radius-sm);
       margin-bottom: var(--spacing-xs);
-      background: var(--color-badge-found-bg);
-      color: var(--color-badge-found-text);
+      background: var(--color-badge-product-bg);
+      color: var(--color-badge-product-text);
     }
 
     &__decoration-element { display: none; }
