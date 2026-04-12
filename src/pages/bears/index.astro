@@ -4,78 +4,145 @@ export const prerender = false;
 import { getCollection } from 'astro:content';
 import PageLayout from '@/layouts/page.layout.astro';
 import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
-import FilterTabs from '@/components/ui/filter-tabs.astro';
 import AlphabetNav from '@/components/bears/alphabet-nav.astro';
 import BearCard from '@/components/bears/bear-card.astro';
 import Pagination from '@/components/ui/pagination.astro';
 import { ITEMS_PER_PAGE } from '@/libs/consts';
 import { getActiveLetters, filterByLetter } from '@/libs/alphabet';
+import { bearBrands, bearSpecies } from '@/content/config';
 import {
-  parseBearGroup,
-  filterByGroup,
-  groupLabel,
-  groupIntro,
+  parseBearStatus,
+  filterByStatus,
+  filterBySpecies,
+  filterByBrand,
+  statusLabel,
+  statusIntro,
+  slugToLabel,
   buildBearsUrl,
-  type BearGroup,
+  type BearStatus,
 } from '@/libs/bear-groups';
 
 // --- Parse query params ---
 const url = new URL(Astro.request.url);
-const group: BearGroup = parseBearGroup(url.searchParams.get('group'));
+const status: BearStatus = parseBearStatus(url.searchParams.get('status'));
+const speciesParam = url.searchParams.get('species') || undefined;
+const brandParam = url.searchParams.get('brand') || undefined;
 const letter = url.searchParams.get('letter')?.toUpperCase() || undefined;
 const pageParam = Math.max(1, parseInt(url.searchParams.get('page') || '1', 10));
+
+// Validate species and brand against known enums
+const validSpecies = bearSpecies.options.includes(speciesParam as any) ? speciesParam : undefined;
+const validBrand = bearBrands.options.includes(brandParam as any) ? brandParam : undefined;
 
 // --- Fetch and filter bears ---
 let allBears = await getCollection('bears');
 
-// 1. Filter by group
-let bears = filterByGroup(allBears, group);
+// --- Cascading filter logic ---
+// For each dropdown, compute available options from bears filtered by the OTHER two filters.
+// This ensures each dropdown only shows options that will produce results.
 
-// Compute active letters from the group-filtered set (before letter filter)
+// Bears filtered by status only
+const byStatus = filterByStatus(allBears, status);
+
+// Bears filtered by status + species (used to compute brand options)
+const byStatusAndSpecies = validSpecies ? filterBySpecies(byStatus, validSpecies) : byStatus;
+
+// Bears filtered by status + brand (used to compute species options)
+const byStatusAndBrand = validBrand ? filterByBrand(byStatus, validBrand) : byStatus;
+
+// Bears filtered by species + brand but NOT status (used to compute status counts)
+let bySpeciesAndBrand = allBears;
+if (validSpecies) bySpeciesAndBrand = filterBySpecies(bySpeciesAndBrand, validSpecies);
+if (validBrand) bySpeciesAndBrand = filterByBrand(bySpeciesAndBrand, validBrand);
+
+// Compute dropdown options with counts
+type FilterOption = { value: string; label: string; count: number };
+
+// Status options — count from bears filtered by species + brand
+const statusOptions: FilterOption[] = [
+  { value: 'all', label: 'Any status', count: bySpeciesAndBrand.length },
+  { value: 'looking', label: 'Looking for a home', count: bySpeciesAndBrand.filter(b => !b.data.rehomed).length },
+  { value: 'found', label: 'Found their home', count: bySpeciesAndBrand.filter(b => !!b.data.rehomed).length },
+].filter(o => o.value === 'all' || o.count > 0);
+
+// Species options — count from bears filtered by status + brand
+const speciesCounts = new Map<string, number>();
+for (const b of byStatusAndBrand) {
+  speciesCounts.set(b.data.species, (speciesCounts.get(b.data.species) || 0) + 1);
+}
+const speciesOptions: FilterOption[] = [...speciesCounts.entries()]
+  .map(([value, count]) => ({ value, label: slugToLabel(value), count }))
+  .sort((a, b) => a.label.localeCompare(b.label));
+
+// Brand options — count from bears filtered by status + species
+const brandCounts = new Map<string, number>();
+for (const b of byStatusAndSpecies) {
+  brandCounts.set(b.data.brand, (brandCounts.get(b.data.brand) || 0) + 1);
+}
+const brandOptions: FilterOption[] = [...brandCounts.entries()]
+  .map(([value, count]) => ({ value, label: slugToLabel(value), count }))
+  .sort((a, b) => a.label.localeCompare(b.label));
+
+// --- Auto-select when only one real option exists ---
+// If a dropdown has just "any" + one option, treat that option as selected
+const effectiveStatus: BearStatus = statusOptions.length === 2 && status === 'all'
+  ? statusOptions[1].value as BearStatus : status;
+const effectiveSpecies = speciesOptions.length === 1 && !validSpecies
+  ? speciesOptions[0].value : validSpecies;
+const effectiveBrand = brandOptions.length === 1 && !validBrand
+  ? brandOptions[0].value : validBrand;
+
+// --- Apply all filters for the final result set ---
+let bears = filterByStatus(allBears, effectiveStatus);
+if (effectiveSpecies) bears = filterBySpecies(bears, effectiveSpecies);
+if (effectiveBrand) bears = filterByBrand(bears, effectiveBrand);
+if (validBrand) {
+  bears = filterByBrand(bears, validBrand);
+}
+
+// Compute active letters from the filtered set (before letter filter)
 const activeLetters = getActiveLetters(bears);
 
 // Validate letter param
 const validLetter = letter && activeLetters.includes(letter) ? letter : undefined;
 
-// 2. Filter by letter
+// Filter by letter
 if (validLetter) {
   bears = filterByLetter(bears, validLetter);
 }
 
-// 3. Sort alphabetically by name
+// Sort alphabetically by name
 bears.sort((a, b) => a.data.name.localeCompare(b.data.name));
 
-// 4. Paginate
+// 6. Paginate
 const totalBears = bears.length;
 const totalPages = Math.max(1, Math.ceil(totalBears / ITEMS_PER_PAGE));
 const currentPage = Math.min(pageParam, totalPages);
 const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
 const paginatedBears = bears.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
-// --- Build tab data ---
-const tabs = [
-  { label: 'All', value: 'all', href: buildBearsUrl({ group: 'all' }) },
-  { label: 'Looking for a Home', value: 'looking', href: buildBearsUrl({ group: 'looking' }) },
-  { label: 'Found Their Home', value: 'found', href: buildBearsUrl({ group: 'found' }) },
-];
+// --- Check if any filters are active ---
+const hasActiveFilters = effectiveStatus !== 'all' || !!effectiveSpecies || !!effectiveBrand || !!validLetter;
 
 // --- Params to preserve in pagination/alphabet links ---
 const preserveParams: Record<string, string> = {};
-if (group !== 'all') preserveParams.group = group;
+if (effectiveStatus !== 'all') preserveParams.status = effectiveStatus;
+if (effectiveSpecies) preserveParams.species = effectiveSpecies;
+if (effectiveBrand) preserveParams.brand = effectiveBrand;
 if (validLetter) preserveParams.letter = validLetter;
 
 const paginationParams: Record<string, string> = { ...preserveParams };
 
 // --- SEO ---
-const heading = groupLabel(group);
+const heading = statusLabel(effectiveStatus);
 const pageTitle = validLetter
   ? `${heading} - ${validLetter}`
   : heading;
 const description = `Browse ${totalBears} rescued bears at Amanda's Emporium — some still looking for a home, some already settled.`;
 
 // Pagination rel links
-const prevUrl = currentPage > 1 ? buildBearsUrl({ group, letter: validLetter, page: currentPage - 1 }) : undefined;
-const nextUrl = currentPage < totalPages ? buildBearsUrl({ group, letter: validLetter, page: currentPage + 1 }) : undefined;
+const prevUrl = currentPage > 1 ? buildBearsUrl({ status: effectiveStatus, species: effectiveSpecies, brand: effectiveBrand, letter: validLetter, page: currentPage - 1 }) : undefined;
+const nextUrl = currentPage < totalPages ? buildBearsUrl({ status: effectiveStatus, species: effectiveSpecies, brand: effectiveBrand, letter: validLetter, page: currentPage + 1 }) : undefined;
 ---
 
 <PageLayout title={pageTitle} description={description}>
@@ -93,14 +160,48 @@ const nextUrl = currentPage < totalPages ? buildBearsUrl({ group, letter: validL
   <section class="bears-page">
     <header class="bears-page__header">
       <h1 class="bears-page__title">{heading}</h1>
-      <p class="bears-page__intro">{groupIntro(group)}</p>
+      <p class="bears-page__intro">{statusIntro(effectiveStatus)}</p>
       <p class="bears-page__count">
         {totalBears} {totalBears === 1 ? 'bear' : 'bears'}
       </p>
     </header>
 
+    <nav class="bears-page__section-links" aria-label="Related sections">
+      <a href="/bears/map" class="bears-page__section-link">View on map</a>
+      <a href="/bears/timeline" class="bears-page__section-link">View timeline</a>
+    </nav>
+
     <div class="bears-page__filters">
-      <FilterTabs tabs={tabs} activeValue={group} />
+      <form class="bear-filters" action="/bears" method="get">
+        <div class="bear-filters__controls">
+          <select name="status" class="bear-filters__select" aria-label="Filter by status">
+            {statusOptions.map((o) => (
+              <option value={o.value} selected={effectiveStatus === o.value}>
+                {`${o.label} (${o.count})`}
+              </option>
+            ))}
+          </select>
+
+          <select name="species" class="bear-filters__select" aria-label="Filter by species">
+            <option value="" selected={!effectiveSpecies}>All species ({byStatusAndBrand.length})</option>
+            {speciesOptions.map((o) => (
+              <option value={o.value} selected={effectiveSpecies === o.value}>{o.label} ({o.count})</option>
+            ))}
+          </select>
+
+          <select name="brand" class="bear-filters__select" aria-label="Filter by brand">
+            <option value="" selected={!effectiveBrand}>All brands ({byStatusAndSpecies.length})</option>
+            {brandOptions.map((o) => (
+              <option value={o.value} selected={effectiveBrand === o.value}>{o.label} ({o.count})</option>
+            ))}
+          </select>
+
+          {hasActiveFilters && (
+            <a href="/bears" class="bear-filters__clear">Clear all</a>
+          )}
+        </div>
+        <noscript><button type="submit" class="bear-filters__submit">Apply</button></noscript>
+      </form>
     </div>
 
     <div class="bears-page__alphabet">
@@ -125,7 +226,7 @@ const nextUrl = currentPage < totalPages ? buildBearsUrl({ group, letter: validL
     ) : (
       <div class="bears-page__empty">
         <p class="bears-page__empty-text">
-          No bears match those filters. Try a different letter, or clear the filter to see everyone.
+          No bears match those filters. Try adjusting your selection, or clear the filters to see everyone.
         </p>
         <a href="/bears" class="bears-page__empty-link">View all bears</a>
       </div>
@@ -142,9 +243,35 @@ const nextUrl = currentPage < totalPages ? buildBearsUrl({ group, letter: validL
       </div>
     )}
 
-    <nav class="bears-page__section-links" aria-label="Related sections">
-      <a href="/bears/map" class="bears-page__section-link">View on map</a>
-      <a href="/bears/timeline" class="bears-page__section-link">View timeline</a>
-    </nav>
   </section>
 </PageLayout>
+
+<script>
+  function initBearFilters() {
+    const form = document.querySelector('.bear-filters') as HTMLFormElement | null;
+    if (!form) return;
+
+    form.querySelectorAll('select').forEach((select) => {
+      select.addEventListener('change', () => {
+        const formData = new FormData(form);
+        const params = new URLSearchParams();
+
+        const status = formData.get('status') as string;
+        if (status && status !== 'all') params.set('status', status);
+
+        const species = formData.get('species') as string;
+        if (species) params.set('species', species);
+
+        const brand = formData.get('brand') as string;
+        if (brand) params.set('brand', brand);
+
+        // Don't preserve letter — let the server re-evaluate active letters
+        const qs = params.toString();
+        window.location.href = qs ? `/bears?${qs}` : '/bears';
+      });
+    });
+  }
+
+  initBearFilters();
+  document.addEventListener('astro:after-swap', initBearFilters);
+</script>

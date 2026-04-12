@@ -42,6 +42,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <CookieBanner />
   <script>
     document.addEventListener('astro:after-swap', () => {
+      // Re-apply saved theme after view transition swap
+      const savedTheme = localStorage.getItem('ae-theme') || 'boutique';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+
       const main = document.getElementById('main-content');
       if (main) {
         main.tabIndex = -1;

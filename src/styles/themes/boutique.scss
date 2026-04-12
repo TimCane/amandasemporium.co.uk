@@ -185,6 +185,7 @@
   @mixin _filter-wrapper {
     margin-bottom: 1.5rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
   }
 
@@ -373,13 +374,16 @@
   // Filter Tabs
   .filter-tabs {
     display: flex;
-    gap: 1.5rem;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1.5rem;
     padding-bottom: 0.25rem;
 
-    &::-webkit-scrollbar { display: none; }
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+    }
 
     &__tab {
       text-decoration: none;
@@ -398,6 +402,68 @@
         color: var(--color-primary);
         border-bottom-color: var(--color-primary);
       }
+    }
+  }
+
+  // Bear Filters — dropdown filter bar
+  .bear-filters {
+    width: 100%;
+
+    &__controls {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    &__select {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: var(--color-text);
+      background: var(--color-bg);
+      border: 1px solid var(--color-accent);
+      border-radius: 2px;
+      padding: 0.5rem 2rem 0.5rem 0.75rem;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23666'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      transition: border-color 0.2s ease;
+
+      &:hover {
+        border-color: var(--color-primary);
+      }
+
+      &:focus-visible {
+        outline: 2px solid var(--color-primary);
+        outline-offset: 1px;
+      }
+    }
+
+    &__clear {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      padding: 0.5rem 0.75rem;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+
+    &__submit {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      color: var(--color-bg);
+      background: var(--color-primary);
+      border: none;
+      border-radius: 2px;
+      padding: 0.5rem 1.25rem;
+      cursor: pointer;
     }
   }
 
@@ -656,15 +722,30 @@
     @include _listing-page;
     grid-template-areas:
       "header"
+      "section-links"
       "filters"
       "alphabet"
       "card-grid"
-      "pagination"
-      "section-links";
+      "pagination";
 
-    &__header { @include _page-header; }
+    &__header {
+      @include _page-header;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
     &__title { @include _page-title; }
     &__count { @include _page-count; }
+
+    &__section-links {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      padding-bottom: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-accent);
+    }
+
     &__filters { @include _filter-wrapper; }
 
     &__alphabet {
@@ -678,16 +759,6 @@
     &__empty-text { @include _empty-text; }
     &__empty-link { @include _empty-link; }
     &__pagination { @include _pagination-wrapper; }
-
-    &__section-links {
-      display: flex;
-      justify-content: center;
-      gap: 2.5rem;
-      flex-wrap: wrap;
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid var(--color-accent);
-    }
 
     &__section-link {
       font-family: var(--font-body);
@@ -825,14 +896,10 @@
   // Alphabet Nav
   .alphabet-nav {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 0.25rem;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
     padding-bottom: 0.25rem;
-
-    &::-webkit-scrollbar { display: none; }
 
     &__clear {
       font-family: var(--font-body);
@@ -854,6 +921,7 @@
 
     &__letters {
       display: flex;
+      flex-wrap: wrap;
       gap: 0.125rem;
     }
 
