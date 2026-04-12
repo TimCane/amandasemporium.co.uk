@@ -7,6 +7,7 @@ import FilterTabs from '@/components/ui/filter-tabs.astro';
 import GalleryItem from '@/components/gallery/gallery-item.astro';
 import Pagination from '@/components/ui/pagination.astro';
 import PageHeader from '@/components/ui/page-header.astro';
+import Separator from '@/components/ui/separator.astro';
 import EmptyState from '@/components/ui/empty-state.astro';
 import { galleryCategoryLabels } from '@/libs/labels';
 import { paginate } from '@/libs/pagination';
@@ -86,6 +87,7 @@ const description = 'Photos from Amanda\'s Emporium — rescued bears, handmade 
       count={totalItems}
       noun="photo"
     />
+    <Separator />
 
     <div class="gallery-page__filters">
       <FilterTabs tabs={tabs} activeValue={activeTab} ariaLabel="Filter gallery" />

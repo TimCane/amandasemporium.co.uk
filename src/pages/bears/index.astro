@@ -8,6 +8,9 @@ import AlphabetNav from '@/components/bears/alphabet-nav.astro';
 import BearCard from '@/components/bears/bear-card.astro';
 import Pagination from '@/components/ui/pagination.astro';
 import PageHeader from '@/components/ui/page-header.astro';
+import Separator from '@/components/ui/separator.astro';
+import SectionBand from '@/components/ui/section-band.astro';
+import BearSectionNav from '@/components/bears/bear-section-nav.astro';
 import EmptyState from '@/components/ui/empty-state.astro';
 import { paginate } from '@/libs/pagination';
 import { getActiveLetters, filterByLetter } from '@/libs/alphabet';
@@ -162,10 +165,9 @@ const description = `Browse ${totalBears} rescued bears at Amanda's Emporium —
       noun="bear"
     />
 
-    <nav class="bears-page__section-links" aria-label="Related sections">
-      <a href="/bears/map" class="bears-page__section-link">View on map</a>
-      <a href="/bears/timeline" class="bears-page__section-link">View timeline</a>
-    </nav>
+    <SectionBand>
+      <BearSectionNav current="listing" />
+    </SectionBand>
 
     <div class="bears-page__filters">
       <form class="bear-filters" action="/bears" method="get">

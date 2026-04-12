@@ -1,0 +1,23 @@
+---
+/**
+ * SectionBand — a full-width band with alt background and border lines.
+ *
+ * Wraps any content in a visually distinct horizontal strip.
+ * Used for stats bars, photo strips, cross-navigation, and similar
+ * elements that break the page flow with a background change.
+ */
+---
+
+<div class="section-band" {...Astro.props}>
+  <slot />
+</div>
+
+<style>
+  .section-band {
+    padding: var(--spacing-lg) var(--spacing-md);
+    margin-block: var(--section-gap);
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+  }
+</style>

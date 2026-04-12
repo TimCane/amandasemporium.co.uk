@@ -3,11 +3,6 @@
 // Products Page — elegant browsing with CSS Grid layout
 .products-page {
   @include listing-page;
-  grid-template-areas:
-    "header"
-    "filters"
-    "card-grid"
-    "pagination";
 
   &__filters { @include filter-wrapper; }
   &__grid { @include card-grid; }

@@ -4,6 +4,7 @@ import { Image } from 'astro:assets';
 import PageLayout from '@/layouts/page.layout.astro';
 import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 import { computeStats } from '@/libs/stats';
+import Separator from '@/components/ui/separator.astro';
 
 // --- Fetch content collections for stats and gallery ---
 const allBears = await getCollection('bears');
@@ -39,6 +40,7 @@ const description =
       </p>
       <div class="about-page__header-decoration" aria-hidden="true"></div>
     </header>
+    <Separator />
 
     <!-- Section 2: Amanda's Story -->
     <section class="about-page__story" aria-labelledby="story-heading">

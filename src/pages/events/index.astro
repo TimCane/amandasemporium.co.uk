@@ -8,6 +8,7 @@ import FilterTabs from '@/components/ui/filter-tabs.astro';
 import EventList from '@/components/events/event-list.astro';
 import Pagination from '@/components/ui/pagination.astro';
 import PageHeader from '@/components/ui/page-header.astro';
+import Separator from '@/components/ui/separator.astro';
 import { getUpcomingEvents, getPastEvents } from '@/libs/events';
 import { paginate } from '@/libs/pagination';
 
@@ -106,6 +107,7 @@ const emptyMessage = view === 'upcoming'
       count={eventCount}
       noun="event"
     />
+    <Separator />
 
     <div class="events-page__filters">
       <FilterTabs tabs={tabs} activeValue={view} ariaLabel="Filter events" />

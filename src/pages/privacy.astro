@@ -2,6 +2,7 @@
 export const prerender = true;
 
 import PageLayout from '@/layouts/page.layout.astro';
+import Separator from '@/components/ui/separator.astro';
 import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 ---
 
@@ -22,6 +23,7 @@ import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
       <p class="privacy-page__updated">Last updated: April 2026</p>
       <div class="privacy-page__header-decoration" aria-hidden="true"></div>
     </header>
+    <Separator />
 
     <!-- TODO: All sections below are stubs — requires legal review before launch -->
 
@@ -45,6 +47,7 @@ import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
         <!-- TODO: Specify data storage location and retention period after legal review -->
       </div>
     </section>
+    <Separator />
 
     <section class="privacy-page__section" id="cookies" aria-labelledby="cookies-heading">
       <h2 id="cookies-heading" class="privacy-page__heading">Cookies &amp; Local Storage</h2>
@@ -67,6 +70,7 @@ import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
         <!-- TODO: Confirm analytics provider (Plausible/Umami) and link to its privacy page -->
       </div>
     </section>
+    <Separator />
 
     <section class="privacy-page__section" id="third-party" aria-labelledby="third-party-heading">
       <h2 id="third-party-heading" class="privacy-page__heading">Third-Party Services</h2>
@@ -86,6 +90,7 @@ import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
         <!-- TODO: List any additional third-party services added during development -->
       </div>
     </section>
+    <Separator />
 
     <section class="privacy-page__section" id="your-rights" aria-labelledby="your-rights-heading">
       <h2 id="your-rights-heading" class="privacy-page__heading">Your Rights</h2>
@@ -108,6 +113,7 @@ import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
         <!-- TODO: Add ICO registration number if applicable after legal review -->
       </div>
     </section>
+    <Separator />
 
     <section class="privacy-page__section" id="contact" aria-labelledby="contact-heading">
       <h2 id="contact-heading" class="privacy-page__heading">Get in Touch</h2>

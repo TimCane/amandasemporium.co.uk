@@ -3,23 +3,6 @@
 // Bears Page — elegant browsing with CSS Grid layout
 .bears-page {
   @include listing-page;
-  grid-template-areas:
-    "header"
-    "section-links"
-    "filters"
-    "alphabet"
-    "card-grid"
-    "pagination";
-
-  &__section-links {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-xl);
-    flex-wrap: wrap;
-    padding-bottom: var(--spacing-lg);
-    margin-bottom: var(--spacing-lg);
-    border-bottom: 1px solid var(--color-accent);
-  }
 
   &__filters { @include filter-wrapper; }
 
@@ -36,29 +19,4 @@
     padding: 0;
   }
   &__pagination { @include pagination-wrapper; }
-
-  &__section-link {
-    font-family: var(--font-body);
-    color: var(--color-primary);
-    text-decoration: none;
-    font-size: var(--text-sm);
-    letter-spacing: var(--tracking-normal);
-    position: relative;
-    padding-bottom: 2px;
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--color-accent);
-      transition: width 0.3s ease;
-    }
-
-    &:hover::after {
-      width: 100%;
-    }
-  }
 }

@@ -10,6 +10,7 @@ import { computeStats } from '@/libs/stats';
 import { getUpcomingEvents } from '@/libs/events';
 import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 import JsonLd from '@/components/seo/json-ld.astro';
+import SectionBand from '@/components/ui/section-band.astro';
 import { SITE_TITLE, SITE_URL } from '@/libs/consts';
 
 export const prerender = true;
@@ -151,29 +152,31 @@ const jsonLd = {
   </section>
 
   <!-- 3. Stats Section -->
-  <section class="home-stats" aria-label="The numbers so far">
-    <dl class="home-stats__wrapper">
-      <div class="home-stats__item">
-        <dt class="home-stats__label">Bears Rescued</dt>
-        <dd class="home-stats__number">{totalBears}+</dd>
-      </div>
-      <div class="home-stats__divider" aria-hidden="true"></div>
-      <div class="home-stats__item">
-        <dt class="home-stats__label">Homes Found</dt>
-        <dd class="home-stats__number">{rehomedBears}+</dd>
-      </div>
-      <div class="home-stats__divider" aria-hidden="true"></div>
-      <div class="home-stats__item">
-        <dt class="home-stats__label">Events Attended</dt>
-        <dd class="home-stats__number">{totalEvents}+</dd>
-      </div>
-      <div class="home-stats__divider" aria-hidden="true"></div>
-      <div class="home-stats__item">
-        <dt class="home-stats__label">And Still Going</dt>
-        <dd class="home-stats__number">Since {startYear}</dd>
-      </div>
-    </dl>
-  </section>
+  <SectionBand>
+    <section class="home-stats" aria-label="The numbers so far">
+      <dl class="home-stats__wrapper">
+        <div class="home-stats__item">
+          <dt class="home-stats__label">Bears Rescued</dt>
+          <dd class="home-stats__number">{totalBears}+</dd>
+        </div>
+        <div class="home-stats__divider" aria-hidden="true"></div>
+        <div class="home-stats__item">
+          <dt class="home-stats__label">Homes Found</dt>
+          <dd class="home-stats__number">{rehomedBears}+</dd>
+        </div>
+        <div class="home-stats__divider" aria-hidden="true"></div>
+        <div class="home-stats__item">
+          <dt class="home-stats__label">Events Attended</dt>
+          <dd class="home-stats__number">{totalEvents}+</dd>
+        </div>
+        <div class="home-stats__divider" aria-hidden="true"></div>
+        <div class="home-stats__item">
+          <dt class="home-stats__label">And Still Going</dt>
+          <dd class="home-stats__number">Since {startYear}</dd>
+        </div>
+      </dl>
+    </section>
+  </SectionBand>
 
   <!-- 4. Upcoming Events -->
   <section class="home-events" aria-labelledby="home-events-heading">
@@ -298,21 +301,23 @@ const jsonLd = {
 
   <!-- 8. Activity Feed -->
   {activityFeed.length > 0 && (
-    <section class="home-activity" aria-labelledby="home-activity-heading">
-      <div class="home-activity__wrapper">
-        <h2 class="home-activity__heading" id="home-activity-heading">What's been happening</h2>
-        <ul class="home-activity__list">
-          {activityFeed.map((item) => (
-            <li class={`home-activity__item home-activity__item--${item.type}`}>
-              <span class="home-activity__icon" aria-hidden="true"></span>
-              <a href={item.href} class="home-activity__link">{item.label}</a>
-              <time class="home-activity__date" datetime={item.date.toISOString().split('T')[0]}>
-                {formatShortDate(item.date)}
-              </time>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+    <SectionBand>
+      <section class="home-activity" aria-labelledby="home-activity-heading">
+        <div class="home-activity__wrapper">
+          <h2 class="home-activity__heading" id="home-activity-heading">What's been happening</h2>
+          <ul class="home-activity__list">
+            {activityFeed.map((item) => (
+              <li class={`home-activity__item home-activity__item--${item.type}`}>
+                <span class="home-activity__icon" aria-hidden="true"></span>
+                <a href={item.href} class="home-activity__link">{item.label}</a>
+                <time class="home-activity__date" datetime={item.date.toISOString().split('T')[0]}>
+                  {formatShortDate(item.date)}
+                </time>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </SectionBand>
   )}
 </PageLayout>

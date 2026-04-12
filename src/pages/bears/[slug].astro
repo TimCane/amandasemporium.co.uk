@@ -11,6 +11,7 @@ import BearCard from '@/components/bears/bear-card.astro';
 import BearMap from '@/components/bears/bear-map.astro';
 import type { BearMapData } from '@/components/bears/bear-map.astro';
 import BackLink from '@/components/ui/back-link.astro';
+import Separator from '@/components/ui/separator.astro';
 import { formatMediumDate } from '@/libs/dates';
 import { slugToLabel } from '@/libs/labels';
 export async function getStaticPaths() {
@@ -244,29 +245,31 @@ const jsonLd = {
   <JsonLd data={jsonLd} />
 
   <article class="bear-profile">
-    {/* ── Image (independent grid item — themes position freely) ── */}
-    <div class="bear-profile__image-wrapper">
-      <Image
-        src={picture}
-        alt={`${name} the ${speciesLabel}`}
-        width={600}
-        height={600}
-        loading="eager"
-        class="bear-profile__image"
-      />
-      <div class="bear-profile__image-decoration" aria-hidden="true"></div>
-    </div>
+    {/* ── Hero: Image + Header ── */}
+    <div class="bear-profile__hero">
+      <div class="bear-profile__image-wrapper">
+        <Image
+          src={picture}
+          alt={`${name} the ${speciesLabel}`}
+          width={600}
+          height={600}
+          loading="eager"
+          class="bear-profile__image"
+        />
+        <div class="bear-profile__image-decoration" aria-hidden="true"></div>
+      </div>
 
-    {/* ── Header: name, status, species (independent grid item) ── */}
-    <header class="bear-profile__header">
-      <h1 class="bear-profile__name">{name}</h1>
-      <span class:list={['bear-profile__status', statusClass]}>{status}</span>
-      {tagline && <p class="bear-profile__tagline">{tagline}</p>}
-      <div class="bear-profile__header-decoration" aria-hidden="true"></div>
-    </header>
+      <header class="bear-profile__header">
+        <h1 class="bear-profile__name">{name}</h1>
+        <span class:list={['bear-profile__status', statusClass]}>{status}</span>
+        {tagline && <p class="bear-profile__tagline">{tagline}</p>}
+        <div class="bear-profile__header-decoration" aria-hidden="true"></div>
+      </header>
+    </div>
 
     {/* ── Additional Photos ── */}
     {hasPhotos && (
+      <Separator />
       <section class="bear-profile__photos" aria-label="Additional photos">
         <h2 class="bear-profile__section-heading">More Photos</h2>
         <div class="bear-profile__photos-grid">
@@ -288,6 +291,7 @@ const jsonLd = {
     )}
 
     {/* ── Section 2: Narrative ── */}
+    <Separator />
     <section class="bear-profile__narrative">
       <h2 class="bear-profile__section-heading">
         {hasNarrative ? `${name}'s Story` : `About ${name}`}
@@ -308,37 +312,38 @@ const jsonLd = {
       </div>
       <div class="bear-profile__narrative-decoration" aria-hidden="true"></div>
     </section>
+    <Separator />
 
-    {/* ── Section 3: Details ── */}
-    <section class="bear-profile__details">
-      <h2 class="bear-profile__section-heading">Details</h2>
-      <dl class="bear-profile__detail-list">
-        <div class="bear-profile__detail-item">
-          <dt class="bear-profile__detail-label">Species</dt>
-          <dd class="bear-profile__detail-value">{speciesLabel}</dd>
-        </div>
-        <div class="bear-profile__detail-item">
-          <dt class="bear-profile__detail-label">Brand</dt>
-          <dd class="bear-profile__detail-value">{brandLabel}</dd>
-        </div>
-        {tags && tags.length > 0 && (
-          <div class="bear-profile__detail-item bear-profile__detail-item--tags">
-            <dt class="bear-profile__detail-label">Tags</dt>
-            <dd class="bear-profile__detail-value">
-              <ul class="bear-profile__tags" role="list">
-                {tags.map((tag) => (
-                  <li class="bear-profile__tag">{tag.replace(/-/g, ' ')}</li>
-                ))}
-              </ul>
-            </dd>
+    {/* ── Section 3 + 4: Details & Rescue Story ── */}
+    <div class="bear-profile__details-rescue">
+      <section class="bear-profile__details">
+        <h2 class="bear-profile__section-heading">Details</h2>
+        <dl class="bear-profile__detail-list">
+          <div class="bear-profile__detail-item">
+            <dt class="bear-profile__detail-label">Species</dt>
+            <dd class="bear-profile__detail-value">{speciesLabel}</dd>
           </div>
-        )}
-      </dl>
-      <div class="bear-profile__details-decoration" aria-hidden="true"></div>
-    </section>
+          <div class="bear-profile__detail-item">
+            <dt class="bear-profile__detail-label">Brand</dt>
+            <dd class="bear-profile__detail-value">{brandLabel}</dd>
+          </div>
+          {tags && tags.length > 0 && (
+            <div class="bear-profile__detail-item bear-profile__detail-item--tags">
+              <dt class="bear-profile__detail-label">Tags</dt>
+              <dd class="bear-profile__detail-value">
+                <ul class="bear-profile__tags" role="list">
+                  {tags.map((tag) => (
+                    <li class="bear-profile__tag">{tag.replace(/-/g, ' ')}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          )}
+        </dl>
+        <div class="bear-profile__details-decoration" aria-hidden="true"></div>
+      </section>
 
-    {/* ── Section 4: Rescue Story ── */}
-    <section class="bear-profile__rescue">
+      <section class="bear-profile__rescue">
       <h2 class="bear-profile__section-heading">Rescue Story</h2>
       <div class="bear-profile__rescue-timeline">
         <div class="bear-profile__rescue-event">
@@ -382,9 +387,11 @@ const jsonLd = {
       </div>
       <div class="bear-profile__rescue-decoration" aria-hidden="true"></div>
     </section>
+    </div>
 
     {/* ── Section 5: Journey Map ── */}
     {hasMapData && (
+      <Separator />
       <section class="bear-profile__map-section">
         <h2 class="bear-profile__section-heading">Where {name} Has Been</h2>
         <div class="bear-profile__map-wrapper">
@@ -396,6 +403,7 @@ const jsonLd = {
 
     {/* ── Section 6: Friends ── */}
     {friends.length > 0 && (
+      <Separator />
       <section class="bear-profile__related">
         <h2 class="bear-profile__section-heading">{name}'s Friends</h2>
         <ul class="bear-profile__related-grid" role="list">

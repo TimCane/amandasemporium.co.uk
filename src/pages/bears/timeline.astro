@@ -4,6 +4,8 @@ export const prerender = true;
 import { getCollection, getEntry } from 'astro:content';
 import PageLayout from '@/layouts/page.layout.astro';
 import BearTimeline from '@/components/bears/bear-timeline.astro';
+import SectionBand from '@/components/ui/section-band.astro';
+import BearSectionNav from '@/components/bears/bear-section-nav.astro';
 import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 
 const title = 'Bear Timeline';
@@ -111,11 +113,10 @@ const dateRange = `${yearFormatter.format(earliestDate)} - ${yearFormatter.forma
       <div class="timeline-page__decoration" aria-hidden="true"></div>
     </header>
 
-    <BearTimeline entries={entries} />
+    <SectionBand>
+      <BearSectionNav current="timeline" />
+    </SectionBand>
 
-    <nav class="timeline-page__nav" aria-label="Bear section navigation">
-      <a href="/bears" class="timeline-page__nav-link">Back to bears</a>
-      <a href="/bears/map" class="timeline-page__nav-link">View on map</a>
-    </nav>
+    <BearTimeline entries={entries} />
   </section>
 </PageLayout>

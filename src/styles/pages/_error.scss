@@ -9,12 +9,9 @@
   max-width: var(--page-width-content);
   margin-inline: auto;
   text-align: center;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-xl);
-  grid-template-areas:
-    "header"
-    "nav"
-    "bear";
 
   &__header {
     padding-bottom: var(--spacing-lg);

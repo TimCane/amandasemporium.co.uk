@@ -5,12 +5,6 @@
 // =============================================
 .events-page {
   @include listing-page;
-  grid-template-areas:
-    "header"
-    "filters"
-    "years"
-    "list"
-    "pagination";
 
   &__filters { @include filter-wrapper; }
 

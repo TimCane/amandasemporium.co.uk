@@ -6,17 +6,10 @@
 
 .contact-page {
   @include content-page;
-  grid-template-areas:
-    "header"
-    "email"
-    "form"
-    "faq"
-    "event-callout";
 
   &__header {
     text-align: center;
     padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid var(--color-border);
   }
 
   &__title {

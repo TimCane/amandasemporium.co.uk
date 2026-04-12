@@ -9,6 +9,7 @@ import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 import JsonLd from '@/components/seo/json-ld.astro';
 import ProductCard from '@/components/products/product-card.astro';
 import BackLink from '@/components/ui/back-link.astro';
+import Separator from '@/components/ui/separator.astro';
 import { productCategoryLabels } from '@/libs/labels';
 
 export async function getStaticPaths() {
@@ -72,51 +73,53 @@ const jsonLd = {
   <JsonLd data={jsonLd} />
 
   <article class="product-profile">
-    {/* ── Hero Image(s) ── */}
-    <div class="product-profile__hero">
-      {photos.length === 1 ? (
-        <Image
-          src={photos[0]}
-          alt={name}
-          width={600}
-          height={600}
-          loading="eager"
-          class="product-profile__photo product-profile__photo--main"
-        />
-      ) : (
-        <div class="product-profile__gallery">
-          {photos.map((photo, i) => (
-            <Image
-              src={photo}
-              alt={`${name} — photo ${i + 1}`}
-              width={600}
-              height={600}
-              loading={i === 0 ? 'eager' : 'lazy'}
-              class:list={[
-                'product-profile__photo',
-                i === 0 && 'product-profile__photo--main',
-              ]}
-            />
-          ))}
-        </div>
-      )}
-      <div class="product-profile__hero-decoration" aria-hidden="true"></div>
-    </div>
+    {/* ── Hero: Image + Header ── */}
+    <div class="product-profile__hero-header">
+      <div class="product-profile__hero">
+        {photos.length === 1 ? (
+          <Image
+            src={photos[0]}
+            alt={name}
+            width={600}
+            height={600}
+            loading="eager"
+            class="product-profile__photo product-profile__photo--main"
+          />
+        ) : (
+          <div class="product-profile__gallery">
+            {photos.map((photo, i) => (
+              <Image
+                src={photo}
+                alt={`${name} — photo ${i + 1}`}
+                width={600}
+                height={600}
+                loading={i === 0 ? 'eager' : 'lazy'}
+                class:list={[
+                  'product-profile__photo',
+                  i === 0 && 'product-profile__photo--main',
+                ]}
+              />
+            ))}
+          </div>
+        )}
+        <div class="product-profile__hero-decoration" aria-hidden="true"></div>
+      </div>
 
-    {/* ── Name + Price + Category ── */}
-    <header class="product-profile__header">
-      <h1 class="product-profile__title">{name}</h1>
-      <span class="product-profile__price">{price}</span>
-      <a
-        href={`/products?category=${category}`}
-        class="product-profile__category"
-      >
-        {categoryLabel}
-      </a>
-    </header>
+      <header class="product-profile__header">
+        <h1 class="product-profile__title">{name}</h1>
+        <span class="product-profile__price">{price}</span>
+        <a
+          href={`/products?category=${category}`}
+          class="product-profile__category"
+        >
+          {categoryLabel}
+        </a>
+      </header>
+    </div>
 
     {/* ── Product Story + How It's Made (rendered from markdown body) ── */}
     {hasBody && (
+      <Separator />
       <section class="product-profile__story" aria-labelledby="product-story-heading">
         <h2 id="product-story-heading" class="sr-only">Product Story</h2>
         <div class="product-profile__content">
@@ -128,6 +131,7 @@ const jsonLd = {
 
     {/* ── Materials ── */}
     {materials && (
+      <Separator />
       <section class="product-profile__materials" aria-labelledby="product-materials-heading">
         <h2 id="product-materials-heading" class="sr-only">Materials</h2>
         <dl class="product-profile__materials-list">
@@ -139,6 +143,7 @@ const jsonLd = {
 
     {/* ── More in This Category ── */}
     {relatedProducts.length > 0 && (
+      <Separator />
       <section class="product-profile__related" aria-labelledby="product-related-heading">
         <h2 id="product-related-heading" class="product-profile__related-heading">More {categoryLabel}</h2>
         <ul class="product-profile__related-grid" role="list">

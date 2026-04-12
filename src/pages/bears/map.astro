@@ -11,6 +11,8 @@ export const prerender = true;
 import { getCollection, getEntry } from 'astro:content';
 import PageLayout from '@/layouts/page.layout.astro';
 import BearMap from '@/components/bears/bear-map.astro';
+import SectionBand from '@/components/ui/section-band.astro';
+import BearSectionNav from '@/components/bears/bear-section-nav.astro';
 import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 import type { BearMapData } from '@/components/bears/bear-map.astro';
 
@@ -96,29 +98,11 @@ for (const bear of allBears) {
       </p>
     </header>
 
+    <SectionBand>
+      <BearSectionNav current="map" />
+    </SectionBand>
+
     <BearMap variant="full" bears={mapBears} />
   </div>
 </PageLayout>
 
-<style lang="scss">
-  .bear-map-page {
-    &__header {
-      text-align: center;
-      padding: 1.5rem 0 1rem;
-    }
-
-    &__title {
-      font-family: var(--font-heading);
-      color: var(--color-text);
-      margin: 0 0 0.5rem;
-    }
-
-    &__description {
-      font-family: var(--font-body);
-      color: var(--color-text-muted);
-      max-width: 40rem;
-      margin: 0 auto;
-      font-size: var(--text-md);
-    }
-  }
-</style>

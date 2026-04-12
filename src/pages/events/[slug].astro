@@ -10,6 +10,7 @@ import JsonLd from '@/components/seo/json-ld.astro';
 import BearCard from '@/components/bears/bear-card.astro';
 import VenueMap from '@/components/events/venue-map.astro';
 import BackLink from '@/components/ui/back-link.astro';
+import Separator from '@/components/ui/separator.astro';
 import { formatLongDate } from '@/libs/dates';
 
 export async function getStaticPaths() {
@@ -99,6 +100,7 @@ const jsonLd = isUpcoming ? {
       {info && <p class="event-profile__info">{info}</p>}
       <div class="event-profile__header-decoration" aria-hidden="true"></div>
     </header>
+    <Separator />
 
     {/* ── 2. Event Description (upcoming only, if body exists) ── */}
     {isUpcoming && hasBody && !hasRecapHeading && (
@@ -109,6 +111,7 @@ const jsonLd = isUpcoming ? {
         </div>
         <div class="event-profile__content-decoration" aria-hidden="true"></div>
       </section>
+      <Separator />
     )}
 
     {/* ── 3. Venue Map (upcoming only, if coordinates exist) ── */}
@@ -124,6 +127,7 @@ const jsonLd = isUpcoming ? {
         </div>
         <div class="event-profile__map-decoration" aria-hidden="true"></div>
       </section>
+      <Separator />
     )}
 
     {/* ── 4. Event Links (upcoming only) ── */}
@@ -147,6 +151,7 @@ const jsonLd = isUpcoming ? {
         </a>
         <div class="event-profile__links-decoration" aria-hidden="true"></div>
       </div>
+      <Separator />
     )}
 
     {/* ── 5. Event Recap (past events) ── */}
@@ -176,6 +181,7 @@ const jsonLd = isUpcoming ? {
         )}
         <div class="event-profile__recap-decoration" aria-hidden="true"></div>
       </section>
+      <Separator />
     )}
 
     {/* ── 6. Recap Photos (past events) ── */}
@@ -198,6 +204,7 @@ const jsonLd = isUpcoming ? {
         </div>
         <div class="event-profile__photos-decoration" aria-hidden="true"></div>
       </section>
+      <Separator />
     )}
 
     {/* ── 7. Bears at This Event (past events) ── */}

@@ -8,6 +8,7 @@ import FilterTabs from '@/components/ui/filter-tabs.astro';
 import ProductCard from '@/components/products/product-card.astro';
 import Pagination from '@/components/ui/pagination.astro';
 import PageHeader from '@/components/ui/page-header.astro';
+import Separator from '@/components/ui/separator.astro';
 import EmptyState from '@/components/ui/empty-state.astro';
 import { productCategories } from '@/content/config';
 import { productCategoryLabels } from '@/libs/labels';
@@ -84,6 +85,7 @@ const description = 'Handmade bags, baby items, knitted goods, soaps, and more. 
       count={totalProducts}
       noun="product"
     />
+    <Separator />
 
     <div class="products-page__filters">
       <FilterTabs tabs={tabs} activeValue={activeTab} ariaLabel="Filter products" />

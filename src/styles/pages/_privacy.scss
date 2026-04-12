@@ -9,7 +9,6 @@
 
   &__header {
     @include page-header;
-    border-bottom-color: var(--color-border);
   }
 
   &__title { @include page-title; }
@@ -25,10 +24,8 @@
   &__section {
     margin-bottom: var(--spacing-xl);
     padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid var(--color-border);
 
     &:last-child {
-      border-bottom: none;
       margin-bottom: 0;
     }
   }

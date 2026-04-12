@@ -1,0 +1,17 @@
+---
+/**
+ * Separator — a visual divider between page sections.
+ *
+ * Renders a styled <hr> element. Themes can override via `hr.separator`.
+ */
+---
+
+<hr class="separator" {...Astro.props} />
+
+<style>
+  .separator {
+    border: none;
+    border-bottom: 1px solid var(--color-accent);
+    margin-block: var(--section-gap);
+  }
+</style>

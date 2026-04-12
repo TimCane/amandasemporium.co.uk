@@ -136,10 +136,6 @@
 
 // --- Stats ---
 .home-stats {
-  padding: var(--section-gap) 1.5rem;
-  background: var(--color-bg-alt);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
 
   &__wrapper {
     max-width: var(--page-width-content);
@@ -561,10 +557,6 @@
 
 // --- Activity Feed ---
 .home-activity {
-  padding: var(--section-gap) 1.5rem;
-  background: var(--color-bg-alt);
-  border-top: 1px solid var(--color-border);
-
   &__wrapper {
     max-width: 40rem;
     margin: 0 auto;

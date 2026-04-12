@@ -5,8 +5,6 @@
   padding: var(--page-pad-top) var(--spacing-md) var(--page-pad-bottom);
   max-width: var(--page-width);
   margin-inline: auto;
-  display: grid;
-  gap: 0;
 }
 
 // Profile page wrapper
@@ -14,8 +12,6 @@
   padding: var(--page-pad-top) var(--spacing-md) var(--page-pad-bottom);
   max-width: var(--page-width-content);
   margin: 0 auto;
-  display: grid;
-  gap: 0;
 }
 
 // Content page wrapper (about, contact, privacy)
@@ -23,8 +19,10 @@
   padding: var(--page-pad-top) var(--spacing-md) var(--page-pad-bottom);
   max-width: var(--page-width-content);
   margin-inline: auto;
-  display: grid;
-  gap: var(--section-gap);
+
+  > * + * {
+    margin-top: var(--section-gap);
+  }
 }
 
 // Page header (listing pages)
@@ -32,7 +30,6 @@
   text-align: center;
   margin-bottom: var(--spacing-xl);
   padding-bottom: var(--spacing-lg);
-  border-bottom: 1px solid var(--color-accent);
 }
 
 // Page title (listing pages)
@@ -169,19 +166,11 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  text-align: center;
   align-items: center;
-  padding-bottom: var(--section-gap);
-  border-bottom: 1px solid var(--color-accent);
-  margin-bottom: var(--section-gap);
 
   @media (min-width: 768px) {
-    text-align: left;
     align-items: flex-start;
     justify-content: center;
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 0;
   }
 }
 
@@ -206,19 +195,6 @@
   letter-spacing: var(--tracking-normal);
 }
 
-// Section separator (between profile content sections)
-@mixin section-separator {
-  margin-top: var(--section-gap);
-  padding-top: var(--section-gap);
-  border-top: 1px solid var(--color-accent);
-}
-
-// Section separator bottom
-@mixin section-separator-bottom {
-  margin-bottom: var(--section-gap);
-  padding-bottom: var(--section-gap);
-  border-bottom: 1px solid var(--color-accent);
-}
 
 // Profile nav link (back to listing)
 @mixin nav-link {
