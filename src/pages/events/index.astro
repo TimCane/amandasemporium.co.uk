@@ -7,7 +7,9 @@ import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 import FilterTabs from '@/components/ui/filter-tabs.astro';
 import EventList from '@/components/events/event-list.astro';
 import Pagination from '@/components/ui/pagination.astro';
-import { ITEMS_PER_PAGE } from '@/libs/consts';
+import PageHeader from '@/components/ui/page-header.astro';
+import { getUpcomingEvents, getPastEvents } from '@/libs/events';
+import { paginate } from '@/libs/pagination';
 
 // --- Parse query params ---
 const url = new URL(Astro.request.url);
@@ -21,13 +23,8 @@ const now = new Date();
 now.setHours(0, 0, 0, 0);
 
 // --- Split into upcoming and past ---
-const upcomingEvents = allEvents
-  .filter(e => e.data.date >= now)
-  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
-
-const pastEvents = allEvents
-  .filter(e => e.data.date < now)
-  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const upcomingEvents = getUpcomingEvents(allEvents, now);
+const pastEvents = getPastEvents(allEvents, now);
 
 // --- Compute available years from past events ---
 const availableYears = [...new Set(pastEvents.map(e => e.data.date.getFullYear()))]
@@ -43,11 +40,13 @@ const selectedYear = yearParam
 const validYear = availableYears.includes(selectedYear) ? selectedYear : mostRecentYear;
 
 const pastByYear = pastEvents.filter(e => e.data.date.getFullYear() === validYear);
-const totalPastEvents = pastByYear.length;
-const totalPages = Math.max(1, Math.ceil(totalPastEvents / ITEMS_PER_PAGE));
-const currentPage = Math.min(pageParam, totalPages);
-const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-const paginatedPast = pastByYear.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+
+const { paginatedItems: paginatedPast, currentPage, totalPages, totalItems: totalPastEvents, prevUrl, nextUrl, paginationParams } = paginate({
+  items: pastByYear,
+  page: pageParam,
+  baseUrl: '/events',
+  params: { view: 'past', year: String(validYear) },
+});
 
 // --- Build tab data ---
 const tabs = [
@@ -65,10 +64,6 @@ function buildEventsUrl(params: { view?: string; year?: number; page?: number })
   return qs ? `/events?${qs}` : '/events';
 }
 
-// --- Pagination params ---
-const paginationParams: Record<string, string> = { view: 'past' };
-if (validYear) paginationParams.year = String(validYear);
-
 // --- SEO ---
 const heading = 'Events';
 const subheading = view === 'upcoming'
@@ -81,13 +76,9 @@ const description = view === 'upcoming'
 
 const pageTitle = view === 'past' ? `Events - ${validYear}` : 'Events';
 
-// Pagination rel links (past view only)
-const prevUrl = view === 'past' && currentPage > 1
-  ? buildEventsUrl({ view: 'past', year: validYear, page: currentPage - 1 })
-  : undefined;
-const nextUrl = view === 'past' && currentPage < totalPages
-  ? buildEventsUrl({ view: 'past', year: validYear, page: currentPage + 1 })
-  : undefined;
+// Only show pagination rel links for past view
+const pastPrevUrl = view === 'past' ? prevUrl : undefined;
+const pastNextUrl = view === 'past' ? nextUrl : undefined;
 
 // --- Pick the events to display ---
 const displayEvents = view === 'upcoming' ? upcomingEvents : paginatedPast;
@@ -104,18 +95,17 @@ const emptyMessage = view === 'upcoming'
     url={Astro.url.href}
   />
   <Fragment slot="head-extra">
-    {prevUrl && <link rel="prev" href={prevUrl} />}
-    {nextUrl && <link rel="next" href={nextUrl} />}
+    {pastPrevUrl && <link rel="prev" href={pastPrevUrl} />}
+    {pastNextUrl && <link rel="next" href={pastNextUrl} />}
   </Fragment>
 
   <section class="events-page">
-    <header class="events-page__header">
-      <h1 class="events-page__title">{heading}</h1>
-      <p class="events-page__intro">{subheading}</p>
-      <p class="events-page__count">
-        {eventCount} {eventCount === 1 ? 'event' : 'events'}
-      </p>
-    </header>
+    <PageHeader
+      title={heading}
+      intro={subheading}
+      count={eventCount}
+      noun="event"
+    />
 
     <div class="events-page__filters">
       <FilterTabs tabs={tabs} activeValue={view} ariaLabel="Filter events" />

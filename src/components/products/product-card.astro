@@ -10,19 +10,12 @@ interface Props {
 
 const { product, loading = 'lazy' } = Astro.props;
 
+import { productCategoryLabels } from '@/libs/labels';
+
 const { name, price, category, photos } = product.data;
 const slug = product.slug;
 
-const categoryLabels: Record<string, string> = {
-  'bags-and-cases': 'Bags & Cases',
-  'baby-and-children': 'Baby & Children',
-  'knitted-and-crocheted': 'Knitted & Crocheted',
-  'home-and-gifts': 'Home & Gifts',
-  'soaps': 'Soaps',
-  'rescued-bears': 'Rescued Bears',
-};
-
-const categoryLabel = categoryLabels[category] || category;
+const categoryLabel = productCategoryLabels[category] || category;
 ---
 
 <Card href={`/products/${slug}`} class="product-card">
@@ -44,3 +37,63 @@ const categoryLabel = categoryLabels[category] || category;
   </div>
   <div class="product-card__decoration-element"></div>
 </Card>
+
+<style lang="scss" is:global>
+  .product-card {
+    .card__inner { padding: 0; }
+
+    &__image-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover &__image {
+      transform: scale(1.03);
+    }
+
+    &__overlay { display: none; }
+
+    &__body {
+      padding: 1rem 1.25rem;
+    }
+
+    &__name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--color-text);
+      margin: 0 0 0.35rem;
+      font-weight: 600;
+    }
+
+    &__price {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      color: var(--color-primary-dark);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    &__category {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+      margin-bottom: 0.25rem;
+      background: var(--color-badge-found-bg);
+      color: var(--color-badge-found-text);
+    }
+
+    &__decoration-element { display: none; }
+  }
+</style>

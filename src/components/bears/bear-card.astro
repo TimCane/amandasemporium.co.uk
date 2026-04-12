@@ -36,3 +36,72 @@ const slug = bear.slug;
   </div>
   <div class="bear-card__decoration-element"></div>
 </Card>
+
+<style lang="scss" is:global>
+  .bear-card {
+    .card__inner { padding: 0; }
+
+    &__image-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover &__image {
+      transform: scale(1.03);
+    }
+
+    &__overlay { display: none; }
+
+    &__body {
+      padding: 1rem 1.25rem;
+    }
+
+    &__name {
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--color-text);
+      margin: 0 0 0.35rem;
+      font-weight: 600;
+    }
+
+    &__status {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+      margin-bottom: 0.25rem;
+
+      &--looking {
+        background: var(--color-badge-looking-bg);
+        color: var(--color-badge-looking-text);
+      }
+
+      &--found {
+        background: var(--color-badge-found-bg);
+        color: var(--color-badge-found-text);
+      }
+    }
+
+    &__subtitle {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.8rem;
+      font-style: italic;
+      color: var(--color-text-muted);
+      margin-top: 0.35rem;
+      line-height: 1.4;
+    }
+
+    &__decoration-element { display: none; }
+  }
+</style>

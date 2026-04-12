@@ -10,6 +10,9 @@ import JsonLd from '@/components/seo/json-ld.astro';
 import BearCard from '@/components/bears/bear-card.astro';
 import BearMap from '@/components/bears/bear-map.astro';
 import type { BearMapData } from '@/components/bears/bear-map.astro';
+import BackLink from '@/components/ui/back-link.astro';
+import { formatMediumDate } from '@/libs/dates';
+import { slugToLabel } from '@/libs/labels';
 export async function getStaticPaths() {
   const bears = await getCollection('bears');
   return bears.map((bear) => ({
@@ -41,18 +44,8 @@ const hasNarrative = bear.body && bear.body.trim().length > 0;
 // --- Computed fields ---
 const status = rehomed ? 'Found Their Home' : 'Looking for a Home';
 const statusClass = rehomed ? 'bear-profile__status--found' : 'bear-profile__status--looking';
-const speciesLabel = species.charAt(0).toUpperCase() + species.slice(1);
-const brandLabel = brand
-  .split('-')
-  .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-  .join(' ');
-
-// --- Date formatting ---
-const dateFmt = new Intl.DateTimeFormat('en-GB', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-});
+const speciesLabel = slugToLabel(species);
+const brandLabel = slugToLabel(brand);
 
 // --- Auto-generated description for SEO ---
 const autoDescription = `${name} — a rescued ${speciesLabel.toLowerCase()} from ${rescuedLocation?.data.name ?? 'unknown'}`;
@@ -206,7 +199,7 @@ const mapBearData: BearMapData = {
     lat: rescuedLocation?.data.latitude ?? 0,
     lng: rescuedLocation?.data.longitude ?? 0,
     name: rescuedLocation?.data.name ?? '',
-    date: dateFmt.format(rescued.date),
+    date: formatMediumDate(rescued.date),
   },
 };
 
@@ -223,7 +216,7 @@ if (rehomed && rehomLocation) {
     lat: rehomLocation.data.latitude,
     lng: rehomLocation.data.longitude,
     name: rehomLocation.data.name,
-    date: dateFmt.format(rehomed.date),
+    date: formatMediumDate(rehomed.date),
   };
 }
 
@@ -306,9 +299,9 @@ const jsonLd = {
           </div>
         ) : (
           <p class="bear-profile__narrative-auto">
-            {name} is a {speciesLabel.toLowerCase()}, made by {brandLabel}. I rescued them from {rescuedLocation?.data.name ?? 'an unknown location'} on {dateFmt.format(rescued.date)}.
+            {name} is a {speciesLabel.toLowerCase()}, made by {brandLabel}. I rescued them from {rescuedLocation?.data.name ?? 'an unknown location'} on {formatMediumDate(rescued.date)}.
             {rehomed && rehomLocation
-              ? ` ${name} found a new home in ${rehomLocation.data.name} on ${dateFmt.format(rehomed.date)}.`
+              ? ` ${name} found a new home in ${rehomLocation.data.name} on ${formatMediumDate(rehomed.date)}.`
               : ` ${name} is still with me, looking for the right home.`}
           </p>
         )}
@@ -354,7 +347,7 @@ const jsonLd = {
             <span class="bear-profile__rescue-label">Rescued from</span>
             <span class="bear-profile__rescue-place">{rescuedLocation?.data.name ?? 'Unknown'}</span>
             <time class="bear-profile__rescue-date" datetime={rescued.date.toISOString()}>
-              {dateFmt.format(rescued.date)}
+              {formatMediumDate(rescued.date)}
             </time>
           </div>
         </div>
@@ -368,7 +361,7 @@ const jsonLd = {
                 {eventEntry.data.name}
               </a>
               <time class="bear-profile__rescue-date" datetime={eventEntry.data.date.toISOString()}>
-                {dateFmt.format(eventEntry.data.date)}
+                {formatMediumDate(eventEntry.data.date)}
               </time>
             </div>
           </div>
@@ -381,7 +374,7 @@ const jsonLd = {
               <span class="bear-profile__rescue-label">Rehomed to</span>
               <span class="bear-profile__rescue-place">{rehomLocation.data.name}</span>
               <time class="bear-profile__rescue-date" datetime={rehomed.date.toISOString()}>
-                {dateFmt.format(rehomed.date)}
+                {formatMediumDate(rehomed.date)}
               </time>
             </div>
           </div>
@@ -415,11 +408,6 @@ const jsonLd = {
     )}
 
     {/* ── Section 7: Navigation ── */}
-    <nav class="bear-profile__nav" aria-label="Bear navigation">
-      <a href="/bears" class="bear-profile__back-link">
-        <span class="bear-profile__back-arrow" aria-hidden="true">&larr;</span>
-        Back to bears
-      </a>
-    </nav>
+    <BackLink href="/bears" label="Back to bears" section="Bear" />
   </article>
 </PageLayout>

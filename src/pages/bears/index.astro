@@ -7,7 +7,9 @@ import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 import AlphabetNav from '@/components/bears/alphabet-nav.astro';
 import BearCard from '@/components/bears/bear-card.astro';
 import Pagination from '@/components/ui/pagination.astro';
-import { ITEMS_PER_PAGE } from '@/libs/consts';
+import PageHeader from '@/components/ui/page-header.astro';
+import EmptyState from '@/components/ui/empty-state.astro';
+import { paginate } from '@/libs/pagination';
 import { getActiveLetters, filterByLetter } from '@/libs/alphabet';
 import { bearBrands, bearSpecies } from '@/content/config';
 import {
@@ -114,13 +116,6 @@ if (validLetter) {
 // Sort alphabetically by name
 bears.sort((a, b) => a.data.name.localeCompare(b.data.name));
 
-// 6. Paginate
-const totalBears = bears.length;
-const totalPages = Math.max(1, Math.ceil(totalBears / ITEMS_PER_PAGE));
-const currentPage = Math.min(pageParam, totalPages);
-const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-const paginatedBears = bears.slice(startIndex, startIndex + ITEMS_PER_PAGE);
-
 // --- Check if any filters are active ---
 const hasActiveFilters = effectiveStatus !== 'all' || !!effectiveSpecies || !!effectiveBrand || !!validLetter;
 
@@ -131,7 +126,13 @@ if (effectiveSpecies) preserveParams.species = effectiveSpecies;
 if (effectiveBrand) preserveParams.brand = effectiveBrand;
 if (validLetter) preserveParams.letter = validLetter;
 
-const paginationParams: Record<string, string> = { ...preserveParams };
+// 6. Paginate
+const { paginatedItems: paginatedBears, currentPage, totalPages, totalItems: totalBears, prevUrl, nextUrl, paginationParams } = paginate({
+  items: bears,
+  page: pageParam,
+  baseUrl: '/bears',
+  params: preserveParams,
+});
 
 // --- SEO ---
 const heading = statusLabel(effectiveStatus);
@@ -139,10 +140,6 @@ const pageTitle = validLetter
   ? `${heading} - ${validLetter}`
   : heading;
 const description = `Browse ${totalBears} rescued bears at Amanda's Emporium — some still looking for a home, some already settled.`;
-
-// Pagination rel links
-const prevUrl = currentPage > 1 ? buildBearsUrl({ status: effectiveStatus, species: effectiveSpecies, brand: effectiveBrand, letter: validLetter, page: currentPage - 1 }) : undefined;
-const nextUrl = currentPage < totalPages ? buildBearsUrl({ status: effectiveStatus, species: effectiveSpecies, brand: effectiveBrand, letter: validLetter, page: currentPage + 1 }) : undefined;
 ---
 
 <PageLayout title={pageTitle} description={description}>
@@ -158,13 +155,12 @@ const nextUrl = currentPage < totalPages ? buildBearsUrl({ status: effectiveStat
   </Fragment>
 
   <section class="bears-page">
-    <header class="bears-page__header">
-      <h1 class="bears-page__title">{heading}</h1>
-      <p class="bears-page__intro">{statusIntro(effectiveStatus)}</p>
-      <p class="bears-page__count">
-        {totalBears} {totalBears === 1 ? 'bear' : 'bears'}
-      </p>
-    </header>
+    <PageHeader
+      title={heading}
+      intro={statusIntro(effectiveStatus)}
+      count={totalBears}
+      noun="bear"
+    />
 
     <nav class="bears-page__section-links" aria-label="Related sections">
       <a href="/bears/map" class="bears-page__section-link">View on map</a>
@@ -224,12 +220,11 @@ const nextUrl = currentPage < totalPages ? buildBearsUrl({ status: effectiveStat
         ))}
       </div>
     ) : (
-      <div class="bears-page__empty">
-        <p class="bears-page__empty-text">
-          No bears match those filters. Try adjusting your selection, or clear the filters to see everyone.
-        </p>
-        <a href="/bears" class="bears-page__empty-link">View all bears</a>
-      </div>
+      <EmptyState
+        message="No bears match those filters. Try adjusting your selection, or clear the filters to see everyone."
+        href="/bears"
+        linkText="View all bears"
+      />
     )}
 
     {totalPages > 1 && (

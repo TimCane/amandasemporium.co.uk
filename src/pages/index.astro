@@ -4,7 +4,10 @@ import { Image } from 'astro:assets';
 import PageLayout from '@/layouts/page.layout.astro';
 import BearCard from '@/components/bears/bear-card.astro';
 import Card from '@/components/ui/card.astro';
-import { seededRandom } from '@/libs/seeded-random';
+import { seededRandom, seededShuffle } from '@/libs/seeded-random';
+import { formatDate, formatShortDate } from '@/libs/dates';
+import { computeStats } from '@/libs/stats';
+import { getUpcomingEvents } from '@/libs/events';
 import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 import JsonLd from '@/components/seo/json-ld.astro';
 import { SITE_TITLE, SITE_URL } from '@/libs/consts';
@@ -21,29 +24,19 @@ const allProducts = await getCollection('products');
 const allGallery = await getCollection('gallery');
 
 // --- Stats ---
-const totalBears = allBears.length;
-const rehomedBears = allBears.filter((b) => b.data.rehomed).length;
-const totalEvents = allEvents.length;
-const startYear = 2017;
+const now = new Date();
+const { totalBears, rehomedBears, totalEvents, startYear } = computeStats(allBears, allEvents);
 
 // --- Upcoming events (next 3 by date, future only) ---
-const now = new Date();
-const upcomingEvents = allEvents
-  .filter((e) => e.data.date >= now)
-  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
-  .slice(0, 3);
+const upcomingEvents = getUpcomingEvents(allEvents, now).slice(0, 3);
 
 // --- Featured products (first 4 non-hidden, shuffled by current month seed) ---
 const visibleProducts = allProducts.filter((p) => !p.data.hidden);
 const monthSeed = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
-const prodRng = seededRandom(monthSeed + '-products');
-const shuffledProducts = [...visibleProducts].sort(() => prodRng() - 0.5);
-const featuredProducts = shuffledProducts.slice(0, 4);
+const featuredProducts = seededShuffle(visibleProducts, monthSeed + '-products').slice(0, 4);
 
 // --- Photo strip (up to 8 gallery images, shuffled) ---
-const galleryRng = seededRandom(monthSeed + '-gallery');
-const shuffledGallery = [...allGallery].sort(() => galleryRng() - 0.5);
-const photoStripImages = shuffledGallery.slice(0, 8);
+const photoStripImages = seededShuffle([...allGallery], monthSeed + '-gallery').slice(0, 8);
 
 // --- Bear of the Month (seeded random YYYY-MM, only bears without rehomed) ---
 const lookingBears = allBears.filter((b) => !b.data.rehomed);
@@ -104,27 +97,6 @@ if (upcomingEvents.length > 0) {
 const activityFeed = feedItems
   .sort((a, b) => b.date.getTime() - a.date.getTime())
   .slice(0, 5);
-
-// --- Helpers ---
-function formatDate(date: Date): string {
-  return date.toLocaleDateString('en-GB', {
-    weekday: 'short',
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
-}
-
-function formatShortDate(date: Date): string {
-  return date.toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'short',
-  });
-}
-
-function formatPrice(price: string): string {
-  return price;
-}
 
 // --- SEO ---
 const pageTitle = "Amanda's Emporium — Handmade Crafts & Rescued Bears";
@@ -256,7 +228,7 @@ const jsonLd = {
             </div>
             <div class="home-products__card-body">
               <h3 class="home-products__card-name">{product.data.name}</h3>
-              <span class="home-products__card-price">{formatPrice(product.data.price)}</span>
+              <span class="home-products__card-price">{product.data.price}</span>
               {product.data.tagline && (
                 <p class="home-products__card-tagline">{product.data.tagline}</p>
               )}

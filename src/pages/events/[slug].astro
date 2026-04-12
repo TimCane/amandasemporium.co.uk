@@ -9,6 +9,8 @@ import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 import JsonLd from '@/components/seo/json-ld.astro';
 import BearCard from '@/components/bears/bear-card.astro';
 import VenueMap from '@/components/events/venue-map.astro';
+import BackLink from '@/components/ui/back-link.astro';
+import { formatLongDate } from '@/libs/dates';
 
 export async function getStaticPaths() {
   const events = await getCollection('events');
@@ -40,14 +42,7 @@ const { Content } = await render(event);
 const hasBody = event.body && event.body.trim().length > 0;
 const hasRecapHeading = hasBody && event.body!.includes('## Recap');
 
-// --- Date formatting ---
-const dateFmt = new Intl.DateTimeFormat('en-GB', {
-  weekday: 'long',
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-});
-const formattedDate = dateFmt.format(date);
+const formattedDate = formatLongDate(date);
 const isoDate = date.toISOString();
 
 // --- Bears at this event ---
@@ -219,11 +214,6 @@ const jsonLd = isUpcoming ? {
     )}
 
     {/* ── Navigation ── */}
-    <nav class="event-profile__nav" aria-label="Event navigation">
-      <a href="/events" class="event-profile__back-link">
-        <span class="event-profile__back-arrow" aria-hidden="true">&larr;</span>
-        Back to events
-      </a>
-    </nav>
+    <BackLink href="/events" label="Back to events" section="Event" />
   </article>
 </PageLayout>

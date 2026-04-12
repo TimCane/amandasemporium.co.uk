@@ -26,3 +26,34 @@ const {
     <p class="event-list__empty-text">{emptyMessage}</p>
   </div>
 )}
+
+<style lang="scss">
+  .event-list {
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+
+    &__empty {
+      text-align: center;
+      padding: 4rem 1rem;
+    }
+
+    &__empty-text {
+      font-family: var(--font-body);
+      color: var(--color-text-muted);
+      font-size: 1.1rem;
+      margin: 0 0 1rem;
+      font-style: italic;
+    }
+  }
+</style>

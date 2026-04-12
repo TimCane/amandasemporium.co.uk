@@ -8,6 +8,8 @@ import PageLayout from '@/layouts/page.layout.astro';
 import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 import JsonLd from '@/components/seo/json-ld.astro';
 import ProductCard from '@/components/products/product-card.astro';
+import BackLink from '@/components/ui/back-link.astro';
+import { productCategoryLabels } from '@/libs/labels';
 
 export async function getStaticPaths() {
   const products = await getCollection('products');
@@ -26,17 +28,7 @@ interface Props {
 const { product } = Astro.props;
 const { name, tagline, category, price, materials, photos } = product.data;
 
-// --- Category labels ---
-const categoryLabels: Record<string, string> = {
-  'bags-and-cases': 'Bags & Cases',
-  'baby-and-children': 'Baby & Children',
-  'knitted-and-crocheted': 'Knitted & Crocheted',
-  'home-and-gifts': 'Home & Gifts',
-  'soaps': 'Soaps',
-  'rescued-bears': 'Rescued Bears',
-};
-
-const categoryLabel = categoryLabels[category] || category;
+const categoryLabel = productCategoryLabels[category] || category;
 
 // --- Render markdown body ---
 const { Content } = await render(product);
@@ -158,11 +150,6 @@ const jsonLd = {
     )}
 
     {/* ── Navigation ── */}
-    <nav class="product-profile__nav" aria-label="Product navigation">
-      <a href="/products" class="product-profile__back-link">
-        <span class="product-profile__back-arrow" aria-hidden="true">&larr;</span>
-        Back to products
-      </a>
-    </nav>
+    <BackLink href="/products" label="Back to products" section="Product" />
   </article>
 </PageLayout>

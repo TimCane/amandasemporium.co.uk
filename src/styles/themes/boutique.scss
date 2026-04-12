@@ -3,24 +3,8 @@
 // Variables
 @use '../variables';
 
-// Components
-@use '../components/card';
-@use '../components/pagination';
-@use '../components/filter-tabs';
+// Page-level component styles (inline markup, not Astro components)
 @use '../components/bear-filters';
-@use '../components/text-logo';
-@use '../components/navbar';
-@use '../components/footer';
-@use '../components/bear-card';
-@use '../components/product-card';
-@use '../components/alphabet-nav';
-@use '../components/timeline';
-@use '../components/bear-map';
-@use '../components/cookie-banner';
-@use '../components/event-card';
-@use '../components/event-list';
-@use '../components/gallery-item';
-@use '../components/venue-map';
 
 // Pages
 @use '../pages/bears';

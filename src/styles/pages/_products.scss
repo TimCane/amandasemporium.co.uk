@@ -9,23 +9,7 @@
     "card-grid"
     "pagination";
 
-  &__header { @include page-header; }
-  &__title { @include page-title; }
-
-  &__intro {
-    font-family: var(--font-body);
-    color: var(--color-text-muted);
-    font-size: 1.05rem;
-    max-width: 36rem;
-    margin: 0 auto 0.75rem;
-    line-height: 1.6;
-  }
-
-  &__count { @include page-count; }
   &__filters { @include filter-wrapper; }
   &__grid { @include card-grid; }
-  &__empty { @include empty-state; }
-  &__empty-text { @include empty-text; }
-  &__empty-link { @include empty-link; }
   &__pagination { @include pagination-wrapper; }
 }

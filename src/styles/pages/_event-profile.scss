@@ -214,28 +214,4 @@
     display: none;
   }
 
-  // Navigation
-  &__nav {
-    padding-top: 2rem;
-    border-top: 1px solid var(--color-accent);
-  }
-
-  &__back-link {
-    font-family: var(--font-body);
-    font-size: 0.95rem;
-    color: var(--color-primary);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    transition: color 0.2s ease;
-
-    &:hover {
-      color: var(--color-primary-dark);
-    }
-  }
-
-  &__back-arrow {
-    font-size: 1.1rem;
-  }
 }

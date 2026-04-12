@@ -1,0 +1,57 @@
+---
+interface Props {
+  title: string;
+  intro?: string;
+  count?: number;
+  noun?: string;
+}
+
+const { title, intro, count, noun = 'items' } = Astro.props;
+const plural = count === 1 ? noun : `${noun}s`;
+---
+
+<header class="page-header">
+  <h1 class="page-header__title">{title}</h1>
+  {intro && <p class="page-header__intro">{intro}</p>}
+  {count != null && (
+    <p class="page-header__count">
+      {count} {plural}
+    </p>
+  )}
+  <slot />
+</header>
+
+<style lang="scss">
+  .page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-accent);
+
+    &__title {
+      font-family: var(--font-heading);
+      color: var(--color-primary-dark);
+      font-size: clamp(1.75rem, 5vw, 2.25rem);
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      letter-spacing: 0.01em;
+    }
+
+    &__intro {
+      font-family: var(--font-body);
+      color: var(--color-text-muted);
+      font-size: 1.05rem;
+      max-width: 36rem;
+      margin: 0 auto 0.75rem;
+      line-height: 1.6;
+    }
+
+    &__count {
+      font-family: var(--font-body);
+      color: var(--color-text-muted);
+      font-size: 1rem;
+      font-style: italic;
+      margin: 0;
+    }
+  }
+</style>

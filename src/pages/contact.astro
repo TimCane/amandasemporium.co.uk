@@ -52,13 +52,13 @@ if (Astro.request.method === 'POST') {
   }
 }
 
+import { getUpcomingEvents } from '@/libs/events';
+import { formatLongDate } from '@/libs/dates';
+
 // --- Next event callout ---
 const allEvents = await getCollection('events');
-const now = new Date();
-const upcomingEvents = allEvents
-  .filter((e) => e.data.date >= now)
-  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime());
-const nextEvent = upcomingEvents.length > 0 ? upcomingEvents[0] : null;
+const upcoming = getUpcomingEvents(allEvents);
+const nextEvent = upcoming.length > 0 ? upcoming[0] : null;
 
 // --- FAQ data ---
 const faqs = [
@@ -265,12 +265,7 @@ const description = 'Got a question about a bear or a custom order? Send me a me
           Prefer to meet face to face? I'll be at
           <strong>{nextEvent.data.name}</strong> on
           <time datetime={nextEvent.data.date.toISOString().split('T')[0]}>
-            {nextEvent.data.date.toLocaleDateString('en-GB', {
-              weekday: 'long',
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
-            })}
+            {formatLongDate(nextEvent.data.date)}
           </time>.
         </p>
         <a href="/events" class="contact-page__event-callout-link">See all events</a>
