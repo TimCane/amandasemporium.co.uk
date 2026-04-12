@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 
 interface TimelineEntry {
   date: Date;
-  type: 'rescued' | 'rehomed';
+  type: 'rescued' | 'rehomed' | 'botm';
   bearName: string;
   bearSlug: string;
   bearPicture: ImageMetadata;
@@ -90,7 +90,7 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
                 <div class="timeline__details">
                   <h3 class="timeline__bear-name">{entry.bearName}</h3>
                   <span class={`timeline__badge timeline__badge--${entry.type}`}>
-                    {entry.type === 'rescued' ? 'Rescued' : 'Rehomed'}
+                    {entry.type === 'rescued' ? 'Rescued' : entry.type === 'rehomed' ? 'Rehomed' : 'Bear of the Month'}
                   </span>
                   <span class="timeline__location">{entry.locationName}</span>
                 </div>
@@ -109,7 +109,7 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
 <style lang="scss">
   .timeline {
     position: relative;
-    max-width: 56rem;
+    max-width: var(--page-width);
     margin: 0 auto;
 
     &__decoration {
@@ -239,11 +239,13 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
         .timeline__date { text-align: left; order: 3; }
         .timeline__connector { order: 2; }
         .timeline__content { order: 1; text-align: right; flex-direction: row-reverse; }
+        .timeline__details { align-items: flex-end; }
 
         @media (max-width: 768px) {
           .timeline__date { text-align: left; order: unset; }
           .timeline__connector { order: unset; }
           .timeline__content { order: unset; text-align: left; flex-direction: row; }
+          .timeline__details { align-items: flex-start; }
         }
       }
     }
@@ -278,6 +280,16 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
       &--rehomed {
         background: var(--color-secondary);
         box-shadow: 0 0 0 1px var(--color-secondary);
+      }
+
+      &--botm {
+        background: var(--color-accent);
+        box-shadow: 0 0 0 1px var(--color-accent);
+        // Slightly larger to distinguish award entries
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+        transform: rotate(45deg);
       }
     }
 
@@ -354,6 +366,11 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
       &--rehomed {
         background: var(--color-badge-rehomed-bg);
         color: var(--color-badge-rehomed-text);
+      }
+
+      &--botm {
+        background: var(--color-badge-product-bg);
+        color: var(--color-badge-product-text);
       }
     }
 

@@ -434,7 +434,7 @@
   padding: var(--section-gap) var(--section-pad-x);
 
   &__wrapper {
-    max-width: 48rem;
+    max-width: var(--page-width-content);
     margin: 0 auto;
     position: relative;
   }
@@ -585,7 +585,7 @@
 // --- Activity Feed ---
 .home-activity {
   &__wrapper {
-    max-width: 40rem;
+    max-width: var(--page-width-content);
     margin: 0 auto;
     text-align: center;
   }

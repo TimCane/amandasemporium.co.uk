@@ -5,13 +5,16 @@ import { getCollection } from 'astro:content';
 import PageLayout from '@/layouts/page.layout.astro';
 import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 
+// --- Contact form is disabled until wired up to a backend ---
+const formDisabled = true;
+
 // --- Handle POST ---
 let formSuccess = false;
 let formErrors: string[] = [];
 let fieldErrors: Record<string, string> = {};
 let formData: Record<string, string> = {};
 
-if (Astro.request.method === 'POST') {
+if (!formDisabled && Astro.request.method === 'POST') {
   const data = await Astro.request.formData();
 
   formData = {
@@ -128,7 +131,15 @@ const description = 'Got a question about a bear or a custom order? Send me a me
     <section class="contact-page__form" aria-labelledby="form-heading">
       <h2 id="form-heading" class="contact-page__section-heading">Send a Message</h2>
 
-      {formSuccess && (
+      {formDisabled && (
+        <div class="contact-page__form-disabled-notice">
+          <p>The contact form is coming soon. In the meantime, please email me directly at
+            <a href="mailto:hello@amandasemporium.co.uk" class="contact-page__email-link">hello@amandasemporium.co.uk</a>.
+          </p>
+        </div>
+      )}
+
+      {!formDisabled && formSuccess && (
         <div class="contact-page__success" role="alert">
           <p class="contact-page__success-text">
             Thanks for getting in touch. I'll get back to you as soon as I can.
@@ -136,7 +147,7 @@ const description = 'Got a question about a bear or a custom order? Send me a me
         </div>
       )}
 
-      {formErrors.length > 0 && (
+      {!formDisabled && formErrors.length > 0 && (
         <div class="contact-page__errors" role="alert">
           <p class="contact-page__errors-heading">There were some problems with your message:</p>
           <ul class="contact-page__errors-list">
@@ -147,7 +158,7 @@ const description = 'Got a question about a bear or a custom order? Send me a me
         </div>
       )}
 
-      {!formSuccess && (
+      {!formDisabled && !formSuccess && (
         <form method="POST" action="/contact" class="contact-page__form-element" novalidate>
           <p class="sr-only">Fields marked with an asterisk (*) are required.</p>
 

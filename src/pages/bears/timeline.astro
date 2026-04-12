@@ -7,6 +7,8 @@ import BearTimeline from '@/components/bears/bear-timeline.astro';
 import SectionBand from '@/components/ui/section-band.astro';
 import BearSectionNav from '@/components/bears/bear-section-nav.astro';
 import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
+import { generateBotmHistory, interpolateReason } from '@/libs/botm';
+import { botmReasons } from '@/libs/botm-reasons';
 
 const title = 'Bear Timeline';
 const description = 'Every bear rescue and rehoming at Amanda\'s Emporium, in date order. From the first rescue to the most recent.';
@@ -17,7 +19,7 @@ const bears = await getCollection('bears');
 // Build timeline entries
 interface TimelineEntry {
   date: Date;
-  type: 'rescued' | 'rehomed';
+  type: 'rescued' | 'rehomed' | 'botm';
   bearName: string;
   bearSlug: string;
   bearPicture: ImageMetadata;
@@ -68,6 +70,24 @@ for (const bear of bears) {
       locationName: rehomedLocationName,
     });
   }
+}
+
+// Add Bear of the Month entries
+const now = new Date();
+const botmHistory = generateBotmHistory(bears, now, botmReasons.length);
+for (const botm of botmHistory) {
+  const [y, m] = botm.month.split('-').map(Number);
+  // Place BOTM on the 1st of each month
+  const botmDate = new Date(y, m - 1, 1);
+  const reason = interpolateReason(botmReasons[botm.reasonIndex], botm.bear);
+  entries.push({
+    date: botmDate,
+    type: 'botm',
+    bearName: botm.bear.data.name,
+    bearSlug: botm.bear.slug,
+    bearPicture: botm.bear.data.picture,
+    locationName: reason,
+  });
 }
 
 // Sort chronologically, newest first
