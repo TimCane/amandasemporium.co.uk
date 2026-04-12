@@ -40,7 +40,7 @@
     width: 3rem;
     height: 2px;
     background: var(--color-accent);
-    margin: 0 auto 2rem;
+    margin: 0 auto var(--spacing-lg);
   }
 
   &__title {
@@ -48,30 +48,30 @@
     font-size: clamp(2.5rem, 6vw, 4rem);
     font-weight: 700;
     color: var(--color-text);
-    letter-spacing: 0.02em;
-    margin: 0 0 1rem;
+    letter-spacing: var(--tracking-normal);
+    margin: 0 0 var(--spacing-md);
   }
 
   &__tagline {
     font-family: var(--font-body);
     font-size: clamp(1rem, 2.5vw, 1.25rem);
     color: var(--color-text-muted);
-    line-height: 1.8;
-    margin: 0 0 2rem;
+    line-height: var(--leading-body);
+    margin: 0 0 var(--spacing-lg);
   }
 
   &__cta {
     display: inline-block;
-    padding: 0.75rem 2rem;
+    padding: 0.75rem var(--spacing-lg);
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     color: var(--color-bg);
     background: var(--color-primary);
     border: none;
     border-radius: var(--radius-card);
     text-decoration: none;
     transition: background 0.2s ease;
-    letter-spacing: 0.03em;
+    letter-spacing: var(--tracking-normal);
 
     &:hover {
       background: var(--color-primary-dark);
@@ -88,7 +88,7 @@
 
 // --- About Teaser ---
 .home-about {
-  padding: 3.5rem 1.5rem;
+  padding: var(--section-gap) 1.5rem;
   text-align: center;
 
   &__wrapper {
@@ -98,7 +98,7 @@
   }
 
   &__decoration {
-    width: 2rem;
+    width: var(--spacing-lg);
     height: 2px;
     background: var(--color-accent);
     margin: 0 auto 1.5rem;
@@ -114,15 +114,15 @@
 
   &__text {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: var(--text-base);
     color: var(--color-text-muted);
-    line-height: 1.8;
+    line-height: var(--leading-body);
     margin: 0 0 1.5rem;
   }
 
   &__link {
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     color: var(--color-primary);
     text-decoration: none;
     border-bottom: 1px solid transparent;
@@ -136,13 +136,13 @@
 
 // --- Stats ---
 .home-stats {
-  padding: 3rem 1.5rem;
+  padding: var(--section-gap) 1.5rem;
   background: var(--color-bg-alt);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 
   &__wrapper {
-    max-width: 60rem;
+    max-width: var(--page-width-content);
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -165,18 +165,18 @@
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
     color: var(--color-accent);
-    line-height: 1.2;
+    line-height: var(--leading-compact);
     order: -1;
   }
 
   &__label {
     display: block;
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     color: var(--color-text-muted);
-    margin-top: 0.25rem;
+    margin-top: var(--spacing-xs);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: var(--tracking-wide);
   }
 
   &__divider {
@@ -192,7 +192,7 @@
       gap: 1.25rem;
     }
     &__divider {
-      width: 2rem;
+      width: var(--spacing-lg);
       height: 1px;
     }
   }
@@ -200,10 +200,10 @@
 
 // --- Upcoming Events ---
 .home-events {
-  padding: 3.5rem 1.5rem;
+  padding: var(--section-gap) 1.5rem;
 
   &__wrapper {
-    max-width: 52rem;
+    max-width: var(--page-width-content);
     margin: 0 auto;
     text-align: center;
   }
@@ -212,7 +212,7 @@
     font-family: var(--font-heading);
     font-size: 1.75rem;
     color: var(--color-text);
-    margin: 0 0 2rem;
+    margin: 0 0 var(--spacing-lg);
     font-weight: 600;
   }
 
@@ -220,7 +220,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     gap: 1.25rem;
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-lg);
   }
 
   &__card {
@@ -235,7 +235,7 @@
     transition: box-shadow 0.2s ease, border-color 0.2s ease;
 
     &:hover {
-      box-shadow: 0 2px 8px rgba(61, 50, 41, 0.1);
+      box-shadow: var(--shadow-md);
       border-color: var(--color-accent);
     }
   }
@@ -245,11 +245,11 @@
   &__date {
     display: block;
     font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-size: var(--text-xs);
     color: var(--color-accent);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
-    margin-bottom: 0.5rem;
+    letter-spacing: var(--tracking-wide);
+    margin-bottom: var(--spacing-sm);
   }
 
   &__name {
@@ -263,23 +263,23 @@
   &__location {
     display: block;
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     color: var(--color-text-muted);
   }
 
   &__time {
     display: block;
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     color: var(--color-text-muted);
-    margin-top: 0.25rem;
+    margin-top: var(--spacing-xs);
   }
 
   &__empty {
-    padding: 2rem;
+    padding: var(--spacing-lg);
     border: 1px dashed var(--color-border);
     border-radius: var(--radius-card);
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-lg);
   }
 
   &__empty-text {
@@ -290,7 +290,7 @@
 
   &__more {
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     color: var(--color-primary);
     text-decoration: none;
     border-bottom: 1px solid transparent;
@@ -304,11 +304,11 @@
 
 // --- Featured Products ---
 .home-products {
-  padding: 3.5rem 1.5rem;
+  padding: var(--section-gap) 1.5rem;
   background: var(--color-bg-alt);
 
   &__wrapper {
-    max-width: 60rem;
+    max-width: var(--page-width-content);
     margin: 0 auto;
     text-align: center;
   }
@@ -317,7 +317,7 @@
     font-family: var(--font-heading);
     font-size: 1.75rem;
     color: var(--color-text);
-    margin: 0 0 2rem;
+    margin: 0 0 var(--spacing-lg);
     font-weight: 600;
   }
 
@@ -325,7 +325,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
     gap: 1.25rem;
-    margin-bottom: 2rem;
+    margin-bottom: var(--spacing-lg);
   }
 
   &__card {
@@ -339,7 +339,7 @@
     transition: box-shadow 0.2s ease;
 
     &:hover {
-      box-shadow: 0 2px 8px rgba(61, 50, 41, 0.12);
+      box-shadow: var(--shadow-md);
     }
   }
 
@@ -359,36 +359,36 @@
   &__card-decoration { display: none; }
 
   &__card-body {
-    padding: 1rem 1.25rem 1.25rem;
+    padding: var(--spacing-md) 1.25rem 1.25rem;
     text-align: left;
   }
 
   &__card-name {
     font-family: var(--font-heading);
-    font-size: 1.05rem;
+    font-size: var(--text-md);
     color: var(--color-text);
-    margin: 0 0 0.25rem;
+    margin: 0 0 var(--spacing-xs);
     font-weight: 600;
   }
 
   &__card-price {
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     color: var(--color-accent);
     font-weight: 600;
   }
 
   &__card-tagline {
     font-family: var(--font-body);
-    font-size: 0.85rem;
+    font-size: var(--text-sm);
     color: var(--color-text-muted);
-    margin: 0.5rem 0 0;
-    line-height: 1.5;
+    margin: var(--spacing-sm) 0 0;
+    line-height: var(--leading-body);
   }
 
   &__more {
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     color: var(--color-primary);
     text-decoration: none;
     border-bottom: 1px solid transparent;
@@ -402,17 +402,17 @@
 
 // --- Photo Strip ---
 .home-photos {
-  padding: 1rem 0;
+  padding: var(--spacing-md) 0;
   overflow: hidden;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 
   &__strip {
     display: flex;
-    gap: 0.5rem;
+    gap: var(--spacing-sm);
     overflow-x: auto;
     scrollbar-width: none;
-    padding: 0 1rem;
+    padding: 0 var(--spacing-md);
 
     &::-webkit-scrollbar { display: none; }
   }
@@ -427,7 +427,7 @@
     width: auto;
     height: 10rem;
     object-fit: cover;
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
   }
 
   &__frame { display: none; }
@@ -435,7 +435,7 @@
 
 // --- Bear of the Month ---
 .home-bear-otm {
-  padding: 3.5rem 1.5rem;
+  padding: var(--section-gap) 1.5rem;
 
   &__wrapper {
     max-width: 48rem;
@@ -444,7 +444,7 @@
   }
 
   &__decoration {
-    width: 2rem;
+    width: var(--spacing-lg);
     height: 2px;
     background: var(--color-accent);
     margin: 0 auto 1.5rem;
@@ -454,7 +454,7 @@
     font-family: var(--font-heading);
     font-size: 1.75rem;
     color: var(--color-text);
-    margin: 0 0 2rem;
+    margin: 0 0 var(--spacing-lg);
     font-weight: 600;
     text-align: center;
   }
@@ -462,7 +462,7 @@
   &__content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
+    gap: var(--spacing-lg);
     align-items: center;
 
     @media (max-width: 640px) {
@@ -493,31 +493,31 @@
 
   &__name {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: var(--text-xl);
     color: var(--color-text);
-    margin: 0 0 0.5rem;
+    margin: 0 0 var(--spacing-sm);
     font-weight: 700;
   }
 
   &__tagline {
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     color: var(--color-text-muted);
-    line-height: 1.7;
-    margin: 0 0 1rem;
+    line-height: var(--leading-body);
+    margin: 0 0 var(--spacing-md);
     font-style: italic;
   }
 
   &__status {
     display: inline-block;
     font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-size: var(--text-xs);
     color: var(--color-badge-looking-text);
     background: var(--color-badge-looking-bg);
     padding: 0.2rem 0.75rem;
-    border-radius: 2px;
+    border-radius: var(--radius-sm);
     text-transform: uppercase;
-    letter-spacing: 0.06em;
+    letter-spacing: var(--tracking-wide);
   }
 
   &__links {
@@ -533,7 +533,7 @@
 
   &__meet-link {
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     color: var(--color-primary);
     text-decoration: none;
     font-weight: 600;
@@ -547,7 +547,7 @@
 
   &__explore-link {
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     color: var(--color-text-muted);
     text-decoration: none;
     border-bottom: 1px solid transparent;
@@ -561,7 +561,7 @@
 
 // --- Activity Feed ---
 .home-activity {
-  padding: 3rem 1.5rem;
+  padding: var(--section-gap) 1.5rem;
   background: var(--color-bg-alt);
   border-top: 1px solid var(--color-border);
 
@@ -573,7 +573,7 @@
 
   &__heading {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
+    font-size: var(--text-xl);
     color: var(--color-text);
     margin: 0 0 1.5rem;
     font-weight: 600;
@@ -597,8 +597,8 @@
   }
 
   &__icon {
-    width: 0.5rem;
-    height: 0.5rem;
+    width: var(--spacing-sm);
+    height: var(--spacing-sm);
     border-radius: 50%;
     flex-shrink: 0;
   }
@@ -610,7 +610,7 @@
   &__link {
     flex: 1;
     font-family: var(--font-body);
-    font-size: 0.9rem;
+    font-size: var(--text-sm);
     color: var(--color-text);
     text-decoration: none;
     transition: color 0.2s ease;
@@ -622,7 +622,7 @@
 
   &__date {
     font-family: var(--font-body);
-    font-size: 0.8rem;
+    font-size: var(--text-xs);
     color: var(--color-text-muted);
     white-space: nowrap;
   }

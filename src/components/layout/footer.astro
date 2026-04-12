@@ -20,11 +20,11 @@ const currentYear = new Date().getFullYear();
   .footer {
     background: var(--color-bg-alt);
     border-top: 1px solid var(--color-accent);
-    padding: 2.5rem 1.5rem;
-    margin-top: 4rem;
+    padding: var(--spacing-xl) 1.5rem;
+    margin-top: var(--spacing-2xl);
 
     &__content {
-      max-width: 72rem;
+      max-width: var(--page-width);
       margin-inline: auto;
       display: flex;
       flex-wrap: wrap;
@@ -43,7 +43,7 @@ const currentYear = new Date().getFullYear();
       font-family: var(--font-body);
       color: var(--color-text-muted);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: var(--text-sm);
 
       &:hover {
         color: var(--color-primary);
@@ -53,7 +53,7 @@ const currentYear = new Date().getFullYear();
     &__copyright {
       font-family: var(--font-body);
       color: var(--color-text-muted);
-      font-size: 0.85rem;
+      font-size: var(--text-sm);
     }
 
     @media (max-width: 640px) {

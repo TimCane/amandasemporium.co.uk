@@ -32,20 +32,20 @@ const { tabs, activeValue, ariaLabel = 'Filter bears' } = Astro.props;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 0.5rem 1.5rem;
-    padding-bottom: 0.25rem;
+    gap: var(--spacing-sm) var(--spacing-xl);
+    padding-bottom: var(--spacing-xs);
 
     @media (max-width: 480px) {
       flex-direction: column;
       align-items: center;
-      gap: 0.25rem;
+      gap: var(--spacing-xs);
     }
 
     &__tab {
       text-decoration: none;
       color: var(--color-text-muted);
-      font-size: 0.9rem;
-      padding: 0.5rem 0;
+      font-size: var(--text-sm);
+      padding: var(--spacing-sm) 0;
       border-bottom: 2px solid transparent;
       white-space: nowrap;
       transition: color 0.2s ease, border-color 0.2s ease;

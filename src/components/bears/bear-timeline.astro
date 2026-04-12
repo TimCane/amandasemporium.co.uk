@@ -130,7 +130,7 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
 
     &__year-nav-label {
       font-family: var(--font-body);
-      font-size: 0.85rem;
+      font-size: var(--text-sm);
       color: var(--color-text-muted);
     }
 
@@ -142,7 +142,7 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
 
     &__year-nav-link {
       font-family: var(--font-body);
-      font-size: 0.85rem;
+      font-size: var(--text-sm);
       color: var(--color-primary);
       text-decoration: none;
       padding: 0.25rem 0.5rem;
@@ -201,7 +201,7 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
 
     &__year-marker-label {
       font-family: var(--font-heading);
-      font-size: 1.25rem;
+      font-size: var(--text-lg);
       color: var(--color-primary-dark);
       font-weight: 700;
       background: var(--color-bg);
@@ -283,7 +283,7 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
 
     &__date {
       font-family: var(--font-body);
-      font-size: 0.85rem;
+      font-size: var(--text-sm);
       color: var(--color-text-muted);
 
       @media (max-width: 768px) {
@@ -304,7 +304,7 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
       transition: box-shadow 0.2s ease;
 
       &:hover {
-        box-shadow: 0 2px 6px rgba(61, 50, 41, 0.12);
+        box-shadow: var(--shadow-md);
       }
     }
 
@@ -331,7 +331,7 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
 
     &__bear-name {
       font-family: var(--font-heading);
-      font-size: 1rem;
+      font-size: var(--text-base);
       color: var(--color-text);
       margin: 0;
       font-weight: 600;
@@ -359,7 +359,7 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
 
     &__location {
       font-family: var(--font-body);
-      font-size: 0.8rem;
+      font-size: var(--text-xs);
       color: var(--color-text-muted);
     }
   }

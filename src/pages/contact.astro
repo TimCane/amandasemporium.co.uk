@@ -114,7 +114,7 @@ const description = 'Got a question about a bear or a custom order? Send me a me
 
     <!-- Section 2: Email Address -->
     <section class="contact-page__email" aria-labelledby="email-heading">
-      <h2 id="email-heading" class="contact-page__section-title">Email Me</h2>
+      <h2 id="email-heading" class="contact-page__section-heading">Email Me</h2>
       <p class="contact-page__email-text">
         Prefer your own email app? Drop me a line at
         <a href="mailto:hello@amandasemporium.co.uk" class="contact-page__email-link">hello@amandasemporium.co.uk</a>
@@ -124,7 +124,7 @@ const description = 'Got a question about a bear or a custom order? Send me a me
 
     <!-- Section 3: Contact Form -->
     <section class="contact-page__form" aria-labelledby="form-heading">
-      <h2 id="form-heading" class="contact-page__section-title">Send a Message</h2>
+      <h2 id="form-heading" class="contact-page__section-heading">Send a Message</h2>
 
       {formSuccess && (
         <div class="contact-page__success" role="alert">
@@ -245,7 +245,7 @@ const description = 'Got a question about a bear or a custom order? Send me a me
 
     <!-- Section 4: FAQ -->
     <section class="contact-page__faq" aria-labelledby="faq-heading">
-      <h2 id="faq-heading" class="contact-page__section-title">Common Questions</h2>
+      <h2 id="faq-heading" class="contact-page__section-heading">Common Questions</h2>
       <div class="contact-page__faq-list">
         {faqs.map((faq) => (
           <details class="contact-page__faq-item">
@@ -260,7 +260,7 @@ const description = 'Got a question about a bear or a custom order? Send me a me
     <!-- Section 5: Next Event Callout -->
     {nextEvent && (
       <section class="contact-page__event-callout" aria-labelledby="event-callout-heading">
-        <h2 id="event-callout-heading" class="contact-page__section-title">See Me in Person</h2>
+        <h2 id="event-callout-heading" class="contact-page__section-heading">See Me in Person</h2>
         <p class="contact-page__event-callout-text">
           Prefer to meet face to face? I'll be at
           <strong>{nextEvent.data.name}</strong> on

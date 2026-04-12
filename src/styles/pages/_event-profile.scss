@@ -20,8 +20,8 @@
     flex-direction: column;
     gap: 0.75rem;
     text-align: center;
-    padding-bottom: 3rem;
-    margin-bottom: 3rem;
+    padding-bottom: var(--section-gap);
+    margin-bottom: var(--section-gap);
     border-bottom: 1px solid var(--color-accent);
   }
 
@@ -29,29 +29,29 @@
 
   &__date {
     font-family: var(--font-body);
-    font-size: 1.1rem;
+    font-size: var(--text-md);
     color: var(--color-text);
     font-style: italic;
   }
 
   &__time {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: var(--text-base);
     color: var(--color-text-muted);
   }
 
   &__location {
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: var(--text-base);
     color: var(--color-text-muted);
   }
 
   &__info {
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     color: var(--color-text);
-    line-height: 1.6;
-    margin: 0.5rem 0 0;
+    line-height: var(--leading-body);
+    margin: var(--spacing-sm) 0 0;
     max-width: 40rem;
     margin-inline: auto;
   }
@@ -64,8 +64,8 @@
 
   // Content (upcoming event description)
   &__content {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.5rem;
+    margin-bottom: var(--section-gap);
+    padding-bottom: var(--section-gap);
     border-bottom: 1px solid var(--color-accent);
   }
 
@@ -80,8 +80,8 @@
 
   // Map
   &__map {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.5rem;
+    margin-bottom: var(--section-gap);
+    padding-bottom: var(--section-gap);
     border-bottom: 1px solid var(--color-accent);
   }
 
@@ -99,20 +99,20 @@
   // Links
   &__links {
     display: flex;
-    gap: 1rem;
+    gap: var(--spacing-md);
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.5rem;
+    margin-bottom: var(--section-gap);
+    padding-bottom: var(--section-gap);
     border-bottom: 1px solid var(--color-accent);
   }
 
   &__link {
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: var(--text-sm);
     text-decoration: none;
-    padding: 0.6rem 1.5rem;
-    border-radius: 2px;
+    padding: 0.6rem var(--spacing-lg);
+    border-radius: var(--radius-sm);
     transition: background 0.2s ease, color 0.2s ease;
 
     &--website {
@@ -142,8 +142,8 @@
 
   // Recap (past events)
   &__recap {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.5rem;
+    margin-bottom: var(--section-gap);
+    padding-bottom: var(--section-gap);
     border-bottom: 1px solid var(--color-accent);
   }
 
@@ -155,9 +155,9 @@
   &__past-note {
     font-family: var(--font-body);
     color: var(--color-text-muted);
-    font-size: 1.05rem;
+    font-size: var(--text-md);
     font-style: italic;
-    line-height: 1.6;
+    line-height: var(--leading-body);
     margin: 0 0 1.25rem;
   }
 
@@ -167,15 +167,15 @@
 
   // Photos
   &__photos {
-    margin-bottom: 2.5rem;
-    padding-bottom: 2.5rem;
+    margin-bottom: var(--section-gap);
+    padding-bottom: var(--section-gap);
     border-bottom: 1px solid var(--color-accent);
   }
 
   &__photos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    gap: var(--spacing-md);
   }
 
   &__photo-wrapper {
@@ -197,13 +197,13 @@
 
   // Bears at this event
   &__bears {
-    margin-bottom: 2.5rem;
+    margin-bottom: var(--section-gap);
   }
 
   &__bears-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 1.5rem;
+    gap: var(--spacing-lg);
 
     @media (min-width: 768px) {
       grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));

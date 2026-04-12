@@ -210,15 +210,17 @@ const description = `Browse ${totalBears} rescued bears at Amanda's Emporium —
     </div>
 
     {paginatedBears.length > 0 ? (
-      <div class="bears-page__grid">
+      <ul class="bears-page__grid" role="list">
         {paginatedBears.map((bear, index) => (
-          <BearCard
-            bear={bear}
-            loading={index < 8 ? 'eager' : 'lazy'}
-            subtitle={bear.data.tagline}
-          />
+          <li>
+            <BearCard
+              bear={bear}
+              loading={index < 8 ? 'eager' : 'lazy'}
+              subtitle={bear.data.tagline}
+            />
+          </li>
         ))}
-      </div>
+      </ul>
     ) : (
       <EmptyState
         message="No bears match those filters. Try adjusting your selection, or clear the filters to see everyone."

@@ -398,11 +398,11 @@ const jsonLd = {
     {friends.length > 0 && (
       <section class="bear-profile__related">
         <h2 class="bear-profile__section-heading">{name}'s Friends</h2>
-        <div class="bear-profile__related-grid">
+        <ul class="bear-profile__related-grid" role="list">
           {friends.map((friend) => (
-            <BearCard bear={friend.bear} subtitle={friend.label} />
+            <li><BearCard bear={friend.bear} subtitle={friend.label} /></li>
           ))}
-        </div>
+        </ul>
         <div class="bear-profile__related-decoration" aria-hidden="true"></div>
       </section>
     )}

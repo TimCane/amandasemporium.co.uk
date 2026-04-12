@@ -24,8 +24,8 @@ const plural = count === 1 ? noun : `${noun}s`;
 <style lang="scss">
   .page-header {
     text-align: center;
-    margin-bottom: 2.5rem;
-    padding-bottom: 2rem;
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
     border-bottom: 1px solid var(--color-accent);
 
     &__title {
@@ -33,23 +33,23 @@ const plural = count === 1 ? noun : `${noun}s`;
       color: var(--color-primary-dark);
       font-size: clamp(1.75rem, 5vw, 2.25rem);
       font-weight: 700;
-      margin: 0 0 0.5rem;
-      letter-spacing: 0.01em;
+      margin: 0 0 var(--spacing-sm);
+      letter-spacing: var(--tracking-normal);
     }
 
     &__intro {
       font-family: var(--font-body);
       color: var(--color-text-muted);
-      font-size: 1.05rem;
+      font-size: var(--text-md);
       max-width: 36rem;
       margin: 0 auto 0.75rem;
-      line-height: 1.6;
+      line-height: var(--leading-body);
     }
 
     &__count {
       font-family: var(--font-body);
       color: var(--color-text-muted);
-      font-size: 1rem;
+      font-size: var(--text-base);
       font-style: italic;
       margin: 0;
     }
