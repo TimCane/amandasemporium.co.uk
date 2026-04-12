@@ -1,0 +1,422 @@
+---
+export const prerender = true;
+
+import { getCollection, getEntry, render } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import PageLayout from '@/layouts/page.layout.astro';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
+import JsonLd from '@/components/seo/json-ld.astro';
+import BearCard from '@/components/bears/bear-card.astro';
+import BearMap from '@/components/bears/bear-map.astro';
+import type { BearMapData } from '@/components/bears/bear-map.astro';
+import BackLink from '@/components/ui/back-link.astro';
+import Separator from '@/components/ui/separator.astro';
+import { formatMediumDate } from '@/libs/dates';
+import { slugToLabel } from '@/libs/labels';
+export async function getStaticPaths() {
+  const bears = await getCollection('bears');
+  return bears.map((bear) => ({
+    params: { slug: bear.slug },
+    props: { bear },
+  }));
+}
+
+interface Props {
+  bear: CollectionEntry<'bears'>;
+}
+
+const { bear } = Astro.props;
+const { name, picture, photos, species, brand, tags, rescued, rehomed, event, tagline } = bear.data;
+
+// --- Resolve references ---
+const rescuedLocation = await getEntry(rescued.location);
+const rehomLocation = rehomed ? await getEntry(rehomed.location) : null;
+const eventEntry = event ? await getEntry(event) : null;
+const eventLocation = eventEntry?.data.location?.location
+  ? await getEntry(eventEntry.data.location.location)
+  : null;
+
+// --- Render markdown body ---
+const { Content, headings } = await render(bear);
+// Check if body has meaningful content (not just whitespace)
+const hasNarrative = bear.body && bear.body.trim().length > 0;
+
+// --- Computed fields ---
+const status = rehomed ? 'Found Their Home' : 'Looking for a Home';
+const statusClass = rehomed ? 'bear-profile__status--found' : 'bear-profile__status--looking';
+const speciesLabel = slugToLabel(species);
+const brandLabel = slugToLabel(brand);
+
+// --- Auto-generated description for SEO ---
+const autoDescription = `${name} — a rescued ${speciesLabel.toLowerCase()} from ${rescuedLocation?.data.name ?? 'unknown'}`;
+const metaDescription = tagline && tagline.trim().length > 0 ? tagline : autoDescription;
+
+// --- "{name}'s Friends" — bears with meaningful connections ---
+import { seededRandom } from '@/libs/seeded-random';
+
+const funPhrases = [
+  'Shared a bath together',
+  'Sat together on the stall',
+  'Neighbours on the shelf',
+  'Travel companions',
+  'Cuddle buddies',
+  'Had a sleepover once',
+  'Came home together',
+  'Shared a suitcase',
+  'Kept each other company in the workshop',
+];
+
+function getFunPhrase(slugA: string, slugB: string): string {
+  const seed = [slugA, slugB].sort().join('-');
+  const rng = seededRandom(seed);
+  return funPhrases[Math.floor(rng() * funPhrases.length)];
+}
+
+const allBears = await getCollection('bears');
+const MAX_FRIENDS = 6;
+
+const eventId = event && typeof event === 'object' && 'id' in event ? (event as any).id : event;
+const rescueLocId = typeof rescued.location === 'object' && 'id' in rescued.location
+  ? (rescued.location as any).id
+  : rescued.location;
+const rescueDateStr = rescued.date.toISOString().split('T')[0];
+const eventName = eventEntry?.data.name;
+const rescueLocName = rescuedLocation?.data.name ?? 'the same place';
+
+// Collect ALL candidates with their best connection label (highest priority wins)
+// Priority: 1=event, 2=rescued together, 3=same rescue location, 4=same species, 5=tags, 6=fallback
+const candidates = new Map<string, { bear: CollectionEntry<'bears'>; label: string; priority: number }>();
+
+for (const b of allBears) {
+  if (b.id === bear.id) continue;
+
+  // 1. Same event
+  if (eventId && eventName) {
+    const bEventId = b.data.event && typeof b.data.event === 'object' && 'id' in b.data.event
+      ? (b.data.event as any).id : b.data.event;
+    if (bEventId === eventId) {
+      candidates.set(b.id, { bear: b, label: `Were both at ${eventName}`, priority: 1 });
+      continue;
+    }
+  }
+
+  const bLocId = typeof b.data.rescued.location === 'object' && 'id' in b.data.rescued.location
+    ? (b.data.rescued.location as any).id : b.data.rescued.location;
+  const bDateStr = b.data.rescued.date.toISOString().split('T')[0];
+
+  // 2. Same rescue location + same date
+  if (bLocId === rescueLocId && bDateStr === rescueDateStr) {
+    candidates.set(b.id, { bear: b, label: `Rescued together from ${rescueLocName}`, priority: 2 });
+    continue;
+  }
+
+  // 3. Same rescue location, different date
+  if (bLocId === rescueLocId) {
+    candidates.set(b.id, { bear: b, label: `Both rescued from ${rescueLocName}`, priority: 3 });
+    continue;
+  }
+
+  // 4. Same species (non-bear only)
+  if (species !== 'bear' && b.data.species === species) {
+    candidates.set(b.id, { bear: b, label: `Fellow ${species}s`, priority: 4 });
+    continue;
+  }
+
+  // 5. Shared tags
+  if (tags && tags.length > 0) {
+    const bTags = b.data.tags ?? [];
+    if (bTags.some((t) => tags!.includes(t))) {
+      candidates.set(b.id, { bear: b, label: getFunPhrase(bear.slug, b.slug), priority: 5 });
+      continue;
+    }
+  }
+
+  // 6. Fallback — everyone is a potential friend
+  candidates.set(b.id, { bear: b, label: getFunPhrase(bear.slug, b.slug), priority: 6 });
+}
+
+// Pick 6 using seeded shuffle — prioritise stronger connections but mix in variety
+const allCandidates = [...candidates.values()];
+const rng = seededRandom(bear.slug + '-friends');
+
+// Shuffle within each priority group, then take up to 1-2 from each group
+const byPriority = new Map<number, typeof allCandidates>();
+for (const c of allCandidates) {
+  const group = byPriority.get(c.priority) ?? [];
+  group.push(c);
+  byPriority.set(c.priority, group);
+}
+
+// Shuffle each group
+for (const group of byPriority.values()) {
+  for (let i = group.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [group[i], group[j]] = [group[j], group[i]];
+  }
+}
+
+// Pick friends: take up to 2 from each priority group until we have 6
+const friends: { bear: CollectionEntry<'bears'>; label: string }[] = [];
+const maxPerGroup = 2;
+
+for (const priority of [1, 2, 3, 4, 5, 6]) {
+  if (friends.length >= MAX_FRIENDS) break;
+  const group = byPriority.get(priority) ?? [];
+  const take = Math.min(maxPerGroup, MAX_FRIENDS - friends.length, group.length);
+  for (let i = 0; i < take; i++) {
+    friends.push({ bear: group[i].bear, label: group[i].label });
+  }
+}
+
+// If still under 6, fill from remaining candidates in shuffled order
+if (friends.length < MAX_FRIENDS) {
+  const picked = new Set(friends.map(f => f.bear.id));
+  const remaining = allCandidates.filter(c => !picked.has(c.bear.id));
+  // Shuffle remaining
+  for (let i = remaining.length - 1; i > 0; i--) {
+    const j = Math.floor(rng() * (i + 1));
+    [remaining[i], remaining[j]] = [remaining[j], remaining[i]];
+  }
+  for (const c of remaining) {
+    if (friends.length >= MAX_FRIENDS) break;
+    friends.push({ bear: c.bear, label: c.label });
+  }
+}
+
+// Shuffle final display order
+for (let i = friends.length - 1; i > 0; i--) {
+  const j = Math.floor(rng() * (i + 1));
+  [friends[i], friends[j]] = [friends[j], friends[i]];
+}
+
+// --- Build map data ---
+const mapBearData: BearMapData = {
+  name,
+  slug: bear.slug,
+  picture: typeof picture === 'string' ? picture : '',
+  status: rehomed ? 'rehomed' : 'rescued',
+  rescued: {
+    lat: rescuedLocation?.data.latitude ?? 0,
+    lng: rescuedLocation?.data.longitude ?? 0,
+    name: rescuedLocation?.data.name ?? '',
+    date: formatMediumDate(rescued.date),
+  },
+};
+
+if (eventEntry && eventLocation) {
+  mapBearData.event = {
+    lat: eventLocation.data.latitude,
+    lng: eventLocation.data.longitude,
+    name: eventEntry.data.name,
+  };
+}
+
+if (rehomed && rehomLocation) {
+  mapBearData.rehomed = {
+    lat: rehomLocation.data.latitude,
+    lng: rehomLocation.data.longitude,
+    name: rehomLocation.data.name,
+    date: formatMediumDate(rehomed.date),
+  };
+}
+
+const hasMapData = rescuedLocation?.data.latitude != null;
+const hasPhotos = photos && photos.length > 0;
+
+// --- JSON-LD structured data ---
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Thing',
+  name: `${name} the ${speciesLabel}`,
+  description: metaDescription,
+  url: Astro.url.href,
+};
+---
+
+<PageLayout title={`${name}`} description={metaDescription}>
+  <OpenGraphMeta
+    slot="og-meta"
+    title={`${name} | Amanda's Emporium`}
+    description={metaDescription}
+    url={Astro.url.href}
+    image={picture.src}
+  />
+  <JsonLd data={jsonLd} />
+
+  <article class="bear-profile">
+    {/* ── Hero: Image + Header ── */}
+    <div class="bear-profile__hero">
+      <div class="bear-profile__image-wrapper">
+        <Image
+          src={picture}
+          alt={`${name} the ${speciesLabel}`}
+          width={600}
+          height={600}
+          loading="eager"
+          class="bear-profile__image"
+        />
+        <div class="bear-profile__image-decoration" aria-hidden="true"></div>
+      </div>
+
+      <header class="bear-profile__header">
+        <h1 class="bear-profile__name">{name}</h1>
+        <span class:list={['bear-profile__status', statusClass]}>{status}</span>
+        {tagline && <p class="bear-profile__tagline">{tagline}</p>}
+        <div class="bear-profile__header-decoration" aria-hidden="true"></div>
+      </header>
+    </div>
+
+    {/* ── Additional Photos ── */}
+    {hasPhotos && (
+      <Separator />
+      <section class="bear-profile__photos" aria-label="Additional photos">
+        <h2 class="bear-profile__section-heading">More Photos</h2>
+        <div class="bear-profile__photos-grid">
+          {photos!.map((photo, i) => (
+            <div class="bear-profile__photo-wrapper">
+              <Image
+                src={photo}
+                alt={`${name} — photo ${i + 2}`}
+                width={400}
+                height={400}
+                loading="lazy"
+                class="bear-profile__photo"
+              />
+            </div>
+          ))}
+        </div>
+        <div class="bear-profile__photos-decoration" aria-hidden="true"></div>
+      </section>
+    )}
+
+    {/* ── Section 2: Narrative ── */}
+    <Separator />
+    <section class="bear-profile__narrative">
+      <h2 class="bear-profile__section-heading">
+        {hasNarrative ? `${name}'s Story` : `About ${name}`}
+      </h2>
+      <div class="bear-profile__narrative-content">
+        {hasNarrative ? (
+          <div class="bear-profile__narrative-body">
+            <Content />
+          </div>
+        ) : (
+          <p class="bear-profile__narrative-auto">
+            {name} is a {speciesLabel.toLowerCase()}, made by {brandLabel}. I rescued them from {rescuedLocation?.data.name ?? 'an unknown location'} on {formatMediumDate(rescued.date)}.
+            {rehomed && rehomLocation
+              ? ` ${name} found a new home in ${rehomLocation.data.name} on ${formatMediumDate(rehomed.date)}.`
+              : ` ${name} is still with me, looking for the right home.`}
+          </p>
+        )}
+      </div>
+      <div class="bear-profile__narrative-decoration" aria-hidden="true"></div>
+    </section>
+    <Separator />
+
+    {/* ── Section 3 + 4: Details & Rescue Story ── */}
+    <div class="bear-profile__details-rescue">
+      <section class="bear-profile__details">
+        <h2 class="bear-profile__section-heading">Details</h2>
+        <dl class="bear-profile__detail-list">
+          <div class="bear-profile__detail-item">
+            <dt class="bear-profile__detail-label">Species</dt>
+            <dd class="bear-profile__detail-value">{speciesLabel}</dd>
+          </div>
+          <div class="bear-profile__detail-item">
+            <dt class="bear-profile__detail-label">Brand</dt>
+            <dd class="bear-profile__detail-value">{brandLabel}</dd>
+          </div>
+          {tags && tags.length > 0 && (
+            <div class="bear-profile__detail-item bear-profile__detail-item--tags">
+              <dt class="bear-profile__detail-label">Tags</dt>
+              <dd class="bear-profile__detail-value">
+                <ul class="bear-profile__tags" role="list">
+                  {tags.map((tag) => (
+                    <li class="bear-profile__tag">{tag.replace(/-/g, ' ')}</li>
+                  ))}
+                </ul>
+              </dd>
+            </div>
+          )}
+        </dl>
+        <div class="bear-profile__details-decoration" aria-hidden="true"></div>
+      </section>
+
+      <section class="bear-profile__rescue">
+      <h2 class="bear-profile__section-heading">Rescue Story</h2>
+      <div class="bear-profile__rescue-timeline">
+        <div class="bear-profile__rescue-event">
+          <span class="bear-profile__rescue-icon bear-profile__rescue-icon--rescued" aria-hidden="true"></span>
+          <div class="bear-profile__rescue-info">
+            <span class="bear-profile__rescue-label">Rescued from</span>
+            <span class="bear-profile__rescue-place">{rescuedLocation?.data.name ?? 'Unknown'}</span>
+            <time class="bear-profile__rescue-date" datetime={rescued.date.toISOString()}>
+              {formatMediumDate(rescued.date)}
+            </time>
+          </div>
+        </div>
+
+        {eventEntry && (
+          <div class="bear-profile__rescue-event">
+            <span class="bear-profile__rescue-icon bear-profile__rescue-icon--event" aria-hidden="true"></span>
+            <div class="bear-profile__rescue-info">
+              <span class="bear-profile__rescue-label">Event</span>
+              <a href={`/events/${eventEntry.slug}`} class="bear-profile__rescue-place bear-profile__rescue-place--link">
+                {eventEntry.data.name}
+              </a>
+              <time class="bear-profile__rescue-date" datetime={eventEntry.data.date.toISOString()}>
+                {formatMediumDate(eventEntry.data.date)}
+              </time>
+            </div>
+          </div>
+        )}
+
+        {rehomed && rehomLocation && (
+          <div class="bear-profile__rescue-event">
+            <span class="bear-profile__rescue-icon bear-profile__rescue-icon--rehomed" aria-hidden="true"></span>
+            <div class="bear-profile__rescue-info">
+              <span class="bear-profile__rescue-label">Rehomed to</span>
+              <span class="bear-profile__rescue-place">{rehomLocation.data.name}</span>
+              <time class="bear-profile__rescue-date" datetime={rehomed.date.toISOString()}>
+                {formatMediumDate(rehomed.date)}
+              </time>
+            </div>
+          </div>
+        )}
+      </div>
+      <div class="bear-profile__rescue-decoration" aria-hidden="true"></div>
+    </section>
+    </div>
+
+    {/* ── Section 5: Journey Map ── */}
+    {hasMapData && (
+      <Separator />
+      <section class="bear-profile__map-section">
+        <h2 class="bear-profile__section-heading">Where {name} Has Been</h2>
+        <div class="bear-profile__map-wrapper">
+          <BearMap variant="profile" bears={[mapBearData]} />
+        </div>
+        <div class="bear-profile__map-decoration" aria-hidden="true"></div>
+      </section>
+    )}
+
+    {/* ── Section 6: Friends ── */}
+    {friends.length > 0 && (
+      <Separator />
+      <section class="bear-profile__related">
+        <h2 class="bear-profile__section-heading">{name}'s Friends</h2>
+        <ul class="bear-profile__related-grid" role="list">
+          {friends.map((friend) => (
+            <li><BearCard bear={friend.bear} subtitle={friend.label} /></li>
+          ))}
+        </ul>
+        <div class="bear-profile__related-decoration" aria-hidden="true"></div>
+      </section>
+    )}
+
+    {/* ── Section 7: Navigation ── */}
+    <Separator />
+    <BackLink href="/bears" label="Back to bears" section="Bear" />
+  </article>
+</PageLayout>

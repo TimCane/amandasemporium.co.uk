@@ -2,8 +2,8 @@
 name: "Anna"
 uploadedOn: 2019-05-31
 picture: "./anna.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["purple-fur", "pink-onesie", "onesie", "knitted-onesie", "star-pattern", "printed-face", "embroidered-eyes", "teal-eyes", "pink-nose", "fluffy", "build-a-bear", "soft"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

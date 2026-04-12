@@ -2,8 +2,8 @@
 name: "Finley"
 uploadedOn: 2022-12-09
 picture: "./finley.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "blue-knit-sweater", "denim-jeans", "smooth", "soft", "printed-face", "embroidered-nose", "paw-pads", "build-a-bear"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

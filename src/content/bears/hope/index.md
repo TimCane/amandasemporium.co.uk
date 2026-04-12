@@ -2,8 +2,8 @@
 name: "Hope"
 uploadedOn: 2018-09-30
 picture: "./hope.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "fluffy", "soft", "knitted-onesie", "purple-onesie", "striped-clothing", "button-fastening", "embroidered-nose", "stitched-mouth"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

@@ -1,7 +1,7 @@
 ---
 name: "Andover Christmas Festival"
 date: 2023-11-17
-description: ""
+info: ""
 location:
     name: "Andover High Street, Andover."
     location: "andover"

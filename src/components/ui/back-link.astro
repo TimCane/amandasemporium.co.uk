@@ -1,0 +1,41 @@
+---
+interface Props {
+  href: string;
+  label: string;
+  section: string;
+}
+
+const { href, label, section } = Astro.props;
+---
+
+<nav class="back-link" aria-label={`${section} navigation`}>
+  <a href={href} class="back-link__anchor">
+    <span class="back-link__arrow" aria-hidden="true">&larr;</span>
+    {label}
+  </a>
+</nav>
+
+<style lang="scss">
+  .back-link {
+    padding-top: var(--spacing-lg);
+
+    &__anchor {
+      font-family: var(--font-body);
+      color: var(--color-primary);
+      text-decoration: none;
+      font-size: var(--text-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      transition: color var(--transition-fast);
+
+      &:hover {
+        color: var(--color-primary-dark);
+      }
+    }
+
+    &__arrow {
+      font-size: var(--text-md);
+    }
+  }
+</style>

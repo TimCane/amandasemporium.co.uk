@@ -1,0 +1,42 @@
+---
+interface Props {
+  message: string;
+  href: string;
+  linkText: string;
+}
+
+const { message, href, linkText } = Astro.props;
+---
+
+<div class="empty-state">
+  <p class="empty-state__text">{message}</p>
+  <a href={href} class="empty-state__link">{linkText}</a>
+</div>
+
+<style lang="scss">
+  .empty-state {
+    text-align: center;
+    padding: var(--spacing-2xl) var(--spacing-md);
+
+    &__text {
+      font-family: var(--font-body);
+      color: var(--color-text-muted);
+      font-size: var(--text-md);
+      margin: 0 0 var(--spacing-md);
+    }
+
+    &__link {
+      font-family: var(--font-body);
+      color: var(--color-primary);
+      text-decoration: none;
+      font-size: var(--text-sm);
+      border-bottom: 1px solid var(--color-accent);
+      padding-bottom: 2px;
+      transition: color var(--transition-fast);
+
+      &:hover {
+        color: var(--color-primary-dark);
+      }
+    }
+  }
+</style>

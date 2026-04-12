@@ -2,8 +2,8 @@
 name: "Tobee"
 uploadedOn: 2018-06-11
 picture: "./tobee.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "yellow-knitted-onesie", "brown-stripe-detail", "button-fastening", "onesie", "embroidered-eyes", "embroidered-nose", "stitched-mouth", "smooth", "soft", "fluffy", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

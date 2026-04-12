@@ -2,8 +2,8 @@
 name: "Penelope"
 uploadedOn: 2024-06-18
 picture: "./penelope.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["pink-fur", "tutu", "necklace", "fluffy", "button-eyes", "embroidered-nose", "paw-pads", "curly-fur", "pink-dress", "ribbon"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

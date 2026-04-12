@@ -1,0 +1,100 @@
+---
+/**
+ * Venue Map component — single-marker Leaflet map for event locations.
+ *
+ * Simpler than bear-map: one marker, no clustering, no wandering paths.
+ * Leaflet is loaded client-side via <script>.
+ */
+
+interface Props {
+  lat: number;
+  lng: number;
+  name: string;
+}
+
+const { lat, lng, name } = Astro.props;
+const mapData = JSON.stringify({ lat, lng, name });
+---
+
+<div class="venue-map">
+  <a href="#after-venue-map" class="venue-map__skip-link">Skip map</a>
+
+  <p class="venue-map__sr-only">
+    Map showing the venue location for {name}.
+  </p>
+  <p class="venue-map__sr-only">
+    Use Tab to navigate map controls. Use +/- to zoom, arrow keys to pan.
+  </p>
+
+  <div
+    id="venue-map-container"
+    class="venue-map__canvas"
+    data-venue={mapData}
+    role="application"
+    aria-label={`Map showing ${name}`}
+  ></div>
+
+  <div class="venue-map__decoration" aria-hidden="true"></div>
+</div>
+<span id="after-venue-map" tabindex="-1"></span>
+
+<script>
+  import '@/libs/venue-map-init';
+</script>
+
+<style>
+  .venue-map {
+    position: relative;
+    width: 100%;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+  }
+  .venue-map__skip-link {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+    z-index: 10;
+  }
+  .venue-map__skip-link:focus {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+    background: var(--color-primary, #333);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+  }
+  .venue-map__sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  .venue-map__canvas {
+    width: 100%;
+    height: 350px;
+    z-index: 1;
+  }
+  .venue-map__decoration {
+    display: none;
+  }
+</style>

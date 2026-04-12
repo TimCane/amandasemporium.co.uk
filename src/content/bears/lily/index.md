@@ -2,8 +2,8 @@
 name: "Lily"
 uploadedOn: 2022-11-08
 picture: "./lily.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["pink-fur", "dress", "handbag", "fluffy", "curly-fur", "embroidered-nose", "printed-face", "heart-nose", "blue-eyes", "pink-dress", "smiling"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

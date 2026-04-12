@@ -2,8 +2,8 @@
 name: "Gabriella"
 uploadedOn: 2025-04-24
 picture: "./gabriella.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["brown-fur", "fluffy", "red-knitted-dress", "belt", "embroidered-nose", "embroidered-eyes", "soft", "well-loved", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

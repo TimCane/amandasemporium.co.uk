@@ -2,8 +2,8 @@
 name: "Olivia"
 uploadedOn: 2019-09-09
 picture: "./olivia.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["white-fur", "pink-knitted-onesie", "button-front", "fluffy", "soft", "pink-nose", "embroidered-nose", "black-eyes", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

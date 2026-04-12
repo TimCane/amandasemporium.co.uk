@@ -2,8 +2,8 @@
 name: "Stella"
 uploadedOn: 2021-08-11
 picture: "./stella.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "fluffy", "soft", "curly-fur", "pink-dress", "pink-cardigan", "dress", "bow", "pink-bow", "embroidered-nose", "heart-nose", "button-eyes", "paw-pads", "heart-paw-pads"]
 brand: "sainsburys"
 species: "bear"
 rescued:

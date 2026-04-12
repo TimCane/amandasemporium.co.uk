@@ -2,8 +2,8 @@
 name: "Ginny"
 uploadedOn: 2019-11-22
 picture: "./ginny.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "fluffy", "soft", "pink-trousers", "floral-top", "pink-bow", "button-eyes", "embroidered-nose", "cream-paw-pads", "well-loved"]
 brand: "infinite-designs"
 species: "bear"
 rescued:

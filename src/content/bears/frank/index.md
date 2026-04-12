@@ -2,8 +2,8 @@
 name: "Frank"
 uploadedOn: 2019-09-09
 picture: "./frank.jpg"
-description: ""
-tags: ["army"]
+tagline: ""
+tags: ["golden-fur", "camouflage-outfit", "black-beret", "black-boots", "military-costume", "fluffy", "embroidered-nose", "stitched-mouth", "soft", "build-a-bear"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

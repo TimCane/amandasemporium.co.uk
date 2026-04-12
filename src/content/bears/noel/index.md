@@ -2,8 +2,8 @@
 name: "Noel"
 uploadedOn: 2018-12-03
 picture: "./noel.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "curly-fur", "knitted-onesie", "teal-onesie", "red-stripe-detail", "button-fastening", "fluffy", "embroidered-nose", "button-eyes", "soft", "well-loved"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

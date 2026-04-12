@@ -1,0 +1,69 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer__content">
+    <div class="footer__links">
+      <a href="/about" class="footer__link">About</a>
+      <a href="/contact" class="footer__link">Contact</a>
+      <a href="/privacy" class="footer__link">Privacy Policy</a>
+    </div>
+    <div class="footer__copyright">
+      &copy; {currentYear} Amanda's Emporium
+    </div>
+  </div>
+  <div class="footer__decoration" aria-hidden="true"></div>
+</footer>
+
+<style lang="scss">
+  .footer {
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-accent);
+    padding: var(--spacing-xl) 1.5rem;
+    margin-top: var(--spacing-2xl);
+
+    &__content {
+      max-width: var(--page-width);
+      margin-inline: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--spacing-md);
+    }
+
+    &__links {
+      display: flex;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+    }
+
+    &__link {
+      font-family: var(--font-body);
+      color: var(--color-text-muted);
+      text-decoration: none;
+      font-size: var(--text-sm);
+
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+
+    &__copyright {
+      font-family: var(--font-body);
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+    }
+
+    @media (max-width: 640px) {
+      &__content {
+        flex-direction: column;
+        text-align: center;
+      }
+      &__links {
+        justify-content: center;
+      }
+    }
+  }
+</style>

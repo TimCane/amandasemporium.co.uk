@@ -2,8 +2,8 @@
 name: "Harrison"
 uploadedOn: 2022-08-17
 picture: "./harrison.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "fluffy", "soft", "blue-t-shirt", "denim-shorts", "dungarees", "backpack", "button-eyes", "embroidered-nose", "well-loved", "smooth"]
 brand: "bear-factory"
 species: "bear"
 rescued:

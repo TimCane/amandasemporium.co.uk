@@ -1,7 +1,7 @@
 ---
 name: "Horley St. George's Day"
 date: 2025-04-26
-description: ""
+info: ""
 location:
     name: "Horley High Street Car Park, RH6 7BN."
     location: "horley"

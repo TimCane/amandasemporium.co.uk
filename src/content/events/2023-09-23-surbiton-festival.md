@@ -1,7 +1,7 @@
 ---
 name: "Surbiton Festival"
 date: 2023-09-23
-description: ""
+info: ""
 location:
     name: "Claremont Gardens, KT6 4TN."
     location: "surbiton"

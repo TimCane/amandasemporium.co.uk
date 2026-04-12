@@ -2,8 +2,8 @@
 name: "Angel"
 uploadedOn: 2018-09-30
 picture: "./angel.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "fluffy", "curly-fur", "black-dress", "floral-embroidery", "white-petticoat", "embroidered-nose", "pink-nose", "paw-pads", "soft", "well-loved"]
 brand: "cuddles-collection"
 species: "bear"
 rescued:

@@ -2,8 +2,8 @@
 name: "Heather"
 uploadedOn: 2022-08-17
 picture: "./heather.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "curly-fur", "fluffy", "purple-dress", "polka-dot-bodice", "black-belt", "embroidered-eyes", "embroidered-nose", "stitched-mouth", "soft", "well-loved"]
 brand: "unknown"
 species: "bear"
 rescued:

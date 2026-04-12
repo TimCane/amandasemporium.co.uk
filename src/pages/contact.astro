@@ -1,9 +1,289 @@
 ---
-import PageLayout from "@/layouts/page.layout.astro";
+export const prerender = false;
+
+import { getCollection } from 'astro:content';
+import PageLayout from '@/layouts/page.layout.astro';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
+
+// --- Contact form is disabled until wired up to a backend ---
+const formDisabled = true;
+
+// --- Handle POST ---
+let formSuccess = false;
+let formErrors: string[] = [];
+let fieldErrors: Record<string, string> = {};
+let formData: Record<string, string> = {};
+
+if (!formDisabled && Astro.request.method === 'POST') {
+  const data = await Astro.request.formData();
+
+  formData = {
+    name: data.get('name')?.toString() || '',
+    email: data.get('email')?.toString() || '',
+    subject: data.get('subject')?.toString() || '',
+    message: data.get('message')?.toString() || '',
+  };
+
+  // Honeypot check — if filled, silently "succeed"
+  const honeypot = data.get('website')?.toString() || '';
+  if (honeypot) {
+    formSuccess = true;
+  } else {
+    // Server-side validation with per-field errors
+    if (!formData.name || formData.name.length < 2) {
+      fieldErrors.name = 'Please enter your name (at least 2 characters).';
+    }
+    if (!formData.email || !formData.email.includes('@') || !formData.email.includes('.')) {
+      fieldErrors.email = 'Please enter a valid email address.';
+    }
+    if (!formData.subject || formData.subject.length < 2) {
+      fieldErrors.subject = 'Please enter a subject (at least 2 characters).';
+    }
+    if (!formData.message || formData.message.length < 10) {
+      fieldErrors.message = 'Please enter a message (at least 10 characters).';
+    }
+
+    formErrors = Object.values(fieldErrors);
+
+    if (formErrors.length === 0) {
+      // STUB: Log to console for now
+      // TODO: Replace with actual notification (email, webhook, database, etc.)
+      console.log('Contact form submission:', formData);
+      formSuccess = true;
+      formData = { name: '', email: '', subject: '', message: '' };
+    }
+  }
+}
+
+import Separator from '@/components/ui/separator.astro';
+import { getUpcomingEvents } from '@/libs/events';
+import { formatLongDate } from '@/libs/dates';
+
+// --- Next event callout ---
+const allEvents = await getCollection('events');
+const upcoming = getUpcomingEvents(allEvents);
+const nextEvent = upcoming.length > 0 ? upcoming[0] : null;
+
+// --- FAQ data ---
+const faqs = [
+  {
+    question: 'Where can I find you?',
+    answer:
+      'I set up at craft fairs and markets across Surrey, Hampshire, Berkshire, and surrounding areas, usually between spring and Christmas. Check the events page for a full list of upcoming dates and locations.',
+  },
+  {
+    question: 'Can I commission a custom product?',
+    answer:
+      'It depends on what you\'re after. I\'m happy to talk about custom orders for bags, knitted items, or soaps. Drop me a message with what you have in mind and I\'ll let you know if I can help.',
+  },
+  {
+    question: 'How does bear rescue work?',
+    answer:
+      'I find bears at car boot sales, charity shops, and sometimes in boxes people leave out. Every bear gets cleaned up, photographed, and listed on the website. They come along to the stall and wait for someone to give them a new home.',
+  },
+  {
+    question: 'Do you post items?',
+    answer:
+      'I can post most things. Postage costs depend on size and weight. Get in touch and I\'ll work out the details.',
+  },
+  {
+    question: 'How much do things cost?',
+    answer:
+      'Prices vary. Bears are usually between a few pounds and a tenner, depending on size and condition. Handmade items are priced to cover materials and time. Have a look at the products page for current prices.',
+  },
+];
+
+// --- SEO ---
+const title = 'Contact';
+const description = 'Got a question about a bear or a custom order? Send me a message or drop me an email.';
 ---
 
-<PageLayout
-    title="Get In Touch"
-    heading="I'd love to hear from you!"
-    subText="Thank you for visiting my site! If you have any questions, feedback, or just want to say hello, please feel free to reach out. I'm here to help and look forward to connecting with you!"
-/>
+<PageLayout title={title} description={description}>
+  <OpenGraphMeta
+    slot="og-meta"
+    title={`Contact | Amanda's Emporium`}
+    description={description}
+    url={`${Astro.site}contact`}
+  />
+
+  <article class="contact-page">
+    <!-- Section 1: Page Header -->
+    <header class="contact-page__header">
+      <h1 class="contact-page__title">Get in Touch</h1>
+      <p class="contact-page__intro">
+        Got a question about a bear, want to know what I'll have at the next fair, or just fancy a chat? I'd love to hear from you.
+      </p>
+      <div class="contact-page__header-decoration" aria-hidden="true"></div>
+    </header>
+    <Separator />
+
+    <!-- Section 2: Email Address -->
+    <section class="contact-page__email" aria-labelledby="email-heading">
+      <h2 id="email-heading" class="contact-page__section-heading">Email Me</h2>
+      <p class="contact-page__email-text">
+        Prefer your own email app? Drop me a line at
+        <a href="mailto:hello@amandasemporium.co.uk" class="contact-page__email-link">hello@amandasemporium.co.uk</a>
+      </p>
+      <div class="contact-page__email-decoration" aria-hidden="true"></div>
+    </section>
+
+    <!-- Section 3: Contact Form -->
+    <section class="contact-page__form" aria-labelledby="form-heading">
+      <h2 id="form-heading" class="contact-page__section-heading">Send a Message</h2>
+
+      {formDisabled && (
+        <div class="contact-page__form-disabled-notice">
+          <p>The contact form is coming soon. In the meantime, please email me directly at
+            <a href="mailto:hello@amandasemporium.co.uk" class="contact-page__email-link">hello@amandasemporium.co.uk</a>.
+          </p>
+        </div>
+      )}
+
+      {!formDisabled && formSuccess && (
+        <div class="contact-page__success" role="alert">
+          <p class="contact-page__success-text">
+            Thanks for getting in touch. I'll get back to you as soon as I can.
+          </p>
+        </div>
+      )}
+
+      {!formDisabled && formErrors.length > 0 && (
+        <div class="contact-page__errors" role="alert">
+          <p class="contact-page__errors-heading">There were some problems with your message:</p>
+          <ul class="contact-page__errors-list">
+            {formErrors.map((error) => (
+              <li class="contact-page__error">{error}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {!formDisabled && !formSuccess && (
+        <form method="POST" action="/contact" class="contact-page__form-element" novalidate>
+          <p class="sr-only">Fields marked with an asterisk (*) are required.</p>
+
+          <!-- Honeypot -->
+          <div class="contact-page__field contact-page__field--honeypot" aria-hidden="true">
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="contact-page__field">
+            <label for="name" class="contact-page__label">
+              Name <span class="contact-page__required" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              minlength="2"
+              value={formData.name || ''}
+              class="contact-page__input"
+              autocomplete="name"
+              aria-invalid={!!fieldErrors.name}
+              aria-describedby={fieldErrors.name ? 'name-error' : undefined}
+            />
+            {fieldErrors.name && (
+              <span id="name-error" class="contact-page__field-error">{fieldErrors.name}</span>
+            )}
+          </div>
+
+          <div class="contact-page__field">
+            <label for="email" class="contact-page__label">
+              Email <span class="contact-page__required" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              value={formData.email || ''}
+              class="contact-page__input"
+              autocomplete="email"
+              aria-invalid={!!fieldErrors.email}
+              aria-describedby={fieldErrors.email ? 'email-error' : undefined}
+            />
+            {fieldErrors.email && (
+              <span id="email-error" class="contact-page__field-error">{fieldErrors.email}</span>
+            )}
+          </div>
+
+          <div class="contact-page__field">
+            <label for="subject" class="contact-page__label">
+              Subject <span class="contact-page__required" aria-hidden="true">*</span>
+            </label>
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              required
+              minlength="2"
+              value={formData.subject || ''}
+              class="contact-page__input"
+              aria-invalid={!!fieldErrors.subject}
+              aria-describedby={fieldErrors.subject ? 'subject-error' : undefined}
+            />
+            {fieldErrors.subject && (
+              <span id="subject-error" class="contact-page__field-error">{fieldErrors.subject}</span>
+            )}
+          </div>
+
+          <div class="contact-page__field">
+            <label for="message" class="contact-page__label">
+              Message <span class="contact-page__required" aria-hidden="true">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              minlength="10"
+              rows="6"
+              class="contact-page__textarea"
+              aria-invalid={!!fieldErrors.message}
+              aria-describedby={fieldErrors.message ? 'message-error' : undefined}
+            >{formData.message || ''}</textarea>
+            {fieldErrors.message && (
+              <span id="message-error" class="contact-page__field-error">{fieldErrors.message}</span>
+            )}
+          </div>
+
+          <div class="contact-page__submit-wrapper">
+            <button type="submit" class="contact-page__submit">Send Message</button>
+          </div>
+        </form>
+      )}
+
+      <div class="contact-page__form-decoration" aria-hidden="true"></div>
+    </section>
+
+    <!-- Section 4: FAQ -->
+    <section class="contact-page__faq" aria-labelledby="faq-heading">
+      <h2 id="faq-heading" class="contact-page__section-heading">Common Questions</h2>
+      <div class="contact-page__faq-list">
+        {faqs.map((faq) => (
+          <details class="contact-page__faq-item">
+            <summary class="contact-page__faq-question">{faq.question}</summary>
+            <p class="contact-page__faq-answer">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+      <div class="contact-page__faq-decoration" aria-hidden="true"></div>
+    </section>
+
+    <!-- Section 5: Next Event Callout -->
+    {nextEvent && (
+      <section class="contact-page__event-callout" aria-labelledby="event-callout-heading">
+        <h2 id="event-callout-heading" class="contact-page__section-heading">See Me in Person</h2>
+        <p class="contact-page__event-callout-text">
+          Prefer to meet face to face? I'll be at
+          <strong>{nextEvent.data.name}</strong> on
+          <time datetime={nextEvent.data.date.toISOString().split('T')[0]}>
+            {formatLongDate(nextEvent.data.date)}
+          </time>.
+        </p>
+        <a href="/events" class="contact-page__event-callout-link">See all events</a>
+        <div class="contact-page__event-callout-decoration" aria-hidden="true"></div>
+      </section>
+    )}
+  </article>
+</PageLayout>

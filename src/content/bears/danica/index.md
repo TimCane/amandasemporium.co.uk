@@ -2,8 +2,8 @@
 name: "Danica"
 uploadedOn: 2023-07-11
 picture: "./danica.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["pink-fur", "dress", "star-print-dress", "silver-jacket", "bow", "hair-bow", "fluffy", "soft", "embroidered-nose", "build-a-bear-style", "purple-skirt", "sparkly"]
 brand: "wilkinson"
 species: "bear"
 rescued:

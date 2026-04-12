@@ -2,8 +2,8 @@
 name: "Winny"
 uploadedOn: 2018-11-12
 picture: "./winny.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "white-paws", "red-sweater", "winnie-the-pooh", "disney", "embroidered-nose", "stitched-mouth", "embroidered-eyes", "soft", "fluffy", "smooth-fur"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

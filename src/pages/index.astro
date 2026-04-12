@@ -1,9 +1,330 @@
 ---
-import HomeLayout from "@/layouts/page.layout.astro";
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import PageLayout from '@/layouts/page.layout.astro';
+import BearCard from '@/components/bears/bear-card.astro';
+import Card from '@/components/ui/card.astro';
+import { seededShuffle } from '@/libs/seeded-random';
+import { formatDate, formatShortDate } from '@/libs/dates';
+import { computeStats } from '@/libs/stats';
+import { getUpcomingEvents } from '@/libs/events';
+import { getBotmForMonth, interpolateReason } from '@/libs/botm';
+import { botmReasons } from '@/libs/botm-reasons';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
+import JsonLd from '@/components/seo/json-ld.astro';
+import SectionBand from '@/components/ui/section-band.astro';
+import OrnateFrame from '@/components/ui/ornate-frame.astro';
+import { SITE_TITLE, SITE_URL } from '@/libs/consts';
+
+export const prerender = true;
+
+// ---------------------------------------------------------------------------
+// Data fetching
+// ---------------------------------------------------------------------------
+
+const allBears = await getCollection('bears');
+const allEvents = await getCollection('events');
+const allProducts = await getCollection('products');
+const allGallery = await getCollection('gallery');
+
+// --- Stats ---
+const now = new Date();
+const { totalBears, rehomedBears, totalEvents, startYear } = computeStats(allBears, allEvents);
+
+// --- Upcoming events (next 3 by date, future only) ---
+const upcomingEvents = getUpcomingEvents(allEvents, now).slice(0, 3);
+
+// --- Featured products (first 4 non-hidden, shuffled by current month seed) ---
+const visibleProducts = allProducts.filter((p) => !p.data.hidden);
+const monthSeed = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+const featuredProducts = seededShuffle(visibleProducts, monthSeed + '-products').slice(0, 4);
+
+// --- Photo strip (up to 8 gallery images, shuffled) ---
+const photoStripImages = seededShuffle([...allGallery], monthSeed + '-gallery').slice(0, 8);
+
+// --- Bear of the Month (seeded random, historically accurate eligibility) ---
+const botmResult = getBotmForMonth(allBears, now, botmReasons.length);
+const bearOfTheMonth = botmResult?.bear ?? null;
+const botmReason = botmResult
+  ? interpolateReason(botmReasons[botmResult.reasonIndex], botmResult.bear)
+  : null;
+
+// --- Activity Feed (latest rescues, newest products, next event — sorted by date) ---
+type FeedItem = {
+  type: 'rescue' | 'product' | 'event';
+  date: Date;
+  label: string;
+  href: string;
+};
+
+const feedItems: FeedItem[] = [];
+
+// Latest rescues (by rescue date)
+const recentRescues = [...allBears]
+  .sort((a, b) => b.data.rescued.date.getTime() - a.data.rescued.date.getTime())
+  .slice(0, 3);
+for (const bear of recentRescues) {
+  feedItems.push({
+    type: 'rescue',
+    date: bear.data.rescued.date,
+    label: `Recently rescued: ${bear.data.name}`,
+    href: `/bears/${bear.slug}`,
+  });
+}
+
+// Newest products (by collection order, take 2)
+const recentProducts = visibleProducts.slice(0, 2);
+for (const product of recentProducts) {
+  feedItems.push({
+    type: 'product',
+    date: now, // Products don't have dates, use now for sorting
+    label: `Just added: ${product.data.name}`,
+    href: `/products/${product.slug}`,
+  });
+}
+
+// Next upcoming event
+if (upcomingEvents.length > 0) {
+  const nextEvent = upcomingEvents[0];
+  const eventDate = nextEvent.data.date.toLocaleDateString('en-GB', {
+    day: 'numeric',
+    month: 'long',
+  });
+  feedItems.push({
+    type: 'event',
+    date: nextEvent.data.date,
+    label: `Next event: ${nextEvent.data.name} on ${eventDate}`,
+    href: `/events/${nextEvent.slug}`,
+  });
+}
+
+// Sort by date descending and take 5
+const activityFeed = feedItems
+  .sort((a, b) => b.date.getTime() - a.date.getTime())
+  .slice(0, 5);
+
+// --- SEO ---
+const pageTitle = "Amanda's Emporium — Handmade Crafts & Rescued Bears";
+const pageDescription = "Handmade crafts and rescued teddy bears from Amanda's Emporium. I rescue pre-loved bears, craft handmade gifts, and attend markets across the south of England.";
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_TITLE,
+  url: SITE_URL,
+  description: pageDescription,
+};
 ---
 
-<HomeLayout
-    title="Home"
-    heading="Thanks for stopping by!"
-    subText="Many years ago I turned my passion for crafting into a small business, to share my love of crochet and sewing with others. I can't imagine sitting down at home in the evening without picking up my hooks to crochet a blanket or two. This simple hobby brings me lots of joy. I always carry odd balls of wool and my hooks to events, as I am often asked how to start a blanket, and of course I am only too happy to oblige. My lovely Mum, Pat, is an avid knitter and all my beautiful cardigans and teddy bear onesies are down to her."
-/>
+<PageLayout title={pageTitle} description={pageDescription}>
+  <OpenGraphMeta
+    slot="og-meta"
+    title={pageTitle}
+    description={pageDescription}
+    url={SITE_URL}
+  />
+
+  <JsonLd data={jsonLd} />
+
+  <!-- 1. Hero -->
+  <section class="home-hero" aria-label="Welcome">
+    <div class="home-hero__background" aria-hidden="true"></div>
+    <div class="home-hero__overlay" aria-hidden="true"></div>
+    <div class="home-hero__content">
+      <div class="home-hero__decoration-top" aria-hidden="true"></div>
+      <h1 class="home-hero__title">Amanda's Emporium</h1>
+      <p class="home-hero__tagline">
+        Rescuing bears, making things by hand, and turning up at markets across the south of England.
+      </p>
+      <a href="/events" class="home-hero__cta">Find me at my next event</a>
+      <div class="home-hero__decoration-bottom" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- 2. About Teaser -->
+  <section class="home-about" aria-labelledby="home-about-heading">
+    <div class="home-about__wrapper">
+      <div class="home-about__decoration" aria-hidden="true"></div>
+      <h2 class="home-about__heading" id="home-about-heading">My Story</h2>
+      <p class="home-about__text">
+        What started as a love of crafting and a soft spot for scruffy teddy bears has turned into a regular stall
+        at fairs across the south of England. I rescue pre-loved bears from car boot sales and charity shops, give
+        them a proper clean and a new outfit, and bring them to the stall looking for a new home. Alongside the bears,
+        I make bags, knitted bits, soaps, and a few other things besides.
+      </p>
+      <a href="/about" class="home-about__link">Read my full story <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+
+  <!-- 3. Stats Section -->
+  <SectionBand>
+    <section class="home-stats" aria-label="The numbers so far">
+      <dl class="home-stats__wrapper">
+        <div class="home-stats__item">
+          <dt class="home-stats__label">Bears Rescued</dt>
+          <dd class="home-stats__number">{totalBears}+</dd>
+        </div>
+        <div class="home-stats__divider" aria-hidden="true"></div>
+        <div class="home-stats__item">
+          <dt class="home-stats__label">Homes Found</dt>
+          <dd class="home-stats__number">{rehomedBears}+</dd>
+        </div>
+        <div class="home-stats__divider" aria-hidden="true"></div>
+        <div class="home-stats__item">
+          <dt class="home-stats__label">Events Attended</dt>
+          <dd class="home-stats__number">{totalEvents}+</dd>
+        </div>
+        <div class="home-stats__divider" aria-hidden="true"></div>
+        <div class="home-stats__item">
+          <dt class="home-stats__label">And Still Going</dt>
+          <dd class="home-stats__number">Since {startYear}</dd>
+        </div>
+      </dl>
+    </section>
+  </SectionBand>
+
+  <!-- 4. Upcoming Events -->
+  <section class="home-events" aria-labelledby="home-events-heading">
+    <div class="home-events__wrapper">
+      <h2 class="home-events__heading" id="home-events-heading">Find Me Next At&hellip;</h2>
+      {upcomingEvents.length > 0 ? (
+        <div class="home-events__list">
+          {upcomingEvents.map((event) => (
+            <a href={`/events/${event.slug}`} class="home-events__card">
+              <div class="home-events__card-decoration" aria-hidden="true"></div>
+              <div class="home-events__card-content">
+                <time class="home-events__date" datetime={event.data.date.toISOString().split('T')[0]}>
+                  {formatDate(event.data.date)}
+                </time>
+                <h3 class="home-events__name">{event.data.name}</h3>
+                <span class="home-events__location">{event.data.location.name}</span>
+                {event.data.time && (
+                  <span class="home-events__time">{event.data.time}</span>
+                )}
+              </div>
+            </a>
+          ))}
+        </div>
+      ) : (
+        <div class="home-events__empty">
+          <p class="home-events__empty-text">
+            Nothing booked just yet. Check back and I'll add dates as they come in.
+          </p>
+        </div>
+      )}
+      <a href="/events" class="home-events__more">See all events <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+
+  <!-- 5. Featured Products -->
+  <section class="home-products" aria-labelledby="home-products-heading">
+    <div class="home-products__wrapper">
+      <h2 class="home-products__heading" id="home-products-heading">What I Make</h2>
+      <div class="home-products__grid">
+        {featuredProducts.map((product) => (
+          <a href={`/products/${product.slug}`} class="home-products__card">
+            <div class="home-products__card-image-wrapper">
+              <Image
+                src={product.data.photos[0]}
+                alt={product.data.name}
+                width={400}
+                height={400}
+                loading="lazy"
+                class="home-products__card-image"
+              />
+              <div class="home-products__card-overlay" aria-hidden="true"></div>
+            </div>
+            <div class="home-products__card-body">
+              <h3 class="home-products__card-name">{product.data.name}</h3>
+              <span class="home-products__card-price">{product.data.price}</span>
+              {product.data.tagline && (
+                <p class="home-products__card-tagline">{product.data.tagline}</p>
+              )}
+            </div>
+            <div class="home-products__card-decoration" aria-hidden="true"></div>
+          </a>
+        ))}
+      </div>
+      <a href="/products" class="home-products__more">Browse all products <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </section>
+
+  <!-- 6. Photo Strip -->
+  <section class="home-photos" aria-label="Gallery highlights">
+    <div class="home-photos__strip">
+      {photoStripImages.map((item) => (
+        <div class="home-photos__item">
+          <Image
+            src={item.data.image}
+            alt={item.data.caption || 'Gallery photo'}
+            width={320}
+            height={240}
+            loading="lazy"
+            class="home-photos__image"
+          />
+          <div class="home-photos__frame" aria-hidden="true"></div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- 7. Bear of the Month -->
+  {bearOfTheMonth && (
+    <section class="home-bear-otm" aria-labelledby="home-bear-otm-heading">
+      <div class="home-bear-otm__wrapper">
+        <div class="home-bear-otm__decoration" aria-hidden="true"></div>
+        <h2 class="home-bear-otm__heading" id="home-bear-otm-heading">Bear of the Month</h2>
+        <div class="home-bear-otm__content">
+          <OrnateFrame class="home-bear-otm__image-wrapper" name={bearOfTheMonth.data.name}>
+            <Image
+              src={bearOfTheMonth.data.picture}
+              alt={`${bearOfTheMonth.data.name} — bear of the month`}
+              width={400}
+              height={400}
+              loading="lazy"
+              class="home-bear-otm__image"
+            />
+          </OrnateFrame>
+          <a href="/bears/bear-of-the-month" class="home-bear-otm__archive-link">See all Bears of the Month</a>
+          <div class="home-bear-otm__details">
+            <h3 class="home-bear-otm__name">{bearOfTheMonth.data.name}</h3>
+            {bearOfTheMonth.data.tagline && (
+              <p class="home-bear-otm__tagline">{bearOfTheMonth.data.tagline}</p>
+            )}
+            <span class="home-bear-otm__status">Looking for a Home</span>
+            {botmReason && (
+              <p class="home-bear-otm__reason">{botmReason}</p>
+            )}
+            <div class="home-bear-otm__links">
+              <a href={`/bears/${bearOfTheMonth.slug}`} class="home-bear-otm__meet-link">
+                Meet {bearOfTheMonth.data.name} <span aria-hidden="true">&rarr;</span>
+              </a>
+              <a href="/bears" class="home-bear-otm__explore-link">Explore all bears</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- 8. Activity Feed -->
+  {activityFeed.length > 0 && (
+    <SectionBand>
+      <section class="home-activity" aria-labelledby="home-activity-heading">
+        <div class="home-activity__wrapper">
+          <h2 class="home-activity__heading" id="home-activity-heading">What's been happening</h2>
+          <ul class="home-activity__list">
+            {activityFeed.map((item) => (
+              <li class={`home-activity__item home-activity__item--${item.type}`}>
+                <span class="home-activity__icon" aria-hidden="true"></span>
+                <a href={item.href} class="home-activity__link">{item.label}</a>
+                <time class="home-activity__date" datetime={item.date.toISOString().split('T')[0]}>
+                  {formatShortDate(item.date)}
+                </time>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </SectionBand>
+  )}
+</PageLayout>

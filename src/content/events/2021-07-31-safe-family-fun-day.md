@@ -1,7 +1,7 @@
 ---
 name: "Safe Family Fun Day"
 date: 2021-07-31
-description: ""
+info: ""
 location:
     name: "Cantley Park, Wokingham, RG40 5QG."
     location: "wokingham"

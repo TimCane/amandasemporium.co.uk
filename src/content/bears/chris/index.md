@@ -2,8 +2,8 @@
 name: "Chris"
 uploadedOn: 2019-05-31
 picture: "./chris.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "knitted-cardigan", "blue-cardigan", "button-fastening", "smooth", "fluffy", "embroidered-nose", "button-eyes", "soft", "well-loved"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

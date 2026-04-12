@@ -2,8 +2,8 @@
 name: "Sara"
 uploadedOn: 2019-07-18
 picture: "./sara.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "dress", "pink-dress", "heart-print", "fairy-wings", "pink-wings", "red-sash", "fluffy", "soft", "button-eyes", "embroidered-nose", "printed-face", "smooth"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

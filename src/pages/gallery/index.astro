@@ -1,0 +1,126 @@
+---
+export const prerender = false;
+
+import { getCollection } from 'astro:content';
+import PageLayout from '@/layouts/page.layout.astro';
+import FilterTabs from '@/components/ui/filter-tabs.astro';
+import GalleryItem from '@/components/gallery/gallery-item.astro';
+import Pagination from '@/components/ui/pagination.astro';
+import PageHeader from '@/components/ui/page-header.astro';
+import Separator from '@/components/ui/separator.astro';
+import EmptyState from '@/components/ui/empty-state.astro';
+import { galleryCategoryLabels } from '@/libs/labels';
+import { paginate } from '@/libs/pagination';
+
+// --- Parse query params ---
+const url = new URL(Astro.request.url);
+const categoryParam = url.searchParams.get('category') || undefined;
+const pageParam = Math.max(1, parseInt(url.searchParams.get('page') || '1', 10));
+
+// --- Fetch all gallery entries ---
+const allGallery = await getCollection('gallery');
+
+// Derive valid categories from actual entries
+const validCategories = [...new Set(allGallery.map(g => g.data.category).filter(Boolean))] as string[];
+validCategories.sort();
+
+const category = categoryParam && validCategories.includes(categoryParam)
+  ? categoryParam
+  : undefined;
+
+// --- Filter ---
+let gallery = category
+  ? allGallery.filter(g => g.data.category === category)
+  : allGallery;
+
+// Sort by date (newest first) if date exists, otherwise by caption
+gallery.sort((a, b) => {
+  if (a.data.date && b.data.date) return b.data.date.getTime() - a.data.date.getTime();
+  if (a.data.date) return -1;
+  if (b.data.date) return 1;
+  return (a.data.caption || '').localeCompare(b.data.caption || '');
+});
+
+// --- Paginate ---
+const filterParams: Record<string, string> = {};
+if (category) filterParams.category = category;
+
+const { paginatedItems: paginatedGallery, currentPage, totalPages, totalItems, prevUrl, nextUrl, paginationParams } = paginate({
+  items: gallery,
+  page: pageParam,
+  baseUrl: '/gallery',
+  params: filterParams,
+});
+
+// --- Build tab data ---
+const tabs = [
+  { label: 'All', value: 'all', href: '/gallery' },
+  ...validCategories.map(cat => ({
+    label: galleryCategoryLabels[cat] || cat,
+    value: cat,
+    href: `/gallery?category=${cat}`,
+  })),
+];
+
+const activeTab = category || 'all';
+
+// --- SEO ---
+const categoryTitle = category ? galleryCategoryLabels[category] : undefined;
+const pageTitle = categoryTitle
+  ? `${categoryTitle} | Gallery`
+  : 'Gallery';
+const description = 'Photos from Amanda\'s Emporium — rescued bears, handmade products, and craft market moments.';
+---
+
+<PageLayout title={pageTitle} description={description}>
+  <Fragment slot="og-meta">
+    <meta property="og:title" content={`${pageTitle} | Amanda's Emporium`} />
+    <meta property="og:description" content={description} />
+    {prevUrl && <link rel="prev" href={prevUrl} />}
+    {nextUrl && <link rel="next" href={nextUrl} />}
+  </Fragment>
+
+  <section class="gallery-page">
+    <PageHeader
+      title="Gallery"
+      intro="A little peek behind the stall. Bears finding new homes, markets in full swing, and the bits I make by hand."
+      count={totalItems}
+      noun="photo"
+    />
+    <Separator />
+
+    <div class="gallery-page__filters">
+      <FilterTabs tabs={tabs} activeValue={activeTab} ariaLabel="Filter gallery" />
+    </div>
+
+    {paginatedGallery.length > 0 ? (
+      <ul class="gallery-page__grid" role="list">
+        {paginatedGallery.map((item, index) => (
+          <li>
+            <GalleryItem
+              item={item}
+              loading={index < 8 ? 'eager' : 'lazy'}
+            />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <EmptyState
+        message="Nothing here just yet for this category. Have a look at everything instead."
+        href="/gallery"
+        linkText="View all photos"
+      />
+    )}
+
+    {totalPages > 1 && (
+      <div class="gallery-page__pagination">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          baseUrl="/gallery"
+          params={paginationParams}
+        />
+      </div>
+    )}
+  </section>
+</PageLayout>

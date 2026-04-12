@@ -1,0 +1,15 @@
+---
+export const prerender = false;
+import AdminLayout from '@/layouts/admin.layout.astro';
+import AdminForm from '@/components/admin/AdminForm';
+import { productFields } from '@/lib/admin/field-defs';
+
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/404');
+}
+---
+
+<AdminLayout title="New Product">
+  <h1>New Product</h1>
+  <AdminForm client:load collection="products" fields={productFields} enableAI={true} />
+</AdminLayout>

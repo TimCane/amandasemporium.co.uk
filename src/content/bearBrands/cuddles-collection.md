@@ -1,3 +1,0 @@
----
-name: "Cuddles Collection"
----

@@ -1,0 +1,98 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  item: CollectionEntry<'gallery'>;
+  loading?: 'lazy' | 'eager';
+}
+
+const { item, loading = 'lazy' } = Astro.props;
+
+let resolvedLink: string | undefined;
+if (item.data.relatedBear) resolvedLink = `/bears/${item.data.relatedBear.slug}`;
+else if (item.data.relatedProduct) resolvedLink = undefined;
+else if (item.data.relatedEvent) resolvedLink = `/events`;
+
+const Tag = resolvedLink ? 'a' : 'div';
+
+import { galleryCategoryLabels } from '@/libs/labels';
+
+const categoryLabel = item.data.category
+  ? galleryCategoryLabels[item.data.category] || item.data.category
+  : undefined;
+---
+
+<Tag href={resolvedLink} class:list={['gallery-item', { 'gallery-item--linked': !!resolvedLink }]}>
+  <div class="gallery-item__image-wrapper">
+    <Image
+      src={item.data.image}
+      alt={item.data.caption || 'Gallery image'}
+      width={400}
+      loading={loading}
+      class="gallery-item__image"
+    />
+  </div>
+  <div class="gallery-item__caption">
+    {item.data.caption && <p class="gallery-item__text">{item.data.caption}</p>}
+    {categoryLabel && <span class="gallery-item__tag">{categoryLabel}</span>}
+  </div>
+</Tag>
+
+<style lang="scss">
+  .gallery-item {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    transition: box-shadow var(--transition-normal);
+
+    &--linked:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    &__image-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform var(--transition-normal);
+    }
+
+    &--linked:hover &__image {
+      transform: scale(1.03);
+    }
+
+    &__caption {
+      padding: var(--spacing-ms) var(--spacing-md);
+    }
+
+    &__text {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      margin: 0 0 var(--spacing-xs);
+      line-height: var(--leading-compact);
+    }
+
+    &__tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-text-muted);
+      background: var(--color-bg-alt);
+      padding: 2px var(--spacing-sm);
+      border-radius: var(--radius-sm);
+    }
+  }
+</style>

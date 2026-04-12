@@ -2,8 +2,8 @@
 name: "Alan"
 uploadedOn: 2024-07-19
 picture: "./alan.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["brown-fur", "floral-shirt", "denim-jeans", "fluffy", "soft", "embroidered-eyes", "embroidered-nose", "stitched-mouth", "button-eyes"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

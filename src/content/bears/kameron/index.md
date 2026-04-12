@@ -2,8 +2,8 @@
 name: "Kameron"
 uploadedOn: 2025-04-24
 picture: "./kameron.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "fluffy", "curly-fur", "plaid-jacket", "white-trousers", "button-up-shirt", "well-loved", "embroidered-nose", "soft", "button-eyes"]
 brand: "bear-factory"
 species: "bear"
 rescued:

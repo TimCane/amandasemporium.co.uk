@@ -1,0 +1,26 @@
+---
+export const prerender = false;
+import AdminLayout from '@/layouts/admin.layout.astro';
+import AdminListView from '@/components/admin/AdminListView';
+
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/404');
+}
+
+const columns = [
+  { key: 'caption', label: 'Caption' },
+  { key: 'category', label: 'Category' },
+  { key: 'date', label: 'Date', format: 'date' },
+];
+
+---
+
+<AdminLayout title="Gallery">
+  <h1>Gallery</h1>
+  <AdminListView
+    client:load
+    collection="gallery"
+    columns={columns}
+    nameField="caption"
+  />
+</AdminLayout>

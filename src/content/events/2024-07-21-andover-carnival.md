@@ -1,7 +1,7 @@
 ---
 name: "Andover Carnival"
 date: 2024-07-21
-description: ""
+info: ""
 location:
     name: "Vigo Recreation Ground, Andover SP10 1HH."
     location: "andover"

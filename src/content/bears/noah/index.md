@@ -2,8 +2,8 @@
 name: "Noah"
 uploadedOn: 2019-09-09
 picture: "./noah.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["blue-fur", "fluffy", "soft", "gingham-accents", "white-knit-cardigan", "bow", "blue-gingham-bow", "button-eyes", "embroidered-nose", "paw-pads", "gingham-paw-pads", "gingham-ear-lining"]
 brand: "keel-teddy"
 species: "bear"
 rescued:

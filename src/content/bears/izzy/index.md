@@ -2,8 +2,8 @@
 name: "Izzy"
 uploadedOn: 2019-10-07
 picture: "./izzy.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["white-fur", "multi-coloured-fur", "colourful-spots", "pink-tracksuit", "fluffy", "embroidered-nose", "stitched-mouth", "button-eyes", "butterfly-embroidery", "build-a-bear", "soft", "rainbow-details"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

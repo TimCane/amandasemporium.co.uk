@@ -2,8 +2,8 @@
 name: "Nellie"
 uploadedOn: 2022-08-17
 picture: "./nellie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "fluffy", "red-top", "denim-shorts", "floral-embroidery", "hair-bow", "red-bow", "embroidered-nose", "stitched-mouth", "soft", "well-loved", "white-paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

@@ -1,7 +1,7 @@
 ---
 name: "Ripley Christmas Fair"
 date: 2022-12-04
-description: ""
+info: ""
 location:
     name: "Ripley High Street, GU23 6BB."
     location: "ripley"

@@ -1,0 +1,143 @@
+// Base theme defaults — sensible defaults for all HTML hooks
+// Themes override these via their own SCSS files
+
+// Default CSS custom properties (overridden by each theme)
+:root {
+  --color-primary: #8b6f5e;
+  --color-secondary: #b8a090;
+  --color-bg: #faf8f5;
+  --color-text: #333;
+  --color-focus: #4a90d9;
+  --font-body: system-ui, sans-serif;
+  --font-heading: system-ui, sans-serif;
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-ms: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-ml: 1.25rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  --radius-sm: 2px;
+  --radius-card: 4px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.12);
+  --shadow-md-up: 0 -2px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.18);
+  --shadow-card: var(--shadow-sm);
+  --leading-body: 1.7;
+  --leading-compact: 1.4;
+  --page-width: 72rem;
+  --page-width-content: 56rem;
+  --section-gap: 3rem;
+  --section-pad-x: 1.5rem;
+  --page-pad-top: 2.5rem;
+  --page-pad-bottom: 3rem;
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: var(--leading-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  line-height: 1.2;
+}
+
+// Decoration elements — hidden by default, themes enable as needed
+[class*="__decoration"] {
+  display: none;
+}
+
+// Default card layout
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: var(--radius-card);
+}
+
+.card__image-wrapper {
+  overflow: hidden;
+}
+
+.card__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.card__body {
+  padding: var(--spacing-md);
+}
+
+.card__title {
+  font-family: var(--font-heading);
+}
+
+// Default button styles
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: filter var(--transition-fast);
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+// Default nav layout
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar__links {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+// Default footer layout
+.footer {
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+// Card grid default
+.card-grid {
+  display: grid;
+  gap: var(--spacing-md);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+// Page wrapper defaults
+.page-wrapper {
+  width: 100%;
+}
+
+.page-content {
+  max-width: var(--page-width);
+  margin-inline: auto;
+  padding: var(--spacing-md);
+}
+
+// Overlay elements — positioned absolutely within relative parents
+[class*="__overlay"] {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}

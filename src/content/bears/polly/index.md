@@ -2,8 +2,8 @@
 name: "Polly"
 uploadedOn: 2018-12-03
 picture: "./polly.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "long-ears", "pink-inner-ears", "knitted-cardigan", "pink-cardigan", "purple-trousers", "knitted-outfit", "button-fastening", "cream-trim", "soft", "fluffy", "embroidered-nose", "button-eyes", "pale-paw-pads"]
 brand: "build-a-bear"
 species: "rabbit"
 rescued:

@@ -2,8 +2,8 @@
 name: "Clara"
 uploadedOn: 2018-11-12
 picture: "./clara.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "fluffy", "soft", "pink-dress", "tutu", "ballerina", "embroidered-nose", "button-eyes", "bow", "sparkly", "well-loved"]
 brand: "keel-teddy"
 species: "bear"
 rescued:

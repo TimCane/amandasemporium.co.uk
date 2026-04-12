@@ -2,8 +2,8 @@
 name: "Cobey"
 uploadedOn: 2022-11-08
 picture: "./cobey.jpg"
-description: ""
-tags: ["karate"]
+tagline: ""
+tags: ["golden-fur", "white-karate-gi", "black-belt", "white-headband", "martial-arts-costume", "karate", "fluffy", "soft", "embroidered-nose", "stitched-mouth", "well-loved"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

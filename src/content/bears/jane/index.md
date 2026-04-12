@@ -2,8 +2,8 @@
 name: "Jane"
 uploadedOn: 2021-10-07
 picture: "./jane.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "pink-dress", "fur-trim-dress", "pink-shoes", "bow", "hair-bows", "handbag", "printed-face", "embroidered-nose", "paw-pads", "build-a-bear", "fluffy", "smooth"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

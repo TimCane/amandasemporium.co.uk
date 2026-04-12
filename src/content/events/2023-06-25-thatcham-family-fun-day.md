@@ -1,7 +1,7 @@
 ---
 name: "Thatcham Family Fun Day"
 date: 2023-06-25
-description: ""
+info: ""
 location:
     name: "Henwick Worthy Sports Ground, Thatcham RG18 3BU."
     location: "thatcham"

@@ -2,8 +2,8 @@
 name: "Jamie"
 uploadedOn: 2018-11-12
 picture: "./jamie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "onesie", "knitted-onesie", "grey-onesie", "white-stripe", "button-front", "fluffy", "soft", "embroidered-nose", "stitched-mouth", "button-eyes", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

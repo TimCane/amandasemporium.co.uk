@@ -2,8 +2,8 @@
 name: "Blossom"
 uploadedOn: 2019-09-30
 picture: "./blossom.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["pink-fur", "fluffy", "soft", "pyjamas", "pink-knitted-onesie", "white-stripe-detail", "bow", "blue-bow", "button-eyes", "embroidered-nose", "paw-pads"]
 brand: "the-works"
 species: "bear"
 rescued:

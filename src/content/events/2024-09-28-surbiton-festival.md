@@ -1,7 +1,7 @@
 ---
 name: "Surbiton Festival"
+info: ""
 date: 2024-09-28
-description: ""
 location:
     name: "Claremont Gardens, KT6 4TN."
     location: "surbiton"

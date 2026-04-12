@@ -2,8 +2,8 @@
 name: "Yasmine"
 uploadedOn: 2025-04-24
 picture: "./yasmine.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["pink-fur", "fluffy", "onesie", "pink-onesie", "knitted-outfit", "button-front", "embroidered-nose", "soft", "curly-fur"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

@@ -2,8 +2,8 @@
 name: "Ella"
 uploadedOn: 2022-12-02
 picture: "./ella.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "blue-dress", "sparkly", "sequined-dress", "tutu", "bow", "teal-bow", "handbag", "button-eyes", "embroidered-nose", "soft", "fluffy", "glittery"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

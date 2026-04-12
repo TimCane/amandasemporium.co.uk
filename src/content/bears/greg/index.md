@@ -2,8 +2,8 @@
 name: "Greg"
 uploadedOn: 2018-11-12
 picture: "./greg.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["grey-fur", "fluffy", "soft", "onesie", "knitted-onesie", "grey-onesie", "red-stripe", "button-front", "paw-pads", "embroidered-nose", "button-eyes", "curly-fur"]
 brand: "cuddles-collection"
 species: "bear"
 rescued:

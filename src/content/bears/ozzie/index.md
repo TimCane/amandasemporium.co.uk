@@ -2,8 +2,8 @@
 name: "Ozzie"
 uploadedOn: 2023-11-02
 picture: "./ozzie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "fluffy", "soft", "teal-t-shirt", "shorts", "party-animal", "llama-print", "embroidered-nose", "stitched-mouth", "well-loved", "smooth"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

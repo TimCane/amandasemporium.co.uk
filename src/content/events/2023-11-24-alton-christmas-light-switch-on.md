@@ -1,7 +1,7 @@
 ---
 name: "Alton Christmas Light Switch-On"
 date: 2023-11-24
-description: ""
+info: ""
 location:
     name: "Alton High Street, GU34 1AB."
     location: "alton"

@@ -1,0 +1,5 @@
+---
+image: "./bears-horley-22-04-23.jpg"
+caption: "Bears enjoying their new home in Horley"
+category: "bears"
+---

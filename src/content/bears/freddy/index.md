@@ -2,8 +2,8 @@
 name: "Freddy"
 uploadedOn: 2018-12-03
 picture: "./freddy.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "knitted-onesie", "blue-onesie", "orange-bib", "white-trim", "button-fastening", "fluffy", "shaggy", "button-eyes", "embroidered-nose", "paw-pads", "soft"]
 brand: "barnes-and-noble"
 species: "bear"
 rescued:

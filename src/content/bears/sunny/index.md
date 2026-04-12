@@ -2,8 +2,8 @@
 name: "Sunny"
 uploadedOn: 2022-08-17
 picture: "./sunny.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "fluffy", "curly-fur", "soft", "yellow-gilet", "floral-trousers", "sunflower-print", "fur-trim", "button-eyes", "embroidered-nose", "build-a-bear"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

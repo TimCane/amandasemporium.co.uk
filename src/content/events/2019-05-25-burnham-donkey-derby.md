@@ -1,7 +1,7 @@
 ---
 name: "Burnham Donkey Derby"
 date: 2019-05-25
-description: ""
+info: ""
 location:
     name: "Burnham Park. SL1 6DR"
     location: "burnham"

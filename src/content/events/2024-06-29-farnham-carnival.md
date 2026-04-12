@@ -1,7 +1,7 @@
 ---
 name: "Farnham Carnival"
 date: 2024-06-29
-description: ""
+info: ""
 location:
     name: "Gostrey Meadow, Farnham. GU9 7RH."
     location: "farnham"

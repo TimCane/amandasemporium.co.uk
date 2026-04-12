@@ -1,0 +1,28 @@
+@use '../shared';
+
+// Variables
+@use '../variables';
+
+// Page-level component styles (inline markup, not Astro components)
+@use '../components/bear-filters';
+
+// Pages
+@use '../pages/bears';
+@use '../pages/products';
+@use '../pages/timeline' as timeline-page;
+@use '../pages/bear-map' as bear-map-page;
+@use '../pages/bear-profile';
+@use '../pages/privacy';
+@use '../pages/error';
+@use '../pages/about';
+@use '../pages/contact';
+@use '../pages/home';
+@use '../pages/events';
+@use '../pages/event-profile';
+@use '../pages/product-profile';
+@use '../pages/gallery';
+@use '../pages/botm';
+
+// Base
+body { line-height: 1.75; }
+.page-content { max-width: 72rem; }

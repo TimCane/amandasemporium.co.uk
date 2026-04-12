@@ -1,0 +1,145 @@
+---
+// Component spec: Task 1.5 shared UI — Pagination
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  baseUrl: string;
+  params?: Record<string, string>;
+}
+
+const { currentPage, totalPages, baseUrl, params = {} } = Astro.props;
+
+function buildUrl(page: number): string {
+  const searchParams = new URLSearchParams(params);
+  searchParams.set('page', String(page));
+  return `${baseUrl}?${searchParams.toString()}`;
+}
+
+// Generate page numbers with ellipsis
+function getPageNumbers(): (number | '...')[] {
+  const pages: (number | '...')[] = [];
+  if (totalPages <= 7) {
+    for (let i = 1; i <= totalPages; i++) pages.push(i);
+    return pages;
+  }
+
+  pages.push(1);
+  if (currentPage > 3) pages.push('...');
+
+  const start = Math.max(2, currentPage - 1);
+  const end = Math.min(totalPages - 1, currentPage + 1);
+  for (let i = start; i <= end; i++) pages.push(i);
+
+  if (currentPage < totalPages - 2) pages.push('...');
+  pages.push(totalPages);
+
+  return pages;
+}
+
+const pageNumbers = getPageNumbers();
+---
+
+{totalPages > 1 && (
+  <nav class="pagination" aria-label="Pagination">
+    {currentPage > 1 ? (
+      <a href={buildUrl(currentPage - 1)} class="pagination__prev" aria-label="Previous page">
+        Previous
+      </a>
+    ) : (
+      <span class="pagination__prev pagination__prev--disabled" aria-hidden="true">
+        Previous
+      </span>
+    )}
+
+    <div class="pagination__pages">
+      {pageNumbers.map(page =>
+        page === '...' ? (
+          <span class="pagination__ellipsis">...</span>
+        ) : page === currentPage ? (
+          <span class="pagination__page pagination__page--active" aria-current="page">
+            {page}
+          </span>
+        ) : (
+          <a href={buildUrl(page)} class="pagination__page">
+            {page}
+          </a>
+        )
+      )}
+    </div>
+
+    {currentPage < totalPages ? (
+      <a href={buildUrl(currentPage + 1)} class="pagination__next" aria-label="Next page">
+        Next
+      </a>
+    ) : (
+      <span class="pagination__next pagination__next--disabled" aria-hidden="true">
+        Next
+      </span>
+    )}
+  </nav>
+)}
+
+<style lang="scss">
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-lg) 0;
+    font-family: var(--font-body);
+
+    &__prev,
+    &__next {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-size: var(--text-sm);
+      padding: var(--spacing-sm) var(--spacing-ms);
+      min-height: 2.75rem;
+      display: inline-flex;
+      align-items: center;
+      transition: color var(--transition-fast);
+
+      &:hover { color: var(--color-primary-dark); }
+
+      &--disabled {
+        color: var(--color-text-muted);
+        opacity: 0.5;
+        cursor: default;
+      }
+    }
+
+    &__pages {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &__page {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 2.5rem;
+      height: 2.5rem;
+      padding: var(--spacing-xs) var(--spacing-sm);
+      font-size: var(--text-sm);
+      text-decoration: none;
+      color: var(--color-text);
+      transition: color var(--transition-fast);
+
+      &:hover { color: var(--color-primary); }
+
+      &--active {
+        color: var(--color-primary-dark);
+        font-weight: 600;
+        border-bottom: 2px solid var(--color-primary-dark);
+      }
+    }
+
+    &__ellipsis {
+      color: var(--color-text-muted);
+      padding: 0 0.25rem;
+    }
+  }
+</style>

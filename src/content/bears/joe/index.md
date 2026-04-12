@@ -2,8 +2,8 @@
 name: "Joe"
 uploadedOn: 2019-09-09
 picture: "./joe.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "fluffy", "military-uniform", "green-jacket", "black-trousers", "white-shirt", "black-tie", "medals", "badges", "soft", "embroidered-nose", "stitched-mouth"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

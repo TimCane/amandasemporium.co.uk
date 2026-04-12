@@ -2,8 +2,8 @@
 name: "Roly"
 uploadedOn: 2022-08-17
 picture: "./roly.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["brown-fur", "striped-t-shirt", "jeans", "hat", "navy-and-white-stripes", "soft", "fluffy", "embroidered-nose", "smooth-face", "casual-outfit"]
 brand: "bear-factory"
 species: "bear"
 rescued:

@@ -2,8 +2,8 @@
 name: "Rory"
 uploadedOn: 2018-11-12
 picture: "./rory.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "curly-fur", "fluffy", "knitted-onesie", "grey-onesie", "white-stripe", "button-fastening", "embroidered-nose", "embroidered-eyes", "paw-pads", "soft"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

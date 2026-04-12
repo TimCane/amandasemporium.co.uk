@@ -2,8 +2,8 @@
 name: "Elsa"
 uploadedOn: 2022-11-18
 picture: "./elsa.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["white-fur", "blue-ear-tips", "blue-paw-pads", "tutu", "purple-top", "jacket", "star-emblem", "printed-face", "blue-eyes", "pink-nose", "fluffy", "glittery", "colourful-fur-accents", "build-a-bear"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

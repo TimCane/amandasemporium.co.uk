@@ -2,8 +2,8 @@
 name: "Princess"
 uploadedOn: 2022-08-17
 picture: "./princess.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["pink-fur", "hot-pink-dress", "sparkly-dress", "ruffled-dress", "floral-detail", "printed-face", "blue-eyes", "fluffy", "soft", "smooth-fur", "build-a-bear"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

@@ -1,0 +1,84 @@
+<div id="cookie-banner" class="cookie-banner cookie-banner--hidden" role="region" aria-label="Cookie notice">
+  <p class="cookie-banner__text">
+    This site uses cookie-free analytics. Map tiles load from OpenStreetMap's servers, which may log your IP address.
+    <a href="/privacy" class="cookie-banner__link">Privacy Policy</a>
+  </p>
+  <button id="cookie-banner-dismiss" class="cookie-banner__dismiss">Got it</button>
+</div>
+
+<script>
+  function initCookieBanner() {
+    const banner = document.getElementById('cookie-banner');
+    const dismiss = document.getElementById('cookie-banner-dismiss');
+
+    if (!localStorage.getItem('ae-cookie-banner-dismissed')) {
+      banner?.classList.remove('cookie-banner--hidden');
+    }
+
+    dismiss?.addEventListener('click', () => {
+      localStorage.setItem('ae-cookie-banner-dismissed', 'true');
+      banner?.classList.add('cookie-banner--hidden');
+    });
+  }
+
+  initCookieBanner();
+  document.addEventListener('astro:after-swap', initCookieBanner);
+</script>
+
+<style lang="scss">
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--color-bg-alt);
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-md) var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    box-shadow: var(--shadow-md-up);
+
+    &--hidden {
+      display: none;
+    }
+
+    &__text {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      font-size: var(--text-sm);
+      margin: 0;
+    }
+
+    &__link {
+      color: var(--color-primary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--color-primary);
+      transition: border-color var(--transition-fast);
+
+      &:hover {
+        border-bottom-color: transparent;
+      }
+    }
+
+    &__dismiss {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      padding: var(--spacing-xs) var(--spacing-md);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-card);
+      background: var(--color-accent);
+      color: var(--color-bg);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: filter var(--transition-fast);
+
+      &:hover {
+        filter: brightness(0.9);
+      }
+    }
+  }
+</style>

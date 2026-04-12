@@ -2,8 +2,8 @@
 name: "Isobel"
 uploadedOn: 2019-05-31
 picture: "./isobel.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "fluffy", "soft", "yellow-cardigan", "floral-skirt", "lace-trim", "bow", "pink-nose", "button-eyes", "paw-pads", "well-loved"]
 brand: "cuddles-collection"
 species: "bear"
 rescued:

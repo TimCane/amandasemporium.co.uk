@@ -2,8 +2,8 @@
 name: "Nova"
 uploadedOn: 2024-04-22
 picture: "./nova.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["dark-blue-fur", "navy-fur", "knitted-cardigan", "grey-cardigan", "button-up-cardigan", "fluffy", "soft", "embroidered-nose", "stitched-mouth", "paw-pads", "well-loved"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

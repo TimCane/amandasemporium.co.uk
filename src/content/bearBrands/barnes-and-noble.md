@@ -1,3 +1,0 @@
----
-name: "Barnes & Noble"
----

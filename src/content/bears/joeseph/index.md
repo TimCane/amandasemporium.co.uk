@@ -2,8 +2,8 @@
 name: "Joeseph"
 uploadedOn: 2024-06-18
 picture: "./joeseph.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "brown-fur", "checked-shirt", "blue-shirt", "black-trousers", "embroidered-nose", "stitched-mouth", "button-eyes", "fluffy", "soft", "printed-face"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

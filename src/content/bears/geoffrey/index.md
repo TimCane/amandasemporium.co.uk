@@ -2,8 +2,8 @@
 name: "Geoffrey"
 uploadedOn: 2022-08-17
 picture: "./geoffrey.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "cream-fur", "blue-knitted-cardigan", "blue-trousers", "blue-headband", "fluffy", "soft", "embroidered-nose", "stitched-mouth", "paw-pads", "curly-fur"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

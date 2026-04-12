@@ -2,8 +2,8 @@
 name: "Odette"
 uploadedOn: 2025-04-24
 picture: "./odette.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["brown-fur", "floral-dress", "navy-dress", "pink-inner-ears", "floppy-ears", "well-loved", "smooth-fur", "paw-pads", "sitting"]
 brand: "build-a-bear"
 species: "rabbit"
 rescued:

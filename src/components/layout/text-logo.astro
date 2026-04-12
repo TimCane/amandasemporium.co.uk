@@ -1,0 +1,29 @@
+---
+interface Props {
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { size = 'md' } = Astro.props;
+---
+
+<a href="/" class={`text-logo text-logo--${size}`} aria-label="Amanda's Emporium — Home">
+  Amanda's Emporium
+</a>
+
+<style lang="scss">
+  .text-logo {
+    font-family: var(--font-heading);
+    color: var(--color-primary-dark);
+    text-decoration: none;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+
+    &--sm { font-size: 1rem; }
+    &--md { font-size: 1.35rem; }
+    &--lg { font-size: 1.75rem; }
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+</style>

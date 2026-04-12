@@ -2,8 +2,8 @@
 name: "Violet"
 uploadedOn: 2019-09-30
 picture: "./violet.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["brown-fur", "fluffy", "soft", "knitted-jumper", "skirt", "purple-jumper", "purple-skirt", "flower-hair-clip", "embroidered-nose", "stitched-mouth", "paw-pads"]
 brand: "bear-factory"
 species: "bear"
 rescued:

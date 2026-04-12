@@ -1,0 +1,30 @@
+---
+export const prerender = false;
+import AdminLayout from '@/layouts/admin.layout.astro';
+import AdminListView from '@/components/admin/AdminListView';
+
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/404');
+}
+
+const columns = [
+  { key: 'name', label: 'Name' },
+  { key: 'date', label: 'Date', format: 'date' },
+  { key: 'time', label: 'Time' },
+  { key: 'location.name', label: 'Venue' },
+  { key: 'date', label: 'Status', format: 'event-status' },
+  { key: '_content', label: 'Content', format: 'content-status' },
+];
+
+---
+
+<AdminLayout title="Events">
+  <h1>Events</h1>
+  <AdminListView
+    client:load
+    collection="events"
+    columns={columns}
+    nameField="name"
+    enableClone={true}
+  />
+</AdminLayout>

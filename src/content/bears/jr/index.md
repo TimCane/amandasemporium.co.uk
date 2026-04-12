@@ -2,8 +2,8 @@
 name: "Jr"
 uploadedOn: 2022-03-01
 picture: "./jr.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["blue-fur", "football-kit", "blue-shirt", "scarf", "bobble-hat", "chelsea", "samsung-sponsor", "knitted-hat", "blue-and-yellow-hat", "fluffy", "embroidered-nose", "soft", "football-fan"]
 brand: "birthdays"
 species: "bear"
 rescued:

@@ -2,8 +2,8 @@
 name: "Pete"
 uploadedOn: 2019-12-12
 picture: "./pete.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "red-t-shirt", "pirate-trousers", "pirate", "fluffy", "soft", "embroidered-nose", "stitched-mouth", "printed-face", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

@@ -1,7 +1,7 @@
 ---
 name: "Farnborough High Street"
 date: 2019-10-19
-description: ""
+info: ""
 location:
     name: "Farnborough"
     location: "farnborough"

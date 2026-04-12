@@ -1,7 +1,7 @@
 ---
 name: "Horley Christmas Fair"
 date: 2019-12-14
-description: ""
+info: ""
 location:
     name: "Horley High Street, RH6 7AY."
     location: "horley"

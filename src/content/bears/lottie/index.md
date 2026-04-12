@@ -2,8 +2,8 @@
 name: "Lottie"
 uploadedOn: 2019-05-27
 picture: "./lottie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["pink-fur", "curly-fur", "fluffy", "pyjamas", "knitted-onesie", "blue-eyes", "heart-nose", "button-eyes", "embroidered-nose", "soft", "pink-onesie"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

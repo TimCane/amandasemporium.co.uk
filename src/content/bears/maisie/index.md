@@ -2,8 +2,8 @@
 name: "Maisie"
 uploadedOn: 2019-09-09
 picture: "./maisie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["white-fur", "fluffy", "pink-top", "skirt", "polka-dot-skirt", "black-skirt", "bow", "black-bow", "embroidered-nose", "embroidered-eyes", "stitched-mouth", "soft", "curly-fur"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

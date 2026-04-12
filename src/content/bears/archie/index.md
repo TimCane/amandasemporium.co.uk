@@ -2,8 +2,8 @@
 name: "Archie"
 uploadedOn: 2019-05-27
 picture: "./archie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "golden-fur", "blue-onesie", "knitted-outfit", "printed-face", "embroidered-nose", "soft", "fluffy", "smooth"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

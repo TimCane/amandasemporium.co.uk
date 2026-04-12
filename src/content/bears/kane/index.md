@@ -2,8 +2,8 @@
 name: "Kane"
 uploadedOn: 2023-11-02
 picture: "./kane.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["blue-fur", "cream-fur", "knitted-dungarees", "knitted-cardigan", "blue-outfit", "fluffy", "soft", "embroidered-eyes", "embroidered-nose", "stitched-mouth", "well-loved", "vintage"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

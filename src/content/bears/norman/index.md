@@ -2,8 +2,8 @@
 name: "Norman"
 uploadedOn: 2018-06-11
 picture: "./norman.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "fluffy", "shaggy", "knitted-pyjamas", "blue-stripe-detail", "button-fastening", "embroidered-nose", "stitched-mouth", "soft", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

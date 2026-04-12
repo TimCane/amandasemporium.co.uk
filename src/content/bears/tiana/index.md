@@ -2,8 +2,8 @@
 name: "Tiana"
 uploadedOn: 2023-11-02
 picture: "./tiana.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["white-fur", "dress", "lace-dress", "crown", "printed-face", "blue-eyes", "embroidered-nose", "disney-princess", "elsa", "frozen", "fluffy", "soft", "silver-details", "character-costume"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

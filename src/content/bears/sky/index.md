@@ -2,8 +2,8 @@
 name: "Sky"
 uploadedOn: 2021-08-11
 picture: "./sky.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["black-fur", "multi-coloured-fur", "neon-patches", "blue-fur", "green-fur", "teal-knitted-cardigan", "knitted-shorts", "button-nose", "embroidered-nose", "fluffy", "bright", "build-a-bear"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

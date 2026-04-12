@@ -2,8 +2,8 @@
 name: "Bella"
 uploadedOn: 2018-04-29
 picture: "./bella.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "fluffy", "soft", "dress", "knitted-cardigan", "floral-dress", "embroidered-eyes", "embroidered-nose", "pink-nose", "well-loved", "tied-waist"]
 brand: "keel-teddy"
 species: "bear"
 rescued:

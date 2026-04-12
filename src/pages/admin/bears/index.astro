@@ -1,0 +1,30 @@
+---
+export const prerender = false;
+import AdminLayout from '@/layouts/admin.layout.astro';
+import AdminListView from '@/components/admin/AdminListView';
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/404');
+}
+
+const columns = [
+  { key: 'picture', label: '', format: 'picture' },
+  { key: 'name', label: 'Name' },
+  { key: 'species', label: 'Species' },
+  { key: 'brand', label: 'Brand' },
+  { key: 'tags', label: 'Tags', format: 'tags' },
+  { key: 'rescued.date', label: 'Rescued', format: 'date' },
+  { key: 'rehomed', label: 'Status', format: 'rehomed-status' },
+  { key: '_content', label: 'Content', format: 'content-status' },
+];
+
+---
+
+<AdminLayout title="Bears">
+  <h1>Bears</h1>
+  <AdminListView
+    client:load
+    collection="bears"
+    columns={columns}
+    nameField="name"
+  />
+</AdminLayout>

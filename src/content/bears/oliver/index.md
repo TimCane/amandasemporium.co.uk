@@ -2,8 +2,8 @@
 name: "Oliver"
 uploadedOn: 2019-09-09
 picture: "./oliver.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["white-fur", "blue-onesie", "knitted-onesie", "button-fastening", "blue-nose", "soft", "fluffy", "button-eyes", "embroidered-nose", "plush"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

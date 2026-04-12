@@ -2,8 +2,8 @@
 name: "Bonnie"
 uploadedOn: 2019-12-12
 picture: "./bonnie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "fluffy", "curly-fur", "pink-dress", "polka-dot-skirt", "blue-elephant-print", "embroidered-eyes", "embroidered-nose", "stitched-mouth", "soft", "well-loved"]
 brand: "bear-factory"
 species: "bear"
 rescued:

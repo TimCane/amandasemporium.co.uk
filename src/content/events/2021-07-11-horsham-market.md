@@ -1,7 +1,7 @@
 ---
 name: "Horsham Market (Postponed)"
 date: 2021-07-11
-description: ""
+info: ""
 location:
     name: "Carfax, Horsham, RH12 1EQ"
     location: "horsham"

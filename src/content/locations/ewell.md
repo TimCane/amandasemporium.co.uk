@@ -2,4 +2,7 @@
 name: "Ewell"
 latitude: 51.350631
 longitude: -0.253337
+country: "United Kingdom"
+county: "Surrey"
+postcode: "KT17"
 ---

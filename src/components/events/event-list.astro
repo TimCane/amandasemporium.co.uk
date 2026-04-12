@@ -1,0 +1,59 @@
+---
+import EventCard from '@/components/events/event-card.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  events: CollectionEntry<'events'>[];
+  showCalendarButtons?: boolean;
+  emptyMessage?: string;
+}
+
+const {
+  events,
+  showCalendarButtons = false,
+  emptyMessage = 'Nothing to show here just now.',
+} = Astro.props;
+---
+
+{events.length > 0 ? (
+  <ul class="event-list__grid" role="list">
+    {events.map(event => (
+      <li><EventCard event={event} showCalendarButton={showCalendarButtons} /></li>
+    ))}
+  </ul>
+) : (
+  <div class="event-list__empty">
+    <p class="event-list__empty-text">{emptyMessage}</p>
+  </div>
+)}
+
+<style lang="scss">
+  .event-list {
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-lg);
+      }
+    }
+
+    &__empty {
+      text-align: center;
+      padding: var(--spacing-2xl) var(--spacing-md);
+    }
+
+    &__empty-text {
+      font-family: var(--font-body);
+      color: var(--color-text-muted);
+      font-size: var(--text-md);
+      margin: 0 0 var(--spacing-md);
+      font-style: italic;
+    }
+  }
+</style>

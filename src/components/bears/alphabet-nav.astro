@@ -1,0 +1,118 @@
+---
+import { ALPHABET } from '@/libs/alphabet';
+
+interface Props {
+  activeLetters: string[];
+  currentLetter?: string;
+  baseUrl: string;
+  params: Record<string, string>;
+}
+
+const { activeLetters, currentLetter, baseUrl, params } = Astro.props;
+
+function buildLetterUrl(letter: string): string {
+  const searchParams = new URLSearchParams(params);
+  searchParams.set('letter', letter);
+  searchParams.delete('page'); // Reset page when changing letter
+  return `${baseUrl}?${searchParams.toString()}`;
+}
+
+function buildClearUrl(): string {
+  const searchParams = new URLSearchParams(params);
+  searchParams.delete('letter');
+  searchParams.delete('page');
+  const qs = searchParams.toString();
+  return qs ? `${baseUrl}?${qs}` : baseUrl;
+}
+---
+
+<nav class="alphabet-nav" aria-label="Filter by letter">
+  <a
+    href={buildClearUrl()}
+    class:list={['alphabet-nav__clear', { 'alphabet-nav__clear--active': !currentLetter }]}
+    aria-current={!currentLetter ? 'page' : undefined}
+  >
+    All
+  </a>
+  <div class="alphabet-nav__letters">
+    {ALPHABET.map((letter) =>
+      activeLetters.includes(letter) ? (
+        <a
+          href={buildLetterUrl(letter)}
+          class:list={[
+            'alphabet-nav__letter',
+            { 'alphabet-nav__letter--active': letter === currentLetter },
+          ]}
+          aria-current={letter === currentLetter ? 'page' : undefined}
+        >
+          {letter}
+        </a>
+      ) : (
+        <span class="alphabet-nav__letter alphabet-nav__letter--disabled" aria-hidden="true">
+          {letter}
+        </span>
+      )
+    )}
+  </div>
+</nav>
+
+<style lang="scss">
+  .alphabet-nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+    padding-bottom: 0.25rem;
+
+    &__clear {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      text-decoration: none;
+      padding: var(--spacing-xs) var(--spacing-ms);
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color var(--transition-fast), border-color var(--transition-fast);
+
+      &:hover { color: var(--color-text); }
+
+      &--active {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary);
+      }
+    }
+
+    &__letters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.125rem;
+    }
+
+    &__letter {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      text-decoration: none;
+      color: var(--color-text);
+      transition: color var(--transition-fast), border-color var(--transition-fast);
+      border-bottom: 2px solid transparent;
+
+      &:hover { color: var(--color-primary); }
+
+      &--active {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary);
+        font-weight: 600;
+      }
+
+      &--disabled {
+        color: var(--color-border);
+        cursor: default;
+      }
+    }
+  }
+</style>

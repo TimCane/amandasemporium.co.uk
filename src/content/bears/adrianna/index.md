@@ -2,8 +2,8 @@
 name: "Adrianna"
 uploadedOn: 2019-09-30
 picture: "./adrianna.jpg"
-description: ""
-tags: ["princess"]
+tagline: ""
+tags: ["cream-fur", "fluffy", "soft", "purple-dress", "pink-sleeves", "princess-dress", "tiara", "crown", "cameo-brooch", "embroidered-nose", "stitched-mouth", "disney-princess", "sofia-the-first"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

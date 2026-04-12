@@ -2,8 +2,8 @@
 name: "Hayden"
 uploadedOn: 2019-05-31
 picture: "./hayden.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "onesie", "knitted-onesie", "green-stripe", "smooth", "soft", "embroidered-nose", "printed-face", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

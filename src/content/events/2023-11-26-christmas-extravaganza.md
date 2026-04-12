@@ -1,7 +1,7 @@
 ---
 name: "Christmas Extravaganza"
 date: 2023-11-26
-description: ""
+info: ""
 location:
     name: "Odiham High Street, RG29 1LB."
     location: "odiham"

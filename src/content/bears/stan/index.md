@@ -2,8 +2,8 @@
 name: "Stan"
 uploadedOn: 2018-09-30
 picture: "./stan.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "onesie", "blue-knitted-onesie", "yellow-buttons", "yellow-stripe-detail", "soft", "fluffy", "embroidered-nose", "stitched-mouth", "button-eyes", "build-a-bear", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

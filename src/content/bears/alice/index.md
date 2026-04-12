@@ -2,8 +2,8 @@
 name: "Alice"
 uploadedOn: 2024-10-01
 picture: "./alice.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["brown-fur", "golden-fur", "cream-fur", "pink-jacket", "fur-trim-hood", "pink-top", "pink-shoes", "fluffy", "soft", "button-eyes", "embroidered-nose"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

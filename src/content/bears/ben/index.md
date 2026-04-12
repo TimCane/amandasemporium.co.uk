@@ -2,8 +2,8 @@
 name: "Ben"
 uploadedOn: 2018-11-24
 picture: "./ben.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["brown-fur", "blue-knit-jacket", "blue-knit-hat", "fluffy", "embroidered-nose", "stitched-mouth", "button-eyes", "well-loved", "vintage"]
 brand: "unknown"
 species: "bear"
 rescued:

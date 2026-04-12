@@ -2,8 +2,8 @@
 name: "Alfie"
 uploadedOn: 2018-04-29
 picture: "./alfie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "fluffy", "blue-knitted-cardigan", "white-stripe-detail", "embroidered-nose", "stitched-mouth", "embroidered-eyes", "soft", "button-front"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

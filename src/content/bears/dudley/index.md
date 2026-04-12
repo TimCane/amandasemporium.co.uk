@@ -2,8 +2,8 @@
 name: "Dudley"
 uploadedOn: 2019-09-30
 picture: "./dudley.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "golden-fur", "onesie", "blue-onesie", "knitted-onesie", "button-details", "smooth-fur", "fluffy", "embroidered-nose", "stitched-mouth", "button-eyes", "soft"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

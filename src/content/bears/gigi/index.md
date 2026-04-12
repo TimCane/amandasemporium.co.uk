@@ -2,8 +2,8 @@
 name: "Gigi"
 uploadedOn: 2023-11-02
 picture: "./gigi.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["pink-fur", "multi-coloured-fur", "orange-fur", "fluffy", "tutu", "sequin-top", "pink-tutu", "white-paws", "sparkly", "embroidered-nose", "soft", "curly-fur"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

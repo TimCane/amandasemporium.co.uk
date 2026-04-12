@@ -2,8 +2,8 @@
 name: "Grace"
 uploadedOn: 2018-09-30
 picture: "./grace.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["pink-fur", "fluffy", "crochet-dress", "pink-dress", "ribbon", "embroidered-nose", "embroidered-eyes", "soft", "curly-fur", "bow"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

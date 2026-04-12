@@ -2,8 +2,8 @@
 name: "Louis"
 uploadedOn: 2019-09-30
 picture: "./louis.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["white-fur", "blue-snowflake-pattern", "knitted-onesie", "blue-onesie", "pink-stripe-detail", "button-fastening", "snowflake-print-fur", "embroidered-nose", "button-eyes", "fluffy", "soft", "winter-themed"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

@@ -2,8 +2,8 @@
 name: "Harvey"
 uploadedOn: 2019-10-07
 picture: "./harvey.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "pyjamas", "yellow-knitted-onesie", "button-fastening", "fluffy", "soft", "embroidered-nose", "smooth-face", "well-loved"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

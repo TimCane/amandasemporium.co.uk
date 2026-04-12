@@ -1,7 +1,7 @@
 ---
 name: "Farnborough Donkey Derby"
 date: 2024-05-27
-description: ""
+info: ""
 location:
     name: "King George V Playing Field, GU14 6PQ."
     location: "farnborough"

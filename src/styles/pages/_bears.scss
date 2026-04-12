@@ -1,0 +1,22 @@
+@use '../mixins' as *;
+
+// Bears Page — elegant browsing with CSS Grid layout
+.bears-page {
+  @include listing-page;
+
+  &__filters { @include filter-wrapper; }
+
+  &__alphabet {
+    margin-bottom: var(--spacing-xl);
+    display: flex;
+    justify-content: center;
+  }
+
+  &__grid {
+    @include card-grid;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  &__pagination { @include pagination-wrapper; }
+}

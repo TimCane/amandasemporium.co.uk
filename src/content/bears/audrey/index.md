@@ -2,8 +2,8 @@
 name: "Audrey"
 uploadedOn: 2022-08-17
 picture: "./audrey.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "curly-fur", "fluffy", "red-dress", "polka-dot-dress", "pink-bow", "headband", "heart-detail", "button-eyes", "embroidered-nose", "soft"]
 brand: "with-love"
 species: "bear"
 rescued:

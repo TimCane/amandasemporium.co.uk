@@ -2,8 +2,8 @@
 name: "Dexter"
 uploadedOn: 2024-06-18
 picture: "./dexter.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["white-fur", "brown-fur", "multi-coloured-fur", "floral-shirt", "blue-shorts", "naked-feet", "soft", "fluffy", "embroidered-nose", "stitched-mouth", "floppy-ears", "brown-patches"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

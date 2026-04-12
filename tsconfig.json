@@ -3,14 +3,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["src/*"]
     },
     "jsx": "react-jsx",
-    "jsxImportSource": "react"
-  },
-  "exclude": [
-    "dist"
-  ]
+    "jsxImportSource": "preact",
+    "ignoreDeprecations": "5.0"
+  }
 }

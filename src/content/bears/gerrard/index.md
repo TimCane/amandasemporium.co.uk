@@ -2,9 +2,9 @@
 name: "Gerrard"
 uploadedOn: 2023-07-11
 picture: "./gerrard.jpg"
-description: ""
-tags: ["football", "liverpool"]
-brand: "whsmith"
+tagline: ""
+tags: ["brown-fur", "football-kit", "red-shirt", "red-shorts", "liverpool-fc", "fluffy", "soft", "curly-fur", "well-loved", "embroidered-nose", "stitched-mouth"]
+brand: "wh-smith"
 species: "bear"
 rescued:
     location: "andover"

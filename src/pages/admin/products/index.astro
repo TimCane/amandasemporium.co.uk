@@ -1,0 +1,26 @@
+---
+export const prerender = false;
+import AdminLayout from '@/layouts/admin.layout.astro';
+import AdminListView from '@/components/admin/AdminListView';
+if (!import.meta.env.DEV) {
+  return Astro.redirect('/404');
+}
+
+const columns = [
+  { key: 'name', label: 'Name' },
+  { key: 'category', label: 'Category' },
+  { key: 'price', label: 'Price' },
+  { key: 'hidden', label: 'Hidden', format: 'boolean:yes' },
+  { key: '_content', label: 'Content', format: 'content-status' },
+];
+---
+
+<AdminLayout title="Products">
+  <h1>Products</h1>
+  <AdminListView
+    client:load
+    collection="products"
+    columns={columns}
+    nameField="name"
+  />
+</AdminLayout>

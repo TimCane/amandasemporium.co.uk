@@ -1,0 +1,61 @@
+// Bear Filters — dropdown filter bar
+.bear-filters {
+  width: 100%;
+
+  &__controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-ms);
+  }
+
+  &__select {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-sm) var(--spacing-ms);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23666'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right var(--spacing-ms) center;
+    transition: border-color var(--transition-fast);
+
+    &:hover {
+      border-color: var(--color-primary);
+    }
+
+    &:focus-visible {
+      outline: 3px solid var(--color-focus);
+      outline-offset: 2px;
+    }
+  }
+
+  &__clear {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-ms);
+    transition: color var(--transition-fast);
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  &__submit {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-bg);
+    background: var(--color-primary);
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-sm) var(--spacing-ml);
+    cursor: pointer;
+  }
+}

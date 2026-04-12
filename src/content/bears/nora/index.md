@@ -2,8 +2,8 @@
 name: "Nora"
 uploadedOn: 2022-04-24
 picture: "./nora.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["brown-fur", "fluffy", "curly-fur", "blue-polka-dot-top", "purple-polka-dot-skirt", "dress", "embroidered-nose", "button-eyes", "well-loved", "soft"]
 brand: "plush-company"
 species: "bear"
 rescued:

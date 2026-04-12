@@ -2,8 +2,8 @@
 name: "Becky"
 uploadedOn: 2019-05-31
 picture: "./becky.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["white-fur", "fluffy", "pink-cardigan", "skirt", "heart-print-skirt", "lace-trim", "button-eyes", "embroidered-nose", "soft", "knitted-clothing"]
 brand: "giorgio"
 species: "bear"
 rescued:

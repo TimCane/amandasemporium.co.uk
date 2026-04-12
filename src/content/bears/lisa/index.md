@@ -2,8 +2,8 @@
 name: "Lisa"
 uploadedOn: 2019-11-22
 picture: "./lisa.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "fluffy", "curly-fur", "sequin-top", "pink-shorts", "multicoloured-sequin-dress", "bow", "sequin-bow", "paw-pads", "pink-nose", "button-eyes", "soft"]
 brand: "cuddles-collection"
 species: "bear"
 rescued:

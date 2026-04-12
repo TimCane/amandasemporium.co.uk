@@ -2,8 +2,8 @@
 name: "Cooper"
 uploadedOn: 2022-11-08
 picture: "./cooper.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["brown-fur", "pyjamas", "teal-dressing-gown", "teal-slippers", "smooth", "soft", "embroidered-nose", "stitched-mouth", "button-eyes"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

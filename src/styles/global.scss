@@ -1,0 +1,7 @@
+// Global styles — loaded on every page
+// Order matters: reset first, then base defaults, then accessibility, then grid areas
+
+@use 'reset';
+@use 'accessibility';
+@use 'base';
+@use 'grid-areas';

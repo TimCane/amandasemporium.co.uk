@@ -2,8 +2,8 @@
 name: "Emma"
 uploadedOn: 2018-11-24
 picture: "./emma.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "soft", "fluffy", "knitted-onesie", "white-onesie", "yellow-stripe-detail", "button-fastening", "embroidered-nose", "stitched-mouth", "black-button-eyes", "smooth-face"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

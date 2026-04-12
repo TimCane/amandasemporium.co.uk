@@ -1,7 +1,7 @@
 ---
 name: "Guildford Town Bridge"
 date: 2020-05-02
-description: ""
+info: ""
 location:
     name: "Guildford, GU5 0HB"
     location: "guildford"

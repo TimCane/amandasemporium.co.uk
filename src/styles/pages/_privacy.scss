@@ -1,0 +1,68 @@
+@use '../mixins' as *;
+
+// =============================================
+// Privacy Page
+// =============================================
+
+.privacy-page {
+  @include content-page;
+
+  &__header {
+    @include page-header;
+  }
+
+  &__title { @include page-title; }
+
+  &__updated {
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
+    font-style: italic;
+    margin: 0;
+  }
+
+  &__section {
+    margin-bottom: var(--spacing-xl);
+    padding-bottom: var(--spacing-lg);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__heading {
+    @include section-heading;
+    margin: 0 0 var(--spacing-md);
+  }
+
+  &__body {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: var(--leading-body);
+
+    p {
+      margin: 0 0 var(--spacing-md);
+    }
+
+    ul {
+      margin: 0 0 var(--spacing-md);
+      padding-left: var(--spacing-lg);
+    }
+
+    li {
+      margin-bottom: var(--spacing-xs);
+    }
+
+    a {
+      color: var(--color-primary-dark);
+      text-decoration: none;
+      border-bottom: 1px solid var(--color-primary-dark);
+      transition: color var(--transition-fast), border-color var(--transition-fast);
+
+      &:hover {
+        color: var(--color-accent);
+        border-bottom-color: var(--color-accent);
+      }
+    }
+  }
+}

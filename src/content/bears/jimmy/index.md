@@ -2,8 +2,8 @@
 name: "Jimmy"
 uploadedOn: 2019-04-07
 picture: "./jimmy.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["brown-fur", "fluffy", "soft", "yellow-knitted-cardigan", "dark-red-knitted-shorts", "suspenders", "embroidered-nose", "button-eyes", "stitched-mouth", "well-loved"]
 brand: "bear-factory"
 species: "bear"
 rescued:

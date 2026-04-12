@@ -2,8 +2,8 @@
 name: "Clark"
 uploadedOn: 2019-04-07
 picture: "./clark.jpg"
-description: ""
-tags: ["superman"]
+tagline: ""
+tags: ["brown-fur", "superman", "superhero-costume", "knitted-outfit", "blue-top", "red-shorts", "red-boots", "yellow-belt", "s-logo", "cape", "fluffy", "embroidered-nose", "green-eyes"]
 brand: "unknown"
 species: "bear"
 rescued:

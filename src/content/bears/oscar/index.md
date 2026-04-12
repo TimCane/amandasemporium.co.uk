@@ -2,8 +2,8 @@
 name: "Oscar"
 uploadedOn: 2025-09-18
 picture: "./oscar.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "white-knit-jumper", "blue-shorts", "button-eyes", "embroidered-nose", "fluffy", "soft", "well-loved", "smooth-face"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

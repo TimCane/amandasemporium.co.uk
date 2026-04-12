@@ -1,0 +1,190 @@
+@use '../mixins' as *;
+
+// =============================================
+// Event Profile — refined editorial detail page
+// =============================================
+.event-profile {
+  @include profile-page;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-ms);
+    text-align: center;
+  }
+
+  &__title { @include profile-title; }
+
+  &__date {
+    font-family: var(--font-body);
+    font-size: var(--text-md);
+    color: var(--color-text);
+    font-style: italic;
+  }
+
+  &__time {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+  }
+
+  &__location {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    color: var(--color-text-muted);
+  }
+
+  &__info {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text);
+    line-height: var(--leading-body);
+    margin: var(--spacing-sm) 0 0;
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+
+  &__header-decoration {
+    display: none;
+  }
+
+  &__section-heading { @include section-heading; }
+
+  // Content (upcoming event description)
+  &__content {
+  }
+
+  &__content-body {
+    @include profile-body-text;
+    max-width: 42rem;
+  }
+
+  &__content-decoration {
+    display: none;
+  }
+
+  // Map
+  &__map {
+  }
+
+  &__map-wrapper {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+  }
+
+  &__map-decoration {
+    display: none;
+  }
+
+  // Links
+  &__links {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__link {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    text-decoration: none;
+    padding: var(--spacing-ms) var(--spacing-lg);
+    border-radius: var(--radius-sm);
+    transition: background var(--transition-fast), color var(--transition-fast);
+
+    &--website {
+      background: var(--color-primary);
+      color: var(--color-on-primary);
+
+      &:hover {
+        background: var(--color-primary-dark);
+      }
+    }
+
+    &--calendar {
+      background: transparent;
+      color: var(--color-primary);
+      border: 1px solid var(--color-primary);
+
+      &:hover {
+        background: var(--color-primary);
+        color: var(--color-on-primary);
+      }
+    }
+  }
+
+  &__links-decoration {
+    display: none;
+  }
+
+  // Recap (past events)
+  &__recap {
+  }
+
+  &__recap-body {
+    @include profile-body-text;
+    max-width: 42rem;
+  }
+
+  &__past-note {
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    font-size: var(--text-md);
+    font-style: italic;
+    line-height: var(--leading-body);
+    margin: 0 0 var(--spacing-ml);
+  }
+
+  &__recap-decoration {
+    display: none;
+  }
+
+  // Photos
+  &__photos {
+  }
+
+  &__photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  &__photo-wrapper {
+    position: relative;
+  }
+
+  &__photo {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border);
+    box-shadow: var(--shadow-card);
+  }
+
+  &__photos-decoration {
+    display: none;
+  }
+
+  // Bears at this event
+  &__bears {
+    margin-bottom: var(--section-gap);
+  }
+
+  &__bears-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--spacing-lg);
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+  }
+
+  &__bears-decoration {
+    display: none;
+  }
+
+}

@@ -2,8 +2,8 @@
 name: "Scarlett"
 uploadedOn: 2023-06-20
 picture: "./scarlett.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["grey-fur", "white-fur", "red-dress", "tutu", "blue-bow", "hello-kitty", "embroidered-nose", "fluffy", "black-paw-pads", "character-costume", "red-outfit"]
 brand: "build-a-bear"
 species: "koala"
 rescued:

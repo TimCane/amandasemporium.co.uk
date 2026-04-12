@@ -2,9 +2,9 @@
 name: "Henry"
 uploadedOn: 2018-04-29
 picture: "./henry.jpg"
-description: ""
-tags: []
-brand: "whsmith"
+tagline: ""
+tags: ["golden-fur", "fluffy", "curly-fur", "soft", "crochet-jumper", "blue-and-brown-striped-jumper", "blue-shorts", "bow-tie", "paw-pads", "embroidered-nose", "well-loved"]
+brand: "wh-smith"
 species: "bear"
 rescued:
     location: "shrewsbury"

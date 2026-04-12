@@ -2,9 +2,9 @@
 name: "Wendy"
 uploadedOn: 2023-05-30
 picture: "./wendy.jpg"
-description: ""
-tags: []
-brand: "whsmith"
+tagline: ""
+tags: ["brown-fur", "curly-fur", "blue-dungarees", "unicorn-print", "embroidered-paw", "fluffy", "soft", "button-eyes", "embroidered-nose", "well-loved"]
+brand: "wh-smith"
 species: "bear"
 rescued:
     location: "woking"

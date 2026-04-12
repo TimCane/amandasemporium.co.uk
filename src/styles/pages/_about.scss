@@ -1,0 +1,190 @@
+@use '../mixins' as *;
+
+// =============================================
+// About Page
+// =============================================
+
+.about-page {
+  @include content-page;
+
+  &__header {
+    text-align: center;
+    padding-bottom: var(--spacing-lg);
+  }
+
+  &__title {
+    @include page-title;
+    margin: 0 0 var(--spacing-ms);
+  }
+
+  &__intro {
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    font-size: var(--text-md);
+    line-height: var(--leading-body);
+    max-width: 36rem;
+    margin-inline: auto;
+    font-style: italic;
+  }
+
+  &__header-decoration { display: none; }
+
+  &__section-heading { @include section-heading; }
+
+  // Story, Mission, Craft sections — editorial style
+  &__story-inner,
+  &__mission-inner,
+  &__craft-inner,
+  &__stall-inner,
+  &__milestones-inner {
+    position: relative;
+  }
+
+  &__story-content,
+  &__mission-content,
+  &__craft-content,
+  &__stall-content {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: var(--leading-body);
+
+    p {
+      margin: 0 0 var(--spacing-md);
+    }
+  }
+
+  &__story-decoration,
+  &__mission-decoration,
+  &__craft-decoration,
+  &__stall-decoration,
+  &__milestones-decoration,
+  &__explore-decoration {
+    display: none;
+  }
+
+  &__section-link {
+    display: inline-block;
+    font-family: var(--font-body);
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    text-decoration: none;
+    margin-top: var(--spacing-ms);
+    transition: color var(--transition-fast);
+
+    &::after {
+      content: ' \2192';
+    }
+
+    &:hover {
+      color: var(--color-primary-dark);
+    }
+  }
+
+  // Stall photos
+  &__stall-photos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  &__stall-photo {
+    margin: 0;
+  }
+
+  &__stall-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border);
+  }
+
+  &__stall-caption {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: var(--spacing-xs);
+    font-style: italic;
+  }
+
+  // Milestones
+  &__milestones-intro {
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    font-size: var(--text-base);
+    margin: 0 0 var(--spacing-lg);
+    font-style: italic;
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+    margin: 0;
+
+    @media (min-width: 600px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__stat {
+    text-align: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+  }
+
+  &__stat-value {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--color-accent);
+    margin: 0;
+  }
+
+  &__stat-label {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  // Explore More
+  &__explore-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--spacing-ms);
+    grid-template-columns: 1fr;
+
+    @media (min-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__explore-link {
+    display: block;
+    font-family: var(--font-body);
+    padding: var(--spacing-md) var(--spacing-md);
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    text-decoration: none;
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
+    &:hover {
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-sm);
+    }
+  }
+}

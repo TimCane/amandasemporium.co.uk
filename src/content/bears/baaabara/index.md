@@ -2,8 +2,8 @@
 name: "Baaabara"
 uploadedOn: 2021-10-07
 picture: "./baaabara.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["white-fur", "curly-fur", "cream-paws", "purple-dress", "floral-dress", "purple-bow", "bow-headband", "embroidered-nose", "printed-face", "soft", "fluffy", "long-ears"]
 brand: "build-a-bear"
 species: "sheep"
 rescued:

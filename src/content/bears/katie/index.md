@@ -2,8 +2,8 @@
 name: "Katie"
 uploadedOn: 2018-12-03
 picture: "./katie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "fluffy", "soft", "white-knitted-cardigan", "floral-skirt", "button-eyes", "embroidered-nose", "paw-pads", "well-loved"]
 brand: "bear-factory"
 species: "bear"
 rescued:

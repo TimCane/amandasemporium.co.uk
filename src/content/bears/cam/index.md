@@ -2,8 +2,8 @@
 name: "Cam"
 uploadedOn: 2023-09-27
 picture: "./cam.jpg"
-description: ""
-tags: ["army"]
+tagline: ""
+tags: ["golden-fur", "camouflage-jacket", "camouflage-trousers", "camouflage-outfit", "harness", "fluffy", "well-loved", "embroidered-nose", "stitched-mouth", "button-eyes", "military-costume"]
 brand: "unknown"
 species: "cat"
 rescued:

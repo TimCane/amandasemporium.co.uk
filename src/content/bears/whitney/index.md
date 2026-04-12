@@ -2,8 +2,8 @@
 name: "Whitney"
 uploadedOn: 2023-11-02
 picture: "./whitney.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["pink-fur", "fluffy", "dress", "tutu", "multi-coloured-dress", "teal-dress", "purple-dress", "bow", "paw-pads", "soft", "shaggy", "curly-fur"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

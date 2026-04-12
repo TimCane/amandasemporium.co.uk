@@ -2,8 +2,8 @@
 name: "Cinders"
 uploadedOn: 2025-09-18
 picture: "./cinders.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "blue-dress", "crown", "tiara", "cinderella", "disney-princess", "fluffy", "soft", "embroidered-nose", "button-eyes", "white-paw-pads", "brooch"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

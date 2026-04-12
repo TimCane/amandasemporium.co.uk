@@ -2,8 +2,8 @@
 name: "Bear"
 uploadedOn: 2022-08-17
 picture: "./bear.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "fluffy", "soft", "green-jacket", "white-t-shirt", "khaki-trousers", "belt", "button-eyes", "embroidered-nose", "safari-outfit"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

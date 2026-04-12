@@ -1,0 +1,5 @@
+---
+image: "./stall5.jpg"
+caption: "Mapledurham 2017"
+category: "markets"
+---

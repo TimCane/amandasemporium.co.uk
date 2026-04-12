@@ -2,8 +2,8 @@
 name: "Amelia"
 uploadedOn: 2018-04-29
 picture: "./amelia.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "crochet-dress", "purple-dress", "paw-pads", "embroidered-nose", "button-eyes", "fluffy", "soft", "well-loved", "cream-paws"]
 brand: "glorious-britain-jointed"
 species: "bear"
 rescued:

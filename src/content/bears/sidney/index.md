@@ -2,8 +2,8 @@
 name: "Sidney"
 uploadedOn: 2023-06-20
 picture: "./sidney.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "fluffy", "knitted-onesie", "purple-onesie", "button-fastening", "embroidered-nose", "soft", "well-loved", "shaggy"]
 brand: "russ"
 species: "bear"
 rescued:

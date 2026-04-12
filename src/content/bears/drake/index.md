@@ -2,8 +2,8 @@
 name: "Drake"
 uploadedOn: 2018-09-30
 picture: "./drake.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "fluffy", "soft", "blue-knitted-onesie", "button-front", "striped-detail", "embroidered-nose", "embroidered-eyes", "stitched-mouth", "paw-pads"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

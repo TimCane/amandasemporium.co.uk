@@ -2,8 +2,8 @@
 name: "Terry"
 uploadedOn: 2019-05-24
 picture: "./terry.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "white-fur", "striped-shirt", "blue-shirt", "jeans", "button-up-shirt", "embroidered-nose", "embroidered-eyes", "stitched-mouth", "fluffy", "soft", "smooth"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

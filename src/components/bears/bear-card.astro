@@ -1,0 +1,107 @@
+---
+import { Image } from 'astro:assets';
+import Card from '@/components/ui/card.astro';
+import type { CollectionEntry } from 'astro:content';
+interface Props {
+  bear: CollectionEntry<'bears'>;
+  loading?: 'lazy' | 'eager';
+  subtitle?: string;
+}
+
+const { bear, loading = 'lazy', subtitle } = Astro.props;
+
+const { name, picture, species, rehomed } = bear.data;
+const status = rehomed ? 'Found Their Home' : 'Looking for a Home';
+const statusClass = rehomed ? 'bear-card__status--found' : 'bear-card__status--looking';
+const speciesLabel = species.charAt(0).toUpperCase() + species.slice(1);
+const slug = bear.slug;
+---
+
+<Card href={`/bears/${slug}`} class="bear-card">
+  <div class="bear-card__image-wrapper">
+    <Image
+      src={picture}
+      alt={`${name} the ${speciesLabel}`}
+      width={300}
+      height={300}
+      loading={loading}
+      class="bear-card__image"
+    />
+    <div class="bear-card__overlay" aria-hidden="true"></div>
+  </div>
+  <div class="bear-card__body">
+    <h3 class="bear-card__name">{name}</h3>
+    <span class:list={['bear-card__status', statusClass]}>{status}</span>
+    {subtitle && <span class="bear-card__subtitle">{subtitle}</span>}
+  </div>
+  <div class="bear-card__decoration-element"></div>
+</Card>
+
+<style lang="scss" is:global>
+  .bear-card {
+    .card__inner { padding: 0; }
+
+    &__image-wrapper {
+      position: relative;
+      overflow: hidden;
+    }
+
+    &__image {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition-normal);
+    }
+
+    &:hover &__image {
+      transform: scale(1.03);
+    }
+
+    &__overlay { display: none; }
+
+    &__body {
+      padding: var(--spacing-md);
+    }
+
+    &__name {
+      font-family: var(--font-heading);
+      font-size: var(--text-md);
+      color: var(--color-text);
+      margin: 0 0 var(--spacing-xs);
+      font-weight: 600;
+    }
+
+    &__status {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      padding: 2px var(--spacing-sm);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--spacing-xs);
+
+      &--looking {
+        background: var(--color-badge-looking-bg);
+        color: var(--color-badge-looking-text);
+      }
+
+      &--found {
+        background: var(--color-badge-found-bg);
+        color: var(--color-badge-found-text);
+      }
+    }
+
+    &__subtitle {
+      display: block;
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-style: italic;
+      color: var(--color-text-muted);
+      margin-top: var(--spacing-xs);
+      line-height: var(--leading-compact);
+    }
+
+    &__decoration-element { display: none; }
+  }
+</style>

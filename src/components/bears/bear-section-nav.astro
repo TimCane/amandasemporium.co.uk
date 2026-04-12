@@ -1,0 +1,60 @@
+---
+/**
+ * BearSectionNav — cross-navigation between bears listing, map, and timeline.
+ *
+ * Pass `current` to exclude the current page from the links.
+ */
+interface Props {
+  current: 'listing' | 'map' | 'timeline' | 'botm';
+}
+
+const { current } = Astro.props;
+
+const links = [
+  { href: '/bears', label: 'Browse bears', id: 'listing' },
+  { href: '/bears/map', label: 'View on map', id: 'map' },
+  { href: '/bears/timeline', label: 'View timeline', id: 'timeline' },
+  { href: '/bears/bear-of-the-month', label: 'Bear of the Month', id: 'botm' },
+] as const;
+
+const visibleLinks = links.filter((link) => link.id !== current);
+---
+
+<nav class="bear-section-nav" aria-label="Bear sections">
+  {visibleLinks.map((link) => (
+    <a href={link.href} class="bear-section-nav__link">{link.label}</a>
+  ))}
+</nav>
+
+<style>
+  .bear-section-nav {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    flex-wrap: wrap;
+  }
+
+  .bear-section-nav__link {
+    font-family: var(--font-body);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    position: relative;
+    padding-bottom: 2px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--color-accent);
+      transition: width var(--transition-normal);
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+</style>

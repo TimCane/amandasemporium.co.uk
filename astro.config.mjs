@@ -1,18 +1,26 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-
-import tailwind from '@astrojs/tailwind';
-
-import react from '@astrojs/react';
-
+import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
+import preact from '@astrojs/preact';
+import remarkDateTokens from './src/lib/remark-date-tokens.ts';
 
-// https://astro.build/config
 export default defineConfig({
-  site: 'http://localhost:4321',
-  prefetch: {
-    defaultStrategy: "hover",
-    prefetchAll: true
+  adapter: node({ mode: 'standalone' }),
+  integrations: [sitemap(), preact()],
+  markdown: {
+    remarkPlugins: [remarkDateTokens],
   },
-  integrations: [tailwind(), react(), sitemap()]
+  site: 'https://amandasemporium.co.uk',
+  vite: {
+    optimizeDeps: {
+      include: ['leaflet', 'leaflet.markercluster'],
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler',
+        },
+      },
+    },
+  },
 });

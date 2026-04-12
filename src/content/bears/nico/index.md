@@ -2,8 +2,8 @@
 name: "Nico"
 uploadedOn: 2023-11-02
 picture: "./nico.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "green-knitted-outfit", "red-stripe-detail", "dungarees", "button-front", "smooth", "embroidered-nose", "soft", "well-loved"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

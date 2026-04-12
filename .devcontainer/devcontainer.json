@@ -17,11 +17,15 @@
 			"extensions": [
 				"astro-build.astro-vscode",
 				"bradlc.vscode-tailwindcss",
-				"DavidAnson.vscode-markdownlint"
+				"DavidAnson.vscode-markdownlint",
+				"anthropic.claude-code"
 			]
 		}
 	},
 	"runArgs": [
 		"--net=host"
-	]
+	],
+  "features": {
+  "ghcr.io/timcane/devcontainer-features/claude-code-passthrough:latest": {}
+  }
 }

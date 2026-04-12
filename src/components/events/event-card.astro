@@ -1,0 +1,190 @@
+---
+import Card from '@/components/ui/card.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  event: CollectionEntry<'events'>;
+  showCalendarButton?: boolean;
+}
+
+const { event, showCalendarButton = false } = Astro.props;
+
+const { name, date, time, location, info, website } = event.data;
+const slug = event.slug;
+
+const dateFormatter = new Intl.DateTimeFormat('en-GB', { day: 'numeric' });
+const monthFormatter = new Intl.DateTimeFormat('en-GB', { month: 'short' });
+const yearFormatter = new Intl.DateTimeFormat('en-GB', { year: 'numeric' });
+
+const day = dateFormatter.format(date);
+const month = monthFormatter.format(date);
+const year = yearFormatter.format(date);
+---
+
+<Card class="event-card">
+  <time datetime={date.toISOString().split('T')[0]} class="event-card__date">
+    <span class="event-card__day">{day}</span>
+    <span class="event-card__month">{month}</span>
+    <span class="event-card__year">{year}</span>
+  </time>
+  <div class="event-card__body">
+    <h3 class="event-card__name">
+      <a href={`/events/${slug}`} class="event-card__link">{name}</a>
+    </h3>
+    <div class="event-card__meta">
+      {time && <span class="event-card__time">{time}</span>}
+      <span class="event-card__location">{location.name}</span>
+    </div>
+    {info && <p class="event-card__info">{info}</p>}
+    <div class="event-card__actions">
+      {website && (
+        <a
+          href={website}
+          class="event-card__website-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Visit website for ${name}`}
+        >
+          Visit website<span class="sr-only"> (opens in new tab)</span>
+        </a>
+      )}
+      {showCalendarButton && (
+        <a
+          href={`/events/calendar/${slug}.ics`}
+          class="event-card__calendar-btn"
+          aria-label={`Add ${name} to your calendar`}
+        >
+          Add to Calendar
+        </a>
+      )}
+    </div>
+  </div>
+  <div class="event-card__decoration-element"></div>
+</Card>
+
+<style lang="scss" is:global>
+  .event-card {
+    position: relative;
+    overflow: hidden;
+
+    .card__inner {
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: stretch;
+    }
+
+    &__date {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: var(--spacing-md) var(--spacing-md);
+      min-width: 5rem;
+      background: var(--color-primary);
+      color: var(--color-on-primary);
+      flex-shrink: 0;
+    }
+
+    &__day {
+      font-family: var(--font-heading);
+      font-size: var(--text-xl);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    &__month {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      margin-top: 2px;
+    }
+
+    &__year {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      opacity: 0.8;
+      margin-top: 2px;
+    }
+
+    &__body {
+      padding: var(--spacing-md);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    &__name {
+      font-family: var(--font-heading);
+      font-size: var(--text-md);
+      color: var(--color-text);
+      margin: 0 0 var(--spacing-sm);
+      font-weight: 600;
+      line-height: var(--leading-compact);
+    }
+
+    &__meta {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    &__time {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+
+    &__location {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+
+    &__info {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      margin: 0 0 var(--spacing-sm);
+      line-height: var(--leading-body);
+    }
+
+    &__actions {
+      display: flex;
+      gap: var(--spacing-md);
+      margin-top: auto;
+      padding-top: var(--spacing-sm);
+      position: relative;
+      z-index: 1;
+    }
+
+    &__website-link,
+    &__calendar-btn {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      color: var(--color-primary);
+      text-decoration: none;
+      border-bottom: 1px solid var(--color-accent);
+      padding-bottom: 1px;
+      transition: color var(--transition-fast);
+
+      &:hover {
+        color: var(--color-primary-dark);
+      }
+    }
+
+    &__decoration-element {
+      display: none;
+    }
+
+    &__link::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+  }
+</style>

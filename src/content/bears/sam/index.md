@@ -2,8 +2,8 @@
 name: "Sam"
 uploadedOn: 2018-05-18
 picture: "./sam.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "curly-fur", "fluffy", "knitted-onesie", "brown-onesie", "stripe-detail", "button-fastening", "embroidered-nose", "stitched-mouth", "paw-pads", "soft"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

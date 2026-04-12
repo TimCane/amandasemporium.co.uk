@@ -2,8 +2,8 @@
 name: "Poppy"
 uploadedOn: 2018-04-29
 picture: "./poppy.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["brown-fur", "fluffy", "soft", "crochet-dress", "pink-dress", "white-trim", "headband", "pom-pom-headband", "embroidered-eyes", "embroidered-nose", "handmade-clothing"]
 brand: "as-watson"
 species: "bear"
 rescued:

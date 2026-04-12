@@ -2,8 +2,8 @@
 name: "Edison"
 uploadedOn: 2021-07-16
 picture: "./edison.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "white-fur", "tan-paws", "knitted-onesie", "beige-onesie", "button-front", "smooth", "fluffy", "embroidered-nose", "button-eyes", "soft", "modern"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

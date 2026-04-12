@@ -1,0 +1,124 @@
+---
+export const prerender = false;
+
+import { getCollection } from 'astro:content';
+import PageLayout from '@/layouts/page.layout.astro';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
+import FilterTabs from '@/components/ui/filter-tabs.astro';
+import ProductCard from '@/components/products/product-card.astro';
+import Pagination from '@/components/ui/pagination.astro';
+import PageHeader from '@/components/ui/page-header.astro';
+import Separator from '@/components/ui/separator.astro';
+import EmptyState from '@/components/ui/empty-state.astro';
+import { productCategories } from '@/content/config';
+import { productCategoryLabels } from '@/libs/labels';
+import { paginate } from '@/libs/pagination';
+
+// --- Parse query params ---
+const url = new URL(Astro.request.url);
+const categoryParam = url.searchParams.get('category') || undefined;
+const pageParam = Math.max(1, parseInt(url.searchParams.get('page') || '1', 10));
+
+// Validate category against the enum
+const validCategories = productCategories.options;
+const category = categoryParam && validCategories.includes(categoryParam as any)
+  ? categoryParam
+  : undefined;
+
+// --- Fetch and filter products ---
+let allProducts = (await getCollection('products')).filter(p => !p.data.hidden);
+
+let products = category
+  ? allProducts.filter(p => p.data.category === category)
+  : allProducts;
+
+// Sort alphabetically by name
+products.sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+// --- Paginate ---
+const filterParams: Record<string, string> = {};
+if (category) filterParams.category = category;
+
+const { paginatedItems: paginatedProducts, currentPage, totalPages, totalItems: totalProducts, prevUrl, nextUrl, paginationParams } = paginate({
+  items: products,
+  page: pageParam,
+  baseUrl: '/products',
+  params: filterParams,
+});
+
+// --- Build tab data ---
+const tabs = [
+  { label: 'All', value: 'all', href: '/products' },
+  ...validCategories.map(cat => ({
+    label: productCategoryLabels[cat] || cat,
+    value: cat,
+    href: `/products?category=${cat}`,
+  })),
+];
+
+const activeTab = category || 'all';
+
+// --- SEO ---
+const categoryTitle = category ? productCategoryLabels[category] : undefined;
+const pageTitle = categoryTitle
+  ? `${categoryTitle} | Products`
+  : 'Products';
+const description = 'Handmade bags, baby items, knitted goods, soaps, and more. All made by hand.';
+---
+
+<PageLayout title={pageTitle} description={description}>
+  <OpenGraphMeta
+    slot="og-meta"
+    title={`${pageTitle} | Amanda's Emporium`}
+    description={description}
+    url={Astro.url.href}
+  />
+  <Fragment slot="head-extra">
+    {prevUrl && <link rel="prev" href={prevUrl} />}
+    {nextUrl && <link rel="next" href={nextUrl} />}
+  </Fragment>
+
+  <section class="products-page">
+    <PageHeader
+      title="What I Make"
+      intro="Everything here is made by hand. Have a browse and see what catches your eye."
+      count={totalProducts}
+      noun="product"
+    />
+    <Separator />
+
+    <div class="products-page__filters">
+      <FilterTabs tabs={tabs} activeValue={activeTab} ariaLabel="Filter products" />
+    </div>
+
+    {paginatedProducts.length > 0 ? (
+      <ul class="products-page__grid" role="list">
+        {paginatedProducts.map((product, index) => (
+          <li>
+            <ProductCard
+              product={product}
+              loading={index < 8 ? 'eager' : 'lazy'}
+            />
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <EmptyState
+        message="Nothing in this category just now. I'm always making something new though. Check back soon or browse everything to see the full collection."
+        href="/products"
+        linkText="View all products"
+      />
+    )}
+
+    {totalPages > 1 && (
+      <div class="products-page__pagination">
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          baseUrl="/products"
+          params={paginationParams}
+        />
+      </div>
+    )}
+  </section>
+</PageLayout>

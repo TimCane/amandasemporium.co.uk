@@ -2,8 +2,8 @@
 name: "Phoebe"
 uploadedOn: 2018-11-12
 picture: "./phoebe.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "smooth", "soft", "pink-dress", "crochet-dress", "white-trim", "embroidered-nose", "button-eyes", "stitched-mouth", "fluffy"]
 brand: "unknown"
 species: "bear"
 rescued:

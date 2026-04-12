@@ -1,7 +1,7 @@
 ---
 name: "Winklebury"
 date: 2020-07-04
-description: ""
+info: ""
 location:
     name: "Winklebury Way, Basingstoke, RG23 8QP."
     location: "basingstoke"

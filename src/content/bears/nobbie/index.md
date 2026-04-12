@@ -2,8 +2,8 @@
 name: "Nobbie"
 uploadedOn: 2018-04-29
 picture: "./nobbie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "cream-fur", "green-white-fair-isle-sweater", "green-shorts", "smooth-fur", "soft", "embroidered-nose", "button-eyes", "paw-pads", "well-loved", "nordic-pattern-clothing"]
 brand: "russ"
 species: "bear"
 rescued:

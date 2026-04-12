@@ -2,8 +2,8 @@
 name: "Buddy"
 uploadedOn: 2019-12-12
 picture: "./buddy.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "fluffy", "soft", "onesie", "mint-green-onesie", "knitted-clothing", "striped", "button-front", "embroidered-eyes", "embroidered-nose", "stitched-mouth", "plush"]
 brand: "bear-factory"
 species: "bear"
 rescued:

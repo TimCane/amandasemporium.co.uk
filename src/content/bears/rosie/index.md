@@ -2,8 +2,8 @@
 name: "Rosie"
 uploadedOn: 2018-11-12
 picture: "./rosie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "blue-dress", "embroidered-flower", "fluffy", "soft", "button-eyes", "embroidered-nose", "pocket-dress", "well-loved"]
 brand: "bear-factory"
 species: "bear"
 rescued:

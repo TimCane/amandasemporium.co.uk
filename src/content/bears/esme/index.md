@@ -2,8 +2,8 @@
 name: "Esme"
 uploadedOn: 2024-07-19
 picture: "./esme.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "long-ears", "pink-inner-ears", "pink-nose", "blue-dress", "sleeveless-dress", "pink-paw-pads", "fluffy", "soft", "embroidered-eyes", "embroidered-nose", "well-loved"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

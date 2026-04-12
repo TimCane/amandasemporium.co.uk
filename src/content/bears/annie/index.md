@@ -2,8 +2,8 @@
 name: "Annie"
 uploadedOn: 2019-07-18
 picture: "./annie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["cream-fur", "fluffy", "soft", "pyjamas", "floral-top", "white-trousers", "embroidered-nose", "stitched-mouth", "button-eyes", "floral-print"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

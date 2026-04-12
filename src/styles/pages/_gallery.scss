@@ -1,0 +1,11 @@
+@use '../mixins' as *;
+
+// ── Gallery Page ──────────────────────────────────────────────────
+
+.gallery-page {
+  @include listing-page;
+
+  &__filters { @include filter-wrapper; }
+  &__grid { @include gallery-grid; }
+  &__pagination { @include pagination-wrapper; }
+}

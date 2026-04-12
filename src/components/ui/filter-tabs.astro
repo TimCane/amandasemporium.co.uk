@@ -1,0 +1,63 @@
+---
+// Component spec: Task 1.5 shared UI — Filter Tabs
+interface Tab {
+  label: string;
+  value: string;
+  href: string;
+}
+
+interface Props {
+  tabs: Tab[];
+  activeValue: string;
+  ariaLabel?: string;
+}
+
+const { tabs, activeValue, ariaLabel = 'Filter bears' } = Astro.props;
+---
+
+<nav class="filter-tabs" aria-label={ariaLabel}>
+  {tabs.map(tab => (
+    <a
+      href={tab.href}
+      class:list={['filter-tabs__tab', { 'filter-tabs__tab--active': tab.value === activeValue }]}
+      aria-current={tab.value === activeValue ? 'page' : undefined}
+    >
+      {tab.label}
+    </a>
+  ))}
+</nav>
+
+<style lang="scss">
+  .filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--spacing-sm) var(--spacing-xl);
+    padding-bottom: var(--spacing-xs);
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+
+    &__tab {
+      text-decoration: none;
+      color: var(--color-text-muted);
+      font-size: var(--text-sm);
+      padding: var(--spacing-sm) 0;
+      border-bottom: 2px solid transparent;
+      white-space: nowrap;
+      transition: color var(--transition-fast), border-color var(--transition-fast);
+
+      &:hover {
+        color: var(--color-text);
+      }
+
+      &--active {
+        color: var(--color-primary);
+        border-bottom-color: var(--color-primary);
+      }
+    }
+  }
+</style>

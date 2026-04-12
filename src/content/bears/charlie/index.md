@@ -2,8 +2,8 @@
 name: "Charlie"
 uploadedOn: 2018-05-18
 picture: "./charlie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["brown-fur", "crochet-outfit", "blue-and-green-jumper", "green-trousers", "knitted-top", "soft", "fluffy", "embroidered-nose", "stitched-mouth", "button-eyes", "paw-pads"]
 brand: "ty"
 species: "bear"
 rescued:

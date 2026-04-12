@@ -2,8 +2,8 @@
 name: "Susie"
 uploadedOn: 2018-09-30
 picture: "./susie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["pink-fur", "fluffy", "soft", "dress", "pink-crochet-top", "polka-dot-skirt", "printed-face", "embroidered-nose", "button-nose", "pink-nose", "smooth-face"]
 brand: "build-a-bear"
 species: "bear"
 rescued:

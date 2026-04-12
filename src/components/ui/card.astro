@@ -1,0 +1,43 @@
+---
+// Component spec: docs/components/Card.md (if exists) / Task 1.5 shared UI
+interface Props {
+  href?: string;
+  class?: string;
+}
+
+const { href, class: className } = Astro.props;
+const Tag = href ? 'a' : 'div';
+---
+
+<Tag href={href} class:list={['card', className]}>
+  <div class="card__inner">
+    <slot />
+  </div>
+  <div class="card__decoration"></div>
+</Tag>
+
+<style lang="scss">
+  .card {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow var(--transition-fast), transform var(--transition-fast);
+
+    &:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    &__inner {
+      padding: var(--spacing-md);
+    }
+
+    &__decoration {
+      display: none;
+    }
+  }
+</style>

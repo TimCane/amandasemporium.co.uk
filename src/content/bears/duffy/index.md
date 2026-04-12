@@ -2,8 +2,8 @@
 name: "Duffy"
 uploadedOn: 2019-12-12
 picture: "./duffy.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["golden-fur", "cream-fur", "black-t-shirt", "glitter-sparkle-shine-top", "sparkly", "paw-pads", "embroidered-nose", "fluffy", "curly-fur", "disney-duffy-bear"]
 brand: "disney-store"
 species: "bear"
 rescued:

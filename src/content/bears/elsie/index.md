@@ -2,8 +2,8 @@
 name: "Elsie"
 uploadedOn: 2018-09-30
 picture: "./elsie.jpg"
-description: ""
-tags: []
+tagline: ""
+tags: ["white-fur", "floral-dress", "pink-belt", "bow", "printed-face", "painted-eyes", "pink-nose", "teal-ears", "fluffy", "smooth"]
 brand: "build-a-bear"
 species: "bear"
 rescued:
