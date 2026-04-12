@@ -4,13 +4,16 @@ import { Image } from 'astro:assets';
 import PageLayout from '@/layouts/page.layout.astro';
 import BearCard from '@/components/bears/bear-card.astro';
 import Card from '@/components/ui/card.astro';
-import { seededRandom, seededShuffle } from '@/libs/seeded-random';
+import { seededShuffle } from '@/libs/seeded-random';
 import { formatDate, formatShortDate } from '@/libs/dates';
 import { computeStats } from '@/libs/stats';
 import { getUpcomingEvents } from '@/libs/events';
+import { getBotmForMonth, interpolateReason } from '@/libs/botm';
+import { botmReasons } from '@/libs/botm-reasons';
 import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
 import JsonLd from '@/components/seo/json-ld.astro';
 import SectionBand from '@/components/ui/section-band.astro';
+import OrnateFrame from '@/components/ui/ornate-frame.astro';
 import { SITE_TITLE, SITE_URL } from '@/libs/consts';
 
 export const prerender = true;
@@ -39,11 +42,12 @@ const featuredProducts = seededShuffle(visibleProducts, monthSeed + '-products')
 // --- Photo strip (up to 8 gallery images, shuffled) ---
 const photoStripImages = seededShuffle([...allGallery], monthSeed + '-gallery').slice(0, 8);
 
-// --- Bear of the Month (seeded random YYYY-MM, only bears without rehomed) ---
-const lookingBears = allBears.filter((b) => !b.data.rehomed);
-const botmRng = seededRandom(monthSeed);
-const botmIndex = Math.floor(botmRng() * lookingBears.length);
-const bearOfTheMonth = lookingBears[botmIndex];
+// --- Bear of the Month (seeded random, historically accurate eligibility) ---
+const botmResult = getBotmForMonth(allBears, now, botmReasons.length);
+const bearOfTheMonth = botmResult?.bear ?? null;
+const botmReason = botmResult
+  ? interpolateReason(botmReasons[botmResult.reasonIndex], botmResult.bear)
+  : null;
 
 // --- Activity Feed (latest rescues, newest products, next event — sorted by date) ---
 type FeedItem = {
@@ -270,7 +274,7 @@ const jsonLd = {
         <div class="home-bear-otm__decoration" aria-hidden="true"></div>
         <h2 class="home-bear-otm__heading" id="home-bear-otm-heading">Bear of the Month</h2>
         <div class="home-bear-otm__content">
-          <div class="home-bear-otm__image-wrapper">
+          <OrnateFrame class="home-bear-otm__image-wrapper" name={bearOfTheMonth.data.name}>
             <Image
               src={bearOfTheMonth.data.picture}
               alt={`${bearOfTheMonth.data.name} — bear of the month`}
@@ -279,14 +283,17 @@ const jsonLd = {
               loading="lazy"
               class="home-bear-otm__image"
             />
-            <div class="home-bear-otm__image-frame" aria-hidden="true"></div>
-          </div>
+          </OrnateFrame>
+          <a href="/bears/bear-of-the-month" class="home-bear-otm__archive-link">See all Bears of the Month</a>
           <div class="home-bear-otm__details">
             <h3 class="home-bear-otm__name">{bearOfTheMonth.data.name}</h3>
             {bearOfTheMonth.data.tagline && (
               <p class="home-bear-otm__tagline">{bearOfTheMonth.data.tagline}</p>
             )}
             <span class="home-bear-otm__status">Looking for a Home</span>
+            {botmReason && (
+              <p class="home-bear-otm__reason">{botmReason}</p>
+            )}
             <div class="home-bear-otm__links">
               <a href={`/bears/${bearOfTheMonth.slug}`} class="home-bear-otm__meet-link">
                 Meet {bearOfTheMonth.data.name} <span aria-hidden="true">&rarr;</span>

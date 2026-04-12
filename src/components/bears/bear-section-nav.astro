@@ -5,7 +5,7 @@
  * Pass `current` to exclude the current page from the links.
  */
 interface Props {
-  current: 'listing' | 'map' | 'timeline';
+  current: 'listing' | 'map' | 'timeline' | 'botm';
 }
 
 const { current } = Astro.props;
@@ -14,6 +14,7 @@ const links = [
   { href: '/bears', label: 'Browse bears', id: 'listing' },
   { href: '/bears/map', label: 'View on map', id: 'map' },
   { href: '/bears/timeline', label: 'View timeline', id: 'timeline' },
+  { href: '/bears/bear-of-the-month', label: 'Bear of the Month', id: 'botm' },
 ] as const;
 
 const visibleLinks = links.filter((link) => link.id !== current);

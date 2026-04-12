@@ -1,0 +1,209 @@
+// ===================================================================
+// Bear of the Month archive page — Boutique theme
+// Featured current bear + reverse-chronological archive grouped by year
+// ===================================================================
+
+// --- Featured (current month) ---
+.botm-featured {
+  max-width: 48rem;
+  margin: 0 auto var(--section-gap);
+  text-align: center;
+
+  &__month {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    color: var(--color-accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    margin: 0 0 var(--spacing-lg);
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+    text-align: left;
+
+    @media (max-width: 640px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  &__frame {
+    // Handled by OrnateFrame component
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__name {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    color: var(--color-text);
+    margin: 0 0 var(--spacing-sm);
+    font-weight: 700;
+  }
+
+  &__tagline {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: var(--leading-body);
+    margin: 0 0 var(--spacing-md);
+    font-style: italic;
+  }
+
+  &__status {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: var(--color-badge-looking-text);
+    background: var(--color-badge-looking-bg);
+    padding: 2px var(--spacing-ms);
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+
+    &--rehomed {
+      color: var(--color-badge-rehomed-text);
+      background: var(--color-badge-rehomed-bg);
+    }
+  }
+
+  &__reason {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    line-height: var(--leading-body);
+    margin: var(--spacing-md) 0 0;
+    font-style: italic;
+  }
+
+  &__link {
+    display: inline-block;
+    margin-top: var(--spacing-ml);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition-fast);
+
+    &:hover {
+      border-bottom-color: var(--color-primary);
+    }
+  }
+}
+
+// --- Archive list ---
+.botm-archive {
+  max-width: 48rem;
+  margin: 0 auto;
+
+  &__year {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  &__year-heading {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    color: var(--color-text);
+    font-weight: 600;
+    margin: 0 0 var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 2px solid var(--color-accent);
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__entry {
+    border-bottom: 1px solid var(--color-border);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md) 0;
+    text-decoration: none;
+    color: inherit;
+    transition: background var(--transition-fast);
+
+    &:hover {
+      background: var(--color-bg-alt);
+      margin: 0 calc(var(--spacing-md) * -1);
+      padding-left: var(--spacing-md);
+      padding-right: var(--spacing-md);
+      border-radius: var(--radius-sm);
+    }
+  }
+
+  &__thumb-wrapper {
+    flex-shrink: 0;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+
+  &__thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  &__month {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+  }
+
+  &__name {
+    font-family: var(--font-heading);
+    font-size: var(--text-md);
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  &__reason {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    font-style: italic;
+    line-height: var(--leading-body);
+    // Truncate long reasons on small screens
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @media (min-width: 640px) {
+      white-space: normal;
+    }
+  }
+}

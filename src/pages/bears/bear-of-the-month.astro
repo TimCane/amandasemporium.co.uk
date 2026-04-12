@@ -1,0 +1,141 @@
+---
+export const prerender = true;
+
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import PageLayout from '@/layouts/page.layout.astro';
+import PageHeader from '@/components/ui/page-header.astro';
+import SectionBand from '@/components/ui/section-band.astro';
+import BearSectionNav from '@/components/bears/bear-section-nav.astro';
+import OrnateFrame from '@/components/ui/ornate-frame.astro';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
+import { generateBotmHistory, interpolateReason } from '@/libs/botm';
+import { botmReasons } from '@/libs/botm-reasons';
+
+const title = 'Bear of the Month';
+const description =
+  'Every Bear of the Month since the very first rescue. A seeded-random hall of fame going back to March 2018.';
+
+const allBears = await getCollection('bears');
+const now = new Date();
+
+// Generate full history, then reverse for newest-first display
+const history = generateBotmHistory(allBears, now, botmReasons.length);
+const reversed = [...history].reverse();
+
+// Group by year
+const byYear = new Map<number, typeof reversed>();
+for (const entry of reversed) {
+  const year = parseInt(entry.month.split('-')[0]);
+  if (!byYear.has(year)) byYear.set(year, []);
+  byYear.get(year)!.push(entry);
+}
+
+// Current month entry (first in reversed list)
+const current = reversed[0];
+const currentReason = current
+  ? interpolateReason(botmReasons[current.reasonIndex], current.bear)
+  : null;
+
+// Format a YYYY-MM string as "Month Year"
+function formatMonth(monthKey: string): string {
+  const [y, m] = monthKey.split('-').map(Number);
+  const date = new Date(y, m - 1);
+  return date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+}
+---
+
+<PageLayout title={title} description={description}>
+  <OpenGraphMeta
+    slot="og-meta"
+    title={title}
+    description={description}
+    url="/bears/bear-of-the-month"
+  />
+
+  <PageHeader
+    title="Bear of the Month"
+    intro="Every month, one bear gets the spotlight. Here they all are, going right back to the beginning."
+    count={history.length}
+    noun="month"
+  />
+
+  <SectionBand>
+    <BearSectionNav current="botm" />
+  </SectionBand>
+
+  <!-- Featured: current month -->
+  {current && (
+    <section class="botm-featured" aria-labelledby="botm-featured-heading">
+      <h2 class="botm-featured__month" id="botm-featured-heading">
+        {formatMonth(current.month)}
+      </h2>
+      <div class="botm-featured__content">
+        <OrnateFrame class="botm-featured__frame" name={current.bear.data.name}>
+          <Image
+            src={current.bear.data.picture}
+            alt={`${current.bear.data.name} — bear of the month for ${formatMonth(current.month)}`}
+            width={400}
+            height={400}
+            class="botm-featured__image"
+          />
+        </OrnateFrame>
+        <div class="botm-featured__details">
+          <h3 class="botm-featured__name">{current.bear.data.name}</h3>
+          {current.bear.data.tagline && (
+            <p class="botm-featured__tagline">{current.bear.data.tagline}</p>
+          )}
+          <span class:list={[
+            'botm-featured__status',
+            current.bear.data.rehomed ? 'botm-featured__status--rehomed' : '',
+          ]}>
+            {current.bear.data.rehomed ? 'Found a Home' : 'Looking for a Home'}
+          </span>
+          {currentReason && (
+            <p class="botm-featured__reason">{currentReason}</p>
+          )}
+          <a href={`/bears/${current.bear.slug}`} class="botm-featured__link">
+            Meet {current.bear.data.name} <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Archive grouped by year -->
+  <section class="botm-archive" aria-label="Past bears of the month">
+    {[...byYear.entries()].map(([year, entries]) => (
+      <div class="botm-archive__year">
+        <h2 class="botm-archive__year-heading">{year}</h2>
+        <ul class="botm-archive__list">
+          {entries.map((entry) => {
+            // Skip the current month — it's featured above
+            if (entry === current) return null;
+            const reason = interpolateReason(botmReasons[entry.reasonIndex], entry.bear);
+            return (
+              <li class="botm-archive__entry">
+                <a href={`/bears/${entry.bear.slug}`} class="botm-archive__link">
+                  <div class="botm-archive__thumb-wrapper">
+                    <Image
+                      src={entry.bear.data.picture}
+                      alt={entry.bear.data.name}
+                      width={80}
+                      height={80}
+                      loading="lazy"
+                      class="botm-archive__thumb"
+                    />
+                  </div>
+                  <div class="botm-archive__info">
+                    <span class="botm-archive__month">{formatMonth(entry.month)}</span>
+                    <span class="botm-archive__name">{entry.bear.data.name}</span>
+                    <span class="botm-archive__reason">{reason}</span>
+                  </div>
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    ))}
+  </section>
+</PageLayout>

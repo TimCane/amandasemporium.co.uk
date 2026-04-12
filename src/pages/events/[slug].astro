@@ -207,13 +207,13 @@ const jsonLd = isUpcoming ? {
       <Separator />
     )}
 
-    {/* ── 7. Bears at This Event (past events) ── */}
+    {/* ── 7. Bears Who Found Their Home ── */}
     {eventBears.length > 0 && (
       <section class="event-profile__bears" aria-labelledby="event-bears-heading">
-        <h2 id="event-bears-heading" class="event-profile__section-heading">Bears at This Event</h2>
+        <h2 id="event-bears-heading" class="event-profile__section-heading">Bears Who Found Their Home</h2>
         <div class="event-profile__bears-grid">
           {eventBears.map((bear) => (
-            <BearCard bear={bear} />
+            <BearCard bear={bear} subtitle={bear.data.tagline} />
           ))}
         </div>
         <div class="event-profile__bears-decoration" aria-hidden="true"></div>
@@ -221,6 +221,7 @@ const jsonLd = isUpcoming ? {
     )}
 
     {/* ── Navigation ── */}
+    {eventBears.length > 0 && <Separator />}
     <BackLink href="/events" label="Back to events" section="Event" />
   </article>
 </PageLayout>
