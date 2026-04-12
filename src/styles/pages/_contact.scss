@@ -1,0 +1,286 @@
+@use '../mixins' as *;
+
+// =============================================
+// Contact Page
+// =============================================
+
+.contact-page {
+  padding: 2.5rem 1rem 3rem;
+  max-width: 52rem;
+  margin-inline: auto;
+  display: grid;
+  gap: 3rem;
+  grid-template-areas:
+    "header"
+    "email"
+    "form"
+    "faq"
+    "event-callout";
+
+  &__header {
+    text-align: center;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  &__title {
+    @include page-title;
+    margin: 0 0 0.75rem;
+  }
+
+  &__intro {
+    font-family: var(--font-body);
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+
+  &__header-decoration { display: none; }
+
+  &__section-title { @include section-heading; }
+
+  &__email-decoration,
+  &__form-decoration,
+  &__faq-decoration,
+  &__event-callout-decoration {
+    display: none;
+  }
+
+  // Email
+  &__email-text {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  &__email-link {
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  // Form
+  &__form-element {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    &--honeypot {
+      position: absolute;
+      left: -9999px;
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+    }
+  }
+
+  &__label {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  &__required {
+    color: var(--color-primary);
+  }
+
+  &__input,
+  &__textarea {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    padding: 0.65rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background: var(--color-bg);
+    color: var(--color-text);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus-visible {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px var(--color-primary-light);
+    }
+  }
+
+  &__textarea {
+    resize: vertical;
+    min-height: 8rem;
+  }
+
+  &__submit-wrapper {
+    padding-top: 0.5rem;
+  }
+
+  &__submit {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.75rem 2rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-card);
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+
+  // Success / Error messages
+  &__success {
+    padding: 1.25rem;
+    background: var(--color-success-bg);
+    border: 1px solid var(--color-success-border);
+    border-radius: var(--radius-card);
+  }
+
+  &__success-text {
+    font-family: var(--font-body);
+    color: var(--color-success-text);
+    margin: 0;
+  }
+
+  &__errors {
+    padding: 1.25rem;
+    background: var(--color-error-bg);
+    border: 1px solid var(--color-error-border);
+    border-radius: var(--radius-card);
+  }
+
+  &__errors-heading {
+    font-family: var(--font-body);
+    font-weight: 600;
+    color: var(--color-error-text);
+    margin: 0 0 0.75rem;
+  }
+
+  &__errors-list {
+    margin: 0;
+    padding-left: 1.25rem;
+  }
+
+  &__error {
+    font-family: var(--font-body);
+    color: var(--color-error-text);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+
+  &__field-error {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-error-text);
+    margin-top: 0.35rem;
+  }
+
+  // FAQ
+  &__faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__faq-item {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+
+    &[open] {
+      background: var(--color-bg-alt);
+    }
+  }
+
+  &__faq-question {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    padding: 1rem 1.25rem;
+    cursor: pointer;
+    list-style: none;
+    transition: color 0.2s ease;
+
+    &::marker,
+    &::-webkit-details-marker {
+      display: none;
+    }
+
+    &::before {
+      content: '+';
+      float: right;
+      font-size: 1.2rem;
+      color: var(--color-accent);
+      font-weight: 400;
+      transition: transform 0.2s ease;
+    }
+
+    [open] > &::before {
+      content: '\2212';
+    }
+
+    &:hover {
+      color: var(--color-accent);
+    }
+  }
+
+  &__faq-answer {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.8;
+    padding: 0 1.25rem 1rem;
+    margin: 0;
+  }
+
+  // Next Event Callout
+  &__event-callout {
+    padding: 2rem;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    text-align: center;
+  }
+
+  &__event-callout-text {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0 0 1rem;
+  }
+
+  &__event-callout-link {
+    display: inline-block;
+    font-family: var(--font-body);
+    color: var(--color-accent);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &::after {
+      content: ' \2192';
+    }
+
+    &:hover {
+      color: var(--color-primary-dark);
+    }
+  }
+}

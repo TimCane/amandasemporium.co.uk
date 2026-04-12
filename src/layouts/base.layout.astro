@@ -3,9 +3,7 @@ import { ViewTransitions } from 'astro:transitions';
 import CookieBanner from '@/components/layout/cookie-banner.astro';
 import '@/styles/global.scss';
 
-// Import theme stylesheets — Astro will compile them
 import '@/styles/themes/boutique.scss';
-import '@/styles/themes/whimsical.scss';
 
 interface Props {
   title: string;
@@ -18,18 +16,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!DOCTYPE html>
-<html lang="en" data-theme="boutique">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title} | Amanda's Emporium</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalURL.href} />
-
-  <script is:inline>
-    const theme = localStorage.getItem('ae-theme') || 'boutique';
-    document.documentElement.setAttribute('data-theme', theme);
-  </script>
 
   <slot name="og-meta" />
   <slot name="head-extra" />
@@ -42,10 +35,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <CookieBanner />
   <script>
     document.addEventListener('astro:after-swap', () => {
-      // Re-apply saved theme after view transition swap
-      const savedTheme = localStorage.getItem('ae-theme') || 'boutique';
-      document.documentElement.setAttribute('data-theme', savedTheme);
-
       const main = document.getElementById('main-content');
       if (main) {
         main.tabIndex = -1;

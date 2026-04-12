@@ -9,21 +9,10 @@ L.Icon.Default.mergeOptions({
   shadowUrl: '/leaflet/marker-shadow.png',
 });
 
-// Theme-aware tile layers (same as bear-map)
-const tileLayers: Record<string, { url: string; attribution: string }> = {
-  boutique: {
-    url: 'https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; <a href="https://stamen.com">Stamen Design</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  },
-  whimsical: {
-    url: 'https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg',
-    attribution: '&copy; <a href="https://stamen.com">Stamen Design</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  },
+const tileLayer = {
+  url: 'https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png',
+  attribution: '&copy; <a href="https://stamen.com">Stamen Design</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 };
-
-function getThemeId(): string {
-  return document.documentElement.getAttribute('data-theme') || 'boutique';
-}
 
 function initVenueMap(): void {
   const container = document.getElementById('venue-map-container');
@@ -39,9 +28,6 @@ function initVenueMap(): void {
     (container as any).__leaflet_map.remove();
   }
 
-  const themeId = getThemeId();
-  const tileConfig = tileLayers[themeId] || tileLayers.boutique;
-
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const map = L.map(container, {
@@ -55,8 +41,8 @@ function initVenueMap(): void {
 
   (container as any).__leaflet_map = map;
 
-  L.tileLayer(tileConfig.url, {
-    attribution: tileConfig.attribution,
+  L.tileLayer(tileLayer.url, {
+    attribution: tileLayer.attribution,
     maxZoom: 18,
   }).addTo(map);
 

@@ -1,0 +1,35 @@
+@use '../mixins' as *;
+
+// Product Card
+.product-card {
+  .card__inner { padding: 0; }
+
+  &__image-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+
+  &__image { @include card-image; }
+  &:hover &__image { @include card-image-hover; }
+
+  &__overlay { display: none; }
+  &__body { @include card-body; }
+  &__name { @include card-name; }
+
+  &__price {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-primary-dark);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+  }
+
+  &__category {
+    @include card-badge;
+    background: var(--color-badge-found-bg);
+    color: var(--color-badge-found-text);
+  }
+
+  &__decoration-element { display: none; }
+}

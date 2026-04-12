@@ -1,0 +1,360 @@
+@use '../mixins' as *;
+
+// Bear Profile — centred editorial layout with CSS Grid
+.bear-profile {
+  @include profile-page;
+  grid-template-areas:
+    "image"
+    "header"
+    "narrative"
+    "details"
+    "rescue"
+    "photos"
+    "map"
+    "related"
+    "nav";
+
+  // Desktop: image left, header right, then two-column details + rescue
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    gap: 0 3rem;
+    grid-template-areas:
+      "image header"
+      "narrative narrative"
+      "details rescue"
+      "photos photos"
+      "map map"
+      "related related"
+      "nav nav";
+  }
+
+  &__image-wrapper {
+    position: relative;
+    justify-self: center;
+    padding-bottom: 2rem;
+
+    @media (min-width: 768px) {
+      justify-self: start;
+      padding-bottom: 0;
+    }
+  }
+
+  &__image { @include profile-image; }
+
+  &__image-decoration,
+  &__header-decoration {
+    display: none;
+  }
+
+  &__header { @include profile-header; }
+  &__name { @include profile-title; }
+
+  &__status {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    padding: 0.2rem 0.75rem;
+    border-radius: 2px;
+    width: fit-content;
+
+    &--looking {
+      background: var(--color-badge-looking-bg);
+      color: var(--color-badge-looking-text);
+    }
+
+    &--found {
+      background: var(--color-badge-found-bg);
+      color: var(--color-badge-found-text);
+    }
+  }
+
+  &__tagline {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    font-size: 1.1rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &__section-heading { @include section-heading; }
+
+  // Narrative — full width, generous reading measure
+  &__narrative {
+    @include section-separator;
+    @include section-separator-bottom;
+  }
+
+  &__narrative-content {
+    max-width: 42rem;
+  }
+
+  &__narrative-body { @include profile-body-text; }
+
+  &__narrative-auto {
+    font-family: var(--font-body);
+    color: var(--color-text);
+    line-height: 1.85;
+    font-size: 1.05rem;
+    font-style: italic;
+    margin: 0;
+  }
+
+  &__narrative-decoration {
+    display: none;
+  }
+
+  // Details — left column on desktop
+  &__details {
+    margin-bottom: 3rem;
+    padding-top: 0;
+
+    @media (min-width: 768px) {
+      padding-right: 1.5rem;
+      border-right: 1px solid var(--color-accent);
+    }
+
+    @media (max-width: 767px) {
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--color-accent);
+    }
+  }
+
+  &__detail-list {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  &__detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+
+    &--tags {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__detail-label {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__detail-value {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: var(--color-text);
+    margin: 0;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__tag {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.65rem;
+    background: var(--color-bg-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 2px;
+    color: var(--color-text-muted);
+    text-transform: capitalize;
+  }
+
+  &__details-decoration {
+    display: none;
+  }
+
+  // Rescue Story — right column on desktop
+  &__rescue {
+    margin-bottom: 3rem;
+    padding-top: 0;
+
+    @media (min-width: 768px) {
+      padding-left: 1.5rem;
+    }
+
+    @media (max-width: 767px) {
+      padding-top: 2rem;
+    }
+  }
+
+  &__rescue-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-left: 1.5rem;
+    border-left: 1px solid var(--color-accent);
+  }
+
+  &__rescue-event {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    position: relative;
+  }
+
+  &__rescue-icon {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+    position: absolute;
+    left: -1.5rem;
+    transform: translateX(calc(-50% + 0.5px));
+    border: 2px solid var(--color-bg);
+    box-shadow: 0 0 0 1px var(--color-accent);
+
+    &--rescued { background: var(--color-primary-dark); }
+    &--event { background: var(--color-accent); }
+    &--rehomed { background: var(--color-secondary); }
+  }
+
+  &__rescue-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  &__rescue-label {
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__rescue-place {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    color: var(--color-text);
+    font-weight: 600;
+
+    &--link {
+      color: var(--color-primary);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__rescue-date {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    font-style: italic;
+  }
+
+  &__rescue-decoration {
+    display: none;
+  }
+
+  // Photos — full width with generous spacing
+  &__photos {
+    @include section-separator;
+    margin-bottom: 3rem;
+  }
+
+  &__photos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+
+  &__photo-wrapper {
+    overflow: hidden;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border);
+  }
+
+  &__photo {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  &__photo-wrapper:hover &__photo {
+    transform: scale(1.03);
+  }
+
+  &__photos-decoration {
+    display: none;
+  }
+
+  // Map — full width, elegant container
+  &__map-section {
+    @include section-separator;
+    margin-bottom: 3rem;
+  }
+
+  &__map-wrapper {
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+  }
+
+  &__map-decoration {
+    display: none;
+  }
+
+  // Related Bears — full width
+  &__related {
+    @include section-separator;
+    margin-bottom: 3rem;
+  }
+
+  &__related-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__related-decoration {
+    display: none;
+  }
+
+  // Navigation — full width
+  &__nav {
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-accent);
+  }
+
+  &__back-link {
+    font-family: var(--font-body);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-primary-dark);
+    }
+  }
+
+  &__back-arrow {
+    font-size: 1.1rem;
+  }
+}

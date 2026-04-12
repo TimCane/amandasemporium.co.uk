@@ -1,0 +1,70 @@
+@use '../mixins' as *;
+
+// Bears Page — elegant browsing with CSS Grid layout
+.bears-page {
+  @include listing-page;
+  grid-template-areas:
+    "header"
+    "section-links"
+    "filters"
+    "alphabet"
+    "card-grid"
+    "pagination";
+
+  &__header {
+    @include page-header;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  &__title { @include page-title; }
+  &__count { @include page-count; }
+
+  &__section-links {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--color-accent);
+  }
+
+  &__filters { @include filter-wrapper; }
+
+  &__alphabet {
+    margin-bottom: 2.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__grid { @include card-grid; }
+  &__empty { @include empty-state; }
+  &__empty-text { @include empty-text; }
+  &__empty-link { @include empty-link; }
+  &__pagination { @include pagination-wrapper; }
+
+  &__section-link {
+    font-family: var(--font-body);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    position: relative;
+    padding-bottom: 2px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--color-accent);
+      transition: width 0.3s ease;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+}

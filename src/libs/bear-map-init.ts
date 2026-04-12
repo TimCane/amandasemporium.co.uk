@@ -13,22 +13,13 @@ L.Icon.Default.mergeOptions({
   shadowUrl: '/leaflet/marker-shadow.png',
 });
 
-// ── Theme-aware tile layers ──────────────────────────────────────
-const tileLayers: Record<string, { url: string; attribution: string }> = {
-  boutique: {
-    url: 'https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png',
-    attribution: '&copy; <a href="https://stamen.com">Stamen Design</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  },
-  whimsical: {
-    url: 'https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg',
-    attribution: '&copy; <a href="https://stamen.com">Stamen Design</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-  },
+// ── Tile layer ───────────────────────────────────────────────────
+const tileLayer = {
+  url: 'https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png',
+  attribution: '&copy; <a href="https://stamen.com">Stamen Design</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 };
 
 // ── Helpers ──────────────────────────────────────────────────────
-function getThemeId(): string {
-  return document.documentElement.getAttribute('data-theme') || 'boutique';
-}
 
 function getCSSVar(name: string): string {
   return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -108,8 +99,7 @@ function initMap() {
 
   const bears = JSON.parse(container.dataset.bears || '[]');
   const variant = container.dataset.variant || 'full';
-  const themeId = getThemeId();
-  const tile = tileLayers[themeId] || tileLayers.boutique;
+  const tile = tileLayer;
 
   // Colour tokens from active theme
   const colRescued = getCSSVar('--color-primary-dark') || '#8c564b';
