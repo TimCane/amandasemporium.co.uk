@@ -2,7 +2,7 @@
 name: "Bunting"
 tagline: "Colourful handmade fabric bunting to brighten up any room — approximately 1.5 metres per length."
 category: "home-and-gifts"
-price: "£8.00"
+price: "£7.00"
 materials: "Cotton quilting fabric, cotton bias binding"
 photos:
   - "./bunting.jpg"
@@ -13,3 +13,4 @@ A string of cheerful fabric flags that instantly lifts a room. Each length of bu
 ## How It's Made
 
 Each flag is cut from double-layered quilting cotton so both sides look neat, then pressed and sandwiched into a long run of bias binding. The flags are evenly spaced along the tape and stitched in one continuous pass so they're secure enough to handle being tugged by little hands. The binding extends past the end flags on both sides for tying.
+

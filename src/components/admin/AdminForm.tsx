@@ -59,7 +59,7 @@ export default function AdminForm({ collection, fields, initialData, initialBody
   const [addLocError, setAddLocError] = useState('');
 
   // Event reference dropdown state
-  const [events, setEvents] = useState<{ slug: string; name: string }[]>([]);
+  const [events, setEvents] = useState<{ slug: string; name: string; date: string }[]>([]);
 
   const hasLocationFields = fields.some((f) => f.type === 'location-ref');
   const hasEventFields = fields.some((f) => f.type === 'event-ref');
@@ -83,8 +83,12 @@ export default function AdminForm({ collection, fields, initialData, initialBody
         .then((data: any[]) => {
           setEvents(
             data
-              .map((e) => ({ slug: e.slug, name: e.frontmatter?.name || e.slug }))
-              .sort((a, b) => a.name.localeCompare(b.name))
+              .map((e) => ({
+                slug: e.slug,
+                name: e.frontmatter?.name || e.slug,
+                date: e.frontmatter?.date ? String(e.frontmatter.date).slice(0, 10) : '',
+              }))
+              .sort((a, b) => b.date.localeCompare(a.date) || a.name.localeCompare(b.name))
           );
         })
         .catch(() => {});
@@ -262,6 +266,26 @@ export default function AdminForm({ collection, fields, initialData, initialBody
     setFlash(null);
 
     try {
+      // Validate required fields (covers the dropdown save path,
+      // which bypasses the form's native HTML5 validation)
+      const missing: Record<string, string> = {};
+      for (const field of fields) {
+        if (!field.required) continue;
+        if (field.type === 'file' || field.type === 'multifile') continue; // uploads checked separately
+        const val = getFieldValue(field);
+        const isEmpty = val === undefined || val === null || val === '' || (Array.isArray(val) && val.length === 0);
+        if (isEmpty) {
+          const fullKey = field.nestedIn ? `${field.nestedIn}.${field.key}` : field.key;
+          missing[fullKey] = `${field.label} is required`;
+        }
+      }
+      if (Object.keys(missing).length > 0) {
+        setErrors(missing);
+        setFlash({ type: 'error', message: 'Please fill in all required fields.' });
+        setSaving(false);
+        return;
+      }
+
       // Build frontmatter
       const fm: Record<string, any> = { ...formData };
 
@@ -444,7 +468,9 @@ export default function AdminForm({ collection, fields, initialData, initialBody
             >
               <option value="">-- Select event --</option>
               {events.map((ev) => (
-                <option key={ev.slug} value={ev.slug}>{ev.name}</option>
+                <option key={ev.slug} value={ev.slug}>
+                  {ev.date ? `${ev.date} — ${ev.name}` : ev.name}
+                </option>
               ))}
             </select>
             {error && <div class="admin-form__error">{error}</div>}

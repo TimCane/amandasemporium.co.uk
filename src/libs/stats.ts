@@ -20,6 +20,6 @@ export function computeStats(
     totalBears: bears.length,
     rehomedBears: bears.filter((b) => b.data.rehomed).length,
     totalEvents: events.length,
-    startYear: 2017,
+    startYear: 2006,
   };
 }

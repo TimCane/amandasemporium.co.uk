@@ -71,20 +71,23 @@ function getMonthRange(start: string, end: string): string[] {
 /**
  * Get the eligible bears for a given month.
  *
+ * A bear is eligible if they were available at the start of the month — i.e.
+ * already rescued by the 1st and not yet rehomed before the 1st.
+ *
  * A bear is eligible if:
- * - rescued.date is in or before this month (they exist)
- * - rehomed.date is absent, OR rehomed month is >= this month
- *   (they become ineligible the month AFTER rehoming)
+ * - rescued.date <= 1st of this month (they'd arrived by the start of the month)
+ * - rehomed.date is absent, OR rehomed.date >= 1st of this month (they hadn't
+ *   already been rehomed before the month began)
  */
 function getEligibleBears(allBears: BearEntry[], monthKey: string): BearEntry[] {
+  const [y, m] = monthKey.split('-').map(Number);
+  const startOfMonth = new Date(y, m - 1, 1);
+
   return allBears.filter((bear) => {
-    const rescuedMonth = toMonthKey(bear.data.rescued.date);
-    if (rescuedMonth > monthKey) return false;
+    if (bear.data.rescued.date > startOfMonth) return false;
 
     if (bear.data.rehomed) {
-      const rehomedMonth = toMonthKey(bear.data.rehomed.date);
-      // Eligible during the rehoming month, ineligible from the next month
-      if (monthKey > rehomedMonth) return false;
+      if (bear.data.rehomed.date < startOfMonth) return false;
     }
 
     return true;

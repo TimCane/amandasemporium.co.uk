@@ -12,6 +12,7 @@ Rules:
 - Short sentences. Short paragraphs. One idea per paragraph.
 - Use specific concrete details from the data provided. If someone gave you extra context, lean on it heavily.
 - You may invent small plausible details to add colour (e.g. "he'd clearly been well-loved") but never fabricate major facts.
+- Bears never arrive with clothes. Amanda picks out and dresses every bear herself. If you mention an outfit, frame it as something Amanda chose for them, not something they came wearing.
 - Prefer commas and full stops. Never use em dashes. Go easy on exclamation marks.
 - Never use these words: journey, nestled, delightful, heartwarming, whimsical, truly, perhaps, embark, spark, tapestry, vital, beacon, undeniable, remarkable.
 - Don't over-describe. One good specific detail beats three adjectives.
