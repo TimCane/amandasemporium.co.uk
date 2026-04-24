@@ -195,7 +195,7 @@ const description = `Browse ${totalBears} rescued bears at Amanda's Emporium —
           </select>
 
           {hasActiveFilters && (
-            <a href="/bears" class="bear-filters__clear">Clear all</a>
+            <a href="/bears" class="bear-filters__clear" data-umami-event="bear-filter-clear">Clear all</a>
           )}
         </div>
         <noscript><button type="submit" class="bear-filters__submit">Apply</button></noscript>

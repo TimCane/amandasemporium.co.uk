@@ -18,7 +18,7 @@ const slug = product.slug;
 const categoryLabel = productCategoryLabels[category] || category;
 ---
 
-<Card href={`/products/${slug}`} class="product-card">
+<Card href={`/products/${slug}`} class="product-card" data-umami-event="product-card-click" data-umami-event-product={name}>
   <div class="product-card__image-wrapper">
     <Image
       src={photos[0]}

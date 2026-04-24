@@ -3,13 +3,14 @@
 interface Props {
   href?: string;
   class?: string;
+  [key: string]: any;
 }
 
-const { href, class: className } = Astro.props;
+const { href, class: className, ...attrs } = Astro.props;
 const Tag = href ? 'a' : 'div';
 ---
 
-<Tag href={href} class:list={['card', className]}>
+<Tag href={href} class:list={['card', className]} {...attrs}>
   <div class="card__inner">
     <slot />
   </div>

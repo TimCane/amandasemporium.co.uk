@@ -23,6 +23,8 @@ const navLinks = [
             href={link.href}
             class:list={['navbar__link', { 'navbar__link--active': pathname.startsWith(link.href) }]}
             aria-current={pathname.startsWith(link.href) ? 'page' : undefined}
+            data-umami-event="nav-click"
+            data-umami-event-label={link.label}
           >
             {link.label}
           </a>
@@ -34,6 +36,7 @@ const navLinks = [
       aria-expanded="false"
       aria-controls="navbar-menu"
       aria-label="Toggle navigation menu"
+      data-umami-event="mobile-menu"
     >
       <span class="navbar__hamburger-line"></span>
       <span class="navbar__hamburger-line"></span>
@@ -49,6 +52,8 @@ const navLinks = [
             href={link.href}
             class:list={['navbar__mobile-link', { 'navbar__mobile-link--active': pathname.startsWith(link.href) }]}
             aria-current={pathname.startsWith(link.href) ? 'page' : undefined}
+            data-umami-event="nav-click"
+            data-umami-event-label={link.label}
           >
             {link.label}
           </a>

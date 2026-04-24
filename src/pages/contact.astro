@@ -122,7 +122,7 @@ const description = 'Got a question about a bear or a custom order? Send me a me
       <h2 id="email-heading" class="contact-page__section-heading">Email Me</h2>
       <p class="contact-page__email-text">
         Prefer your own email app? Drop me a line at
-        <a href="mailto:hello@amandasemporium.co.uk" class="contact-page__email-link">hello@amandasemporium.co.uk</a>
+        <a href="mailto:hello@amandasemporium.co.uk" class="contact-page__email-link" data-umami-event="email-click">hello@amandasemporium.co.uk</a>
       </p>
       <div class="contact-page__email-decoration" aria-hidden="true"></div>
     </section>
@@ -134,7 +134,7 @@ const description = 'Got a question about a bear or a custom order? Send me a me
       {formDisabled && (
         <div class="contact-page__form-disabled-notice">
           <p>The contact form is coming soon. In the meantime, please email me directly at
-            <a href="mailto:hello@amandasemporium.co.uk" class="contact-page__email-link">hello@amandasemporium.co.uk</a>.
+            <a href="mailto:hello@amandasemporium.co.uk" class="contact-page__email-link" data-umami-event="email-click">hello@amandasemporium.co.uk</a>.
           </p>
         </div>
       )}
@@ -248,7 +248,7 @@ const description = 'Got a question about a bear or a custom order? Send me a me
           </div>
 
           <div class="contact-page__submit-wrapper">
-            <button type="submit" class="contact-page__submit">Send Message</button>
+            <button type="submit" class="contact-page__submit" data-umami-event="contact-form-submit">Send Message</button>
           </div>
         </form>
       )}
@@ -281,7 +281,7 @@ const description = 'Got a question about a bear or a custom order? Send me a me
             {formatLongDate(nextEvent.data.date)}
           </time>.
         </p>
-        <a href="/events" class="contact-page__event-callout-link">See all events</a>
+        <a href="/events" class="contact-page__event-callout-link" data-umami-event="contact-cta" data-umami-event-label="see-events">See all events</a>
         <div class="contact-page__event-callout-decoration" aria-hidden="true"></div>
       </section>
     )}

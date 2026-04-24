@@ -362,7 +362,7 @@ const jsonLd = {
             <span class="bear-profile__rescue-icon bear-profile__rescue-icon--event" aria-hidden="true"></span>
             <div class="bear-profile__rescue-info">
               <span class="bear-profile__rescue-label">Event</span>
-              <a href={`/events/${eventEntry.slug}`} class="bear-profile__rescue-place bear-profile__rescue-place--link">
+              <a href={`/events/${eventEntry.slug}`} class="bear-profile__rescue-place bear-profile__rescue-place--link" data-umami-event="bear-profile-event-link" data-umami-event-name={eventEntry.data.name}>
                 {eventEntry.data.name}
               </a>
               <time class="bear-profile__rescue-date" datetime={eventEntry.data.date.toISOString()}>

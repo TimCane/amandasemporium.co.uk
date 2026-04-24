@@ -47,7 +47,7 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
     <span class="timeline__year-nav-label">Jump to year:</span>
     <div class="timeline__year-nav-links">
       {years.map(year => (
-        <a href={`#year-${year}`} class="timeline__year-nav-link">{year}</a>
+        <a href={`#year-${year}`} class="timeline__year-nav-link" data-umami-event="timeline-year-jump" data-umami-event-year={String(year)}>{year}</a>
       ))}
     </div>
   </nav>
@@ -76,7 +76,7 @@ const years = [...entriesByYear.keys()].sort((a, b) => b - a);
                 </time>
               </div>
 
-              <a href={`/bears/${entry.bearSlug}`} class="timeline__content">
+              <a href={`/bears/${entry.bearSlug}`} class="timeline__content" data-umami-event="timeline-bear-click" data-umami-event-bear={entry.bearName}>
                 <span class="sr-only">{dateFormatter.format(entry.date)} — </span>
                 <div class="timeline__image-wrapper">
                   <Image

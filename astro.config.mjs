@@ -1,4 +1,4 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, envField } from 'astro/config';
 import node from '@astrojs/node';
 import sitemap from '@astrojs/sitemap';
 import preact from '@astrojs/preact';
@@ -11,6 +11,12 @@ export default defineConfig({
     remarkPlugins: [remarkDateTokens],
   },
   site: 'https://amandasemporium.co.uk',
+  env: {
+    schema: {
+      UMAMI_HOST: envField.string({ context: 'client', access: 'public', optional: true, default: 'https://umami.tjc.fyi' }),
+      UMAMI_WEBSITE_ID: envField.string({ context: 'client', access: 'public', optional: true }),
+    },
+  },
   vite: {
     optimizeDeps: {
       include: ['leaflet', 'leaflet.markercluster'],

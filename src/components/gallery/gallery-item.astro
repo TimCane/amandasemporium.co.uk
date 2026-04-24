@@ -23,7 +23,11 @@ const categoryLabel = item.data.category
   : undefined;
 ---
 
-<Tag href={resolvedLink} class:list={['gallery-item', { 'gallery-item--linked': !!resolvedLink }]}>
+<Tag
+  href={resolvedLink}
+  class:list={['gallery-item', { 'gallery-item--linked': !!resolvedLink }]}
+  {...(resolvedLink ? { 'data-umami-event': 'gallery-click', 'data-umami-event-caption': item.data.caption || '' } : {})}
+>
   <div class="gallery-item__image-wrapper">
     <Image
       src={item.data.image}

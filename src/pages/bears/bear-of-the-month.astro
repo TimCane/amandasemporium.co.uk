@@ -94,7 +94,7 @@ function formatMonth(monthKey: string): string {
           {currentReason && (
             <p class="botm-featured__reason">{currentReason}</p>
           )}
-          <a href={`/bears/${current.bear.slug}`} class="botm-featured__link">
+          <a href={`/bears/${current.bear.slug}`} class="botm-featured__link" data-umami-event="botm-featured-click" data-umami-event-bear={current.bear.data.name}>
             Meet {current.bear.data.name} <span aria-hidden="true">&rarr;</span>
           </a>
         </div>
@@ -114,7 +114,7 @@ function formatMonth(monthKey: string): string {
             const reason = interpolateReason(botmReasons[entry.reasonIndex], entry.bear);
             return (
               <li class="botm-archive__entry">
-                <a href={`/bears/${entry.bear.slug}`} class="botm-archive__link">
+                <a href={`/bears/${entry.bear.slug}`} class="botm-archive__link" data-umami-event="botm-archive-click" data-umami-event-bear={entry.bear.data.name}>
                   <div class="botm-archive__thumb-wrapper">
                     <Image
                       src={entry.bear.data.picture}

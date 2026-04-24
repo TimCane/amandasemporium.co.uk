@@ -10,7 +10,7 @@ const { message, href, linkText } = Astro.props;
 
 <div class="empty-state">
   <p class="empty-state__text">{message}</p>
-  <a href={href} class="empty-state__link">{linkText}</a>
+  <a href={href} class="empty-state__link" data-umami-event="empty-state-click" data-umami-event-label={linkText}>{linkText}</a>
 </div>
 
 <style lang="scss">

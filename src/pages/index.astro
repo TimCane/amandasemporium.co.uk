@@ -135,7 +135,7 @@ const jsonLd = {
       <p class="home-hero__tagline">
         Rescuing bears, making things by hand, and turning up at markets across the south of England.
       </p>
-      <a href="/events" class="home-hero__cta">Find me at my next event</a>
+      <a href="/events" class="home-hero__cta" data-umami-event="hero-cta">Find me at my next event</a>
       <div class="home-hero__decoration-bottom" aria-hidden="true"></div>
     </div>
   </section>
@@ -151,7 +151,7 @@ const jsonLd = {
         them a proper clean and a new outfit, and bring them to the stall looking for a new home. Alongside the bears,
         I make bags, knitted bits, soaps, and a few other things besides.
       </p>
-      <a href="/about" class="home-about__link">Read my full story <span aria-hidden="true">&rarr;</span></a>
+      <a href="/about" class="home-about__link" data-umami-event="home-cta" data-umami-event-label="read-story">Read my full story <span aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
 
@@ -189,7 +189,7 @@ const jsonLd = {
       {upcomingEvents.length > 0 ? (
         <div class="home-events__list">
           {upcomingEvents.map((event) => (
-            <a href={`/events/${event.slug}`} class="home-events__card">
+            <a href={`/events/${event.slug}`} class="home-events__card" data-umami-event="home-event-click" data-umami-event-name={event.data.name}>
               <div class="home-events__card-decoration" aria-hidden="true"></div>
               <div class="home-events__card-content">
                 <time class="home-events__date" datetime={event.data.date.toISOString().split('T')[0]}>
@@ -211,7 +211,7 @@ const jsonLd = {
           </p>
         </div>
       )}
-      <a href="/events" class="home-events__more">See all events <span aria-hidden="true">&rarr;</span></a>
+      <a href="/events" class="home-events__more" data-umami-event="home-cta" data-umami-event-label="see-all-events">See all events <span aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
 
@@ -221,7 +221,7 @@ const jsonLd = {
       <h2 class="home-products__heading" id="home-products-heading">What I Make</h2>
       <div class="home-products__grid">
         {featuredProducts.map((product) => (
-          <a href={`/products/${product.slug}`} class="home-products__card">
+          <a href={`/products/${product.slug}`} class="home-products__card" data-umami-event="home-product-click" data-umami-event-name={product.data.name}>
             <div class="home-products__card-image-wrapper">
               <Image
                 src={product.data.photos[0]}
@@ -244,7 +244,7 @@ const jsonLd = {
           </a>
         ))}
       </div>
-      <a href="/products" class="home-products__more">Browse all products <span aria-hidden="true">&rarr;</span></a>
+      <a href="/products" class="home-products__more" data-umami-event="home-cta" data-umami-event-label="browse-all-products">Browse all products <span aria-hidden="true">&rarr;</span></a>
     </div>
   </section>
 
@@ -284,7 +284,7 @@ const jsonLd = {
               class="home-bear-otm__image"
             />
           </OrnateFrame>
-          <a href="/bears/bear-of-the-month" class="home-bear-otm__archive-link">See all Bears of the Month</a>
+          <a href="/bears/bear-of-the-month" class="home-bear-otm__archive-link" data-umami-event="home-cta" data-umami-event-label="botm-archive">See all Bears of the Month</a>
           <div class="home-bear-otm__details">
             <h3 class="home-bear-otm__name">{bearOfTheMonth.data.name}</h3>
             {bearOfTheMonth.data.tagline && (
@@ -295,10 +295,10 @@ const jsonLd = {
               <p class="home-bear-otm__reason">{botmReason}</p>
             )}
             <div class="home-bear-otm__links">
-              <a href={`/bears/${bearOfTheMonth.slug}`} class="home-bear-otm__meet-link">
+              <a href={`/bears/${bearOfTheMonth.slug}`} class="home-bear-otm__meet-link" data-umami-event="home-cta" data-umami-event-label="meet-botm">
                 Meet {bearOfTheMonth.data.name} <span aria-hidden="true">&rarr;</span>
               </a>
-              <a href="/bears" class="home-bear-otm__explore-link">Explore all bears</a>
+              <a href="/bears" class="home-bear-otm__explore-link" data-umami-event="home-cta" data-umami-event-label="explore-all-bears">Explore all bears</a>
             </div>
           </div>
         </div>
@@ -316,7 +316,7 @@ const jsonLd = {
             {activityFeed.map((item) => (
               <li class={`home-activity__item home-activity__item--${item.type}`}>
                 <span class="home-activity__icon" aria-hidden="true"></span>
-                <a href={item.href} class="home-activity__link">{item.label}</a>
+                <a href={item.href} class="home-activity__link" data-umami-event="home-activity-click" data-umami-event-type={item.type}>{item.label}</a>
                 <time class="home-activity__date" datetime={item.date.toISOString().split('T')[0]}>
                   {formatShortDate(item.date)}
                 </time>

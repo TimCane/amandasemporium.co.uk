@@ -42,7 +42,7 @@ const pageNumbers = getPageNumbers();
 {totalPages > 1 && (
   <nav class="pagination" aria-label="Pagination">
     {currentPage > 1 ? (
-      <a href={buildUrl(currentPage - 1)} class="pagination__prev" aria-label="Previous page">
+      <a href={buildUrl(currentPage - 1)} class="pagination__prev" aria-label="Previous page" data-umami-event="pagination" data-umami-event-action="prev">
         Previous
       </a>
     ) : (
@@ -60,7 +60,7 @@ const pageNumbers = getPageNumbers();
             {page}
           </span>
         ) : (
-          <a href={buildUrl(page)} class="pagination__page">
+          <a href={buildUrl(page)} class="pagination__page" data-umami-event="pagination" data-umami-event-action={`page-${page}`}>
             {page}
           </a>
         )
@@ -68,7 +68,7 @@ const pageNumbers = getPageNumbers();
     </div>
 
     {currentPage < totalPages ? (
-      <a href={buildUrl(currentPage + 1)} class="pagination__next" aria-label="Next page">
+      <a href={buildUrl(currentPage + 1)} class="pagination__next" aria-label="Next page" data-umami-event="pagination" data-umami-event-action="next">
         Next
       </a>
     ) : (

@@ -22,7 +22,7 @@ const visibleLinks = links.filter((link) => link.id !== current);
 
 <nav class="bear-section-nav" aria-label="Bear sections">
   {visibleLinks.map((link) => (
-    <a href={link.href} class="bear-section-nav__link">{link.label}</a>
+    <a href={link.href} class="bear-section-nav__link" data-umami-event="bear-section-nav" data-umami-event-section={link.label}>{link.label}</a>
   ))}
 </nav>
 

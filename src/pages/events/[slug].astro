@@ -139,6 +139,8 @@ const jsonLd = isUpcoming ? {
             class="event-profile__link event-profile__link--website"
             target="_blank"
             rel="noopener noreferrer"
+            data-umami-event="external-link"
+            data-umami-event-href={website}
           >
             Visit the event website<span class="sr-only"> (opens in new tab)</span>
           </a>
@@ -146,6 +148,8 @@ const jsonLd = isUpcoming ? {
         <a
           href={`/events/calendar/${event.slug}.ics`}
           class="event-profile__link event-profile__link--calendar"
+          data-umami-event="calendar-download"
+          data-umami-event-name={event.data.name}
         >
           Add to Calendar
         </a>

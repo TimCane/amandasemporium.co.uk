@@ -17,7 +17,7 @@ const speciesLabel = species.charAt(0).toUpperCase() + species.slice(1);
 const slug = bear.slug;
 ---
 
-<Card href={`/bears/${slug}`} class="bear-card">
+<Card href={`/bears/${slug}`} class="bear-card" data-umami-event="bear-card-click" data-umami-event-bear={name}>
   <div class="bear-card__image-wrapper">
     <Image
       src={picture}

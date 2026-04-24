@@ -31,6 +31,8 @@ function buildClearUrl(): string {
     href={buildClearUrl()}
     class:list={['alphabet-nav__clear', { 'alphabet-nav__clear--active': !currentLetter }]}
     aria-current={!currentLetter ? 'page' : undefined}
+    data-umami-event="alphabet-nav"
+    data-umami-event-letter="all"
   >
     All
   </a>
@@ -44,6 +46,8 @@ function buildClearUrl(): string {
             { 'alphabet-nav__letter--active': letter === currentLetter },
           ]}
           aria-current={letter === currentLetter ? 'page' : undefined}
+          data-umami-event="alphabet-nav"
+          data-umami-event-letter={letter}
         >
           {letter}
         </a>

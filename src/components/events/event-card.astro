@@ -29,7 +29,7 @@ const year = yearFormatter.format(date);
   </time>
   <div class="event-card__body">
     <h3 class="event-card__name">
-      <a href={`/events/${slug}`} class="event-card__link">{name}</a>
+      <a href={`/events/${slug}`} class="event-card__link" data-umami-event="event-card-click" data-umami-event-name={name}>{name}</a>
     </h3>
     <div class="event-card__meta">
       {time && <span class="event-card__time">{time}</span>}
@@ -44,6 +44,8 @@ const year = yearFormatter.format(date);
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Visit website for ${name}`}
+          data-umami-event="external-link"
+          data-umami-event-href={website}
         >
           Visit website<span class="sr-only"> (opens in new tab)</span>
         </a>
@@ -53,6 +55,8 @@ const year = yearFormatter.format(date);
           href={`/events/calendar/${slug}.ics`}
           class="event-card__calendar-btn"
           aria-label={`Add ${name} to your calendar`}
+          data-umami-event="calendar-download"
+          data-umami-event-name={name}
         >
           Add to Calendar
         </a>

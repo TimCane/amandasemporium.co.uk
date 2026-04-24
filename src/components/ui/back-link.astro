@@ -9,7 +9,7 @@ const { href, label, section } = Astro.props;
 ---
 
 <nav class="back-link" aria-label={`${section} navigation`}>
-  <a href={href} class="back-link__anchor">
+  <a href={href} class="back-link__anchor" data-umami-event="back-link" data-umami-event-section={section}>
     <span class="back-link__arrow" aria-hidden="true">&larr;</span>
     {label}
   </a>

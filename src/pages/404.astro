@@ -41,7 +41,7 @@ const featuredBear = bears[randomIndex];
       <h2 class="error-page__nav-heading">Here are some places to start</h2>
       <ul class="error-page__nav-list">
         <li class="error-page__nav-item">
-          <a href="/" class="error-page__nav-link">
+          <a href="/" class="error-page__nav-link" data-umami-event="404-nav" data-umami-event-target="home">
             <span class="error-page__nav-icon" aria-hidden="true">&#127968;</span>
             <span class="error-page__nav-text">
               <strong>Home</strong>
@@ -50,7 +50,7 @@ const featuredBear = bears[randomIndex];
           </a>
         </li>
         <li class="error-page__nav-item">
-          <a href="/bears" class="error-page__nav-link">
+          <a href="/bears" class="error-page__nav-link" data-umami-event="404-nav" data-umami-event-target="bears">
             <span class="error-page__nav-icon" aria-hidden="true">&#128059;</span>
             <span class="error-page__nav-text">
               <strong>The Bears</strong>
@@ -59,7 +59,7 @@ const featuredBear = bears[randomIndex];
           </a>
         </li>
         <li class="error-page__nav-item">
-          <a href="/products" class="error-page__nav-link">
+          <a href="/products" class="error-page__nav-link" data-umami-event="404-nav" data-umami-event-target="products">
             <span class="error-page__nav-icon" aria-hidden="true">&#129526;</span>
             <span class="error-page__nav-text">
               <strong>Products</strong>
@@ -68,7 +68,7 @@ const featuredBear = bears[randomIndex];
           </a>
         </li>
         <li class="error-page__nav-item">
-          <a href="/events" class="error-page__nav-link">
+          <a href="/events" class="error-page__nav-link" data-umami-event="404-nav" data-umami-event-target="events">
             <span class="error-page__nav-icon" aria-hidden="true">&#128197;</span>
             <span class="error-page__nav-text">
               <strong>Events</strong>
@@ -84,7 +84,7 @@ const featuredBear = bears[randomIndex];
         <h2 class="error-page__bear-heading">
           While you're here, meet {featuredBear.data.name}.
         </h2>
-        <a href={`/bears/${featuredBear.slug}`} class="error-page__bear-link">
+        <a href={`/bears/${featuredBear.slug}`} class="error-page__bear-link" data-umami-event="404-bear-click" data-umami-event-bear={featuredBear.data.name}>
           <div class="error-page__bear-image-wrapper">
             <Image
               src={featuredBear.data.picture}
