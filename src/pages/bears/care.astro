@@ -1,0 +1,191 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import PageLayout from '@/layouts/page.layout.astro';
+import OpenGraphMeta from '@/components/seo/opengraph-meta.astro';
+import Separator from '@/components/ui/separator.astro';
+
+// --- Gallery images for the care process (in order) ---
+const allGallery = await getCollection('gallery');
+
+const stepImages: Record<string, typeof allGallery[number] | undefined> = {
+  bath: allGallery.find((g) => g.id === 'bears-in-the-bath/index.md'),
+  drying: allGallery.find((g) => g.id === 'bear-drying-in-the-sun/index.md'),
+  picking: allGallery.find((g) => g.id === 'bear-picking-out-an-outfit/index.md'),
+  trying: allGallery.find((g) => g.id === 'bear-trying-it-on/index.md'),
+  mirror: allGallery.find((g) => g.id === 'bear-final-check/index.md'),
+};
+
+// --- SEO ---
+const title = 'How I Clean Up the Bears';
+const description =
+  'Every rescued bear gets a proper clean, a new outfit, and a bit of fuss before they come to the stall. This is what that looks like.';
+---
+
+<PageLayout title={title} description={description}>
+  <OpenGraphMeta
+    slot="og-meta"
+    title={`${title} | Amanda's Emporium`}
+    description={description}
+    url={`${Astro.site}bears/care`}
+  />
+
+  <article class="care-page">
+    <!-- Page Header -->
+    <header class="care-page__header">
+      <h1 class="care-page__title">How I Clean Up the Bears</h1>
+      <p class="care-page__intro">
+        When a bear arrives, it usually needs a good wash before anything else. Most of them have come from a car boot sale or a charity shop and they've lived a full life. So before they get photographed or brought to the stall, they go through the whole process. This is what that looks like.
+      </p>
+      <div class="care-page__header-decoration" aria-hidden="true"></div>
+    </header>
+    <Separator />
+
+    <!-- Steps -->
+    <div class="care-page__steps">
+      <!-- Step 1: The Bath -->
+      <section class="care-page__step" aria-labelledby="step-bath">
+        <div class="care-page__step-inner">
+          <h2 id="step-bath" class="care-page__step-heading">
+            <span class="care-page__step-number">1</span>
+            The Bath
+          </h2>
+          <p class="care-page__step-text">
+            The first thing that happens is a proper bubble bath. I get the brush out, work up a good lather, and go carefully around the ears and seams. It's a two-at-a-time kind of job most days.
+          </p>
+          {stepImages.bath && (
+            <figure class="care-page__step-figure">
+              <Image
+                src={stepImages.bath.data.image}
+                alt="Two bears sitting in a bubble bath with towels, soap, a brush, and a rubber duck"
+                width={800}
+                height={600}
+                loading="eager"
+                class="care-page__step-img"
+              />
+            </figure>
+          )}
+          <div class="care-page__step-decoration" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- Step 2: Drying Off -->
+      <section class="care-page__step" aria-labelledby="step-drying">
+        <div class="care-page__step-inner">
+          <h2 id="step-drying" class="care-page__step-heading">
+            <span class="care-page__step-number">2</span>
+            Drying Off
+          </h2>
+          <p class="care-page__step-text">
+            Once they're clean, they go outside to dry in the sun. This one was happy about it. She had the sunglasses on before I'd even got the towel around her.
+          </p>
+          {stepImages.drying && (
+            <figure class="care-page__step-figure">
+              <Image
+                src={stepImages.drying.data.image}
+                alt="A pink floral bear wrapped in a white towel wearing sunglasses, drying in the sun on an outdoor sofa"
+                width={800}
+                height={600}
+                loading="lazy"
+                class="care-page__step-img"
+              />
+            </figure>
+          )}
+          <div class="care-page__step-decoration" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- Step 3: Picking Out an Outfit -->
+      <section class="care-page__step" aria-labelledby="step-picking">
+        <div class="care-page__step-inner">
+          <h2 id="step-picking" class="care-page__step-heading">
+            <span class="care-page__step-number">3</span>
+            Picking Out an Outfit
+          </h2>
+          <p class="care-page__step-text">
+            Once she was dry, it was time to have a look through the wardrobe. I keep a rail of little outfits — dresses, coats, the odd dressing gown. She had a good browse. There was a cup of tea involved, which I felt was fair.
+          </p>
+          {stepImages.picking && (
+            <figure class="care-page__step-figure">
+              <Image
+                src={stepImages.picking.data.image}
+                alt="A pink floral bear standing at a pink wardrobe full of tiny outfits, browsing through the clothes"
+                width={800}
+                height={600}
+                loading="lazy"
+                class="care-page__step-img"
+              />
+            </figure>
+          )}
+          <div class="care-page__step-decoration" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- Step 4: Trying It On -->
+      <section class="care-page__step" aria-labelledby="step-trying">
+        <div class="care-page__step-inner">
+          <h2 id="step-trying" class="care-page__step-heading">
+            <span class="care-page__step-number">4</span>
+            Trying It On
+          </h2>
+          <p class="care-page__step-text">
+            She went with the turquoise dressing gown first. A sensible choice. She sat on the little bed with the wardrobe open and the red dress on its stand nearby, keeping her options open.
+          </p>
+          {stepImages.trying && (
+            <figure class="care-page__step-figure">
+              <Image
+                src={stepImages.trying.data.image}
+                alt="A pink floral bear in a turquoise dressing gown sitting on a little bed next to an open wardrobe"
+                width={800}
+                height={600}
+                loading="lazy"
+                class="care-page__step-img"
+              />
+            </figure>
+          )}
+          <div class="care-page__step-decoration" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- Step 5: The Final Check -->
+      <section class="care-page__step" aria-labelledby="step-mirror">
+        <div class="care-page__step-inner">
+          <h2 id="step-mirror" class="care-page__step-heading">
+            <span class="care-page__step-number">5</span>
+            The Final Check
+          </h2>
+          <p class="care-page__step-text">
+            The last thing is the mirror. She held up the outfit, had a look at herself, and that was that. She was ready.
+          </p>
+          {stepImages.mirror && (
+            <figure class="care-page__step-figure">
+              <Image
+                src={stepImages.mirror.data.image}
+                alt="A pink floral bear seen from behind, looking at her reflection in the wardrobe mirror while holding up an outfit"
+                width={800}
+                height={600}
+                loading="lazy"
+                class="care-page__step-img"
+              />
+            </figure>
+          )}
+          <div class="care-page__step-decoration" aria-hidden="true"></div>
+        </div>
+      </section>
+    </div>
+
+    <Separator />
+
+    <!-- Closing -->
+    <section class="care-page__closing" aria-labelledby="closing-heading">
+      <div class="care-page__closing-inner">
+        <h2 id="closing-heading" class="sr-only">Ready for a new home</h2>
+        <p class="care-page__closing-text">
+          That's the full process, start to finish. Every bear gets this kind of attention before they come to the stall. By the time you meet them, they're clean, well-dressed, and ready for a new home.
+        </p>
+        <a href="/bears" class="care-page__section-link">Meet the bears</a>
+        <div class="care-page__closing-decoration" aria-hidden="true"></div>
+      </div>
+    </section>
+  </article>
+</PageLayout>
